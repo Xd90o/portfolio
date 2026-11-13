@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ROMAIN — Book en travaux</title>
+<meta name="description" content="Le book de Romain est en construction.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0B0B0D;--cream:#F4EBD9;--orange:#FF6A1A;--blue:#7BA3FF;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;background:var(--bg);color:var(--cream);overflow:hidden}
+  body{font-family:'Space Mono',monospace;display:flex;align-items:center;justify-content:center;position:relative}
+
+  /* grain + grille */
+  body::before{content:"";position:fixed;inset:0;background-image:
+    linear-gradient(rgba(244,235,217,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(244,235,217,.05) 1px,transparent 1px);
+    background-size:48px 48px;pointer-events:none}
+  body::after{content:"";position:fixed;inset:0;background:radial-gradient(ellipse at center,transparent 40%,rgba(0,0,0,.65) 100%);pointer-events:none}
+
+  /* bandes hazard haut / bas */
+  .hz{position:fixed;left:0;right:0;height:34px;z-index:5;
+    background:repeating-linear-gradient(-45deg,var(--orange) 0 22px,#0B0B0D 22px 44px);
+    background-size:62px 62px;animation:hz 1.2s linear infinite}
+  .hz.t{top:0}.hz.b{bottom:0;animation-direction:reverse}
+  @keyframes hz{to{background-position:62px 0}}
+
+  /* bandeaux inclinés */
+  .band{position:fixed;left:-5%;width:110%;z-index:1;white-space:nowrap;overflow:hidden;
+    font-weight:700;font-size:13px;letter-spacing:.2em;padding:9px 0;text-transform:uppercase}
+  .band span{display:inline-block;animation:mq 22s linear infinite}
+  .band.a{top:16%;transform:rotate(-4deg);background:var(--blue);color:#0B0B0D}
+  .band.b{bottom:15%;transform:rotate(3deg);background:var(--cream);color:#0B0B0D}
+  .band.b span{animation-direction:reverse;animation-duration:28s}
+  @keyframes mq{to{transform:translateX(-50%)}}
+
+  /* carte centrale en coins coupés */
+  .card{position:relative;z-index:3;width:min(720px,88vw);padding:56px 48px 44px;text-align:center;
+    background:var(--bg);border:0;
+    clip-path:polygon(28px 0,100% 0,100% calc(100% - 28px),calc(100% - 28px) 100%,0 100%,0 28px);
+    box-shadow:0 0 0 2px var(--cream);outline:2px solid var(--cream);outline-offset:-2px;
+    animation:pop .7s cubic-bezier(.2,1.4,.4,1) both}
+  .card::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--bg);
+    clip-path:polygon(28px 0,100% 0,100% calc(100% - 28px),calc(100% - 28px) 100%,0 100%,0 28px)}
+  .frame{position:absolute;inset:-2px;z-index:-2;background:var(--cream);
+    clip-path:polygon(28px 0,100% 0,100% calc(100% - 28px),calc(100% - 28px) 100%,0 100%,0 28px)}
+  @keyframes pop{from{opacity:0;transform:scale(.9) rotate(-2deg)}to{opacity:1;transform:none}}
+
+  .tag{display:inline-block;background:var(--orange);color:#0B0B0D;font-weight:700;font-size:12px;
+    letter-spacing:.18em;padding:6px 14px;transform:rotate(-2deg);margin-bottom:22px;
+    clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%)}
+
+  h1{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(64px,14vw,150px);line-height:.92;
+    letter-spacing:.01em;text-transform:uppercase;position:relative;display:inline-block}
+  h1::before,h1::after{content:attr(data-t);position:absolute;left:0;top:0;width:100%;overflow:hidden}
+  h1::before{color:var(--blue);animation:gl1 3.2s infinite steps(1);clip-path:inset(0 0 60% 0)}
+  h1::after{color:var(--orange);animation:gl2 3.2s infinite steps(1);clip-path:inset(60% 0 0 0)}
+  @keyframes gl1{0%,90%,100%{transform:translate(0)}92%{transform:translate(-5px,1px)}95%{transform:translate(4px,-1px)}}
+  @keyframes gl2{0%,86%,100%{transform:translate(0)}88%{transform:translate(5px,-1px)}93%{transform:translate(-4px,1px)}}
+
+  .sub{font-family:'Anton',sans-serif;font-size:clamp(20px,4vw,34px);letter-spacing:.08em;
+    color:var(--orange);margin-top:14px;text-transform:uppercase}
+  p{margin:20px auto 0;max-width:480px;font-size:14px;line-height:1.6;color:rgba(244,235,217,.8)}
+
+  /* barre de progression */
+  .bar{margin:30px auto 0;max-width:480px;height:18px;border:2px solid var(--cream);padding:2px;position:relative;
+    clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%)}
+  .bar i{display:block;height:100%;width:0;background:repeating-linear-gradient(-45deg,var(--orange) 0 10px,#0B0B0D 10px 20px);
+    background-size:28px 28px;animation:fill 2.6s .5s cubic-bezier(.3,.8,.3,1) forwards,hz 1s linear infinite}
+  @keyframes fill{to{width:72%}}
+  .pct{font-size:11px;letter-spacing:.2em;margin-top:8px;color:var(--blue);text-transform:uppercase}
+
+  .foot{margin-top:28px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(244,235,217,.55)}
+  .foot b{color:var(--cream)}
+  .blink{animation:bl 1s steps(1) infinite}
+  @keyframes bl{50%{opacity:0}}
+
+  @media (max-width:560px){.card{padding:44px 22px 34px}.band{font-size:11px}}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important}.bar i{width:72%}}
+</style>
+</head>
+<body>
+
+<div class="hz t"></div>
+<div class="hz b"></div>
+
+<div class="band a"><span>★ EN TRAVAUX ★ BOOK EN CONSTRUCTION ★ EN TRAVAUX ★ BOOK EN CONSTRUCTION ★ EN TRAVAUX ★ BOOK EN CONSTRUCTION ★ EN TRAVAUX ★ BOOK EN CONSTRUCTION </span></div>
+<div class="band b"><span>MONTEUR ◆ DESIGNER ◆ 3D ◆ MONTEUR ◆ DESIGNER ◆ 3D ◆ MONTEUR ◆ DESIGNER ◆ 3D ◆ MONTEUR ◆ DESIGNER ◆ 3D ◆ MONTEUR ◆ DESIGNER ◆ 3D ◆ </span></div>
+
+<main class="card">
+  <div class="frame"></div>
+  <div class="tag">// SITE EN CONSTRUCTION</div>
+  <h1 data-t="ROMAIN">ROMAIN</h1>
+  <div class="sub">Le book arrive bientôt</div>
+  <p>Je monte des vidéos, je fais des covers, je dessine des trucs et des mondes en 3D. Chaque projet aura son propre univers. Reviens vite&nbsp;!</p>
+  <div class="bar"><i></i></div>
+  <div class="pct">chargement du book… 72%<span class="blink"> _</span></div>
+  <div class="foot">Contact : <b>contact@roomaaaain.fr</b></div>
+</main>
+
+</body>
+</html>
