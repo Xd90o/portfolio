@@ -127,7 +127,7 @@ a,a *,button,button *,[role="button"],.btnz,.chap,[data-zoom],[data-zoom] *{curs
 .js .rv{opacity:0;translate:0 40px;transition:opacity .6s,translate .6s cubic-bezier(.2,.8,.2,1)}
 .js .rv.in{opacity:1;translate:0 0}
 </style>
-<style>x-dc{display:contents}</style>
+<style>x-dc{display:contents}#haut{margin-left:auto !important;margin-right:auto !important}.hd.hd-fixed{left:50% !important;margin-left:-720px !important}</style>
 </head>
 <body>
 <x-dc>
@@ -285,7 +285,7 @@ a,a *,button,button *,[role="button"],.btnz,.chap,[data-zoom],[data-zoom] *{curs
 <div data-dc-ref="{{tpRef}}" class="tp-ov" aria-hidden="true"><div class="tp-band" style="background: #FFFFFF; --d: 0.000s"></div><div class="tp-band" style="background: #2B5BFF; --d: 0.035s"></div><div class="tp-band" style="background: #08090D; --d: 0.070s"></div><div class="tp-band" style="background: #5B86FF; --d: 0.105s"></div><div class="tp-band" style="background: #FF5A1F; --d: 0.140s"></div><div class="tp-band" style="background: #06102E; --d: 0.175s"></div><div class="tp-band" style="background: #2B5BFF; --d: 0.210s"></div><div data-dc-ref="{{tpLblRef}}" class="tp-lbl"></div></div>
 </div>
 </x-dc>
-<script src="/assets/dc.js?v=1b6c20c3"></script>
+<script src="/assets/dc.js?v=f58281c7"></script>
 <script>
 window.__DC = class Component extends DCLogic {
   initHeader() {
@@ -315,7 +315,7 @@ window.__DC = class Component extends DCLogic {
   initZoom() {
     if (this._zoomInit || typeof window === 'undefined') return;
     this._zoomInit = true;
-    const fit = () => { const w = window.innerWidth || document.documentElement.clientWidth; if (w) document.documentElement.style.zoom = String(w / 1440); };
+    const fit = () => { const w = window.__rlFitW ? window.__rlFitW() : (window.innerWidth || document.documentElement.clientWidth); if (w) document.documentElement.style.zoom = String(w / 1440); };
     this._zoomFit = fit; fit(); window.addEventListener('resize', fit);
   }
   initReveal() {

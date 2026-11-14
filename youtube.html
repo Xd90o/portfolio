@@ -155,7 +155,7 @@ a,a *,button,button *,[role="button"],.btnz,.chap{cursor:url("data:image/svg+xml
 .pn-box:has(.pn-logo:hover) .pn-glitch{opacity:0}
 @keyframes pnalert{0%{transform:translate(0,0) skewX(0)}33%{transform:translate(-5px,3px) skewX(-6deg)}66%{transform:translate(4px,-2px) skewX(5deg)}}
 </style>
-<style>x-dc{display:contents}</style>
+<style>x-dc{display:contents}#haut{margin-left:auto !important;margin-right:auto !important}.hd.hd-fixed{left:50% !important;margin-left:-720px !important}</style>
 </head>
 <body>
 <x-dc>
@@ -344,7 +344,7 @@ a,a *,button,button *,[role="button"],.btnz,.chap{cursor:url("data:image/svg+xml
 <div data-dc-ref="{{tpRef}}" class="tp-ov" aria-hidden="true"><div class="tp-band" style="background: #F2EEE6; --d: 0.000s"></div><div class="tp-band" style="background: #0E0E10; --d: 0.035s"></div><div class="tp-band" style="background: #D7263D; --d: 0.070s"></div><div class="tp-band" style="background: #1B1B1F; --d: 0.105s"></div><div class="tp-band" style="background: #8B5CF6; --d: 0.140s"></div><div class="tp-band" style="background: #2EC4B6; --d: 0.175s"></div><div class="tp-band" style="background: #0E0E10; --d: 0.210s"></div><div data-dc-ref="{{tpLblRef}}" class="tp-lbl"></div></div>
 </div>
 </x-dc>
-<script src="/assets/dc.js?v=1b6c20c3"></script>
+<script src="/assets/dc.js?v=f58281c7"></script>
 <script>
 window.__DC = class Component extends DCLogic {
   initHeader() {
@@ -396,7 +396,7 @@ window.__DC = class Component extends DCLogic {
     if (this._zoomInit || typeof window === 'undefined') return;
     this._zoomInit = true;
     const fit = () => {
-      const w = window.innerWidth || document.documentElement.clientWidth;
+      const w = window.__rlFitW ? window.__rlFitW() : (window.innerWidth || document.documentElement.clientWidth);
       if (!w) return;
       document.documentElement.style.zoom = String(w / 1440);
     };

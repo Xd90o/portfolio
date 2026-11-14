@@ -143,4 +143,12 @@
     }
   }
   window.__dcBoot = boot;
+  // Largeur utilisée pour adapter la page à l'écran. Si le visiteur dézoome (Ctrl -), on garde
+  // la taille réelle de la fenêtre au lieu de ré-agrandir la page : elle rapetisse et se centre.
+  window.__rlFitW = function () {
+    var iw = window.innerWidth || document.documentElement.clientWidth || 1440;
+    var ow = window.outerWidth || 0, z = 1;
+    if (ow > 200 && ow < iw * 0.985) z = Math.max(0.25, ow / iw);
+    return iw * z;
+  };
 })();

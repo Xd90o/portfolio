@@ -45,7 +45,7 @@ a,a *,button,button *,[role="button"],.btnz,.chap{cursor:url("data:image/svg+xml
 .chibi-b:active{scale:.92}
 .clip{box-sizing:border-box;position:absolute;top:0;bottom:0;display:flex;align-items:center;padding:0 10px;font-size:11px;font-weight:700;letter-spacing:.08em;white-space:nowrap;overflow:hidden}
 </style>
-<style>x-dc{display:contents}</style>
+<style>x-dc{display:contents}#haut{margin-left:auto !important;margin-right:auto !important}.hd.hd-fixed{left:50% !important;margin-left:-720px !important}</style>
 </head>
 <body>
 <x-dc>
@@ -96,13 +96,13 @@ a,a *,button,button *,[role="button"],.btnz,.chap{cursor:url("data:image/svg+xml
 </div>
 </div>
 </x-dc>
-<script src="/assets/dc.js?v=1b6c20c3"></script>
+<script src="/assets/dc.js?v=f58281c7"></script>
 <script>
 window.__DC = class Component extends DCLogic {
   initZoom() {
     if (this._zoomInit || typeof window === 'undefined') return;
     this._zoomInit = true;
-    const fit = () => { const w = window.innerWidth || document.documentElement.clientWidth; if (w) document.documentElement.style.zoom = String(w / 1440); };
+    const fit = () => { const w = window.__rlFitW ? window.__rlFitW() : (window.innerWidth || document.documentElement.clientWidth); if (w) document.documentElement.style.zoom = String(w / 1440); };
     this._zoomFit = fit; fit(); window.addEventListener('resize', fit);
   }
   componentWillUnmount() {

@@ -95,7 +95,7 @@ html,body,body *{cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www
 a,a *,button,button *,label,select,summary,[role="button"],[style*="cursor: pointer"],[style*="cursor: pointer"] *,.chibi-btn,.btnz,.chap,.z{cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2222%22%20height%3D%2222%22%20viewBox%3D%220%200%2034%2034%22%3E%3Cpolygon%20points%3D%223%2C3%203%2C27%2010%2C21%2015%2C31%2020%2C29%2015%2C19%2025%2C19%22%20transform%3D%22translate%283%203%29%22%20fill%3D%22%23F2EEE6%22/%3E%3Cpolygon%20points%3D%223%2C3%203%2C27%2010%2C21%2015%2C31%2020%2C29%2015%2C19%2025%2C19%22%20fill%3D%22%23FF5A1F%22%20stroke%3D%22%23121214%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22/%3E%3C/svg%3E") 3 3, pointer !important}
 input[type="text"],input[type="email"],textarea{cursor:text !important}
 </style>
-<style>x-dc{display:contents}</style>
+<style>x-dc{display:contents}#haut{margin-left:auto !important;margin-right:auto !important}.hd.hd-fixed{left:50% !important;margin-left:-720px !important}</style>
 </head>
 <body>
 <x-dc>
@@ -726,7 +726,7 @@ input[type="text"],input[type="email"],textarea{cursor:text !important}
 <div data-dc-ref="{{tpRef}}" class="tp-ov" aria-hidden="true"><div class="tp-band" style="background: #140A07; --d: 0.000s"></div><div class="tp-band" style="background: #FFF1DE; --d: 0.035s"></div><div class="tp-band" style="background: #D7261E; --d: 0.070s"></div><div class="tp-band" style="background: #F7931E; --d: 0.105s"></div><div class="tp-band" style="background: #2A0D07; --d: 0.140s"></div><div class="tp-band" style="background: #FFC21A; --d: 0.175s"></div><div class="tp-band" style="background: #140A07; --d: 0.210s"></div><div data-dc-ref="{{tpLblRef}}" class="tp-lbl"></div></div>
 </div>
 </x-dc>
-<script src="/assets/dc.js?v=1b6c20c3"></script>
+<script src="/assets/dc.js?v=f58281c7"></script>
 <script>
 window.__DC = class Component extends DCLogic {
   setEd2(e) {
@@ -784,7 +784,7 @@ window.__DC = class Component extends DCLogic {
     if (this._zoomInit || typeof window === 'undefined') return;
     this._zoomInit = true;
     const fit = () => {
-      const w = window.innerWidth || document.documentElement.clientWidth;
+      const w = window.__rlFitW ? window.__rlFitW() : (window.innerWidth || document.documentElement.clientWidth);
       if (!w) return;
       document.documentElement.style.zoom = String(w / 1440);
     };

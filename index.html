@@ -274,7 +274,7 @@ input[type="text"],input[type="email"],textarea{cursor:text !important}
 .sb.sb-wip{opacity:.45}
 @keyframes sbpop{0%{transform:scale(.6) rotate(-8deg)}100%{transform:scale(1) rotate(0)}}
 </style>
-<style>x-dc{display:contents}</style>
+<style>x-dc{display:contents}#haut{margin-left:auto !important;margin-right:auto !important}.hd.hd-fixed{left:50% !important;margin-left:-720px !important}</style>
 </head>
 <body>
 <x-dc>
@@ -655,7 +655,7 @@ input[type="text"],input[type="email"],textarea{cursor:text !important}
 </div>
 </div>
 </x-dc>
-<script src="/assets/dc.js?v=1b6c20c3"></script>
+<script src="/assets/dc.js?v=f58281c7"></script>
 <script>
 window.__DC = class Component extends DCLogic {
   reactions() {
@@ -861,7 +861,7 @@ window.__DC = class Component extends DCLogic {
     if (this._zoomInit || typeof window === 'undefined') return;
     this._zoomInit = true;
     const fit = () => {
-      const w = window.innerWidth || document.documentElement.clientWidth;
+      const w = window.__rlFitW ? window.__rlFitW() : (window.innerWidth || document.documentElement.clientWidth);
       if (!w) return;
       document.documentElement.style.zoom = String(w / 1440);
     };
