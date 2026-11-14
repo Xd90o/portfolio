@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chaînes YouTube — Romain</title>
+<meta name="description" content="Les chaînes YouTube montées par Romain : miniatures, montage, habillage.">
+<meta property="og:title" content="Chaînes YouTube — Romain">
+<meta property="og:description" content="Les chaînes YouTube montées par Romain : miniatures, montage, habillage.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://roomaaaain.fr/youtube.html">
+<meta name="theme-color" content="#121214">
+<link rel="icon" href="/assets/logo_solid_ink.webp">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&family=Gochi+Hand&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#F2EEE6}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-10px) rotate(1deg)}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes flicker{0%,18%,22%,62%,64%,100%{opacity:1}20%,63%{opacity:0.35}}
+@keyframes glitch{0%,86%,100%{text-shadow:0 0 0 transparent;transform:translate(0)}88%{text-shadow:-6px 0 #D7263D,6px 0 #D9C7A3;transform:translate(3px,-2px)}90%{text-shadow:5px 0 #D7263D,-5px 0 #D9C7A3;transform:translate(-4px,2px)}92%{text-shadow:0 0 0 transparent;transform:translate(0)}}
+@keyframes noise{0%{background-position:0 0}100%{background-position:0 -240px}}
+@keyframes progress{0%{width:0%}100%{width:100%}}
+@keyframes buffer{0%{width:12%}88%{width:100%}100%{width:100%}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(215,38,61,.55)}50%{box-shadow:0 0 0 22px rgba(215,38,61,0)}}
+@keyframes pop{0%{transform:scale(.6);opacity:0}100%{transform:scale(1);opacity:1}}
+@keyframes drift{0%,100%{transform:rotate(-4deg) scale(1)}50%{transform:rotate(3deg) scale(1.04)}}
+.logo-hd{transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.logo-hd:hover{transform:rotate(-8deg) scale(1.1)}
+.chap,.btnz{display:inline-block;transition:transform .2s cubic-bezier(.3,1.6,.5,1),filter .2s}
+.chap:hover,.btnz:hover{transform:rotate(0deg) scale(1.12) !important;filter:brightness(1.1)}
+.chap:active,.btnz:active{transform:scale(0.94) !important}
+.stat{white-space:nowrap;transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+.stat:hover{transform:rotate(0deg) scale(1.08) !important}
+.hd{transition:transform .3s cubic-bezier(.3,1,.4,1),box-shadow .3s}
+.hd.hd-fixed{position:fixed !important;top:0;left:0;width:1440px;box-sizing:border-box;background:#0E0E10;z-index:60 !important;box-shadow:0 6px 0 rgba(0,0,0,.25);transform:translateY(-110%)}
+.hd.hd-fixed.hd-show{transform:translateY(0)}
+.hd.hd-fixed.hd-instant{transition:none}
+.tp-ov{position:fixed;inset:0;z-index:9997;display:none;flex-direction:column;pointer-events:none}
+.tp-ov.on{display:flex;pointer-events:auto}
+.tp-band{flex:1;transform:translateX(-102%) skewX(-12deg);transition:transform .32s cubic-bezier(.7,0,.3,1);transition-delay:var(--d)}
+.tp-ov.in .tp-band{transform:translateX(0) skewX(0)}
+.tp-ov.out .tp-band{transform:translateX(102%) skewX(-12deg)}
+.tp-lbl{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.6) rotate(-4deg);font-family:'Anton',sans-serif;font-size:120px;line-height:1;color:#0E0E10;background:#F2EEE6;padding:6px 34px;clip-path:polygon(4% 0,100% 0,96% 100%,0 100%);opacity:0;transition:opacity .15s,transform .25s cubic-bezier(.3,1.6,.5,1);white-space:nowrap}
+.tp-ov.in .tp-lbl{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(-2deg);transition-delay:.22s}
+.tp-ov.out .tp-lbl{opacity:0;transition-delay:0s}
+html,body{background:#0E0E10;overflow-x:hidden}
+html,body,body *{cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2222%22%20height%3D%2222%22%20viewBox%3D%220%200%2034%2034%22%3E%3Cpolygon%20points%3D%223%2C3%203%2C27%2010%2C21%2015%2C31%2020%2C29%2015%2C19%2025%2C19%22%20transform%3D%22translate%283%203%29%22%20fill%3D%22%23FF5A1F%22/%3E%3Cpolygon%20points%3D%223%2C3%203%2C27%2010%2C21%2015%2C31%2020%2C29%2015%2C19%2025%2C19%22%20fill%3D%22%23F2EEE6%22%20stroke%3D%22%23121214%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22/%3E%3C/svg%3E") 2 2, auto !important}
+a,a *,button,button *,[role="button"],.btnz,.chap{cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2222%22%20height%3D%2222%22%20viewBox%3D%220%200%2034%2034%22%3E%3Cpolygon%20points%3D%223%2C3%203%2C27%2010%2C21%2015%2C31%2020%2C29%2015%2C19%2025%2C19%22%20transform%3D%22translate%283%203%29%22%20fill%3D%22%23F2EEE6%22/%3E%3Cpolygon%20points%3D%223%2C3%203%2C27%2010%2C21%2015%2C31%2020%2C29%2015%2C19%2025%2C19%22%20fill%3D%22%23FF5A1F%22%20stroke%3D%22%23121214%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22/%3E%3C/svg%3E") 2 2, pointer !important}
+
+/* cartes vidéo */
+.vc{position:relative;display:flex;flex-direction:column;gap:12px;text-decoration:none;color:inherit;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.vc:hover{transform:rotate(0deg) scale(1.035) !important;z-index:3}
+.vc-th{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--c);clip-path:polygon(0 0,calc(100% - 26px) 0,100% 26px,100% 100%,0 100%)}
+.vc.mid .vc-th,.vc.mid3 .vc-th{clip-path:polygon(0 0,calc(100% - 18px) 0,100% 18px,100% 100%,0 100%)}
+.vc-ph{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:16px 18px;box-sizing:border-box;background:repeating-linear-gradient(-45deg,rgba(0,0,0,0) 0 26px,rgba(0,0,0,.10) 26px 52px),var(--c);color:var(--k)}
+.ph-n{position:absolute;top:12px;left:16px;font-size:12px;font-weight:700;letter-spacing:.14em}
+.ph-g{font-family:'Anton',sans-serif;font-size:54px;line-height:.9;word-break:break-word}
+.vc.mid .ph-g,.vc.mid3 .ph-g{font-size:30px}
+.ph-g.sm{font-size:26px}
+.vc-img.bad{display:none}
+.vc-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.vc:hover .vc-img,.sc:hover .vc-img{transform:scale(1.07)}
+.vc-play{position:absolute;left:50%;top:50%;width:78px;height:54px;margin:-27px 0 0 -39px;background:#D7263D;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:26px;clip-path:polygon(8% 0,100% 6%,92% 100%,0 94%);opacity:0;transform:scale(.6) rotate(-6deg);transition:opacity .2s,transform .25s cubic-bezier(.3,1.6,.5,1)}
+.vc-play.sm{width:50px;height:36px;margin:-18px 0 0 -25px;font-size:16px}
+.vc:hover .vc-play,.sc:hover .vc-play{opacity:1;transform:scale(1) rotate(-3deg)}
+.vc-dur{position:absolute;right:10px;bottom:10px;background:#0E0E10;color:#F2EEE6;font-size:12px;font-weight:700;padding:3px 7px;letter-spacing:.06em}
+.vc-info{display:flex;flex-direction:column;gap:6px}
+.vc-meta{font-size:11px;letter-spacing:.12em;color:#A9A49B;font-weight:700}
+.vc-t{font-family:'Anton',sans-serif;font-size:26px;line-height:1.05}
+.vc.mid .vc-t,.vc.mid3 .vc-t{font-family:'Space Mono',monospace;font-weight:700;font-size:13px;line-height:1.35;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.tg-m{align-self:flex-start;background:#F2EEE6;color:#0E0E10;font-size:11px;font-weight:700;letter-spacing:.1em;padding:3px 9px;clip-path:polygon(0 0,100% 0,94% 100%,0 100%)}
+.sl .tg-m{background:#C4B5FD;color:#1C0B3A}
+.sc{display:flex;flex-direction:column;gap:7px;text-decoration:none;color:inherit;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.sc:hover{transform:rotate(0deg) scale(1.06) !important;z-index:3}
+.sc-th{position:relative;aspect-ratio:9/16;overflow:hidden;background:var(--c);clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,0 100%)}
+.sc .vc-ph{padding:10px 12px}
+.sc-meta{font-size:10px;letter-spacing:.1em;color:#A9A49B;font-weight:700}
+.sc-t{font-size:11px;font-weight:700;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:46px 40px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:34px 24px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:34px 28px}
+.grid8{display:grid;grid-template-columns:repeat(8,1fr);gap:26px 14px}
+.yr-wrap{display:flex;align-items:center;gap:24px;margin:70px 0 34px 0}
+.yr{display:flex;align-items:baseline;gap:16px;background:#8B5CF6;color:#1C0B3A;padding:8px 40px 8px 24px;clip-path:polygon(0 0,100% 0,95% 100%,0 100%);transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+.yr:hover{transform:rotate(0deg) scale(1.08) !important}
+.yr-y{font-family:'Anton',sans-serif;font-size:72px;line-height:1}
+.yr-c{font-size:13px;font-weight:700;letter-spacing:.14em}
+.yr-line{flex:1;height:6px;background:repeating-linear-gradient(-45deg,#8B5CF6 0 12px,transparent 12px 24px)}
+.slot{align-self:start;box-sizing:border-box;border:3px dashed #2EC4B6;aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:#2EC4B6;transition:transform .3s cubic-bezier(.3,1.6,.5,1),background .3s}
+.slot:hover{transform:rotate(0) scale(1.04) !important;background:rgba(46,196,182,.08)}
+.slot-p{font-family:'Anton',sans-serif;font-size:70px;line-height:.9}
+.slot-t{font-family:'Anton',sans-serif;font-size:26px}
+.slot-s{font-size:11px;font-weight:700;letter-spacing:.14em;color:#7FD8CF}
+.bubble{background:#F2EEE6;color:#0E0E10;padding:12px 16px;font-family:'Gochi Hand',cursive;font-size:21px;line-height:1.12;clip-path:polygon(0 0,100% 0,100% 100%,8% 100%,0 80%)}
+.chibi{animation:bob 3s ease-in-out infinite;object-fit:contain;display:block}
+.chibi-b{transition:scale .2s}
+.chibi-b:hover{scale:1.08}
+.chibi-b:active{scale:.92}
+.pn-noise{position:absolute;inset:0;opacity:.13;background:repeating-linear-gradient(0deg,rgba(255,255,255,.5) 0 1px,transparent 1px 3px);animation:noise .6s steps(6) infinite;pointer-events:none}
+.pn-glitch{animation:glitch 3.2s infinite}
+.pn-fl{animation:flicker 3.5s infinite}
+.rec{display:inline-block;width:12px;height:12px;border-radius:50%;background:#D7263D;animation:blink 1.1s infinite}
+.ytb{position:relative;width:240px;height:168px;background:#D7263D;clip-path:polygon(6% 0,100% 4%,94% 100%,0 96%);display:flex;align-items:center;justify-content:center;transition:transform .3s cubic-bezier(.3,1.6,.5,1)}
+.ytb:hover{transform:rotate(-4deg) scale(1.08)}
+.ytb-tri{width:0;height:0;border-left:70px solid #F2EEE6;border-top:44px solid transparent;border-bottom:44px solid transparent;margin-left:14px}
+/* lecteur */
+.yt-ov{position:fixed;inset:0;z-index:9998;display:none;align-items:center;justify-content:center;background:rgba(8,8,10,.9)}
+.yt-ov.on{display:flex}
+.yt-win{display:flex;flex-direction:column;gap:12px;animation:pop .3s cubic-bezier(.3,1.6,.5,1)}
+.yt-bar{display:flex;align-items:center;justify-content:space-between;gap:20px;background:#D7263D;color:#FFFFFF;padding:8px 14px;font-size:12px;font-weight:700;letter-spacing:.12em}
+.yt-x{appearance:none;border:0;background:#0E0E10;color:#F2EEE6;font-family:'Space Mono',monospace;font-weight:700;font-size:13px;padding:4px 12px}
+.yt-frame{background:#000;position:relative;box-shadow:10px 10px 0 #D7263D}
+.yt-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.yt-fb{display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:12px;color:#A9A49B;letter-spacing:.06em}
+.yt-open{background:#F2EEE6;color:#0E0E10;text-decoration:none;font-family:'Anton',sans-serif;font-size:18px;padding:7px 18px;clip-path:polygon(6% 0,100% 0,94% 100%,0 100%)}
+.ytb-float{animation:ytfloat 4.2s ease-in-out infinite}
+@keyframes ytfloat{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-26px) rotate(2deg)}}
+.ytb-d{position:absolute;inset:0;clip-path:polygon(6% 0,100% 4%,94% 100%,0 96%)}
+.ytb-sh{border-radius:50%;background:radial-gradient(ellipse at center,rgba(0,0,0,.75) 0%,rgba(0,0,0,0) 70%);animation:ytshadow 4.2s ease-in-out infinite}
+@keyframes ytshadow{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(.72);opacity:.45}}
+.ytb-shine{position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,0) 30%,rgba(255,255,255,.28) 45%,rgba(255,255,255,0) 60%);background-size:250% 100%;animation:ytshine 4.2s ease-in-out infinite;pointer-events:none}
+@keyframes ytshine{0%,100%{background-position:120% 0}50%{background-position:-20% 0}}
+.ytb-tri{filter:drop-shadow(5px 6px 0 rgba(90,11,22,.85))}
+.yt-bar span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.yt-win{width:1040px}
+.yt-win.short{width:auto;display:grid;grid-template-columns:340px 330px;grid-template-rows:auto 1fr;column-gap:34px;row-gap:18px;align-items:start}
+.yt-win.short .yt-frame{grid-column:1;grid-row:1 / span 2}
+.yt-win.short .yt-bar{grid-column:2;grid-row:1;flex-direction:column;align-items:flex-start;gap:14px;padding:18px 20px;clip-path:polygon(0 0,100% 0,100% 100%,6% 100%,0 88%)}
+.yt-win.short .yt-bar span{white-space:normal;font-family:'Anton',sans-serif;font-size:30px;line-height:1.05;letter-spacing:0;overflow:visible}
+.yt-win.short .yt-bar span::before{content:'SHORT';display:block;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.16em;margin-bottom:8px;opacity:.85}
+.yt-win.short .yt-fb{grid-column:2;grid-row:2;flex-direction:column;align-items:flex-start;gap:14px;line-height:1.5}
+.best{position:absolute;top:-16px;right:-14px;z-index:4;background:#FFC21A;color:#1A0800;font-family:'Anton',sans-serif;font-size:20px;padding:8px 18px;clip-path:polygon(6% 0,100% 0,94% 100%,0 100%);transform:rotate(4deg);animation:bestpulse 1.6s ease-in-out infinite;box-shadow:0 0 0 rgba(0,0,0,0);white-space:nowrap;pointer-events:none}
+@keyframes bestpulse{0%,100%{scale:1}50%{scale:1.14}}
+.pn-logo{filter:blur(1.5px);opacity:.85;animation:drift 9s ease-in-out infinite, flicker 3.5s infinite;transition:filter .2s,scale .3s cubic-bezier(.3,1.6,.5,1),opacity .2s}
+.pn-logo:hover{filter:blur(0) drop-shadow(0 0 22px rgba(232,48,42,.85));opacity:1;scale:1.15;animation:drift 9s ease-in-out infinite}
+.pn-red{position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(215,38,61,.55),rgba(215,38,61,0) 70%);opacity:0;pointer-events:none;transition:opacity .3s}
+.pn-box:has(.pn-logo:hover) .pn-red{opacity:1;animation:pnflash .5s steps(2) infinite}
+@keyframes pnflash{0%{opacity:1}50%{opacity:.35}}
+.pn-box:has(.pn-logo:hover){animation:pnshake .18s linear infinite}
+@keyframes pnshake{0%{transform:translate(0,0)}25%{transform:translate(-3px,2px)}50%{transform:translate(2px,-2px)}75%{transform:translate(-2px,-1px)}100%{transform:translate(0,0)}}
+.pn-box:has(.pn-logo:hover) .pn-noise{opacity:.32}
+.pn-box:has(.pn-logo:hover) .pn-glitch{animation:glitch .35s infinite;color:#E8302A}
+.pn-meter{display:flex;flex-direction:column;gap:5px;padding:10px;background:rgba(0,0,0,.55);opacity:0;transform:translateX(-14px);transition:opacity .2s,transform .25s;z-index:3}
+.pn-meter i{display:block;width:34px;height:14px;background:#2A2622;transition:background .08s;transition-delay:calc((9 - var(--i)) * 70ms)}
+.pn-box:has(.pn-logo:hover) .pn-meter{opacity:1;transform:translateX(0)}
+.pn-box:has(.pn-logo:hover) .pn-meter i{background:var(--c)}
+.pn-alert{position:absolute;left:50px;top:100px;font-family:'Anton',sans-serif;font-size:118px;line-height:.9;color:#E8302A;opacity:0;pointer-events:none;z-index:2;text-shadow:-6px 0 #D9C7A3,6px 0 #5A0B16}
+.pn-box:has(.pn-logo:hover) .pn-alert{opacity:1;animation:pnalert .9s steps(3) infinite}
+.pn-box:has(.pn-logo:hover) .pn-glitch{opacity:0}
+@keyframes pnalert{0%{transform:translate(0,0) skewX(0)}33%{transform:translate(-5px,3px) skewX(-6deg)}66%{transform:translate(4px,-2px) skewX(5deg)}}
+</style>
+<style>x-dc{display:contents}</style>
+</head>
+<body>
+<x-dc>
+
+<div id="haut" data-dc-ref="{{rootRef}}" style="width: 1440px; min-height: 12200px; background: #0E0E10; color: #F2EEE6; font-family: 'Space Mono', monospace; overflow: hidden; position: relative; display: flex; flex-direction: column">
+
+<div data-dc-ref="{{hdWrapRef}}" class="hd-wrap">
+<header data-dc-ref="{{hdRef}}" class="hd" style="display: flex; align-items: center; justify-content: space-between; padding: 26px 48px; position: relative; z-index: 5">
+<a href="/" class="logo-hd" style="display: flex; align-items: center; gap: 14px; text-decoration: none">
+<img src="/assets/logo_solid_cream.webp" alt="Logo de Romain" style="width: 48px; height: 41px; object-fit: contain">
+<span style="font-family: 'Anton', sans-serif; font-size: 32px; line-height: 1">ROMAIN</span>
+</a>
+<nav aria-label="Chapitres du dossier" style="display: flex; gap: 6px; align-items: center">
+<a class="btnz" href="#xd" data-dc-onclick="{{go.xd}}" style="background: #D7263D; color: #FFFFFF; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 15px; padding: 7px 14px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-2deg); white-space: nowrap">01 ROOMAAAIN</a>
+<a class="btnz" href="#sl" data-dc-onclick="{{go.sl}}" style="background: #8B5CF6; color: #1C0B3A; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 15px; padding: 7px 14px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(1.5deg); white-space: nowrap">02 SLIMAN</a>
+<a class="btnz" href="#inde" data-dc-onclick="{{go.inde}}" style="background: #2EC4B6; color: #04201D; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 15px; padding: 7px 14px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-1deg); white-space: nowrap">03 VIDÉOS INDÉ</a>
+</nav>
+<div style="display: flex; gap: 14px; align-items: center">
+<span style="font-size: 12px; letter-spacing: 0.12em; color: #A9A49B">DOSSIER 03 / 08</span>
+<a class="btnz" href="/" style="background: #F2EEE6; color: #121214; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 18px; padding: 9px 24px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-2deg)">← TOUS LES DOSSIERS</a>
+</div>
+</header>
+</div>
+
+<!-- HERO -->
+<section style="position: relative; height: 820px">
+<div style="position: absolute; left: 48px; top: 24px; font-size: 13px; letter-spacing: 0.14em; color: #A9A49B"><span class="rec"></span>&nbsp; REC // DOSSIER 03 • MONTAGE YOUTUBE</div>
+<h1 style="position: absolute; z-index: 1; left: 36px; top: 40px; margin: 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 280px; line-height: 0.95">YOUTUBE</h1>
+<p style="position: absolute; left: 52px; top: 346px; margin: 0; width: 700px; font-size: 16px; line-height: 1.65; color: #D8D3C9">J'ai monté <b style="color: #FFFFFF">toutes</b> les vidéos de deux chaînes, sans exception : les longues, les shorts, tout. Ma chaîne Roomaaain d'abord, puis celle de Sliman, où j'ai appris le métier un dimanche après l'autre. Chaque vidéo est là, de la plus récente à la plus ancienne.</p>
+<div style="position: absolute; left: 52px; top: 500px; display: flex; gap: 14px">
+<div class="stat" style="background: #D7263D; color: #FFFFFF; padding: 14px 22px; transform: rotate(-2deg); clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%)"><div style="font-family: 'Anton', sans-serif; font-size: 58px; line-height: 1">80</div><div style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em">VIDÉOS MONTÉES</div></div>
+<div class="stat" style="background: #F2EEE6; color: #0E0E10; padding: 14px 22px; transform: rotate(1.5deg); clip-path: polygon(6% 0, 100% 0, 100% 100%, 0 100%)"><div style="font-family: 'Anton', sans-serif; font-size: 58px; line-height: 1">2</div><div style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em">CHAÎNES</div></div>
+<div class="stat" style="background: #8B5CF6; color: #1C0B3A; padding: 14px 22px; transform: rotate(-1deg); clip-path: polygon(0 0, 100% 0, 100% 100%, 6% 100%)"><div style="font-family: 'Anton', sans-serif; font-size: 58px; line-height: 1">175 H+</div><div style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em">DE MONTAGE CHRONO.</div></div>
+<div class="stat" style="background: #2EC4B6; color: #04201D; padding: 14px 22px; transform: rotate(2deg); clip-path: polygon(0 0, 94% 0, 100% 100%, 0 100%)"><div style="font-family: 'Anton', sans-serif; font-size: 58px; line-height: 1">2022</div><div style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em">→ 2026</div></div>
+</div>
+<div style="position: absolute; left: 52px; top: 640px; display: flex; gap: 10px">
+<a class="chap" href="#xd" data-dc-onclick="{{go.xd}}" style="background: #D7263D; color: #FFFFFF; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 24px; padding: 10px 24px; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-1.5deg)">01 ROOMAAAIN</a>
+<a class="chap" href="#sl" data-dc-onclick="{{go.sl}}" style="background: #8B5CF6; color: #1C0B3A; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 24px; padding: 10px 24px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(1deg)">02 SLIMAN</a>
+<a class="chap" href="#inde" data-dc-onclick="{{go.inde}}" style="background: #2EC4B6; color: #04201D; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 24px; padding: 10px 24px; clip-path: polygon(6% 0, 100% 0, 100% 100%, 0 100%); transform: rotate(-1deg)">03 VIDÉOS INDÉ</a>
+</div>
+<div style="position: absolute; left: 670px; top: -6px; width: 840px; height: 840px; border-radius: 50%; background: repeating-conic-gradient(#D7263D 0deg 15deg, #0E0E10 15deg 30deg); opacity: 0.22; -webkit-mask-image: radial-gradient(circle, #000 18%, rgba(0,0,0,.6) 40%, transparent 68%); mask-image: radial-gradient(circle, #000 18%, rgba(0,0,0,.6) 40%, transparent 68%); animation: spin 40s linear infinite"></div>
+<div class="ytb-float" style="position: absolute; left: 970px; top: 330px; width: 240px; height: 168px; z-index: 1">
+<div class="ytb-d" style="background: #5A0B16; transform: translate(18px, 18px)"></div>
+<div class="ytb-d" style="background: #8E1426; transform: translate(9px, 9px)"></div>
+<div class="ytb" style="position: absolute; left: 0; top: 0"><div class="ytb-shine"></div><div class="ytb-tri"></div></div>
+</div>
+<div class="bubble" style="position: absolute; left: 990px; top: 610px; width: 205px; transform: rotate(2deg); z-index: 2">{{msg.hero}}</div>
+<button type="button" class="chibi-b" data-dc-onclick="{{poke.hero}}" aria-label="Le chibi de Romain" style="appearance: none; border: 0; background: transparent; padding: 0; position: absolute; left: 1240px; top: 500px; z-index: 2"><img class="chibi" data-dc-src="{{img.hero}}" alt="Chibi de Romain" style="width: 140px; height: 242px"></button>
+<div style="position: absolute; left: 48px; right: 48px; bottom: 34px; display: flex; flex-direction: column; gap: 8px">
+<div style="position: relative; height: 6px; background: #2A2A2E"><div style="position: absolute; left: 0; top: 0; height: 6px; background: #55555C; animation: buffer 14s linear infinite"></div><div style="position: absolute; left: 0; top: 0; height: 6px; background: #D7263D; animation: progress 14s linear infinite"><span style="position: absolute; right: -9px; top: -6px; width: 18px; height: 18px; border-radius: 50%; background: #D7263D"></span></div></div>
+<div style="display: flex; justify-content: space-between; font-size: 11px; letter-spacing: 0.14em; color: #A9A49B"><span>▶ ❚❚ &nbsp; 2022</span><span>80 VIDÉOS • TOUTES MONTÉES PAR MOI</span><span>2026 ⛶</span></div>
+</div>
+</section>
+
+<section aria-hidden="true" style="position: relative; height: 150px">
+<div style="position: absolute; left: -40px; right: -40px; top: 30px; height: 26px; transform: rotate(-2deg); background: repeating-linear-gradient(-45deg, #D7263D 0 22px, #0E0E10 22px 44px)"></div>
+<div style="position: absolute; left: -40px; right: -40px; top: 62px; height: 52px; transform: rotate(-2deg); background: #F2EEE6; color: #0E0E10; overflow: hidden; display: flex; align-items: center">
+<div style="display: flex; gap: 40px; white-space: nowrap; font-family: 'Anton', sans-serif; font-size: 30px; width: max-content; animation: marquee 28s linear infinite">
+<span>MONTÉ PAR ROMAIN ✦ CHAQUE VIDÉO ✦ CHAQUE SHORT ✦ SANS EXCEPTION ✦ MONTÉ PAR ROMAIN ✦ CHAQUE VIDÉO ✦ CHAQUE SHORT ✦ SANS EXCEPTION ✦</span><span>MONTÉ PAR ROMAIN ✦ CHAQUE VIDÉO ✦ CHAQUE SHORT ✦ SANS EXCEPTION ✦ MONTÉ PAR ROMAIN ✦ CHAQUE VIDÉO ✦ CHAQUE SHORT ✦ SANS EXCEPTION ✦</span>
+</div>
+</div>
+</section>
+
+<!-- 01 ROOMAAAIN -->
+<section id="xd" style="position: relative; padding: 70px 48px 90px 48px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 40px">
+<div>
+<div style="font-size: 13px; letter-spacing: 0.14em; color: #A9A49B">// 01 • MA CHAÎNE • @xd90o</div>
+<h2 style="margin: 6px 0 0 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 170px; line-height: 0.88">ROOMAAAIN</h2>
+</div>
+<div style="display: flex; gap: 12px; margin-bottom: 18px">
+<div class="stat" style="background: #D7263D; color: #FFFFFF; padding: 12px 20px; transform: rotate(-2deg)"><div style="font-family: 'Anton', sans-serif; font-size: 46px; line-height: 1">6</div><div style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em">VIDÉOS</div></div>
+<div class="stat" style="background: #F2EEE6; color: #0E0E10; padding: 12px 20px; transform: rotate(1.5deg)"><div style="font-family: 'Anton', sans-serif; font-size: 46px; line-height: 1">25</div><div style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em">SHORTS</div></div>
+<div class="stat" style="background: #1B1B1F; color: #F2EEE6; padding: 12px 20px; transform: rotate(-1deg); border: 2px solid #D7263D"><div style="font-family: 'Anton', sans-serif; font-size: 46px; line-height: 1">50 H</div><div style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em">CHRONO. SUR 6 VIDÉOS</div></div>
+</div>
+</div>
+<p style="margin: 0; width: 820px; font-size: 16px; line-height: 1.65; color: #D8D3C9">Ma chaîne à moi : des jeux d'horreur entre potes (FNAF, Fears to Fathom, Panicore…). Ici je gère tout de A à Z : montage, rythme, miniatures et direction du contenu. C'est mon labo pour tester des idées et faire progresser mon montage.</p>
+
+<!-- spoil Panicore -->
+<div class="pn-box" style="position: relative; height: 430px; background: #141210; overflow: hidden; clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 40px 100%, 0 calc(100% - 40px)); margin: 10px 0 20px 0">
+<div class="pn-noise"></div>
+<div style="position: absolute; left: -30px; right: -30px; top: 0; height: 26px; background: repeating-linear-gradient(-45deg, #D9C7A3 0 20px, #141210 20px 40px)"></div>
+<div style="position: absolute; left: -30px; right: -30px; bottom: 0; height: 26px; background: repeating-linear-gradient(-45deg, #D9C7A3 0 20px, #141210 20px 40px)"></div>
+<div style="position: absolute; left: 56px; top: 64px; font-size: 13px; letter-spacing: 0.2em; color: #D9C7A3" class="pn-fl">// FICHIER CLASSÉ • NE PAS DIFFUSER</div>
+<div class="pn-glitch" style="position: absolute; left: 50px; top: 92px; font-family: 'Anton', sans-serif; font-size: 150px; line-height: 0.9; color: #D9C7A3">PANICORE IRL</div>
+<div style="position: absolute; left: 56px; top: 250px; width: 640px; font-size: 16px; line-height: 1.6; color: #E9DFCB">4 survivants. 1 tueur. Personne ne sait qui c'est.<br>Tourné en vrai, monté par moi : mon projet le plus travaillé.</div>
+<div style="position: absolute; left: 56px; top: 330px; display: flex; gap: 46px; align-items: center">
+<a class="chap" href="/404.html" style="transform-origin: left center; background: #D9C7A3; color: #141210; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 24px; padding: 8px 22px; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-2deg)">OUVRIR LE DOSSIER PANICORE IRL →</a>
+<span style="font-size: 12px; letter-spacing: 0.14em; color: #A99C82"><span class="rec"></span>&nbsp; ENREGISTREMENT EN COURS…</span>
+</div>
+<div class="pn-red" aria-hidden="true"></div>
+<div class="pn-meter" aria-hidden="true" style="position: absolute; right: 500px; top: 100px"><i style="--i:0;--c:#B5122A"></i><i style="--i:1;--c:#D7263D"></i><i style="--i:2;--c:#E8302A"></i><i style="--i:3;--c:#EE5A2A"></i><i style="--i:4;--c:#F28A2E"></i><i style="--i:5;--c:#F2C230"></i><i style="--i:6;--c:#D8E23A"></i><i style="--i:7;--c:#8BE04A"></i><i style="--i:8;--c:#3BD16F"></i><i style="--i:9;--c:#3BD16F"></i></div>
+<div class="pn-alert" aria-hidden="true">IL T'A ENTENDU.</div>
+<img src="/assets/panicore_logo.png" alt="Logo Panicore IRL" class="pn-logo" data-dc-onmouseenter="{{pnHot.on}}" data-dc-onmouseleave="{{pnHot.off}}" style="position: absolute; right: 230px; top: 80px; width: 250px; height: 250px; object-fit: contain; z-index: 3">
+<div class="bubble" style="position: absolute; right: 30px; bottom: 228px; width: 170px; transform: rotate(-2deg)">{{msg.pn}}</div>
+<button type="button" class="chibi-b" data-dc-onclick="{{poke.pn}}" aria-label="Le chibi de Romain" style="appearance: none; border: 0; background: transparent; padding: 0; position: absolute; right: 60px; top: 210px"><img class="chibi" data-dc-src="{{img.pn}}" alt="Chibi de Romain" style="width: 110px; height: 190px"></button>
+</div>
+
+<div style="display: flex; align-items: center; gap: 18px"><span style="font-family: 'Anton', sans-serif; font-size: 54px; line-height: 1">LES VIDÉOS</span><span style="font-size: 12px; letter-spacing: 0.14em; color: #A9A49B">CLIQUE POUR REGARDER ICI • DU PLUS RÉCENT AU PLUS ANCIEN</span></div>
+<div class="grid2"><a class="vc big" href="https://www.youtube.com/watch?v=4V5Dy9ufVa8" target="_blank" rel="noopener" data-yt="4V5Dy9ufVa8" data-t="CE MAGASIN NE VEUT PLUS NOUS LAISSER SORTIR... ( StoreUnbound )" style="--c:#D7263D;--k:#1A0004;transform:rotate(-1.2deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°06</span><span class="ph-g">STOREUNBOUND</span></div><img class="vc-img" src="/assets/th_4.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">9:11</span></div><div class="vc-info"><div class="vc-meta">25 JUIN 2026 · 242 VUES</div><div class="vc-t">CE MAGASIN NE VEUT PLUS NOUS LAISSER SORTIR... ( StoreUnbound )</div><span class="tg-m">MONTAGE ≈ 6H</span></div></a><a class="vc big" href="https://www.youtube.com/watch?v=pgKrUEEeWI0" target="_blank" rel="noopener" data-yt="pgKrUEEeWI0" data-t="ON A ACCEPTÉ L&#x27;AIDE DES MAUVAISES PERSONNES… 💀 ( Fears to Fathom SCRATCH CREEK )" style="--c:#1B1B1F;--k:#D7263D;transform:rotate(0.8deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°05</span><span class="ph-g">FEARS TO FATHOM SCRATCH CREE</span></div><img class="vc-img" src="/assets/th_38.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">14:55</span></div><span class="best">★ MA MEILLEURE SELON MOI</span><div class="vc-info"><div class="vc-meta">17 JUIN 2026 · 100 VUES</div><div class="vc-t">ON A ACCEPTÉ L&#x27;AIDE DES MAUVAISES PERSONNES… 💀 ( Fears to Fathom SCRATCH CREEK )</div><span class="tg-m">MONTAGE ≈ 7H</span></div></a><a class="vc big" href="https://www.youtube.com/watch?v=VT_tkCuAGeE" target="_blank" rel="noopener" data-yt="VT_tkCuAGeE" data-t="On n’était PAS prêts pour Bonnie… | Forgotten Memories EP2" style="--c:#F2EEE6;--k:#D7263D;transform:rotate(-0.5deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°04</span><span class="ph-g">FORGOTTEN MEMORIES EP2</span></div><img class="vc-img" src="/assets/th_19.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">4:31</span></div><div class="vc-info"><div class="vc-meta">26 JANV. 2026 · 142 VUES</div><div class="vc-t">On n’était PAS prêts pour Bonnie… | Forgotten Memories EP2</div><span class="tg-m">MONTAGE ≈ 5H</span></div></a><a class="vc big" href="https://www.youtube.com/watch?v=vcMT9LCnVwo" target="_blank" rel="noopener" data-yt="vcMT9LCnVwo" data-t="NE FAITE PAS DE BRUIT SINON... (Panicore)" style="--c:#3A0A10;--k:#FF8A8A;transform:rotate(1.1deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°03</span><span class="ph-g">PANICORE</span></div><img class="vc-img" src="/assets/th_43.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">18:43</span></div><div class="vc-info"><div class="vc-meta">21 JANV. 2026 · 130 VUES</div><div class="vc-t">NE FAITE PAS DE BRUIT SINON... (Panicore)</div><span class="tg-m">MONTAGE ≈ 16H</span></div></a><a class="vc big" href="https://www.youtube.com/watch?v=1a22fBYq5WI" target="_blank" rel="noopener" data-yt="1a22fBYq5WI" data-t="Freddy devient incontrôlable… | Forgotten Memories EP1" style="--c:#D7263D;--k:#1A0004;transform:rotate(-0.9deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°02</span><span class="ph-g">FORGOTTEN MEMORIES EP1</span></div><img class="vc-img" src="/assets/th_2.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">8:07</span></div><div class="vc-info"><div class="vc-meta">16 JANV. 2026 · 259 VUES</div><div class="vc-t">Freddy devient incontrôlable… | Forgotten Memories EP1</div><span class="tg-m">MONTAGE ≈ 9H</span></div></a><a class="vc big" href="https://www.youtube.com/watch?v=n9EmEmz-muk" target="_blank" rel="noopener" data-yt="n9EmEmz-muk" data-t="FNAF mais en coop.. (Silly&#x27;s Gameshow)" style="--c:#1B1B1F;--k:#D7263D;transform:rotate(0.6deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°01</span><span class="ph-g">SILLY&#x27;S GAMESHOW</span></div><img class="vc-img" src="/assets/th_37.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">7:59</span></div><div class="vc-info"><div class="vc-meta">7 JANV. 2026 · 255 VUES</div><div class="vc-t">FNAF mais en coop.. (Silly&#x27;s Gameshow)</div><span class="tg-m">MONTAGE ≈ 7H</span></div></a></div>
+
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-top: 50px">
+<div style="display: flex; align-items: center; gap: 18px"><span style="font-family: 'Anton', sans-serif; font-size: 54px; line-height: 1">LES SHORTS</span><span style="font-size: 12px; letter-spacing: 0.14em; color: #A9A49B">25 FORMATS VERTICAUX • DU PLUS RÉCENT AU PLUS ANCIEN</span></div>
+<div style="display: flex; align-items: flex-end; gap: 6px"><div class="bubble" style="width: 210px; margin-bottom: 70px; font-size: 18px">{{msg.sh}}</div><button type="button" class="chibi-b" data-dc-onclick="{{poke.sh}}" aria-label="Le chibi de Romain" style="appearance: none; border: 0; background: transparent; padding: 0"><img loading="lazy" decoding="async" class="chibi" data-dc-src="{{img.sh}}" alt="Chibi de Romain" style="width: 80px; height: 138px"></button></div>
+</div>
+<div class="grid8"><a class="sc" href="https://www.youtube.com/shorts/Tqul7aXQKYY" target="_blank" rel="noopener" data-yt="Tqul7aXQKYY" data-s="1" data-t="LE MAGASIN NE VEUT PLUS NOUS LAISSER SORTIR..." style="--c:#D7263D;--k:#1A0004;transform:rotate(0.77deg)"><div class="sc-th"><div class="vc-ph"><span class="ph-n">#25</span><span class="ph-g sm">SHORT</span></div><img class="vc-img" src="/assets/th_59.webp" alt="" loading="lazy"><span class="vc-play sm">▶</span></div><div class="sc-meta">42 VUES</div><div class="sc-t">LE MAGASIN NE VEUT PLUS NOUS LAISSER SORTIR...</div></a><a class="sc" href="https://www.youtube.com/shorts/Aqmj5DAvHn4" target="_blank" rel="noopener" data-yt="Aqmj5DAvHn4" data-s="1" data-t="LE MAGASIN NE VEUT PLUS NOUS LAISSER SORTIR..." style="--c:#1B1B1F;--k:#D7263D;transform:rotate(-0.63deg)"><div class="sc-th"><div class="vc-ph"><span class="ph-n">#24</span><span class="ph-g sm">SHORT</span></div><img class="vc-img" src="/assets/th_50.webp" alt="" loading="lazy"><span class="vc-play sm">▶</span></div><div class="sc-meta">4 VUES</div><div class="sc-t">LE MAGASIN NE VEUT PLUS NOUS LAISSER SORTIR...</div></a><a class="sc" href="https://www.youtube.com/shorts/jZAJaM6E1co" target="_blank" rel="noopener" data-yt="jZAJaM6E1co" data-s="1" data-t="LE MAGASIN NE VEUT PLUS NOUS LAISSER SORTIR..." style="--c:#F2EEE6;--k:#D7263D;transform:rotate(0.42deg)"><div class="sc-th"><div class="vc-ph"><span class="ph-n">#23</span><span class="ph-g sm">SHORT</span></div><img class="vc-img" src="/assets/th_69.webp" alt="" loading="lazy"><span class="vc-play sm">▶</span></div><div class="sc-meta">233 VUES</div><div class="sc-t">LE MAGASIN NE VEUT PLUS NOUS LAISSER SORTIR...</div></a><a class="sc" href="https://www.youtube.com/shorts/oSuofoqoDc8" target="_blank" rel="noopener" data-yt="oSuofoqoDc8" data-s="1" data-t="LE MAGASIN NE VEUT PLUS NOUS LAISSER SORTIR..." style="--c:#3A0A10;--k:#FF8A8A;transform:rotate(0.9099999999999999deg)"><div class="sc-th"><div class="vc-ph"><span class="ph-n">#22</span><span class="ph-g sm">SHORT</span></div><img class="vc-img" src="/assets/th_75.webp" alt="" loading="lazy"><span class="vc-play sm">▶</span></div><div class="sc-meta">112 VUES</div><div class="sc-t">LE MAGASIN NE VEUT PLUS NOUS LAISSER SORTIR...</div></a><a class="sc" href="https://www.youtube.com/shorts/E2rlQ0Mf95g" target="_blank" rel="noopener" data-yt="E2rlQ0Mf95g" data-s="1" data-t="LE MAGASIN NE VEUT PLUS NOUS LAISSER SORTIR..." style="--c:#D7263D;--k:#1A0004;transform:rotate(-0.48999999999999994deg)"><div class="sc-th"><div class="vc-ph"><span class="ph-n">#21</span><span class="ph-g sm">SHORT</span></div><img class="vc-img" src="/assets/th_51.webp" alt="" loading="lazy"><span class="vc-play sm">▶</span></div><div class="sc-meta">97 VUES</div><div class="sc-t">LE MAGASIN NE VEUT PLUS NOUS LAISSER SORTIR...</div></a><a class="sc" href="https://www.youtube.com/shorts/ziO8pHiQhxM" target="_blank" rel="noopener" data-yt="ziO8pHiQhxM" data-s="1" data-t="LE MAGASIN NE VEUT PLUS NOUS LAISSER SORTIR..." style="--c:#1B1B1F;--k:#D7263D;transform:rotate(-0.84deg)"><div class="sc-th"><div class="vc-ph"><span class="ph-n">#20</span><span class="ph-g sm">SHORT</span></div><img class="vc-img" src="/assets/th_81.webp" alt="" loading="lazy"><span class="vc-play sm">▶</span></div><div class="sc-meta">83 VUES</div><div class="sc-t">LE MAGASIN NE VEUT PLUS NOUS LAISSER SORTIR...</div></a><a class="sc" href="https://www.youtube.com/shorts/W1Qx3IcTB04" target="_blank" rel="noopener" data-yt="W1Qx3IcTB04" data-s="1" data-t="LE PIRE DÉMÉNAGEMENT DE NOTRE VIE… 💀" style="--c:#F2EEE6;--k:#D7263D;transform:rotate(0.5599999999999999deg)"><div class="sc-th"><div class="vc-ph"><span class="ph-n">#19</span><span class="ph-g sm">SHORT</span></div><img class="vc-img" src="/assets/th_61.webp" alt="" loading="lazy"><span class="vc-play sm">▶</span></div><div class="sc-meta">283 VUES</div><div class="sc-t">LE PIRE DÉMÉNAGEMENT DE NOTRE VIE… 💀</div></a><a class="sc" href="https://www.youtube.com/shorts/9IbgB9PXWFM" target="_blank" rel="noopener" data-yt="9IbgB9PXWFM" data-s="1" data-t="LE PIRE DÉMÉNAGEMENT DE NOTRE VIE… 💀" style="--c:#3A0A10;--k:#FF8A8A;transform:rotate(-0.35deg)"><div class="sc-th"><div class="vc-ph"><span class="ph-n">#18</span><span class="ph-g sm">SHORT</span></div><img class="vc-img" src="/assets/th_49.webp" alt="" loading="lazy"><span class="vc-play sm">▶</span></div><div class="sc-meta">234 VUES</div><div class="sc-t">LE PIRE DÉMÉNAGEMENT DE NOTRE VIE… 💀</div></a><a class="sc" href="https://www.youtube.com/shorts/_82xdDpD20s" target="_blank" rel="noopener" data-yt="_82xdDpD20s" data-s="1" data-t="LE PIRE DÉMÉNAGEMENT DE NOTRE VIE… 💀" style="--c:#D7263D;--k:#1A0004;transform:rotate(0.77deg)"><div class="sc-th"><div class="vc-ph"><span class="ph-n">#17</span><span class="ph-g sm">SHORT</span></div><img class="vc-img" src="/assets/th_66.webp" alt="" loading="lazy"><span class="vc-play sm">▶</span></div><div class="sc-meta">113 VUES</div><div class="sc-t">LE PIRE DÉMÉNAGEMENT DE NOTRE VIE… 💀</div></a><a class="sc" href="https://www.youtube.com/shorts/SW3BZT5mBTw" target="_blank" rel="noopener" data-yt="SW3BZT5mBTw" data-s="1" data-t="1 journée banale dans Lethal Company..." style="--c:#1B1B1F;--k:#D7263D;transform:rotate(-0.63deg)"><div class="sc-th"><div class="vc-ph"><span class="ph-n">#16</span><span class="ph-g sm">SHORT</span></div><img class="vc-img" src="/assets/th_58.webp" alt="" loading="lazy"><span class="vc-play sm">▶</span></div><div class="sc-meta">108 VUES</div><div class="sc-t">1 journée banale dans Lethal Company...</div></a><a class="sc" href="https://www.youtube.com/shorts/y34tW8hBvYc" target="_blank" rel="noopener" data-yt="y34tW8hBvYc" data-s="1" data-t="LE PIRE DÉMÉNAGEMENT DE NOTRE VIE… 💀 ( Fears to Fathom )" style="--c:#F2EEE6;--k:#D7263D;transform:rotate(0.42deg)"><div class="sc-th"><div class="vc-ph"><span class="ph-n">#15</span><span class="ph-g sm">SHORT</span></div><img class="vc-img" src="/assets/th_79.webp" alt="" loading="lazy"><span class="vc-play sm">▶</span></div><div class="sc-meta">123 VUES</div><div class="sc-t">LE PIRE DÉMÉNAGEMENT DE NOTRE VIE… 💀 ( Fears to Fathom )</div></a><a class="sc" href="https://www.youtube.com/shorts/1X6q4EOx7KA" target="_blank" rel="noopener" data-yt="1X6q4EOx7KA" data-s="1" data-t="LE PIRE DÉMÉNAGEMENT DE NOTRE VIE… 💀 ( Fears to Fathom )" style="--c:#3A0A10;--k:#FF8A8A;transform:rotate(0.9099999999999999deg)"><div class="sc-th"><div class="vc-ph"><span class="ph-n">#14</span><span class="ph-g sm">SHORT</span></div><img class="vc-img" src="/assets/th_46.webp" alt="" loading="lazy"><span class="vc-play sm">▶</span></div><div class="sc-meta">34 VUES</div><div class="sc-t">LE PIRE DÉMÉNAGEMENT DE NOTRE VIE… 💀 ( Fears to Fathom )</div></a><a class="sc" href="https://www.youtube.com/shorts/6iTx7b67fJE" target="_blank" rel="noopener" data-yt="6iTx7b67fJE" data-s="1" data-t="LE PIRE DÉMÉNAGEMENT DE NOTRE VIE… 💀 ( Fears to Fathom )" style="--c:#D7263D;--k:#1A0004;transform:rotate(-0.48999999999999994deg)"><div class="sc-th"><div class="vc-ph"><span class="ph-n">#13</span><span class="ph-g sm">SHORT</span></div><img class="vc-img" src="/assets/th_47.webp" alt="" loading="lazy"><span class="vc-play sm">▶</span></div><div class="sc-meta">404 VUES</div><div class="sc-t">LE PIRE DÉMÉNAGEMENT DE NOTRE VIE… 💀 ( Fears to Fathom )</div></a><a class="sc" href="https://www.youtube.com/shorts/NryPw2HDMz8" target="_blank" rel="noopener" data-yt="NryPw2HDMz8" data-s="1" data-t="LE PIRE DÉMÉNAGEMENT DE NOTRE VIE… 💀 ( Fears to Fathom )" style="--c:#1B1B1F;--k:#D7263D;transform:rotate(-0.84deg)"><div class="sc-th"><div class="vc-ph"><span class="ph-n">#12</span><span class="ph-g sm">SHORT</span></div><img class="vc-img" src="/assets/th_57.webp" alt="" loading="lazy"><span class="vc-play sm">▶</span></div><div class="sc-meta">64 VUES</div><div class="sc-t">LE PIRE DÉMÉNAGEMENT DE NOTRE VIE… 💀 ( Fears to Fathom )</div></a><a class="sc" href="https://www.youtube.com/shorts/ivs1pDkUblU" target="_blank" rel="noopener" data-yt="ivs1pDkUblU" data-s="1" data-t="Le courant qui s’éteint, c’est le pire truc de ce jeu 😭😭" style="--c:#F2EEE6;--k:#D7263D;transform:rotate(0.5599999999999999deg)"><div class="sc-th"><div class="vc-ph"><span class="ph-n">#11</span><span class="ph-g sm">SHORT</span></div><img class="vc-img" src="/assets/th_68.webp" alt="" loading="lazy"><span class="vc-play sm">▶</span></div><div class="sc-meta">403 VUES</div><div class="sc-t">Le courant qui s’éteint, c’est le pire truc de ce jeu 😭😭</div></a><a class="sc" href="https://www.youtube.com/shorts/XmoVr4P35QI" target="_blank" rel="noopener" data-yt="XmoVr4P35QI" data-s="1" data-t="Freddy entre par effraction.." style="--c:#3A0A10;--k:#FF8A8A;transform:rotate(-0.35deg)"><div class="sc-th"><div class="vc-ph"><span class="ph-n">#10</span><span class="ph-g sm">SHORT</span></div><img class="vc-img" src="/assets/th_63.webp" alt="" loading="lazy"><span class="vc-play sm">▶</span></div><div class="sc-meta">1,9 K VUES</div><div class="sc-t">Freddy entre par effraction..</div></a><a class="sc" href="https://www.youtube.com/shorts/UwRH_3IluKE" target="_blank" rel="noopener" data-yt="UwRH_3IluKE" data-s="1" data-t="Chica qui l&#x27;évite ?" style="--c:#D7263D;--k:#1A0004;transform:rotate(0.77deg)"><div class="sc-th"><div class="vc-ph"><span class="ph-n">#09</span><span class="ph-g sm">SHORT</span></div><img class="vc-img" src="/assets/th_60.webp" alt="" loading="lazy"><span class="vc-play sm">▶</span></div><div class="sc-meta">2,1 K VUES</div><div class="sc-t">Chica qui l&#x27;évite ?</div></a><a class="sc" href="https://www.youtube.com/shorts/fZgzqf1_Xdo" target="_blank" rel="noopener" data-yt="fZgzqf1_Xdo" data-s="1" data-t="C&#x27;EST LE MEC LE PLUS BÊTE DE LA PLANETE !" style="--c:#1B1B1F;--k:#D7263D;transform:rotate(-0.63deg)"><div class="sc-th"><div class="vc-ph"><span class="ph-n">#08</span><span class="ph-g sm">SHORT</span></div><img class="vc-img" src="/assets/th_67.webp" alt="" loading="lazy"><span class="vc-play sm">▶</span></div><div class="sc-meta">320 VUES</div><div class="sc-t">C&#x27;EST LE MEC LE PLUS BÊTE DE LA PLANETE !</div></a><a class="sc" href="https://www.youtube.com/shorts/WfqXGdNhJGo" target="_blank" rel="noopener" data-yt="WfqXGdNhJGo" data-s="1" data-t="Le monstre de Panicore et terrifiant.." style="--c:#F2EEE6;--k:#D7263D;transform:rotate(0.42deg)"><div class="sc-th"><div class="vc-ph"><span class="ph-n">#07</span><span class="ph-g sm">SHORT</span></div><img class="vc-img" src="/assets/th_62.webp" alt="" loading="lazy"><span class="vc-play sm">▶</span></div><div class="sc-meta">585 VUES</div><div class="sc-t">Le monstre de Panicore et terrifiant..</div></a><a class="sc" href="https://www.youtube.com/shorts/z3Z-VdnBoOM" target="_blank" rel="noopener" data-yt="z3Z-VdnBoOM" data-s="1" data-t="NE FAITE PAS DE BRUIT SINON..." style="--c:#3A0A10;--k:#FF8A8A;transform:rotate(0.9099999999999999deg)"><div class="sc-th"><div class="vc-ph"><span class="ph-n">#06</span><span class="ph-g sm">SHORT</span></div><img class="vc-img" src="/assets/th_80.webp" alt="" loading="lazy"><span class="vc-play sm">▶</span></div><div class="sc-meta">336 VUES</div><div class="sc-t">NE FAITE PAS DE BRUIT SINON...</div></a><a class="sc" href="https://www.youtube.com/shorts/M2EvkI9g4Fo" target="_blank" rel="noopener" data-yt="M2EvkI9g4Fo" data-s="1" data-t="Freddy est incontrôlable..." style="--c:#D7263D;--k:#1A0004;transform:rotate(-0.48999999999999994deg)"><div class="sc-th"><div class="vc-ph"><span class="ph-n">#05</span><span class="ph-g sm">SHORT</span></div><img class="vc-img" src="/assets/th_54.webp" alt="" loading="lazy"><span class="vc-play sm">▶</span></div><div class="sc-meta">2,1 K VUES</div><div class="sc-t">Freddy est incontrôlable...</div></a><a class="sc" href="https://www.youtube.com/shorts/M4xrIeZv6a8" target="_blank" rel="noopener" data-yt="M4xrIeZv6a8" data-s="1" data-t="Le PIRE kebab de Roblox... (Shawarma Kiosk)" style="--c:#1B1B1F;--k:#D7263D;transform:rotate(-0.84deg)"><div class="sc-th"><div class="vc-ph"><span class="ph-n">#04</span><span class="ph-g sm">SHORT</span></div><img class="vc-img" src="/assets/th_55.webp" alt="" loading="lazy"><span class="vc-play sm">▶</span></div><div class="sc-meta">2 K VUES</div><div class="sc-t">Le PIRE kebab de Roblox... (Shawarma Kiosk)</div></a><a class="sc" href="https://www.youtube.com/shorts/kcPIHkWOqFU" target="_blank" rel="noopener" data-yt="kcPIHkWOqFU" data-s="1" data-t="Freddy est devenue incontrôlable..." style="--c:#F2EEE6;--k:#D7263D;transform:rotate(0.5599999999999999deg)"><div class="sc-th"><div class="vc-ph"><span class="ph-n">#03</span><span class="ph-g sm">SHORT</span></div><img class="vc-img" src="/assets/th_71.webp" alt="" loading="lazy"><span class="vc-play sm">▶</span></div><div class="sc-meta">1,3 K VUES</div><div class="sc-t">Freddy est devenue incontrôlable...</div></a><a class="sc" href="https://www.youtube.com/shorts/wRxzkDb2fwc" target="_blank" rel="noopener" data-yt="wRxzkDb2fwc" data-s="1" data-t="Le frère penser avoir raison !! 🥀🥀😭" style="--c:#3A0A10;--k:#FF8A8A;transform:rotate(-0.35deg)"><div class="sc-th"><div class="vc-ph"><span class="ph-n">#02</span><span class="ph-g sm">SHORT</span></div><img class="vc-img" src="/assets/th_78.webp" alt="" loading="lazy"><span class="vc-play sm">▶</span></div><div class="sc-meta">26 VUES</div><div class="sc-t">Le frère penser avoir raison !! 🥀🥀😭</div></a><a class="sc" href="https://www.youtube.com/shorts/ZGugWK0t53s" target="_blank" rel="noopener" data-yt="ZGugWK0t53s" data-s="1" data-t="C&#x27;EST LE JEU LE PLUS TERRIFIANT DE 2026" style="--c:#D7263D;--k:#1A0004;transform:rotate(0.77deg)"><div class="sc-th"><div class="vc-ph"><span class="ph-n">#01</span><span class="ph-g sm">SHORT</span></div><img class="vc-img" src="/assets/th_65.webp" alt="" loading="lazy"><span class="vc-play sm">▶</span></div><div class="sc-meta">23 VUES</div><div class="sc-t">C&#x27;EST LE JEU LE PLUS TERRIFIANT DE 2026</div></a></div>
+</section>
+
+<section aria-hidden="true" style="position: relative; height: 150px">
+<div style="position: absolute; left: -40px; right: -40px; top: 30px; height: 26px; transform: rotate(2deg); background: repeating-linear-gradient(-45deg, #8B5CF6 0 22px, #0E0E10 22px 44px)"></div>
+<div style="position: absolute; left: -40px; right: -40px; top: 62px; height: 52px; transform: rotate(2deg); background: #8B5CF6; color: #1C0B3A; overflow: hidden; display: flex; align-items: center">
+<div style="display: flex; gap: 40px; white-space: nowrap; font-family: 'Anton', sans-serif; font-size: 30px; width: max-content; animation: marquee 30s linear infinite">
+<span>1 VIDÉO TOUS LES DIMANCHES ✦ SLIMAN ✦ 2022 → 2024 ✦ 49 VIDÉOS MONTÉES ✦ HORREUR ✦ MARIO ✦ ROBLOX ✦ MINECRAFT ✦</span><span>1 VIDÉO TOUS LES DIMANCHES ✦ SLIMAN ✦ 2022 → 2024 ✦ 49 VIDÉOS MONTÉES ✦ HORREUR ✦ MARIO ✦ ROBLOX ✦ MINECRAFT ✦</span>
+</div>
+</div>
+</section>
+
+<!-- 02 SLIMAN -->
+<section id="sl" class="sl" style="position: relative; padding: 70px 48px 90px 48px; display: flex; flex-direction: column; background: #120A22">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 40px">
+<div>
+<div style="font-size: 13px; letter-spacing: 0.14em; color: #C4B5FD">// 02 • CHAÎNE DE SLIMAN • @SlimanLeVrai</div>
+<h2 style="margin: 6px 0 0 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 190px; line-height: 0.88; color: #C4B5FD">SLIMAN</h2>
+</div>
+<div style="display: flex; align-items: flex-end; gap: 8px; margin-bottom: 10px">
+<div class="bubble" style="width: 230px; margin-bottom: 110px; transform: rotate(-2deg)">{{msg.sl}}</div>
+<button type="button" class="chibi-b" data-dc-onclick="{{poke.sl}}" aria-label="Le chibi de Romain" style="appearance: none; border: 0; background: transparent; padding: 0"><img loading="lazy" decoding="async" class="chibi" data-dc-src="{{img.sl}}" alt="Chibi de Romain" style="width: 120px; height: 208px"></button>
+</div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-top: 24px">
+<p style="margin: 0; width: 760px; font-size: 16px; line-height: 1.65; color: #DCD3F5">La chaîne de mon pote Sliman, avec une vidéo chaque dimanche pendant presque deux ans. J'ai monté toutes les vidéos et tous les shorts. C'est ici que j'ai appris à tenir un rythme de sortie et à rendre drôle une session de jeu entre potes. Les miniatures, elles, étaient faites par d'autres membres de l'équipe.</p>
+<div style="display: flex; gap: 12px">
+<div class="stat" style="background: #8B5CF6; color: #1C0B3A; padding: 12px 20px; transform: rotate(-2deg)"><div style="font-family: 'Anton', sans-serif; font-size: 46px; line-height: 1">38</div><div style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em">VIDÉOS</div></div>
+<div class="stat" style="background: #F2EEE6; color: #1C0B3A; padding: 12px 20px; transform: rotate(1.5deg)"><div style="font-family: 'Anton', sans-serif; font-size: 46px; line-height: 1">11</div><div style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em">SHORTS</div></div>
+<div class="stat" style="background: #FFC21A; color: #3B1E6E; padding: 12px 20px; transform: rotate(-1deg)"><div style="font-family: 'Anton', sans-serif; font-size: 46px; line-height: 1">125 H+</div><div style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em">CHRONOMÉTRÉES</div></div>
+</div>
+</div>
+<div class="yr-wrap"><div class="yr" style="transform:rotate(-2deg)"><span class="yr-y">2024</span><span class="yr-c">6 VIDÉOS</span></div><div class="yr-line"></div></div><div class="grid4"><a class="vc mid" href="https://www.youtube.com/watch?v=-cpWFPpZfLM" target="_blank" rel="noopener" data-yt="-cpWFPpZfLM" data-t="NE DÉRANGEZ JAMAIS BIGFOOT SINON... 🦧 (Bigfoot)" style="--c:#8B5CF6;--k:#1C0B3A;transform:rotate(-1.2deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°38</span><span class="ph-g">BIGFOOT</span></div><img class="vc-img" src="/assets/th_0.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">8:11</span></div><div class="vc-info"><div class="vc-meta">11 AOÛT 2024 · 151 VUES</div><div class="vc-t">NE DÉRANGEZ JAMAIS BIGFOOT SINON... 🦧 (Bigfoot)</div><span class="tg-m">MONTAGE ≈ 7H30</span></div></a><a class="vc mid" href="https://www.youtube.com/watch?v=32QW4PvdH-o" target="_blank" rel="noopener" data-yt="32QW4PvdH-o" data-t="NE VOUS AVENTUREZ JAMAIS LÀ-BAS !! 😱 (Content Warning)" style="--c:#1C0B3A;--k:#C4B5FD;transform:rotate(0.8deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°37</span><span class="ph-g">CONTENT WARNING</span></div><img class="vc-img" src="/assets/th_3.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">16:13</span></div><div class="vc-info"><div class="vc-meta">28 JUIL. 2024 · 107 VUES</div><div class="vc-t">NE VOUS AVENTUREZ JAMAIS LÀ-BAS !! 😱 (Content Warning)</div><span class="tg-m">MONTAGE ≈ 4H30</span></div></a><a class="vc mid" href="https://www.youtube.com/watch?v=tIK1I2OFfmg" target="_blank" rel="noopener" data-yt="tIK1I2OFfmg" data-t="NE VENEZ JAMAIS TRAVAILLER ICI !! 😨 (Roblox)" style="--c:#F2EEE6;--k:#6D28D9;transform:rotate(-0.5deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°36</span><span class="ph-g">ROBLOX</span></div><img class="vc-img" src="/assets/th_41.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">11:29</span></div><div class="vc-info"><div class="vc-meta">21 JUIL. 2024 · 244 VUES</div><div class="vc-t">NE VENEZ JAMAIS TRAVAILLER ICI !! 😨 (Roblox)</div><span class="tg-m">MONTAGE ≈ 8H20</span></div></a><a class="vc mid" href="https://www.youtube.com/watch?v=_B_01ErnNcE" target="_blank" rel="noopener" data-yt="_B_01ErnNcE" data-t="LES NIVEAUX LES PLUS TERRIFIANTS DES BACKROOMS 😨(Escape The Backrooms)" style="--c:#FFC21A;--k:#3B1E6E;transform:rotate(1.1deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°35</span><span class="ph-g">ESCAPE THE BACKROOMS</span></div><img class="vc-img" src="/assets/th_27.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">16:46</span></div><div class="vc-info"><div class="vc-meta">31 MARS 2024 · 74 VUES</div><div class="vc-t">LES NIVEAUX LES PLUS TERRIFIANTS DES BACKROOMS 😨(Escape The Backrooms)</div><span class="tg-m">MONTAGE ≈ 8H</span></div></a><a class="vc mid" href="https://www.youtube.com/watch?v=qGMd-awWmYI" target="_blank" rel="noopener" data-yt="qGMd-awWmYI" data-t="UN NOUVELLE ÉTAGE DE DOORS ?? 🚪 (Roblox)" style="--c:#8B5CF6;--k:#1C0B3A;transform:rotate(-0.9deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°34</span><span class="ph-g">ROBLOX</span></div><img class="vc-img" src="/assets/th_40.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">7:39</span></div><div class="vc-info"><div class="vc-meta">24 MARS 2024 · 75 VUES</div><div class="vc-t">UN NOUVELLE ÉTAGE DE DOORS ?? 🚪 (Roblox)</div><span class="tg-m">MONTAGE ≈ 6H40</span></div></a><a class="vc mid" href="https://www.youtube.com/watch?v=-obADO-1dOI" target="_blank" rel="noopener" data-yt="-obADO-1dOI" data-t="C&#x27;EST LE JEU LE PLUS TERRIFIANT DE ROBLOX !! 😱 (Roblox)" style="--c:#1C0B3A;--k:#C4B5FD;transform:rotate(0.6deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°33</span><span class="ph-g">ROBLOX</span></div><img class="vc-img" src="/assets/th_1.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">5:24</span></div><div class="vc-info"><div class="vc-meta">7 JANV. 2024 · 239 VUES</div><div class="vc-t">C&#x27;EST LE JEU LE PLUS TERRIFIANT DE ROBLOX !! 😱 (Roblox)</div><span class="tg-m">MONTAGE ≈ 6H10</span></div></a></div><div class="yr-wrap"><div class="yr" style="transform:rotate(1.5deg)"><span class="yr-y">2023</span><span class="yr-c">25 VIDÉOS</span></div><div class="yr-line"></div></div><div class="grid4"><a class="vc mid" href="https://www.youtube.com/watch?v=boogg1PE6Jg" target="_blank" rel="noopener" data-yt="boogg1PE6Jg" data-t="CE JEU FAIS ULTRA PEUR 😱!! (Roblox)" style="--c:#FFC21A;--k:#3B1E6E;transform:rotate(-0.7deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°32</span><span class="ph-g">ROBLOX</span></div><img class="vc-img" src="/assets/th_29.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">10:03</span></div><div class="vc-info"><div class="vc-meta">24 DÉC. 2023 · 190 VUES</div><div class="vc-t">CE JEU FAIS ULTRA PEUR 😱!! (Roblox)</div><span class="tg-m">MONTAGE ≈ 6H40</span></div></a><a class="vc mid" href="https://www.youtube.com/watch?v=RKCaZkIoqNQ" target="_blank" rel="noopener" data-yt="RKCaZkIoqNQ" data-t="CE JEU FAIT SUPER PEUR 😲 (Lethal Company)" style="--c:#8B5CF6;--k:#1C0B3A;transform:rotate(-1.2deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°31</span><span class="ph-g">LETHAL COMPANY</span></div><img class="vc-img" src="/assets/th_16.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">7:42</span></div><div class="vc-info"><div class="vc-meta">17 DÉC. 2023 · 223 VUES</div><div class="vc-t">CE JEU FAIT SUPER PEUR 😲 (Lethal Company)</div><span class="tg-m">MONTAGE ≈ 6H50</span></div></a><a class="vc mid" href="https://www.youtube.com/watch?v=jUTtSTCOGaw" target="_blank" rel="noopener" data-yt="jUTtSTCOGaw" data-t="Best-Of des Meilleur moment de la chaine ! #2" style="--c:#1C0B3A;--k:#C4B5FD;transform:rotate(0.8deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°30</span><span class="ph-g">BEST-OF DES MEILLEUR</span></div><img class="vc-img" src="/assets/th_33.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">4:24</span></div><div class="vc-info"><div class="vc-meta">13 DÉC. 2023 · 106 VUES</div><div class="vc-t">Best-Of des Meilleur moment de la chaine ! #2</div></div></a><a class="vc mid" href="https://www.youtube.com/watch?v=S_dPwXNdqX8" target="_blank" rel="noopener" data-yt="S_dPwXNdqX8" data-t="PARIS SUR FORTNITE ?! 🚇 (Fortnite)" style="--c:#F2EEE6;--k:#6D28D9;transform:rotate(-0.5deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°29</span><span class="ph-g">FORTNITE</span></div><img class="vc-img" src="/assets/th_17.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">6:18</span></div><div class="vc-info"><div class="vc-meta">10 DÉC. 2023 · 152 VUES</div><div class="vc-t">PARIS SUR FORTNITE ?! 🚇 (Fortnite)</div><span class="tg-m">MONTAGE ≈ 4H20</span></div></a><a class="vc mid" href="https://www.youtube.com/watch?v=9eTjE5tSM2Q" target="_blank" rel="noopener" data-yt="9eTjE5tSM2Q" data-t="NE VOUS PERDEZ PAS DANS LES BACKROOMS SINON.. (Escape The Backrooms) 🟨" style="--c:#FFC21A;--k:#3B1E6E;transform:rotate(1.1deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°28</span><span class="ph-g">ESCAPE THE BACKROOMS</span></div><img class="vc-img" src="/assets/th_8.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">7:50</span></div><div class="vc-info"><div class="vc-meta">30 JUIL. 2023 · 554 VUES</div><div class="vc-t">NE VOUS PERDEZ PAS DANS LES BACKROOMS SINON.. (Escape The Backrooms) 🟨</div><span class="tg-m">MONTAGE ≈ 5H55</span></div></a><a class="vc mid" href="https://www.youtube.com/watch?v=pucP-bJ-6f4" target="_blank" rel="noopener" data-yt="pucP-bJ-6f4" data-t="4 JEUX VIDEO AVEC DES SECRETS TERRIFIANT !!! 👻" style="--c:#8B5CF6;--k:#1C0B3A;transform:rotate(-0.9deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°27</span><span class="ph-g">4 JEUX VIDEO</span></div><img class="vc-img" src="/assets/th_39.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">7:34</span></div><div class="vc-info"><div class="vc-meta">23 JUIL. 2023 · 101 VUES</div><div class="vc-t">4 JEUX VIDEO AVEC DES SECRETS TERRIFIANT !!! 👻</div></div></a><a class="vc mid" href="https://www.youtube.com/watch?v=ZxT7c4YEgHs" target="_blank" rel="noopener" data-yt="ZxT7c4YEgHs" data-t="4 vs 4 Bedwars #2 🛌 ! ( Minecraft )" style="--c:#1C0B3A;--k:#C4B5FD;transform:rotate(0.6deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°26</span><span class="ph-g">MINECRAFT</span></div><img class="vc-img" src="/assets/th_26.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">8:01</span></div><div class="vc-info"><div class="vc-meta">16 JUIL. 2023 · 64 VUES</div><div class="vc-t">4 vs 4 Bedwars #2 🛌 ! ( Minecraft )</div><span class="tg-m">MONTAGE ≈ 5H30</span></div></a><a class="vc mid" href="https://www.youtube.com/watch?v=zsVrvEDT31w" target="_blank" rel="noopener" data-yt="zsVrvEDT31w" data-t="Mami et malade.. (Roblox)" style="--c:#F2EEE6;--k:#6D28D9;transform:rotate(1.3deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°25</span><span class="ph-g">ROBLOX</span></div><img class="vc-img" src="/assets/th_45.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">7:01</span></div><div class="vc-info"><div class="vc-meta">9 JUIL. 2023 · 210 VUES</div><div class="vc-t">Mami et malade.. (Roblox)</div><span class="tg-m">MONTAGE ≈ 6H</span></div></a><a class="vc mid" href="https://www.youtube.com/watch?v=jf9Jln9t368" target="_blank" rel="noopener" data-yt="jf9Jln9t368" data-t="QU&#x27;EST-CE QUI SE SERAIT PASSÉ SI LE MARI D&#x27;ELSA MINA ETAIT ENCORE LA ?! 🟨💔" style="--c:#FFC21A;--k:#3B1E6E;transform:rotate(-0.7deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°24</span><span class="ph-g">QU&#x27;EST-CE QUI SE</span></div><img class="vc-img" src="/assets/th_34.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">5:01</span></div><div class="vc-info"><div class="vc-meta">2 JUIL. 2023 · 154 VUES</div><div class="vc-t">QU&#x27;EST-CE QUI SE SERAIT PASSÉ SI LE MARI D&#x27;ELSA MINA ETAIT ENCORE LA ?! 🟨💔</div></div></a><a class="vc mid" href="https://www.youtube.com/watch?v=9gzpECXVsF8" target="_blank" rel="noopener" data-yt="9gzpECXVsF8" data-t="3 Jeux d&#x27;horreur qui ne font pas peur.. 😂 (Roblox)" style="--c:#8B5CF6;--k:#1C0B3A;transform:rotate(-1.2deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°23</span><span class="ph-g">ROBLOX</span></div><img class="vc-img" src="/assets/th_9.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">8:23</span></div><div class="vc-info"><div class="vc-meta">25 JUIN 2023 · 142 VUES</div><div class="vc-t">3 Jeux d&#x27;horreur qui ne font pas peur.. 😂 (Roblox)</div><span class="tg-m">MONTAGE ≈ 4H10</span></div></a><a class="vc mid" href="https://www.youtube.com/watch?v=ZimBOLCkitU" target="_blank" rel="noopener" data-yt="ZimBOLCkitU" data-t="Toads contrôle le monde.. 😨 (Mario Maker 2)" style="--c:#1C0B3A;--k:#C4B5FD;transform:rotate(0.8deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°22</span><span class="ph-g">MARIO MAKER 2</span></div><img class="vc-img" src="/assets/th_25.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">6:39</span></div><div class="vc-info"><div class="vc-meta">18 JUIN 2023 · 252 VUES</div><div class="vc-t">Toads contrôle le monde.. 😨 (Mario Maker 2)</div><span class="tg-m">MONTAGE ≈ 5H25</span></div></a><a class="vc mid" href="https://www.youtube.com/watch?v=XRhj1iSVQpw" target="_blank" rel="noopener" data-yt="XRhj1iSVQpw" data-t="QU&#x27;EST-CE QUI SE SERAIT PASSÉ SI KYOGRE ET GROUDON ÉTAIENT EN LIBERTÉ ? 🔥💧" style="--c:#F2EEE6;--k:#6D28D9;transform:rotate(-0.5deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°21</span><span class="ph-g">QU&#x27;EST-CE QUI SE</span></div><img class="vc-img" src="/assets/th_21.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">9:03</span></div><div class="vc-info"><div class="vc-meta">11 JUIN 2023 · 903 VUES</div><div class="vc-t">QU&#x27;EST-CE QUI SE SERAIT PASSÉ SI KYOGRE ET GROUDON ÉTAIENT EN LIBERTÉ ? 🔥💧</div></div></a><a class="vc mid" href="https://www.youtube.com/watch?v=YRrMxuR5J2k" target="_blank" rel="noopener" data-yt="YRrMxuR5J2k" data-t="MAIS YA TROP DE BRUIT 🤯 ( Who&#x27;s Your Daddy )" style="--c:#FFC21A;--k:#3B1E6E;transform:rotate(1.1deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°20</span><span class="ph-g">WHO&#x27;S YOUR DADDY</span></div><img class="vc-img" src="/assets/th_23.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">5:38</span></div><div class="vc-info"><div class="vc-meta">4 JUIN 2023 · 526 VUES</div><div class="vc-t">MAIS YA TROP DE BRUIT 🤯 ( Who&#x27;s Your Daddy )</div><span class="tg-m">MONTAGE ≈ 4H20</span></div></a><a class="vc mid" href="https://www.youtube.com/watch?v=uKJKSJgwTrw" target="_blank" rel="noopener" data-yt="uKJKSJgwTrw" data-t="Je déteste ce jeux.. 😤 ( Mario Maker 2 )" style="--c:#8B5CF6;--k:#1C0B3A;transform:rotate(-0.9deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°19</span><span class="ph-g">MARIO MAKER 2</span></div><img class="vc-img" src="/assets/th_42.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">8:02</span></div><div class="vc-info"><div class="vc-meta">30 AVR. 2023 · 232 VUES</div><div class="vc-t">Je déteste ce jeux.. 😤 ( Mario Maker 2 )</div><span class="tg-m">MONTAGE ≈ 3H30</span></div></a><a class="vc mid" href="https://www.youtube.com/watch?v=bMDkTkftSOU" target="_blank" rel="noopener" data-yt="bMDkTkftSOU" data-t="Valord a un problème... (Phasmophobia) 👻" style="--c:#1C0B3A;--k:#C4B5FD;transform:rotate(0.6deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°18</span><span class="ph-g">PHASMOPHOBIA</span></div><img class="vc-img" src="/assets/th_28.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">9:51</span></div><div class="vc-info"><div class="vc-meta">23 AVR. 2023 · 237 VUES</div><div class="vc-t">Valord a un problème... (Phasmophobia) 👻</div><span class="tg-m">MONTAGE ≈ 4H50</span></div></a><a class="vc mid" href="https://www.youtube.com/watch?v=WWWkWzSx3f8" target="_blank" rel="noopener" data-yt="WWWkWzSx3f8" data-t="Best-Of FUNNT MOMENT ( Moment les plus drôle actuellement de la chaine )" style="--c:#F2EEE6;--k:#6D28D9;transform:rotate(1.3deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°17</span><span class="ph-g">MOMENT LES PLUS DRÔLE ACTUEL</span></div><img class="vc-img" src="/assets/th_20.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">4:32</span></div><div class="vc-info"><div class="vc-meta">16 AVR. 2023 · 70 VUES</div><div class="vc-t">Best-Of FUNNT MOMENT ( Moment les plus drôle actuellement de la chaine )</div></div></a><a class="vc mid" href="https://www.youtube.com/watch?v=ii1TRRZLCOk" target="_blank" rel="noopener" data-yt="ii1TRRZLCOk" data-t="4 vs 4 Bedwars 🛌 ! ( Minecraft )" style="--c:#FFC21A;--k:#3B1E6E;transform:rotate(-0.7deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°16</span><span class="ph-g">MINECRAFT</span></div><img class="vc-img" src="/assets/th_32.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">6:01</span></div><div class="vc-info"><div class="vc-meta">5 MARS 2023 · 159 VUES</div><div class="vc-t">4 vs 4 Bedwars 🛌 ! ( Minecraft )</div><span class="tg-m">MONTAGE ≈ 4H20</span></div></a><a class="vc mid" href="https://www.youtube.com/watch?v=ki4CZRePgBk" target="_blank" rel="noopener" data-yt="ki4CZRePgBk" data-t="MAIS BORDEL ON S’ENTEND PAS !!! 😩😤 (Newer Super Mario Bros WII #1 )" style="--c:#8B5CF6;--k:#1C0B3A;transform:rotate(-1.2deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°15</span><span class="ph-g">NEWER SUPER MARIO BROS WII #</span></div><img class="vc-img" src="/assets/th_35.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">8:45</span></div><div class="vc-info"><div class="vc-meta">26 FÉVR. 2023 · 398 VUES</div><div class="vc-t">MAIS BORDEL ON S’ENTEND PAS !!! 😩😤 (Newer Super Mario Bros WII #1 )</div><span class="tg-m">MONTAGE ≈ 2H25</span></div></a><a class="vc mid" href="https://www.youtube.com/watch?v=m5b65PqXyRA" target="_blank" rel="noopener" data-yt="m5b65PqXyRA" data-t="Il ne nous aime pas... 💀 ( Phasmophobia )" style="--c:#1C0B3A;--k:#C4B5FD;transform:rotate(0.8deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°14</span><span class="ph-g">PHASMOPHOBIA</span></div><img class="vc-img" src="/assets/th_36.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">6:26</span></div><div class="vc-info"><div class="vc-meta">10 FÉVR. 2023 · 85 VUES</div><div class="vc-t">Il ne nous aime pas... 💀 ( Phasmophobia )</div><span class="tg-m">MONTAGE ≈ 3H30</span></div></a><a class="vc mid" href="https://www.youtube.com/watch?v=XYPGtg7qPgM" target="_blank" rel="noopener" data-yt="XYPGtg7qPgM" data-t="CETTE MISE A JOUR EST EFFRAYANTE" style="--c:#F2EEE6;--k:#6D28D9;transform:rotate(-0.5deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°13</span><span class="ph-g">CETTE MISE A</span></div><img class="vc-img" src="/assets/th_22.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">8:49</span></div><div class="vc-info"><div class="vc-meta">2 FÉVR. 2023 · 119 VUES</div><div class="vc-t">CETTE MISE A JOUR EST EFFRAYANTE</div><span class="tg-m">MONTAGE ≈ 4H20</span></div></a><a class="vc mid" href="https://www.youtube.com/watch?v=Ye2eBjHCWSg" target="_blank" rel="noopener" data-yt="Ye2eBjHCWSg" data-t="JE REC SANS QU&#x27;IL LE SACHE #1 (Roblox)" style="--c:#FFC21A;--k:#3B1E6E;transform:rotate(1.1deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°12</span><span class="ph-g">ROBLOX</span></div><img class="vc-img" src="/assets/th_24.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">1:23</span></div><div class="vc-info"><div class="vc-meta">29 JANV. 2023 · 151 VUES</div><div class="vc-t">JE REC SANS QU&#x27;IL LE SACHE #1 (Roblox)</div></div></a><a class="vc mid" href="https://www.youtube.com/watch?v=BPbLk9IguSc" target="_blank" rel="noopener" data-yt="BPbLk9IguSc" data-t="Minerai qui scintille ?? 💎( Episode 2 Survie MC )" style="--c:#8B5CF6;--k:#1C0B3A;transform:rotate(-0.9deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°11</span><span class="ph-g">EPISODE 2 SURVIE MC</span></div><img class="vc-img" src="/assets/th_10.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">1:55</span></div><div class="vc-info"><div class="vc-meta">JANV. 2023 · 150 VUES</div><div class="vc-t">Minerai qui scintille ?? 💎( Episode 2 Survie MC )</div></div></a><a class="vc mid" href="https://www.youtube.com/watch?v=6zHf78gzyD4" target="_blank" rel="noopener" data-yt="6zHf78gzyD4" data-t="FAITES GAFFE A VOTRE ARGENT 💸 (Grand Theft Auto 5 #2)" style="--c:#1C0B3A;--k:#C4B5FD;transform:rotate(0.6deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°10</span><span class="ph-g">GRAND THEFT AUTO 5 #2</span></div><img class="vc-img" src="/assets/th_6.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">5:05</span></div><div class="vc-info"><div class="vc-meta">19 JANV. 2023 · 81 VUES</div><div class="vc-t">FAITES GAFFE A VOTRE ARGENT 💸 (Grand Theft Auto 5 #2)</div><span class="tg-m">MONTAGE ≈ 2H</span></div></a><a class="vc mid" href="https://www.youtube.com/watch?v=JcELE6oMjBw" target="_blank" rel="noopener" data-yt="JcELE6oMjBw" data-t="FINIR MARIO 64 EN 7 JOURS !!! | Jours 3" style="--c:#F2EEE6;--k:#6D28D9;transform:rotate(1.3deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°09</span><span class="ph-g">JOURS 3</span></div><img class="vc-img" src="/assets/th_15.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">4:02</span></div><div class="vc-info"><div class="vc-meta">JANV. 2023 · 106 VUES</div><div class="vc-t">FINIR MARIO 64 EN 7 JOURS !!! | Jours 3</div></div></a><a class="vc mid" href="https://www.youtube.com/watch?v=EOnwoto4SrM" target="_blank" rel="noopener" data-yt="EOnwoto4SrM" data-t="Nan mais ça fait pas peur... 😥" style="--c:#FFC21A;--k:#3B1E6E;transform:rotate(-0.7deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°08</span><span class="ph-g">NAN MAIS ÇA</span></div><img class="vc-img" src="/assets/th_12.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">7:26</span></div><div class="vc-info"><div class="vc-meta">5 JANV. 2023 · 279 VUES</div><div class="vc-t">Nan mais ça fait pas peur... 😥</div><span class="tg-m">MONTAGE ≈ 4H20</span></div></a></div><div class="yr-wrap"><div class="yr" style="transform:rotate(-1deg)"><span class="yr-y">2022</span><span class="yr-c">7 VIDÉOS</span></div><div class="yr-line"></div></div><div class="grid4"><a class="vc mid" href="https://www.youtube.com/watch?v=ghL1VqdjYFY" target="_blank" rel="noopener" data-yt="ghL1VqdjYFY" data-t="Tout a un début (Episode 1 SURVIE MC)" style="--c:#F2EEE6;--k:#6D28D9;transform:rotate(1.3deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°07</span><span class="ph-g">EPISODE 1 SURVIE MC</span></div><img class="vc-img" src="/assets/th_31.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">8:04</span></div><div class="vc-info"><div class="vc-meta">29 DÉC. 2022 · 215 VUES</div><div class="vc-t">Tout a un début (Episode 1 SURVIE MC)</div><span class="tg-m">MONTAGE ≈ 2H</span></div></a><a class="vc mid" href="https://www.youtube.com/watch?v=wsUicX339Yo" target="_blank" rel="noopener" data-yt="wsUicX339Yo" data-t="SI VOUS NOUS VOYEZ...COURER!!" style="--c:#FFC21A;--k:#3B1E6E;transform:rotate(-0.7deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°06</span><span class="ph-g">SI VOUS NOUS</span></div><img class="vc-img" src="/assets/th_44.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">4:11</span></div><div class="vc-info"><div class="vc-meta">22 DÉC. 2022 · 82 VUES</div><div class="vc-t">SI VOUS NOUS VOYEZ...COURER!!</div><span class="tg-m">MONTAGE ≈ 4H20</span></div></a><a class="vc mid" href="https://www.youtube.com/watch?v=Fpu2sHpHAGY" target="_blank" rel="noopener" data-yt="Fpu2sHpHAGY" data-t="JE SAVAIS PAS QUOI (feur) FAIRE" style="--c:#8B5CF6;--k:#1C0B3A;transform:rotate(-1.2deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°05</span><span class="ph-g">FEUR</span></div><img class="vc-img" src="/assets/th_13.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">3:55</span></div><div class="vc-info"><div class="vc-meta">2022 · 105 VUES</div><div class="vc-t">JE SAVAIS PAS QUOI (feur) FAIRE</div></div></a><a class="vc mid" href="https://www.youtube.com/watch?v=ToEKHaltAz8" target="_blank" rel="noopener" data-yt="ToEKHaltAz8" data-t="J’ai explosé des trucs…" style="--c:#1C0B3A;--k:#C4B5FD;transform:rotate(0.8deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°04</span><span class="ph-g">J’AI EXPLOSÉ DES</span></div><img class="vc-img" src="/assets/th_18.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">4:52</span></div><div class="vc-info"><div class="vc-meta">2022 · 58 VUES</div><div class="vc-t">J’ai explosé des trucs…</div></div></a><a class="vc mid" href="https://www.youtube.com/watch?v=HuZ6KuwvHxY" target="_blank" rel="noopener" data-yt="HuZ6KuwvHxY" data-t="FINIR MARIO 64 EN 7 JOURS !!! | jours 2" style="--c:#F2EEE6;--k:#6D28D9;transform:rotate(-0.5deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°03</span><span class="ph-g">JOURS 2</span></div><img class="vc-img" src="/assets/th_14.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">10:14</span></div><div class="vc-info"><div class="vc-meta">2022 · 221 VUES</div><div class="vc-t">FINIR MARIO 64 EN 7 JOURS !!! | jours 2</div></div></a><a class="vc mid" href="https://www.youtube.com/watch?v=84OI75nXDzU" target="_blank" rel="noopener" data-yt="84OI75nXDzU" data-t="FINIR MARIO 64 EN 7 JOURS !!! | Jour 1" style="--c:#FFC21A;--k:#3B1E6E;transform:rotate(1.1deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°02</span><span class="ph-g">JOUR 1</span></div><img class="vc-img" src="/assets/th_7.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">4:50</span></div><div class="vc-info"><div class="vc-meta">2022 · 157 VUES</div><div class="vc-t">FINIR MARIO 64 EN 7 JOURS !!! | Jour 1</div></div></a><a class="vc mid" href="https://www.youtube.com/watch?v=eyv_aCKWpCc" target="_blank" rel="noopener" data-yt="eyv_aCKWpCc" data-t="MARIO JE SOUFFRE 2" style="--c:#8B5CF6;--k:#1C0B3A;transform:rotate(-0.9deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°01</span><span class="ph-g">MARIO JE SOUFFRE</span></div><img class="vc-img" src="/assets/th_30.webp" alt="" loading="lazy"><span class="vc-play">▶</span><span class="vc-dur">4:59</span></div><div class="vc-info"><div class="vc-meta">2022 · 57 VUES</div><div class="vc-t">MARIO JE SOUFFRE 2</div></div></a></div>
+<div style="display: flex; align-items: center; gap: 18px; margin: 80px 0 30px 0"><span style="font-family: 'Anton', sans-serif; font-size: 54px; line-height: 1; color: #C4B5FD">LES SHORTS</span><span style="font-size: 12px; letter-spacing: 0.14em; color: #A99FC9">11 FORMATS VERTICAUX • DU PLUS RÉCENT AU PLUS ANCIEN</span></div>
+<div class="grid8"><a class="sc" href="https://www.youtube.com/shorts/NBwqxQBSu-4" target="_blank" rel="noopener" data-yt="NBwqxQBSu-4" data-s="1" data-t="aaah goal 💀" style="--c:#8B5CF6;--k:#1C0B3A;transform:rotate(0.77deg)"><div class="sc-th"><div class="vc-ph"><span class="ph-n">#11</span><span class="ph-g sm">SHORT</span></div><img class="vc-img" src="/assets/th_56.webp" alt="" loading="lazy"><span class="vc-play sm">▶</span></div><div class="sc-meta">2024 · 26 VUES</div><div class="sc-t">aaah goal 💀</div></a><a class="sc" href="https://www.youtube.com/shorts/noVo5Lvec4o" target="_blank" rel="noopener" data-yt="noVo5Lvec4o" data-s="1" data-t="Valorant n&#x27;est pas fait pour tous le monde..." style="--c:#1C0B3A;--k:#C4B5FD;transform:rotate(-0.63deg)"><div class="sc-th"><div class="vc-ph"><span class="ph-n">#10</span><span class="ph-g sm">SHORT</span></div><img class="vc-img" src="/assets/th_73.webp" alt="" loading="lazy"><span class="vc-play sm">▶</span></div><div class="sc-meta">2024 · 107 VUES</div><div class="sc-t">Valorant n&#x27;est pas fait pour tous le monde...</div></a><a class="sc" href="https://www.youtube.com/shorts/sVshVABmSXM" target="_blank" rel="noopener" data-yt="sVshVABmSXM" data-s="1" data-t="Ceci est l&#x27;Amérique 💀💀🔥" style="--c:#F2EEE6;--k:#6D28D9;transform:rotate(0.42deg)"><div class="sc-th"><div class="vc-ph"><span class="ph-n">#09</span><span class="ph-g sm">SHORT</span></div><img class="vc-img" src="/assets/th_76.webp" alt="" loading="lazy"><span class="vc-play sm">▶</span></div><div class="sc-meta">2024 · 126 VUES</div><div class="sc-t">Ceci est l&#x27;Amérique 💀💀🔥</div></a><a class="sc" href="https://www.youtube.com/shorts/86-MyxbMNiE" target="_blank" rel="noopener" data-yt="86-MyxbMNiE" data-s="1" data-t="CE JEU FAIT SUPER PEUR DISPO EN ENTIER !" style="--c:#FFC21A;--k:#3B1E6E;transform:rotate(0.9099999999999999deg)"><div class="sc-th"><div class="vc-ph"><span class="ph-n">#08</span><span class="ph-g sm">SHORT</span></div><img class="vc-img" src="/assets/th_48.webp" alt="" loading="lazy"><span class="vc-play sm">▶</span></div><div class="sc-meta">3 AVR. 2024 · 107 VUES</div><div class="sc-t">CE JEU FAIT SUPER PEUR DISPO EN ENTIER !</div></a><a class="sc" href="https://www.youtube.com/shorts/KagBn0G8ZB4" target="_blank" rel="noopener" data-yt="KagBn0G8ZB4" data-s="1" data-t="Ce jeu fait ultra peur dispo en entier ! 😲" style="--c:#8B5CF6;--k:#1C0B3A;transform:rotate(-0.48999999999999994deg)"><div class="sc-th"><div class="vc-ph"><span class="ph-n">#07</span><span class="ph-g sm">SHORT</span></div><img class="vc-img" src="/assets/th_53.webp" alt="" loading="lazy"><span class="vc-play sm">▶</span></div><div class="sc-meta">27 MARS 2024 · 58 VUES</div><div class="sc-t">Ce jeu fait ultra peur dispo en entier ! 😲</div></a><a class="sc" href="https://www.youtube.com/shorts/oDEaHRay5H8" target="_blank" rel="noopener" data-yt="oDEaHRay5H8" data-s="1" data-t="PARIS SUR FORTNITE 🚇 Dispo en entier !" style="--c:#1C0B3A;--k:#C4B5FD;transform:rotate(-0.84deg)"><div class="sc-th"><div class="vc-ph"><span class="ph-n">#06</span><span class="ph-g sm">SHORT</span></div><img class="vc-img" src="/assets/th_74.webp" alt="" loading="lazy"><span class="vc-play sm">▶</span></div><div class="sc-meta">10 JANV. 2024 · 591 VUES</div><div class="sc-t">PARIS SUR FORTNITE 🚇 Dispo en entier !</div></a><a class="sc" href="https://www.youtube.com/shorts/Z5W7z9HH3tQ" target="_blank" rel="noopener" data-yt="Z5W7z9HH3tQ" data-s="1" data-t="Le RoadTrip de CapitaineDesToads ! (Part.2)" style="--c:#F2EEE6;--k:#6D28D9;transform:rotate(0.5599999999999999deg)"><div class="sc-th"><div class="vc-ph"><span class="ph-n">#05</span><span class="ph-g sm">SHORT</span></div><img class="vc-img" src="/assets/th_64.webp" alt="" loading="lazy"><span class="vc-play sm">▶</span></div><div class="sc-meta">6 DÉC. 2023 · 111 VUES</div><div class="sc-t">Le RoadTrip de CapitaineDesToads ! (Part.2)</div></a><a class="sc" href="https://www.youtube.com/shorts/E38Z0Lb6hWE" target="_blank" rel="noopener" data-yt="E38Z0Lb6hWE" data-s="1" data-t="Le RoadTrip de CapitaineDesToads !!" style="--c:#FFC21A;--k:#3B1E6E;transform:rotate(-0.35deg)"><div class="sc-th"><div class="vc-ph"><span class="ph-n">#04</span><span class="ph-g sm">SHORT</span></div><img class="vc-img" src="/assets/th_52.webp" alt="" loading="lazy"><span class="vc-play sm">▶</span></div><div class="sc-meta">10 OCT. 2023 · 563 VUES</div><div class="sc-t">Le RoadTrip de CapitaineDesToads !!</div></a><a class="sc" href="https://www.youtube.com/shorts/kG8tDNn7Ux4" target="_blank" rel="noopener" data-yt="kG8tDNn7Ux4" data-s="1" data-t="4 jeux d&#x27;horreur qui ne font pas peur en entier !!" style="--c:#8B5CF6;--k:#1C0B3A;transform:rotate(0.77deg)"><div class="sc-th"><div class="vc-ph"><span class="ph-n">#03</span><span class="ph-g sm">SHORT</span></div><img class="vc-img" src="/assets/th_70.webp" alt="" loading="lazy"><span class="vc-play sm">▶</span></div><div class="sc-meta">2 AOÛT 2023 · 210 VUES</div><div class="sc-t">4 jeux d&#x27;horreur qui ne font pas peur en entier !!</div></a><a class="sc" href="https://www.youtube.com/shorts/uLI1zTEfgfo" target="_blank" rel="noopener" data-yt="uLI1zTEfgfo" data-s="1" data-t="Valord à un problémes dispo en entier !" style="--c:#1C0B3A;--k:#C4B5FD;transform:rotate(-0.63deg)"><div class="sc-th"><div class="vc-ph"><span class="ph-n">#02</span><span class="ph-g sm">SHORT</span></div><img class="vc-img" src="/assets/th_77.webp" alt="" loading="lazy"><span class="vc-play sm">▶</span></div><div class="sc-meta">19 JUIL. 2023 · 190 VUES</div><div class="sc-t">Valord à un problémes dispo en entier !</div></a><a class="sc" href="https://www.youtube.com/shorts/lc1MG2VfKko" target="_blank" rel="noopener" data-yt="lc1MG2VfKko" data-s="1" data-t="Mami et malade dispo en entier !" style="--c:#F2EEE6;--k:#6D28D9;transform:rotate(0.42deg)"><div class="sc-th"><div class="vc-ph"><span class="ph-n">#01</span><span class="ph-g sm">SHORT</span></div><img class="vc-img" src="/assets/th_72.webp" alt="" loading="lazy"><span class="vc-play sm">▶</span></div><div class="sc-meta">12 JUIL. 2023 · 69 VUES</div><div class="sc-t">Mami et malade dispo en entier !</div></a></div>
+</section>
+
+<section aria-hidden="true" style="position: relative; height: 150px; background: linear-gradient(180deg, #120A22 0%, #0E0E10 100%)">
+<div style="position: absolute; left: -40px; right: -40px; top: 62px; height: 52px; transform: rotate(-1.5deg); background: #2EC4B6; color: #04201D; overflow: hidden; display: flex; align-items: center">
+<div style="display: flex; gap: 40px; white-space: nowrap; font-family: 'Anton', sans-serif; font-size: 30px; width: max-content; animation: marquee 26s linear infinite">
+<span>VIDÉOS INDÉ ✦ MONTAGES UNIQUES ✦ POUR D'AUTRES CRÉATEURS ✦ EN COURS D'AJOUT ✦</span><span>VIDÉOS INDÉ ✦ MONTAGES UNIQUES ✦ POUR D'AUTRES CRÉATEURS ✦ EN COURS D'AJOUT ✦</span>
+</div>
+</div>
+</section>
+
+<!-- 03 INDÉ -->
+<section id="inde" style="position: relative; padding: 60px 48px 110px 48px; display: flex; flex-direction: column; gap: 34px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 40px">
+<div>
+<div style="font-size: 13px; letter-spacing: 0.14em; color: #7FD8CF">// 03 • HORS CHAÎNES</div>
+<h2 style="margin: 6px 0 0 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 160px; line-height: 0.88; color: #2EC4B6">VIDÉOS INDÉ</h2>
+<p style="margin: 18px 0 0 0; width: 680px; font-size: 16px; line-height: 1.65; color: #D8D3C9">Des montages uniques, faits pour d'autres créateurs, en dehors des deux chaînes.</p>
+</div>
+<div style="display: flex; align-items: flex-end; gap: 8px">
+<div class="bubble" style="width: 220px; margin-bottom: 100px; transform: rotate(2deg)">{{msg.inde}}</div>
+<button type="button" class="chibi-b" data-dc-onclick="{{poke.inde}}" aria-label="Le chibi de Romain" style="appearance: none; border: 0; background: transparent; padding: 0"><img loading="lazy" decoding="async" class="chibi" data-dc-src="{{img.inde}}" alt="Chibi de Romain" style="width: 110px; height: 190px"></button>
+</div>
+</div>
+<div class="grid3"><a class="vc mid3" href="https://www.youtube.com/watch?v=6DSPh4M7b7c" target="_blank" rel="noopener" data-yt="6DSPh4M7b7c" data-t="OMEGLE SUR ROBLOX ?? 🟠 (Roblox)" style="--c:#2EC4B6;--k:#04201D;transform:rotate(-1.2deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°02</span><span class="ph-g">ROBLOX</span></div><img class="vc-img" src="/assets/th_5.webp" alt="" loading="lazy"><span class="vc-play">▶</span></div><div class="vc-info"><div class="vc-meta">15 MAI 2024</div><div class="vc-t">OMEGLE SUR ROBLOX ?? 🟠 (Roblox)</div></div></a><a class="vc mid3" href="https://www.youtube.com/watch?v=DKCUZpPEtvc" target="_blank" rel="noopener" data-yt="DKCUZpPEtvc" data-t="On sauve Inoxtag du Mont Everest" style="--c:#04201D;--k:#2EC4B6;transform:rotate(0.8deg)"><div class="vc-th"><div class="vc-ph"><span class="ph-n">N°01</span><span class="ph-g">ON SAUVE INOXTAG</span></div><img class="vc-img" src="/assets/th_11.webp" alt="" loading="lazy"><span class="vc-play">▶</span></div><div class="vc-info"><div class="vc-meta">9 AOÛT 2023</div><div class="vc-t">On sauve Inoxtag du Mont Everest</div></div></a><div class="slot" style="transform:rotate(1deg)"><span class="slot-p">+</span><span class="slot-t">EMPLACEMENT LIBRE</span><span class="slot-s">VIDÉO INDÉ À VENIR</span></div><div class="slot" style="transform:rotate(-1.2deg)"><span class="slot-p">+</span><span class="slot-t">EMPLACEMENT LIBRE</span><span class="slot-s">VIDÉO INDÉ À VENIR</span></div><div class="slot" style="transform:rotate(0.8deg)"><span class="slot-p">+</span><span class="slot-t">EMPLACEMENT LIBRE</span><span class="slot-s">VIDÉO INDÉ À VENIR</span></div><div class="slot" style="transform:rotate(-0.6deg)"><span class="slot-p">+</span><span class="slot-t">EMPLACEMENT LIBRE</span><span class="slot-s">VIDÉO INDÉ À VENIR</span></div></div>
+</section>
+
+<a href="/real-futbol-x.html" style="display: flex; align-items: center; justify-content: space-between; min-height: 270px; flex: 1 0 auto; background: #0B1A3A; color: #F2EEE6; text-decoration: none; padding: 0 56px; position: relative; overflow: hidden">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em; color: #7FA6FF">DOSSIER SUIVANT — 04</span>
+<span style="font-family: 'Anton', sans-serif; font-size: 130px; line-height: 0.85">REAL FUTBOL X →</span>
+</div>
+<div style="display: flex; align-items: flex-end; gap: 10px">
+<div class="bubble" style="width: 210px; margin-bottom: 80px; transform: rotate(2deg); font-size: 20px">Assez d'écran. On retourne sur le terrain.</div>
+<img loading="lazy" decoding="async" src="/assets/chibi_content.webp" alt="" style="width: 110px; height: 190px; object-fit: contain; animation: bob 2.4s ease-in-out infinite">
+</div>
+</a>
+
+<div data-dc-ref="{{ovRef}}" class="yt-ov" role="dialog" aria-label="Lecteur vidéo">
+<div data-dc-ref="{{ovWinRef}}" class="yt-win">
+<div class="yt-bar"><span data-dc-ref="{{ovTitleRef}}">▶ LECTURE</span><button type="button" class="yt-x" data-close="1">✕ FERMER</button></div>
+<div data-dc-ref="{{ovFrameRef}}" class="yt-frame" style="width: 1040px; height: 585px"></div>
+<div class="yt-fb"><span>Le lecteur ne s'affiche pas ? Ouvre la vidéo directement sur YouTube.</span><a data-dc-ref="{{ovLinkRef}}" class="yt-open" href="https://www.youtube.com" target="_blank" rel="noopener">OUVRIR SUR YOUTUBE ↗</a></div>
+</div>
+</div>
+
+<div data-dc-ref="{{tpRef}}" class="tp-ov" aria-hidden="true"><div class="tp-band" style="background: #F2EEE6; --d: 0.000s"></div><div class="tp-band" style="background: #0E0E10; --d: 0.035s"></div><div class="tp-band" style="background: #D7263D; --d: 0.070s"></div><div class="tp-band" style="background: #1B1B1F; --d: 0.105s"></div><div class="tp-band" style="background: #8B5CF6; --d: 0.140s"></div><div class="tp-band" style="background: #2EC4B6; --d: 0.175s"></div><div class="tp-band" style="background: #0E0E10; --d: 0.210s"></div><div data-dc-ref="{{tpLblRef}}" class="tp-lbl"></div></div>
+</div>
+</x-dc>
+<script src="/assets/dc.js?v=1b6c20c3"></script>
+<script>
+window.__DC = class Component extends DCLogic {
+  initHeader() {
+    if (this._hdInit || !this.hd || !this.hdWrap) return;
+    this._hdInit = true;
+    const hd = this.hd, wrap = this.hdWrap;
+    let last = 0, fixed = false;
+    const getY = (ev) => {
+      const tg = ev && ev.target;
+      if (tg && tg !== document && tg.nodeType === 1 && tg.scrollHeight > tg.clientHeight && tg.contains(hd)) return tg.scrollTop;
+      return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    };
+    this._hdScroll = (ev) => {
+      const y = getY(ev), h = wrap.offsetHeight || hd.offsetHeight || 100;
+      if (!fixed) wrap.style.height = hd.offsetHeight + 'px';
+      if (y <= h) {
+        if (fixed) { fixed = false; hd.classList.remove('hd-fixed', 'hd-show', 'hd-instant'); }
+      } else {
+        if (!fixed) { fixed = true; hd.classList.add('hd-fixed', 'hd-instant'); void hd.offsetWidth; hd.classList.remove('hd-instant'); }
+        if (y < last - 2) hd.classList.add('hd-show');
+        else if (y > last + 2) hd.classList.remove('hd-show');
+      }
+      last = y;
+    };
+    document.addEventListener('scroll', this._hdScroll, true);
+  }
+  componentWillUnmount() {
+    if (this._zoomFit) window.removeEventListener('resize', this._zoomFit);
+    if (this._hdScroll) document.removeEventListener('scroll', this._hdScroll, true);
+    if (this._ytClick) document.removeEventListener('click', this._ytClick, true);
+    if (this._ytKey) document.removeEventListener('keydown', this._ytKey);
+    (this._tpT || []).forEach(clearTimeout);
+    Object.values(this._pokeT || {}).forEach(clearTimeout);
+  }
+  teleport(e, id, label) {
+    if (e && e.preventDefault) e.preventDefault();
+    const ov = this.tpEl, target = document.getElementById(id);
+    if (!target) return;
+    if (!ov) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
+    (this._tpT || []).forEach(clearTimeout); this._tpT = [];
+    const at = (ms, fn) => this._tpT.push(setTimeout(fn, ms));
+    if (this.tpLbl) this.tpLbl.textContent = label;
+    ov.className = 'tp-ov on';
+    at(20, () => ov.classList.add('in'));
+    at(500, () => { target.scrollIntoView({ behavior: 'auto', block: 'start' }); ov.classList.add('out'); });
+    at(1000, () => { ov.className = 'tp-ov'; });
+  }
+  initZoom() {
+    if (this._zoomInit || typeof window === 'undefined') return;
+    this._zoomInit = true;
+    const fit = () => {
+      const w = window.innerWidth || document.documentElement.clientWidth;
+      if (!w) return;
+      document.documentElement.style.zoom = String(w / 1440);
+    };
+    this._zoomFit = fit;
+    fit();
+    window.addEventListener('resize', fit);
+  }
+  openVideo(id, title, isShort) {
+    const ov = this.ovEl, fr = this.ovFrame;
+    if (!ov || !fr) { window.location.href = 'https://www.youtube.com/watch?v=' + id; return; }
+    const url = isShort ? 'https://www.youtube.com/shorts/' + id : 'https://www.youtube.com/watch?v=' + id;
+    if (this.ovLink) this.ovLink.href = url;
+    if (this.ovTitle) this.ovTitle.textContent = '▶ ' + (title || 'LECTURE');
+    fr.style.width = isShort ? '340px' : '1040px';
+    fr.style.height = isShort ? '604px' : '585px';
+    if (this.ovWin) this.ovWin.classList.toggle('short', !!isShort);
+    fr.innerHTML = '';
+    const ifr = document.createElement('iframe');
+    ifr.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+    ifr.title = title || 'Vidéo YouTube';
+    ifr.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    ifr.allowFullscreen = true;
+    fr.appendChild(ifr);
+    ov.classList.add('on');
+  }
+  closeVideo() {
+    if (!this.ovEl) return;
+    this.ovEl.classList.remove('on');
+    if (this.ovFrame) this.ovFrame.innerHTML = '';
+  }
+  hideBroken() {
+    if (typeof document === 'undefined') return;
+    document.querySelectorAll('.vc-img').forEach((im) => {
+      if (im._chk) return; im._chk = true;
+      const bad = () => im.classList.add('bad');
+      im.addEventListener('error', bad);
+      if (im.complete && !im.naturalWidth) bad();
+    });
+  }
+  initVideos() {
+    setTimeout(() => this.hideBroken(), 0);
+    if (this._ytInit || typeof document === 'undefined') return;
+    this._ytInit = true;
+    this._ytClick = (e) => {
+      const t = e.target;
+      if (!t || !t.closest) return;
+      if (this.ovEl && this.ovEl.classList.contains('on')) {
+        if (t.closest('[data-close]') || t === this.ovEl) { e.preventDefault(); this.closeVideo(); }
+        return;
+      }
+      const a = t.closest('[data-yt]');
+      if (!a) return;
+      e.preventDefault();
+      this.openVideo(a.getAttribute('data-yt'), a.getAttribute('data-t'), a.getAttribute('data-s') === '1');
+    };
+    this._ytKey = (e) => { if (e.key === 'Escape') this.closeVideo(); };
+    document.addEventListener('click', this._ytClick, true);
+    document.addEventListener('keydown', this._ytKey);
+  }
+  chibis() {
+    return {
+      hero: { img: '/assets/chibi_parle.webp', msg: 'Toutes les vidéos de ce dossier, c’est moi qui les ai montées. Même les shorts.', alt: { img: '/assets/chibi_rigole.webp', msg: 'Tu cliques sur moi au lieu de regarder les vidéos ? Sérieux ?' } },
+      pn: { img: '/assets/chibi_peur.webp', msg: 'Chut… t’as rien vu.', alt: { img: '/assets/chibi_choque.webp', msg: 'J’AI DIT CHUT. Il pourrait t’entendre.' } },
+      sh: { img: '/assets/chibi_content.webp', msg: 'Petit format, gros boulot.', alt: { img: '/assets/chibi_party.webp', msg: 'Un short, c’est 60 secondes. Le montage, beaucoup plus.' } },
+      sl: { img: '/assets/chibi_rigole.webp', msg: 'Le dimanche, c’était jour de rendu. Tous les dimanches.', alt: { img: '/assets/chibi_triste.webp', msg: 'Deux ans sans dimanche tranquille…' } },
+      inde: { img: '/assets/chibi_neutre.webp', msg: 'Il en a encore plein sur son PC. Il les ajoute bientôt.', alt: { img: '/assets/chibi_kawaine.webp', msg: 'Patience, ça arrive.' } },
+    };
+  }
+  renderVals() {
+    this.initZoom();
+    this.initVideos();
+    const st = this.state || {};
+    const C = this.chibis();
+    const img = {}, msg = {}, poke = {};
+    Object.keys(C).forEach((k) => {
+      const c = st['p_' + k] ? C[k].alt : C[k];
+      img[k] = c.img; msg[k] = c.msg;
+      poke[k] = () => {
+        this.setState({ ['p_' + k]: true });
+        this._pokeT = this._pokeT || {};
+        clearTimeout(this._pokeT[k]);
+        this._pokeT[k] = setTimeout(() => this.setState({ ['p_' + k]: false }), 4000);
+      };
+    });
+    if (st.pnHot) { img.pn = '/assets/chibi_choque.webp'; msg.pn = 'T’AS FAIT TROP DE BRUIT. COURS !!!'; }
+    return {
+      img, msg, poke,
+      pnHot: { on: () => this.setState({ pnHot: true }), off: () => this.setState({ pnHot: false }) },
+      rootRef: () => {},
+      hdWrapRef: (el) => { if (el) { this.hdWrap = el; this.initHeader(); } },
+      hdRef: (el) => { if (el) { this.hd = el; this.initHeader(); } },
+      tpRef: (el) => { if (el) this.tpEl = el; },
+      tpLblRef: (el) => { if (el) this.tpLbl = el; },
+      ovRef: (el) => { if (el) this.ovEl = el; },
+      ovFrameRef: (el) => { if (el) this.ovFrame = el; },
+      ovWinRef: (el) => { if (el) this.ovWin = el; },
+      ovTitleRef: (el) => { if (el) this.ovTitle = el; },
+      ovLinkRef: (el) => { if (el) this.ovLink = el; },
+      go: {
+        xd: (e) => this.teleport(e, 'xd', 'ROOMAAAIN'),
+        sl: (e) => this.teleport(e, 'sl', 'SLIMAN'),
+        inde: (e) => this.teleport(e, 'inde', 'VIDÉOS INDÉ'),
+      },
+    };
+  }
+}
+</script>
+<script>window.__dcBoot();</script>
+</body>
+</html>

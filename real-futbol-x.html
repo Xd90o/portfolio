@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Real Futbol X — Romain</title>
+<meta name="description" content="Real Futbol X (Roblox) : modèles 3D, GUI et kits réalisés par Romain.">
+<meta property="og:title" content="Real Futbol X — Romain">
+<meta property="og:description" content="Real Futbol X (Roblox) : modèles 3D, GUI et kits réalisés par Romain.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://roomaaaain.fr/real-futbol-x.html">
+<meta name="theme-color" content="#121214">
+<link rel="icon" href="/assets/logo_solid_ink.webp">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wdth,wght@100..125,700..900&family=Space+Mono:wght@400;700&family=Gochi+Hand&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+html,body{background:#08090D;overflow-x:hidden}
+html,body,body *{cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2222%22%20height%3D%2222%22%20viewBox%3D%220%200%2034%2034%22%3E%3Cpolygon%20points%3D%223%2C3%203%2C27%2010%2C21%2015%2C31%2020%2C29%2015%2C19%2025%2C19%22%20transform%3D%22translate%283%203%29%22%20fill%3D%22%23FF5A1F%22/%3E%3Cpolygon%20points%3D%223%2C3%203%2C27%2010%2C21%2015%2C31%2020%2C29%2015%2C19%2025%2C19%22%20fill%3D%22%23F2EEE6%22%20stroke%3D%22%23121214%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22/%3E%3C/svg%3E") 2 2, auto !important}
+a,a *,button,button *,[role="button"],.btnz,.chap,[data-zoom],[data-zoom] *{cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2222%22%20height%3D%2222%22%20viewBox%3D%220%200%2034%2034%22%3E%3Cpolygon%20points%3D%223%2C3%203%2C27%2010%2C21%2015%2C31%2020%2C29%2015%2C19%2025%2C19%22%20transform%3D%22translate%283%203%29%22%20fill%3D%22%23F2EEE6%22/%3E%3Cpolygon%20points%3D%223%2C3%203%2C27%2010%2C21%2015%2C31%2020%2C29%2015%2C19%2025%2C19%22%20fill%3D%22%23FF5A1F%22%20stroke%3D%22%23121214%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22/%3E%3C/svg%3E") 2 2, pointer !important}
+@keyframes bob2{0%,100%{translate:0 0}50%{translate:0 -9px}}
+@keyframes talk{0%{background-position-x:91.6667%}50%{background-position-x:100%}}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes pop{0%{transform:scale(.6);opacity:0}100%{transform:scale(1);opacity:1}}
+@keyframes float{0%,100%{translate:0 0;rotate:-3deg}50%{translate:0 -14px;rotate:3deg}}
+@keyframes dots{from{background-position:0 0}to{background-position:36px 0}}
+@keyframes scan{0%{top:-10%}100%{top:110%}}
+@keyframes flash{0%{opacity:.85}100%{opacity:0}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(43,91,255,.6)}50%{box-shadow:0 0 0 14px rgba(43,91,255,0)}}
+.wide{font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:900;letter-spacing:-.01em;text-transform:uppercase}
+.sp{background-repeat:no-repeat;background-size:1300% 100%;background-position:calc(var(--i,0) * 8.33333%) 0;aspect-ratio:280/484;display:block}
+.sp.talk{animation:talk .34s steps(1) infinite}
+.grain{position:absolute;inset:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");mix-blend-mode:overlay;opacity:.35}
+.dots{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.22) 2.2px,transparent 2.6px);background-size:18px 18px;-webkit-mask-image:linear-gradient(100deg,transparent 30%,#000 85%);mask-image:linear-gradient(100deg,transparent 30%,#000 85%);animation:dots 6s linear infinite}
+.logo-hd{transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.logo-hd:hover{transform:rotate(-8deg) scale(1.1)}
+.chap,.btnz{display:inline-block;transition:transform .2s cubic-bezier(.3,1.6,.5,1),filter .2s}
+.chap:hover,.btnz:hover{transform:rotate(0deg) scale(1.12) !important;filter:brightness(1.1)}
+.chap:active,.btnz:active{transform:scale(0.94) !important}
+.hd{transition:transform .3s cubic-bezier(.3,1,.4,1),box-shadow .3s}
+.hd.hd-fixed{position:fixed !important;top:0;left:0;width:1440px;box-sizing:border-box;background:#08090D;z-index:60 !important;box-shadow:0 4px 0 #2B5BFF;transform:translateY(-110%)}
+.hd.hd-fixed.hd-show{transform:translateY(0)}
+.hd.hd-fixed.hd-instant{transition:none}
+.tp-ov{position:fixed;inset:0;z-index:9997;display:none;flex-direction:column;pointer-events:none}
+.tp-ov.on{display:flex;pointer-events:auto}
+.tp-band{flex:1;transform:translateX(-102%) skewX(-12deg);transition:transform .32s cubic-bezier(.7,0,.3,1);transition-delay:var(--d)}
+.tp-ov.in .tp-band{transform:translateX(0) skewX(0)}
+.tp-ov.out .tp-band{transform:translateX(102%) skewX(-12deg)}
+.tp-lbl{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.6) rotate(-4deg);font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:900;font-size:96px;line-height:1;color:#FFFFFF;background:#2B5BFF;padding:10px 34px;clip-path:polygon(4% 0,100% 0,96% 100%,0 100%);opacity:0;transition:opacity .15s,transform .25s cubic-bezier(.3,1.6,.5,1);white-space:nowrap}
+.tp-ov.in .tp-lbl{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(-2deg);transition-delay:.22s}
+.tp-ov.out .tp-lbl{opacity:0;transition-delay:0s}
+.bubble{background:#FFFFFF;color:#08090D;padding:12px 16px;font-family:'Gochi Hand',cursive;font-size:21px;line-height:1.12;clip-path:polygon(0 0,100% 0,100% 100%,8% 100%,0 80%)}
+.gd{appearance:none;border:0;background:transparent;padding:0;display:block;transition:scale .2s}
+.gd:hover{scale:1.08}
+.gd:active{scale:.92}
+.gd-w{animation:bob2 3s ease-in-out infinite}
+.kick{font-size:13px;letter-spacing:.14em}
+.lead{margin:18px 0 0 0;font-size:15px;line-height:1.65}
+.stat{white-space:nowrap;transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+.stat:hover{transform:rotate(0deg) scale(1.08) !important}
+.tl{position:relative;padding:30px 34px;background:#08090D;color:#FFFFFF}
+.tl-row{position:relative;display:flex;align-items:center;justify-content:flex-end;gap:16px;height:64px;transition:translate .25s}
+.tl-row:hover{translate:-8px 0}
+.tl-name{white-space:nowrap;font-family:'Archivo',sans-serif;font-stretch:100%;font-weight:700;font-size:24px;line-height:1}
+.tl-line{flex:0 0 90px;height:2px;background:#FFFFFF;position:relative}
+.tl-line::before,.tl-line::after{content:'';position:absolute;top:-4px;width:10px;height:10px;border-radius:50%;background:#FFFFFF}
+.tl-line::before{left:-5px}.tl-line::after{right:-5px}
+.tl-y{font-family:'Archivo',sans-serif;font-weight:700;font-size:22px;width:60px}
+.tl-row.me .tl-name{color:#5B86FF}
+.tl-row.me .tl-line,.tl-row.me .tl-line::before,.tl-row.me .tl-line::after{background:#5B86FF}
+.tl-me{position:relative;transform:rotate(-4deg);background:#FF5A1F;color:#1A0800;font-size:11px;font-weight:700;letter-spacing:.12em;padding:4px 10px;white-space:nowrap}
+.ttl{margin:6px 0 0 0;font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:900;font-size:118px;line-height:.86;text-transform:uppercase;letter-spacing:-.02em}
+.tagz{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.12em;padding:6px 28px 6px 14px;clip-path:polygon(0 0,100% 0,92% 100%,0 100%)}
+.zm{position:relative;display:block;overflow:hidden;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
+.zm img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.zm:hover{transform:rotate(0) scale(1.03) !important;z-index:3;box-shadow:10px 10px 0 #2B5BFF}
+.zm:hover img{transform:scale(1.05)}
+.zm::after{content:'⤢ AGRANDIR';position:absolute;right:10px;bottom:10px;background:#2B5BFF;color:#FFFFFF;font-size:10px;font-weight:700;letter-spacing:.1em;padding:4px 8px;opacity:0;transition:opacity .2s}
+.zm:hover::after{opacity:1}
+.zm.ct img{object-fit:contain}
+.cap{display:block;margin-top:10px;font-size:11px;font-weight:700;letter-spacing:.12em}
+.step{position:relative;display:flex;flex-direction:column}
+.step-n{position:absolute;left:-10px;top:-18px;z-index:4;font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:900;font-size:44px;line-height:1;color:#2B5BFF;-webkit-text-stroke:2px #FFFFFF}
+.stamp{position:absolute;border:5px solid #FF5A1F;color:#FF5A1F;font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:900;font-size:26px;line-height:1.05;padding:10px 16px;text-align:center;transform:rotate(-10deg);background:rgba(8,9,13,.6)}
+.scanl{position:absolute;left:0;right:0;height:60px;background:linear-gradient(180deg,transparent,rgba(91,134,255,.35),transparent);animation:scan 3.6s linear infinite;pointer-events:none}
+/* vestiaire */
+.gui{display:flex;background:#FFFFFF;color:#08090D;box-shadow:12px 12px 0 #2B5BFF}
+.gui-side{flex:0 0 250px;background:#F4F6FB;border-right:2px solid #DDE3F0;padding:22px 0}
+.gui-btn{appearance:none;border:0;background:transparent;width:100%;display:flex;align-items:center;justify-content:space-between;padding:13px 22px;font-family:'Archivo',sans-serif;font-weight:800;font-size:15px;color:#4A5068;text-align:left;transition:background .2s,color .2s,padding .2s}
+.gui-btn span{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:#8A90A8}
+.gui-btn:hover{background:#E6ECFF;color:#08090D;padding-left:28px}
+.gui-btn.on{background:#2B5BFF;color:#FFFFFF}
+.gui-btn.on span{color:#CFDAFF}
+.gui-main{position:relative;flex:1;overflow:hidden;background:#FFFFFF}
+.gui-main img{display:block;width:100%;height:auto}
+.gui-main .fl{position:absolute;inset:0;background:#FFFFFF;opacity:0;pointer-events:none}
+.gui-main .fl.go{animation:flash .35s ease-out}
+/* maillots */
+.kit{position:relative;display:block;overflow:hidden;background:#06102E;clip-path:polygon(0 0,calc(100% - 24px) 0,100% 24px,100% 100%,24px 100%,0 calc(100% - 24px));transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.kit img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.kit:hover{transform:rotate(0) translateY(-10px) !important}
+.kit:hover img{transform:scale(1.06)}
+.kit-l{position:absolute;left:0;bottom:0;right:0;padding:14px 16px;background:linear-gradient(transparent,rgba(6,16,46,.95));color:#FFFFFF}
+/* inventaire */
+.inv{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.item{position:relative;background:#FFFFFF;color:#08090D;padding:12px 12px 14px;transition:transform .3s cubic-bezier(.3,1.6,.5,1),box-shadow .3s}
+.item:hover{transform:rotate(0) translateY(-8px) !important;box-shadow:10px 10px 0 #2B5BFF;z-index:3}
+.item-img{position:relative;display:block;height:250px;background:#1D1F26;overflow:hidden}
+.item-img img{width:100%;height:100%;object-fit:contain;display:block;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.item:hover .item-img img{transform:scale(1.07)}
+.item-id{position:absolute;left:10px;top:10px;background:#2B5BFF;color:#FFFFFF;font-size:10px;font-weight:700;letter-spacing:.12em;padding:3px 8px}
+.item-n{font-family:'Archivo',sans-serif;font-weight:800;font-size:20px;margin-top:10px}
+.item-d{font-size:11px;color:#55596B;margin-top:3px;letter-spacing:.04em}
+.swap{position:relative;overflow:hidden}
+.swap .top{transition:opacity .45s}
+.swap:hover .top{opacity:0}
+.lb{position:fixed;inset:0;z-index:9998;display:none;align-items:center;justify-content:center;background:rgba(6,16,46,.92)}
+.lb.on{display:flex}
+.lb-w{display:flex;flex-direction:column;gap:12px;align-items:center;animation:pop .25s cubic-bezier(.3,1.6,.5,1)}
+.lb-w img{display:block;max-width:1240px;max-height:780px;border:4px solid #FFFFFF;background:#1D1F26}
+.lb-x{appearance:none;border:0;background:#2B5BFF;color:#FFFFFF;font-family:'Archivo',sans-serif;font-weight:800;font-size:16px;padding:8px 18px;clip-path:polygon(6% 0,100% 0,94% 100%,0 100%)}
+.mq{display:flex;width:max-content;animation:marquee 30s linear infinite}
+.mq span{font-family:'Archivo',sans-serif;font-weight:700;font-size:18px;letter-spacing:.6em;padding:0 30px;white-space:nowrap}
+.js .rv{opacity:0;translate:0 40px;transition:opacity .6s,translate .6s cubic-bezier(.2,.8,.2,1)}
+.js .rv.in{opacity:1;translate:0 0}
+</style>
+<style>x-dc{display:contents}</style>
+</head>
+<body>
+<x-dc>
+
+<div id="haut" data-dc-ref="{{rootRef}}" style="width: 1440px; min-height: 8950px; background: #08090D; color: #FFFFFF; font-family: 'Space Mono', monospace; overflow: hidden; position: relative; display: flex; flex-direction: column">
+
+<div data-dc-ref="{{hdWrapRef}}" class="hd-wrap">
+<header data-dc-ref="{{hdRef}}" class="hd" style="display: flex; align-items: center; justify-content: space-between; padding: 26px 48px; position: relative; z-index: 5">
+<a href="/" class="logo-hd" style="display: flex; align-items: center; gap: 14px; text-decoration: none; color: #FFFFFF"><img src="/assets/logo_solid_cream.webp" alt="Logo de Romain" style="width: 48px; height: 41px; object-fit: contain"><span style="font-family: 'Anton', sans-serif; font-size: 32px; line-height: 1">ROMAIN</span></a>
+<nav aria-label="Chapitres du dossier" style="display: flex; gap: 6px; align-items: center">
+<a class="btnz" href="#rig" data-dc-onclick="{{go.rig}}" style="background: #2B5BFF; color: #FFFFFF; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 15px; padding: 7px 14px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-2deg); white-space: nowrap">01 LE RIG</a>
+<a class="btnz" href="#vest" data-dc-onclick="{{go.vest}}" style="background: #FFFFFF; color: #08090D; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 15px; padding: 7px 14px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(1.5deg); white-space: nowrap">02 LE VESTIAIRE</a>
+<a class="btnz" href="#kits" data-dc-onclick="{{go.kits}}" style="background: #FF5A1F; color: #1A0800; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 15px; padding: 7px 14px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-1deg); white-space: nowrap">03 LES MAILLOTS</a>
+<a class="btnz" href="#stade" data-dc-onclick="{{go.stade}}" style="background: #5B86FF; color: #06102E; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 15px; padding: 7px 14px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(2deg); white-space: nowrap">04 LE STADE</a>
+</nav>
+<div style="display: flex; gap: 14px; align-items: center"><span style="font-size: 12px; letter-spacing: 0.12em; color: #8E9AC8">DOSSIER 04 / 08</span><a class="btnz" href="/" style="background: #F2EEE6; color: #08090D; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 18px; padding: 9px 24px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-2deg)">← TOUS LES DOSSIERS</a></div>
+</header>
+</div>
+<section style="position: relative; height: 900px; background: #2B5BFF; overflow: hidden">
+<div class="dots"></div><div class="grain"></div>
+<div style="position: absolute; right: -120px; top: -200px; width: 900px; height: 900px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,.18), transparent 62%); pointer-events: none"></div>
+<div class="kick" style="position: absolute; left: 48px; top: 34px; color: #DCE5FF"><span style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: #FFFFFF; animation: blink 1.1s infinite"></span>&nbsp; DOSSIER 04 • 3D · ROBLOX</div>
+<h1 class="wide" style="position: absolute; left: 40px; top: 80px; margin: 0; font-size: 128px; line-height: .86; color: #FFFFFF">REAL<br>FUTBOL X</h1>
+<div style="position: absolute; left: 48px; top: 370px; display: flex; align-items: center; gap: 12px"><span style="font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 26px">by Real Sports Interactive</span><span class="tagz" style="background: #08090D; color: #FFFFFF; transform: rotate(-2deg)">SUR ROBLOX</span></div>
+<p style="position: absolute; left: 50px; top: 430px; margin: 0; width: 620px; font-size: 16px; line-height: 1.65; color: #EEF2FF">Pour Real Futbol X, un jeu de foot sur Roblox, j'ai réalisé <b style="color: #FFFFFF">énormément d'éléments 3D</b> : le rig officiel du jeu, toutes les tenues et accessoires des joueurs, des maillots, et le mobilier du stade. J'étais aussi <b style="color: #FFFFFF">producteur</b> sur leur serveur de plus de 100 000 personnes.</p>
+<div style="position: absolute; left: 50px; top: 600px; display: flex; gap: 14px">
+<div class="stat" style="background: #08090D; color: #FFFFFF; padding: 14px 22px; transform: rotate(-2deg); clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%)"><div class="wide" style="font-size: 52px; line-height: 1">100K+</div><div style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: #B8C8FF">SUR LE SERVEUR</div></div>
+<div class="stat" style="background: #FFFFFF; color: #2B5BFF; padding: 14px 22px; transform: rotate(1.5deg); clip-path: polygon(6% 0, 100% 0, 100% 100%, 0 100%)"><div class="wide" style="font-size: 52px; line-height: 1">1</div><div style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: #08090D">RIG OFFICIEL</div></div>
+<div class="stat" style="background: #FF5A1F; color: #1A0800; padding: 14px 22px; transform: rotate(-1deg); clip-path: polygon(0 0, 100% 0, 100% 100%, 6% 100%)"><div class="wide" style="font-size: 52px; line-height: 1">17</div><div style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em">PIÈCES DE TENUE</div></div>
+<div class="stat" style="background: #06102E; color: #FFFFFF; padding: 14px 22px; transform: rotate(2deg); clip-path: polygon(0 0, 94% 0, 100% 100%, 0 100%)"><div class="wide" style="font-size: 52px; line-height: 1">10+</div><div style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: #B8C8FF">OBJETS 3D</div></div>
+</div>
+<div style="position: absolute; left: 50px; top: 740px; display: flex; gap: 10px">
+<a class="chap" href="#rig" data-dc-onclick="{{go.rig}}" style="background: #2B5BFF; color: #FFFFFF; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 22px; padding: 10px 20px; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-1.5deg)">01 LE RIG</a>
+<a class="chap" href="#vest" data-dc-onclick="{{go.vest}}" style="background: #FFFFFF; color: #08090D; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 22px; padding: 10px 20px; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%); transform: rotate(1deg)">02 LE VESTIAIRE</a>
+<a class="chap" href="#kits" data-dc-onclick="{{go.kits}}" style="background: #FF5A1F; color: #1A0800; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 22px; padding: 10px 20px; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-1deg)">03 LES MAILLOTS</a>
+<a class="chap" href="#stade" data-dc-onclick="{{go.stade}}" style="background: #5B86FF; color: #06102E; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 22px; padding: 10px 20px; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%); transform: rotate(1.5deg)">04 LE STADE</a>
+</div>
+<div style="position: absolute; right: 48px; top: 60px; width: 470px; transform: rotate(1.5deg); clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 28px 100%, 0 calc(100% - 28px))">
+<div class="tl"><div class="grain"></div>
+<div style="display: flex; align-items: center; gap: 14px; margin-bottom: 14px"><img src="/assets/rfx_icon.webp" alt="Icône de Real Futbol X" style="width: 64px; height: 64px; border-radius: 14px; object-fit: cover; border: 3px solid #FFFFFF; animation: float 4s ease-in-out infinite"><div><div class="wide" style="font-size: 22px; line-height: 1">LES JEUX</div><div style="font-size: 11px; letter-spacing: 0.12em; color: #8E9AC8">REAL SPORTS INTERACTIVE</div></div></div>
+<div class="tl-row"><span class="tl-name">Real Futbol (24)</span><span class="tl-line"></span><span class="tl-y">2023</span></div>
+<div class="tl-row"><span class="tl-name">RF Fan Leagues</span><span class="tl-line"></span><span class="tl-y">2024</span></div>
+<div class="tl-row"><span class="tl-name">Real Futsal</span><span class="tl-line"></span><span class="tl-y">2025</span></div>
+<div class="tl-row me"><span class="tl-me">MOI, ICI →</span><span class="tl-name">Real Futbol X</span><span class="tl-line"></span><span class="tl-y">2026</span></div>
+</div></div>
+<div style="position: absolute; right: 70px; top: 500px; display: flex; align-items: flex-start; gap: 6px"><div class="bubble" style="width: 230px; margin-top: 34px; transform: rotate(-2deg)">{{msg.hero}}</div><button type="button" class="gd" data-dc-onclick="{{poke.hero}}" aria-label="Le chibi de Romain"><div class="gd-w"><div data-dc-class="{{gcls.hero}}" data-dc-style="{{gst.hero}}"></div></div></button></div>
+</section>
+<div style="background: #08090D; color: #FFFFFF; overflow: hidden; padding: 16px 0; border-top: 2px solid #FFFFFF; border-bottom: 2px solid #FFFFFF"><div class="mq"><span>MODÉLISÉ SUR BLENDER</span><span>•</span><span>IMPORTÉ SUR ROBLOX</span><span>•</span><span>UTILISÉ EN JEU</span><span>•</span><span>MODÉLISÉ SUR BLENDER</span><span>•</span><span>IMPORTÉ SUR ROBLOX</span><span>•</span><span>UTILISÉ EN JEU</span><span>•</span><span>MODÉLISÉ SUR BLENDER</span><span>•</span><span>IMPORTÉ SUR ROBLOX</span><span>•</span><span>UTILISÉ EN JEU</span><span>•</span><span>MODÉLISÉ SUR BLENDER</span><span>•</span><span>IMPORTÉ SUR ROBLOX</span><span>•</span><span>UTILISÉ EN JEU</span><span>•</span></div></div>
+<section id="rig" style="position: relative; padding: 110px 48px 100px; background: #08090D">
+<div class="dots" style="opacity: .5"></div>
+<div style="position: relative; display: flex; justify-content: space-between; align-items: flex-end; gap: 40px">
+<div><div class="kick" style="color: #5B86FF">// 01 • LE RIG OFFICIEL</div><h2 class="ttl">LE RIG</h2>
+<p class="lead" style="width: 660px; color: #C9D2EE">Au départ, je l'ai construit sur Blender pour les affiches de FC Suspect : un corps humanisé, articulé, prêt à porter n'importe quelle tenue. Real Futbol X l'a adopté : <b style="color: #FFFFFF">c'est devenu le rig officiel du jeu</b> sur Roblox.</p></div>
+<div style="display: flex; align-items: flex-end; gap: 6px"><div class="bubble" style="width: 220px; margin-bottom: 110px; transform: rotate(2deg)">{{msg.rig}}</div><button type="button" class="gd" data-dc-onclick="{{poke.rig}}" aria-label="Le chibi de Romain"><div class="gd-w"><div data-dc-class="{{gcls.rig}}" data-dc-style="{{gst.rig}}"></div></div></button></div>
+</div>
+<div class="rv" style="position: relative; margin-top: 60px; display: flex; gap: 40px; align-items: flex-end; justify-content: center">
+<div style="position: relative"><span class="step-n">01</span><div class="step" style="transform: rotate(-1.5deg)"><a class="zm ct" href="#" data-zoom="/assets/r_rig_body.webp" data-cap="Le corps nu, sur Blender" style="background: #2A2D36; width: 340px; height: 432px"><img src="/assets/r_rig_body.webp" alt="Le corps nu, sur Blender" loading="lazy"></a><span class="cap" style="color: #5B86FF">LE CORPS NU, SUR BLENDER</span></div></div>
+<div class="wide" style="font-size: 60px; color: #2B5BFF; padding-bottom: 200px">→</div>
+<div style="position: relative"><span class="step-n">02</span><div class="step" style="transform: rotate(1deg)"><a class="zm ct" href="#" data-zoom="/assets/r_rig_kit.webp" data-cap="Habillé : maillot, short, crampons" style="background: #2A2D36; width: 380px; height: 424px"><img src="/assets/r_rig_kit.webp" alt="Habillé : maillot, short, crampons" loading="lazy"></a><span class="cap" style="color: #5B86FF">HABILLÉ : MAILLOT, SHORT, CRAMPONS</span></div></div>
+<div class="wide" style="font-size: 60px; color: #2B5BFF; padding-bottom: 200px">→</div>
+<div style="position: relative"><span class="step-n">03</span><div class="step" style="transform: rotate(-1deg)"><a class="zm" href="#" data-zoom="/assets/r_perso.webp" data-cap="Dans le jeu" style="width: 250px; height: 464px"><img src="/assets/r_perso.webp" alt="Dans le jeu" loading="lazy"></a><span class="cap" style="color: #5B86FF">DANS LE JEU</span></div><div class="stamp" style="right: -60px; top: 30px">RIG<br>OFFICIEL</div></div>
+</div>
+<div class="rv" style="position: relative; margin-top: 60px; display: flex; justify-content: center"><a class="btnz" href="/fc-suspect.html" style="background: #FF5A1F; color: #1A0800; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 22px; padding: 12px 28px; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-1.5deg)">VOIR LES AFFICHES FC SUSPECT FAITES AVEC CE RIG →</a></div>
+</section>
+<section id="vest" style="position: relative; padding: 100px 48px 100px; background: #EAF0FF; color: #08090D">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 40px">
+<div><div class="kick" style="color: #2B5BFF">// 02 • TENUES & ACCESSOIRES</div><h2 class="ttl" style="color: #08090D">LE VESTIAIRE</h2>
+<p class="lead" style="width: 680px; color: #3A3F55">Toutes les tenues et tous les accessoires du rig, c'est moi qui les ai modélisés. Je les ai ensuite rangés dans un catalogue, pour que chaque joueur choisisse sa tenue avec une référence (BR-1, GA-2, MA-3…). Choisis une catégorie.</p></div>
+<div style="display: flex; align-items: flex-end; gap: 6px"><div class="bubble" style="width: 210px; margin-bottom: 110px; transform: rotate(-2deg); outline: 3px solid #08090D">{{msg.vest}}</div><button type="button" class="gd" data-dc-onclick="{{poke.vest}}" aria-label="Le chibi de Romain"><div class="gd-w"><div data-dc-class="{{gcls.vest}}" data-dc-style="{{gst.vest}}"></div></div></button></div>
+</div>
+<div class="rv gui" style="margin-top: 50px; transform: rotate(-0.4deg)">
+<div class="gui-side">
+<div style="padding: 0 22px 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #8A90A8">CATÉGORIES</div>
+<button type="button" data-dc-class="{{catCls.c0}}" data-dc-onclick="{{pickCat.c0}}">01 BRACELETS <span>4</span></button>
+<button type="button" data-dc-class="{{catCls.c1}}" data-dc-onclick="{{pickCat.c1}}">02 GANTS <span>2</span></button>
+<button type="button" data-dc-class="{{catCls.c2}}" data-dc-onclick="{{pickCat.c2}}">03 MAILLOTS <span>5</span></button>
+<button type="button" data-dc-class="{{catCls.c3}}" data-dc-onclick="{{pickCat.c3}}">04 SHORTS <span>3</span></button>
+<button type="button" data-dc-class="{{catCls.c4}}" data-dc-onclick="{{pickCat.c4}}">05 CHAUSSETTES <span>3</span></button>
+<div style="margin: 20px 22px 0; padding-top: 16px; border-top: 2px solid #DDE3F0; font-size: 11px; line-height: 1.6; color: #55596B">17 pièces au total.<br>Tout est modélisé par moi.</div>
+</div>
+<div class="gui-main"><a href="#" data-dc-data-zoom="{{catImg}}" data-dc-data-cap="{{catCap}}" style="display: block"><img loading="lazy" decoding="async" data-dc-src="{{catImg}}" data-dc-alt="{{catCap}}"></a><div data-dc-ref="{{catFlRef}}" class="fl"></div></div>
+</div>
+<div class="rv" style="margin-top: 70px; display: flex; gap: 40px; align-items: center">
+<div class="step" style="transform: rotate(-1deg)"><a class="zm" href="#" data-zoom="/assets/r_brac.webp" data-cap="Les bracelets et le tape, en rendu" style="width: 560px; height: 506px"><img src="/assets/r_brac.webp" alt="Les bracelets et le tape, en rendu" loading="lazy"></a><span class="cap" style="color: #2B5BFF">LES BRACELETS ET LE TAPE, EN RENDU</span></div>
+<div style="flex: 1">
+<div class="kick" style="color: #2B5BFF">LE DÉTAIL</div>
+<div class="wide" style="font-size: 54px; line-height: .9; margin-top: 6px">CHAQUE<br>ACCESSOIRE</div>
+<p class="lead" style="color: #3A3F55">Bracelets, tape aux chevilles, gants, dessous de maillot, chaussettes hautes : chaque petit détail que tu vois sur un joueur, je l'ai fait. Et on peut tout demander dans n'importe quelle couleur.</p>
+</div>
+</div>
+</section>
+<section id="kits" style="position: relative; padding: 100px 48px 100px; background: #06102E">
+<div class="dots" style="opacity: .4"></div><div class="grain"></div>
+<div style="position: relative; display: flex; justify-content: space-between; align-items: flex-end; gap: 40px">
+<div><div class="kick" style="color: #FFB089">// 03 • TEXTURES & KITS</div><h2 class="ttl">LES MAILLOTS</h2>
+<p class="lead" style="width: 640px; color: #C9D2EE">Les maillots en jeu sont des textures que je dessine à plat, puis qui s'enroulent sur le rig. Voilà les kits de FC Suspect dans le jeu, et un maillot pas à pas.</p></div>
+<div style="display: flex; align-items: flex-end; gap: 6px"><div class="bubble" style="width: 220px; margin-bottom: 110px; transform: rotate(2deg)">{{msg.kits}}</div><button type="button" class="gd" data-dc-onclick="{{poke.kits}}" aria-label="Le chibi de Romain"><div class="gd-w"><div data-dc-class="{{gcls.kits}}" data-dc-style="{{gst.kits}}"></div></div></button></div>
+</div>
+<div class="rv" style="position: relative; margin-top: 50px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px">
+<a class="kit" href="#" data-zoom="/assets/r_kit1.webp" data-cap="FC Suspect — maillot domicile" style="height: 520px; transform: rotate(-1.2deg)"><img src="/assets/r_kit1.webp" alt="Maillot domicile de FC Suspect en jeu" loading="lazy"><div class="kit-l"><div style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #FFB089">FC SUSPECT • KIT 01</div><div class="wide" style="font-size: 30px; line-height: 1">DOMICILE</div></div></a>
+<a class="kit" href="#" data-zoom="/assets/r_kit2.webp" data-cap="FC Suspect — maillot extérieur" style="height: 520px; transform: rotate(0.8deg)"><img src="/assets/r_kit2.webp" alt="Maillot extérieur de FC Suspect en jeu" loading="lazy"><div class="kit-l"><div style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #FFB089">FC SUSPECT • KIT 02</div><div class="wide" style="font-size: 30px; line-height: 1">EXTÉRIEUR</div></div></a>
+<a class="kit" href="#" data-zoom="/assets/r_kit3.webp" data-cap="FC Suspect — maillot gardien" style="height: 520px; transform: rotate(-0.5deg)"><img src="/assets/r_kit3.webp" alt="Maillot gardien de FC Suspect en jeu" loading="lazy"><div class="kit-l"><div style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #FFB089">FC SUSPECT • KIT 03</div><div class="wide" style="font-size: 30px; line-height: 1">GARDIEN</div></div></a>
+</div>
+<div class="rv" style="position: relative; margin-top: 80px; background: #08090D; padding: 40px; clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 40px 100%, 0 calc(100% - 40px))">
+<div style="display: flex; justify-content: space-between; align-items: flex-end"><div><span class="tagz" style="background: #2B5BFF; color: #FFFFFF">PAS À PAS</span><div class="wide" style="font-size: 54px; line-height: .9; margin-top: 12px">DE LA TEXTURE<br>AU MAILLOT</div></div>
+<p style="margin: 0; width: 460px; font-size: 14px; line-height: 1.6; color: #C9D2EE">Un maillot inspiré du PSG : la texture du torse et celles des manches dessinées à plat, puis appliquées sur le rig.</p></div>
+<div style="margin-top: 34px; display: flex; gap: 26px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 14px"><div class="step" style="transform: rotate(-1deg)"><a class="zm ct" href="#" data-zoom="/assets/r_psg_t1.webp" data-cap="Manches" style="background: #0E1A3A; width: 250px; height: 125px"><img src="/assets/r_psg_t1.webp" alt="Manches" loading="lazy"></a><span class="cap" style="color: #5B86FF">MANCHES</span></div><div class="step" style="transform: rotate(1deg)"><a class="zm ct" href="#" data-zoom="/assets/r_psg_t2.webp" data-cap="Bas du maillot" style="background: #0E1A3A; width: 250px; height: 125px"><img src="/assets/r_psg_t2.webp" alt="Bas du maillot" loading="lazy"></a><span class="cap" style="color: #5B86FF">BAS DU MAILLOT</span></div></div>
+<div class="step" style="transform: rotate(1deg)"><a class="zm" href="#" data-zoom="/assets/r_psg_t3.webp" data-cap="Texture du torse, à plat" style="width: 400px; height: 400px"><img src="/assets/r_psg_t3.webp" alt="Texture du torse, à plat" loading="lazy"></a><span class="cap" style="color: #5B86FF">TEXTURE DU TORSE, À PLAT</span></div>
+<div class="wide" style="font-size: 60px; color: #5B86FF">→</div>
+<div style="position: relative"><div class="step" style="transform: rotate(-1.5deg)"><a class="zm ct" href="#" data-zoom="/assets/r_rig_kit.webp" data-cap="Sur le rig" style="background: #2A2D36; width: 380px; height: 424px"><img src="/assets/r_rig_kit.webp" alt="Sur le rig" loading="lazy"></a><span class="cap" style="color: #5B86FF">SUR LE RIG</span></div><div class="scanl"></div></div>
+</div>
+</div>
+</section>
+<section id="stade" style="position: relative; padding: 100px 48px 100px; background: #08090D">
+<div style="position: relative; display: flex; justify-content: space-between; align-items: flex-end; gap: 40px">
+<div><div class="kick" style="color: #5B86FF">// 04 • ENVIRONNEMENT</div><h2 class="ttl">LE STADE</h2>
+<p class="lead" style="width: 640px; color: #C9D2EE">Le terrain, les tribunes, et tout ce qu'il y a autour : bancs, caméras, matériel. Tous les objets qu'on croise au bord du terrain, je les ai modélisés pour le jeu.</p></div>
+<div style="display: flex; align-items: flex-end; gap: 6px"><div class="bubble" style="width: 210px; margin-bottom: 110px; transform: rotate(-2deg)">{{msg.stade}}</div><button type="button" class="gd" data-dc-onclick="{{poke.stade}}" aria-label="Le chibi de Romain"><div class="gd-w"><div data-dc-class="{{gcls.stade}}" data-dc-style="{{gst.stade}}"></div></div></button></div>
+</div>
+<div class="rv" style="margin-top: 50px; position: relative"><div class="step" style="transform: rotate(-0.4deg)"><a class="zm" href="#" data-zoom="/assets/r_stade.webp" data-cap="Le stade, de nuit" style="width: 1344px; height: 706px"><img src="/assets/r_stade.webp" alt="Le stade, de nuit" loading="lazy"></a><span class="cap" style="color: #5B86FF">LE STADE, DE NUIT</span></div><span class="tagz" style="position: absolute; left: 24px; top: 24px; background: #2B5BFF; color: #FFFFFF; z-index: 4">ENVIRONNEMENT 3D</span></div>
+<div class="rv" style="margin-top: 70px; display: flex; justify-content: space-between; align-items: flex-end"><div><span class="tagz" style="background: #FFFFFF; color: #08090D">L'INVENTAIRE</span><div class="wide" style="font-size: 54px; line-height: .9; margin-top: 12px">AU BORD<br>DU TERRAIN</div></div><span style="font-size: 12px; letter-spacing: 0.12em; color: #8E9AC8">CLIQUE SUR UN OBJET POUR L'AGRANDIR</span></div>
+<div class="rv inv" style="margin-top: 34px">
+<div class="item" style="transform: rotate(-1deg)"><a class="item-img" href="#" data-zoom="/assets/r_banc.webp" data-cap="BANC DE TOUCHE"><img src="/assets/r_banc.webp" alt="BANC DE TOUCHE" loading="lazy"><span class="item-id">OBJ-01</span></a><div class="item-n">BANC DE TOUCHE</div><div class="item-d">Pour les remplaçants, le long de la ligne</div></div>
+<div class="item" style="transform: rotate(0.8deg)"><a class="item-img" href="#" data-zoom="/assets/r_banc_arb.webp" data-cap="BANC DES ARBITRES"><img src="/assets/r_banc_arb.webp" alt="BANC DES ARBITRES" loading="lazy"><span class="item-id">OBJ-02</span></a><div class="item-n">BANC DES ARBITRES</div><div class="item-d">Abri des arbitres au bord du terrain</div></div>
+<div class="item" style="transform: rotate(-0.5deg)"><a class="item-img" href="#" data-zoom="/assets/r_cam.webp" data-cap="CAMÉRA TV"><img src="/assets/r_cam.webp" alt="CAMÉRA TV" loading="lazy"><span class="item-id">OBJ-03</span></a><div class="item-n">CAMÉRA TV</div><div class="item-d">La caméra de diffusion sur pied</div></div>
+<div class="item" style="transform: rotate(1deg)"><a class="item-img" href="#" data-zoom="/assets/r_props.webp" data-cap="MATÉRIEL DE TOURNAGE"><img src="/assets/r_props.webp" alt="MATÉRIEL DE TOURNAGE" loading="lazy"><span class="item-id">OBJ-04</span></a><div class="item-n">MATÉRIEL DE TOURNAGE</div><div class="item-d">Grue caméra, chariot, caisse, sac…</div></div>
+<div class="item" style="transform: rotate(-0.8deg)"><a class="item-img" href="#" data-zoom="/assets/r_bag.webp" data-cap="SAC & APPAREIL PHOTO"><img src="/assets/r_bag.webp" alt="SAC & APPAREIL PHOTO" loading="lazy"><span class="item-id">OBJ-05</span></a><div class="item-n">SAC & APPAREIL PHOTO</div><div class="item-d">Les accessoires des photographes</div></div>
+<div class="item" style="transform: rotate(0.6deg)"><a class="item-img" href="#" data-zoom="/assets/r_net.webp" data-cap="FILET DE BUT"><img src="/assets/r_net.webp" alt="FILET DE BUT" loading="lazy"><span class="item-id">OBJ-06</span></a><div class="item-n">FILET DE BUT</div><div class="item-d">Modélisé maille par maille sur Blender</div></div>
+</div>
+<div class="rv" style="margin-top: 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px">
+<div><span class="tagz" style="background: #2B5BFF; color: #FFFFFF">AUSSI POUR LA LIGUE</span>
+<div class="swap" style="margin-top: 16px; height: 360px; background: #000">
+<img loading="lazy" decoding="async" src="/assets/env_stade_solid.webp" alt="Terrain officiel de Real Futbol X, vue solide" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<img loading="lazy" decoding="async" class="top" src="/assets/env_stade.webp" alt="Terrain officiel de Real Futbol X, aperçu matériaux" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<span style="position: absolute; right: 12px; top: 12px; background: rgba(8,9,13,.85); color: #FFFFFF; padding: 4px 10px; font-size: 11px">SURVOLE → VUE SOLIDE</span></div>
+<div class="wide" style="font-size: 28px; margin-top: 14px">UN TERRAIN OFFICIEL DE RFX</div></div>
+<div><span class="tagz" style="background: #FF5A1F; color: #1A0800">XFL</span>
+<div style="margin-top: 16px"><div class="step" style="transform: rotate(0deg)"><a class="zm" href="#" data-zoom="/assets/env_trophy.webp" data-cap="" style="width: 656px; height: 360px"><img src="/assets/env_trophy.webp" alt="" loading="lazy"></a></div></div>
+<div class="wide" style="font-size: 28px; margin-top: 14px">LA SALLE DES TROPHÉES — XFL</div>
+<p style="margin: 6px 0 0; font-size: 13px; line-height: 1.6; color: #C9D2EE">La salle de cérémonie de la Real Futbol X Fan League. Plus de détails dans le dossier FC Suspect.</p></div>
+</div>
+</section>
+<a href="/chibi.html" style="display: flex; align-items: center; justify-content: space-between; min-height: 270px; flex: 1 0 auto; background: #FF8FCB; color: #2A0A22; text-decoration: none; padding: 0 56px; position: relative; overflow: hidden">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em">DOSSIER SUIVANT — 05</span>
+<span style="font-family: 'Anton', sans-serif; font-size: 130px; line-height: 0.85">UNIVERS CHIBI →</span>
+</div>
+<div style="display: flex; align-items: flex-end; gap: 10px">
+<div class="bubble" style="width: 210px; margin-bottom: 80px; transform: rotate(2deg); font-size: 20px">Fini la 3D. Place aux petits bonhommes.</div>
+<div class="sp" style="background-image: url(/assets/sp_romain_b.webp); --i: 8; width: 120px; animation: bob2 2.4s ease-in-out infinite"></div>
+</div>
+</a>
+<div data-dc-ref="{{lbRef}}" class="lb" role="dialog" aria-label="Image agrandie"><div class="lb-w"><img loading="lazy" decoding="async" data-dc-ref="{{lbImgRef}}" alt=""><div style="display: flex; gap: 14px; align-items: center"><span data-dc-ref="{{lbCapRef}}" style="font-size: 12px; font-weight: 700; letter-spacing: .12em; color: #FFFFFF"></span><button type="button" class="lb-x" data-close="1">✕ FERMER</button></div></div></div>
+<div data-dc-ref="{{tpRef}}" class="tp-ov" aria-hidden="true"><div class="tp-band" style="background: #FFFFFF; --d: 0.000s"></div><div class="tp-band" style="background: #2B5BFF; --d: 0.035s"></div><div class="tp-band" style="background: #08090D; --d: 0.070s"></div><div class="tp-band" style="background: #5B86FF; --d: 0.105s"></div><div class="tp-band" style="background: #FF5A1F; --d: 0.140s"></div><div class="tp-band" style="background: #06102E; --d: 0.175s"></div><div class="tp-band" style="background: #2B5BFF; --d: 0.210s"></div><div data-dc-ref="{{tpLblRef}}" class="tp-lbl"></div></div>
+</div>
+</x-dc>
+<script src="/assets/dc.js?v=1b6c20c3"></script>
+<script>
+window.__DC = class Component extends DCLogic {
+  initHeader() {
+    if (this._hdInit || !this.hd || !this.hdWrap) return;
+    this._hdInit = true;
+    const hd = this.hd, wrap = this.hdWrap;
+    let last = 0, fixed = false;
+    const getY = (ev) => {
+      const tg = ev && ev.target;
+      if (tg && tg !== document && tg.nodeType === 1 && tg.scrollHeight > tg.clientHeight && tg.contains(hd)) return tg.scrollTop;
+      return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    };
+    this._hdScroll = (ev) => {
+      const y = getY(ev), h = wrap.offsetHeight || hd.offsetHeight || 100;
+      if (!fixed) wrap.style.height = hd.offsetHeight + 'px';
+      if (y <= h) {
+        if (fixed) { fixed = false; hd.classList.remove('hd-fixed', 'hd-show', 'hd-instant'); }
+      } else {
+        if (!fixed) { fixed = true; hd.classList.add('hd-fixed', 'hd-instant'); void hd.offsetWidth; hd.classList.remove('hd-instant'); }
+        if (y < last - 2) hd.classList.add('hd-show');
+        else if (y > last + 2) hd.classList.remove('hd-show');
+      }
+      last = y;
+    };
+    document.addEventListener('scroll', this._hdScroll, true);
+  }
+  initZoom() {
+    if (this._zoomInit || typeof window === 'undefined') return;
+    this._zoomInit = true;
+    const fit = () => { const w = window.innerWidth || document.documentElement.clientWidth; if (w) document.documentElement.style.zoom = String(w / 1440); };
+    this._zoomFit = fit; fit(); window.addEventListener('resize', fit);
+  }
+  initReveal() {
+    if (this._rvInit || !this.root || typeof IntersectionObserver === 'undefined') return;
+    this._rvInit = true;
+    const root = this.root;
+    root.classList.add('js');
+    const els = root.querySelectorAll('.rv');
+    this._io = new IntersectionObserver((es) => { es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); this._io.unobserve(e.target); } }); }, { threshold: 0.12 });
+    els.forEach((el) => this._io.observe(el));
+    this._rvT = setTimeout(() => els.forEach((el) => el.classList.add('in')), 6000);
+  }
+  initLightbox() {
+    if (this._lbInit || typeof document === 'undefined') return;
+    this._lbInit = true;
+    this._lbClick = (e) => {
+      const t = e.target; if (!t || !t.closest) return;
+      if (this.lb && this.lb.classList.contains('on')) {
+        if (t.closest('[data-close]') || t === this.lb) { e.preventDefault(); this.lb.classList.remove('on'); }
+        return;
+      }
+      const a = t.closest('[data-zoom]'); if (!a) return;
+      e.preventDefault();
+      if (!this.lb || !this.lbImg) return;
+      this.lbImg.src = a.getAttribute('data-zoom');
+      if (this.lbCap) this.lbCap.textContent = (a.getAttribute('data-cap') || '').toUpperCase();
+      this.lb.classList.add('on');
+    };
+    this._lbKey = (e) => { if (e.key === 'Escape' && this.lb) this.lb.classList.remove('on'); };
+    document.addEventListener('click', this._lbClick, true);
+    document.addEventListener('keydown', this._lbKey);
+  }
+  componentWillUnmount() {
+    if (this._zoomFit) window.removeEventListener('resize', this._zoomFit);
+    if (this._hdScroll) document.removeEventListener('scroll', this._hdScroll, true);
+    if (this._lbClick) document.removeEventListener('click', this._lbClick, true);
+    if (this._lbKey) document.removeEventListener('keydown', this._lbKey);
+    if (this._io) this._io.disconnect();
+    clearTimeout(this._rvT);
+    (this._tpT || []).forEach(clearTimeout);
+    Object.values(this._pokeT || {}).forEach(clearTimeout);
+  }
+  teleport(e, id, label) {
+    if (e && e.preventDefault) e.preventDefault();
+    const ov = this.tpEl, target = document.getElementById(id);
+    if (!target) return;
+    if (!ov) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
+    (this._tpT || []).forEach(clearTimeout); this._tpT = [];
+    const at = (ms, fn) => this._tpT.push(setTimeout(fn, ms));
+    if (this.tpLbl) this.tpLbl.textContent = label;
+    ov.className = 'tp-ov on';
+    at(20, () => ov.classList.add('in'));
+    at(500, () => { target.scrollIntoView({ behavior: 'auto', block: 'start' }); ov.classList.add('out'); });
+    at(1000, () => { ov.className = 'tp-ov'; });
+  }
+  renderVals() {
+    this.initZoom();
+    this.initLightbox();
+    const st = this.state || {};
+    const SP = '/assets/sp_romain_b.webp';
+    const G = {
+      hero: ['J’étais producteur sur un serveur de plus de 100k personnes 😎', 2, 'Et oui, le petit gars du lycée bosse sur un vrai jeu.', 9],
+      rig: ['Ce corps-là, tous les joueurs de RFX l’utilisent aujourd’hui.', 1, 'Oui, il est tout nu. C’est un rig, c’est normal.', 3],
+      vest: ['17 pièces, toutes modélisées une par une.', 2, 'Et je les ai même rangées. Rare.', 9],
+      kits: ['Une texture à plat, et hop, ça devient un maillot.', 1, 'FC Suspect, toujours le plus beau kit du jeu.', 10],
+      stade: ['Même le banc des remplaçants, c’est moi.', 2, 'Le filet, maille par maille… plus jamais.', 4],
+    };
+    const msg = {}, gst = {}, gcls = {}, poke = {};
+    Object.keys(G).forEach((k) => {
+      const alt = !!st['p_' + k], g = G[k];
+      msg[k] = alt ? g[2] : g[0];
+      gst[k] = 'background-image:url(' + SP + ');--i:' + (alt ? g[3] : 11) + ';width:116px;';
+      gcls[k] = alt ? 'sp' : 'sp talk';
+      poke[k] = () => {
+        this.setState({ ['p_' + k]: true });
+        this._pokeT = this._pokeT || {};
+        clearTimeout(this._pokeT[k]);
+        this._pokeT[k] = setTimeout(() => this.setState({ ['p_' + k]: false }), 4000);
+      };
+    });
+    const CAT = [['/assets/r_cat1.webp', 'Catalogue — Bracelets'], ['/assets/r_cat2.webp', 'Catalogue — Gants'], ['/assets/r_cat3.webp', 'Catalogue — Maillots'], ['/assets/r_cat4.webp', 'Catalogue — Shorts'], ['/assets/r_cat5.webp', 'Catalogue — Chaussettes']];
+    const ci = st.cat || 0;
+    const catCls = {}, pickCat = {};
+    CAT.forEach((c, i) => {
+      catCls['c' + i] = i === ci ? 'gui-btn on' : 'gui-btn';
+      pickCat['c' + i] = () => { this.setState({ cat: i }); const f = this.catFl; if (f) { f.classList.remove('go'); void f.offsetWidth; f.classList.add('go'); } };
+    });
+    return {
+      msg, gst, gcls, poke,
+      catCls, pickCat, catImg: CAT[ci][0], catCap: CAT[ci][1],
+      catFlRef: (el) => { if (el) this.catFl = el; },
+      rootRef: (el) => { if (el) { this.root = el; setTimeout(() => this.initReveal(), 0); } },
+      lbRef: (el) => { if (el) this.lb = el; },
+      lbImgRef: (el) => { if (el) this.lbImg = el; },
+      lbCapRef: (el) => { if (el) this.lbCap = el; },
+      hdWrapRef: (el) => { if (el) { this.hdWrap = el; this.initHeader(); } },
+      hdRef: (el) => { if (el) { this.hd = el; this.initHeader(); } },
+      tpRef: (el) => { if (el) this.tpEl = el; },
+      tpLblRef: (el) => { if (el) this.tpLbl = el; },
+      go: {
+        rig: (e) => this.teleport(e, 'rig', 'LE RIG'),
+        vest: (e) => this.teleport(e, 'vest', 'LE VESTIAIRE'),
+        kits: (e) => this.teleport(e, 'kits', 'LES MAILLOTS'),
+        stade: (e) => this.teleport(e, 'stade', 'LE STADE'),
+      },
+    };
+  }
+}
+</script>
+<script>window.__dcBoot();</script>
+</body>
+</html>

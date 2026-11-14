@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ma DA — Romain</title>
+<meta name="description" content="Les coulisses de la direction artistique de Romain : papier découpé, couleurs franches, rien de droit.">
+<meta property="og:title" content="Ma DA — Romain">
+<meta property="og:description" content="Les coulisses de la direction artistique de Romain : papier découpé, couleurs franches, rien de droit.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://roomaaaain.fr/da.html">
+<meta name="theme-color" content="#121214">
+<link rel="icon" href="/assets/logo_solid_ink.webp">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&family=Gochi+Hand&family=Pirata+One&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+html,body{background:#EFE6D4;overflow-x:hidden}
+html,body,body *{cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2222%22%20height%3D%2222%22%20viewBox%3D%220%200%2034%2034%22%3E%3Cpolygon%20points%3D%223%2C3%203%2C27%2010%2C21%2015%2C31%2020%2C29%2015%2C19%2025%2C19%22%20transform%3D%22translate%283%203%29%22%20fill%3D%22%23FF5A1F%22/%3E%3Cpolygon%20points%3D%223%2C3%203%2C27%2010%2C21%2015%2C31%2020%2C29%2015%2C19%2025%2C19%22%20fill%3D%22%23F2EEE6%22%20stroke%3D%22%23121214%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22/%3E%3C/svg%3E") 2 2, auto !important}
+a,a *,button,button *,.btnz,.chap,[data-hex],[data-hex] *,.tg,.tg *{cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2222%22%20height%3D%2222%22%20viewBox%3D%220%200%2034%2034%22%3E%3Cpolygon%20points%3D%223%2C3%203%2C27%2010%2C21%2015%2C31%2020%2C29%2015%2C19%2025%2C19%22%20transform%3D%22translate%283%203%29%22%20fill%3D%22%23F2EEE6%22/%3E%3Cpolygon%20points%3D%223%2C3%203%2C27%2010%2C21%2015%2C31%2020%2C29%2015%2C19%2025%2C19%22%20fill%3D%22%23FF5A1F%22%20stroke%3D%22%23121214%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22/%3E%3C/svg%3E") 2 2, pointer !important}
+.drag{cursor:grab !important;touch-action:none;user-select:none;-webkit-user-select:none}
+.drag *{cursor:grab !important}
+.drag.on,.drag.on *{cursor:grabbing !important}
+canvas.sk{cursor:crosshair !important}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+@keyframes bob{0%,100%{translate:0 0}50%{translate:0 -10px}}
+@keyframes sway{0%,100%{rotate:-2deg}50%{rotate:2deg}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes pop{0%{transform:scale(.6);opacity:0}100%{transform:scale(1);opacity:1}}
+@keyframes toast{0%{opacity:0;translate:-50% 20px}15%,80%{opacity:1;translate:-50% 0}100%{opacity:0;translate:-50% -10px}}
+@keyframes splash{0%{transform:scale(0) rotate(0);opacity:1}100%{transform:scale(1) rotate(40deg);opacity:0}}
+.paper-bg{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(120,90,50,.08) 1px,transparent 1.4px),radial-gradient(rgba(120,90,50,.05) 1px,transparent 1.4px);background-size:7px 7px,11px 11px;background-position:0 0,3px 5px}
+.cut{clip-path:polygon(0 0,calc(100% - 26px) 0,100% 26px,100% 100%,26px 100%,0 calc(100% - 26px))}
+.shadow{filter:drop-shadow(6px 8px 0 rgba(18,18,20,.18))}
+.tape{position:absolute;width:96px;height:26px;background:rgba(255,246,200,.75);box-shadow:0 1px 2px rgba(0,0,0,.1);z-index:3;pointer-events:none}
+.logo-hd{transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.logo-hd:hover{transform:rotate(-8deg) scale(1.1)}
+.btnz,.chap{display:inline-block;transition:transform .2s cubic-bezier(.3,1.6,.5,1)}
+.btnz:hover,.chap:hover{transform:rotate(0) scale(1.12) !important}
+.btnz:active,.chap:active{transform:scale(.94) !important}
+.hd{transition:transform .3s cubic-bezier(.3,1,.4,1)}
+.hd.hd-fixed{position:fixed !important;top:0;left:0;width:1440px;box-sizing:border-box;background:#EFE6D4;z-index:60 !important;box-shadow:0 4px 0 rgba(18,18,20,.12);transform:translateY(-110%)}
+.hd.hd-fixed.hd-show{transform:translateY(0)}
+.hd.hd-fixed.hd-instant{transition:none}
+.tp-ov{position:fixed;inset:0;z-index:9997;display:none;flex-direction:column;pointer-events:none}
+.tp-ov.on{display:flex;pointer-events:auto}
+.tp-band{flex:1;transform:translateX(-102%) skewX(-12deg);transition:transform .32s cubic-bezier(.7,0,.3,1);transition-delay:var(--d)}
+.tp-ov.in .tp-band{transform:translateX(0) skewX(0)}
+.tp-ov.out .tp-band{transform:translateX(102%) skewX(-12deg)}
+.tp-lbl{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.6) rotate(-4deg);font-family:'Anton',sans-serif;font-size:120px;line-height:1;color:#F2EEE6;background:#121214;padding:6px 34px;clip-path:polygon(4% 0,100% 0,96% 100%,0 100%);opacity:0;transition:opacity .15s,transform .25s cubic-bezier(.3,1.6,.5,1);white-space:nowrap}
+.tp-ov.in .tp-lbl{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(-2deg);transition-delay:.22s}
+.tp-ov.out .tp-lbl{opacity:0;transition-delay:0s}
+.kick{font-size:13px;letter-spacing:.14em}
+.h2{margin:6px 0 0;font-family:'Anton',sans-serif;font-weight:400;font-size:150px;line-height:.86}
+.lead{margin:18px 0 0;font-size:16px;line-height:1.65}
+/* HERO : lettres en papier */
+.lt{position:absolute;font-family:'Anton',sans-serif;font-size:330px;line-height:.82;padding:10px 26px 0;transition:scale .25s cubic-bezier(.3,1.6,.5,1),filter .25s}
+.lt:hover{scale:1.05;filter:drop-shadow(10px 14px 0 rgba(18,18,20,.22))}
+.lt.on{scale:1.1;z-index:30 !important}
+.bit{position:absolute;transition:scale .25s cubic-bezier(.3,1.6,.5,1)}
+.bit:hover{scale:1.15}
+.bit.on{scale:1.2;z-index:30 !important}
+.hint{position:absolute;font-family:'Gochi Hand',cursive;color:#121214;pointer-events:none}
+/* histoire : fil à linge */
+.line{position:absolute;left:-20px;right:-20px;top:120px;height:3px;background:#F2EEE6;opacity:.8;border-radius:2px}
+.pin{position:relative;flex:1;display:flex;flex-direction:column;align-items:center}
+.clip{width:18px;height:40px;background:#FF5A1F;border:3px solid #121214;border-radius:4px;z-index:3;position:relative;top:-10px}
+.card{position:relative;margin-top:-14px;width:240px;box-sizing:border-box;padding:22px 20px 22px;color:#121214;transform-origin:50% -20px;transition:rotate .5s cubic-bezier(.3,1.6,.5,1),scale .3s;box-shadow:6px 8px 0 rgba(0,0,0,.35)}
+.card:hover{rotate:0deg !important;scale:1.06;z-index:4}
+.card.sw{animation:sway 4s ease-in-out infinite}
+.card .d{font-family:'Anton',sans-serif;font-size:40px;line-height:1}
+.card .t{font-family:'Anton',sans-serif;font-size:26px;line-height:1;margin-top:8px}
+.card p{margin:10px 0 0;font-size:12.5px;line-height:1.6}
+/* process */
+.step{position:relative;background:#F2EEE6;color:#121214;padding:26px 24px 24px;transition:transform .3s cubic-bezier(.3,1.6,.5,1)}
+.step:hover{transform:rotate(0) translateY(-8px) !important}
+.step-n{position:absolute;right:16px;top:6px;font-family:'Anton',sans-serif;font-size:80px;line-height:1;color:rgba(18,18,20,.08)}
+.sk-wrap{position:relative;background:#FFFFFF;box-shadow:8px 10px 0 rgba(18,18,20,.2)}
+.sk-wrap::before{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(91,140,255,.18) 1.5px,transparent 1.5px);background-size:100% 30px}
+.sk-wrap::after{content:'';position:absolute;top:0;bottom:0;left:56px;width:2px;background:rgba(230,57,70,.5);pointer-events:none}
+.tool{appearance:none;border:0;font-family:'Anton',sans-serif;font-size:16px;padding:8px 16px;clip-path:polygon(0 0,100% 0,92% 100%,0 100%);transition:transform .2s cubic-bezier(.3,1.6,.5,1)}
+.tool:hover{transform:scale(1.08) rotate(-2deg)}
+.tool.on{outline:3px solid #121214;outline-offset:2px}
+.ink-dot{display:inline-block;width:26px;height:26px;border:3px solid #121214;border-radius:50%;transition:transform .2s}
+.ink-dot:hover{transform:scale(1.2)}
+.ink-dot.on{transform:scale(1.25);box-shadow:0 0 0 3px #F2EEE6,0 0 0 6px #121214}
+/* labo */
+.tg{appearance:none;border:3px solid #121214;background:transparent;color:#121214;font-family:'Anton',sans-serif;font-size:20px;padding:10px 16px;display:flex;align-items:center;gap:12px;width:100%;text-align:left;transition:background .2s,color .2s,transform .2s cubic-bezier(.3,1.6,.5,1)}
+.tg i{width:44px;height:24px;border-radius:999px;background:#D9D2C2;position:relative;flex:0 0 44px;transition:background .2s}
+.tg i::after{content:'';position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#121214;transition:left .2s cubic-bezier(.3,1.6,.5,1)}
+.tg.on{background:#121214;color:#F2EEE6}
+.tg.on i{background:#FF5A1F}
+.tg.on i::after{left:23px;background:#F2EEE6}
+.tg:hover{transform:translateX(6px)}
+.tg small{margin-left:auto;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;opacity:.7}
+.lab-stage{position:relative;height:520px;display:flex;align-items:center;justify-content:center;background:#F2EEE6;overflow:hidden}
+.lab-card{position:relative;width:380px;padding:30px 30px 34px;box-sizing:border-box;transition:all .45s cubic-bezier(.3,1.6,.5,1)}
+.lab-tape{position:absolute;left:50%;top:-14px;width:110px;height:28px;margin-left:-55px;background:rgba(255,246,200,.8);transition:opacity .3s,transform .3s}
+.sw-c{display:inline-block;width:34px;height:34px;border:3px solid #121214;transition:transform .2s cubic-bezier(.3,1.6,.5,1)}
+.sw-c:hover{transform:scale(1.15) rotate(-6deg)}
+.sw-c.on{transform:scale(1.2) rotate(6deg);box-shadow:4px 4px 0 #121214}
+/* couleurs */
+.blk{position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:18px;box-sizing:border-box;transition:transform .3s cubic-bezier(.3,1.6,.5,1),z-index 0s}
+.blk:hover{transform:rotate(0) scale(1.06) !important;z-index:5}
+.blk:active{transform:scale(.96) !important}
+.blk .nm{font-family:'Anton',sans-serif;font-size:30px;line-height:1}
+.blk .hx{font-size:12px;font-weight:700;letter-spacing:.1em;margin-top:4px}
+.blk .cp{position:absolute;right:12px;top:12px;font-size:10px;font-weight:700;letter-spacing:.1em;opacity:0;transition:opacity .2s}
+.blk:hover .cp{opacity:1}
+.spl{position:absolute;width:140px;height:140px;margin:-70px 0 0 -70px;border-radius:44% 56% 60% 40%;pointer-events:none;animation:splash .6s ease-out forwards}
+.toast{position:fixed;left:50%;bottom:40px;z-index:9999;background:#121214;color:#F2EEE6;font-family:'Anton',sans-serif;font-size:24px;padding:10px 24px;clip-path:polygon(4% 0,100% 0,96% 100%,0 100%);animation:toast 1.6s ease forwards;pointer-events:none}
+/* typo */
+.ty-in{width:100%;box-sizing:border-box;border:0;border-bottom:4px solid #121214;background:transparent;font-family:'Gochi Hand',cursive;font-size:30px;padding:8px 4px;color:#121214;outline:none}
+.ty-in:focus{border-color:#FF5A1F}
+.ty{position:relative;padding:18px 22px;background:#FFFFFF;box-shadow:6px 8px 0 rgba(18,18,20,.12);transition:transform .3s cubic-bezier(.3,1.6,.5,1)}
+.ty:hover{transform:rotate(0) scale(1.02) !important}
+.ty-l{font-size:11px;font-weight:700;letter-spacing:.14em;color:#5E5A53;display:flex;justify-content:space-between}
+.ty-s{margin-top:6px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+/* logo */
+.lg{position:relative;width:420px;height:360px}
+.lg img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:transform .9s cubic-bezier(.3,1.4,.4,1)}
+.lg .a{clip-path:inset(0 50% 0 0)}
+.lg .b{clip-path:inset(0 0 0 50%)}
+.lg.split .a{transform:translate(-90px,-30px) rotate(-14deg)}
+.lg.split .b{transform:translate(90px,30px) rotate(12deg)}
+.lg-tag{position:absolute;font-family:'Anton',sans-serif;font-size:44px;line-height:1;padding:4px 14px;transition:opacity .4s,transform .6s cubic-bezier(.3,1.6,.5,1)}
+.lg:not(.split) .lg-tag{opacity:0;transform:scale(.5)}
+.mq{display:flex;width:max-content;animation:marquee 26s linear infinite}
+.mq span{font-family:'Anton',sans-serif;font-size:30px;padding:0 22px;white-space:nowrap}
+</style>
+<style>x-dc{display:contents}</style>
+</head>
+<body>
+<x-dc>
+
+<div id="haut" data-dc-ref="{{rootRef}}" style="width: 1440px; min-height: 6670px; background: #EFE6D4; color: #121214; font-family: 'Space Mono', monospace; overflow: hidden; position: relative; display: flex; flex-direction: column">
+<div class="paper-bg"></div>
+
+<div data-dc-ref="{{hdWrapRef}}" class="hd-wrap">
+<header data-dc-ref="{{hdRef}}" class="hd" style="display: flex; align-items: center; justify-content: space-between; padding: 26px 48px; position: relative; z-index: 5">
+<a href="/" class="logo-hd" style="display: flex; align-items: center; gap: 14px; text-decoration: none; color: #121214"><img src="/assets/logo_solid_ink.webp" alt="Logo de Romain" style="width: 48px; height: 41px; object-fit: contain"><span style="font-family: 'Anton', sans-serif; font-size: 32px; line-height: 1">ROMAIN</span></a>
+<nav aria-label="Chapitres" style="display: flex; gap: 6px; align-items: center">
+<a class="btnz" href="#histoire" data-dc-onclick="{{go.histoire}}" style="background: #FF5A1F; color: #1A0800; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 15px; padding: 7px 14px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-2deg); white-space: nowrap">01 L'HISTOIRE</a>
+<a class="btnz" href="#process" data-dc-onclick="{{go.process}}" style="background: #5B8CFF; color: #0B1030; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 15px; padding: 7px 14px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(1.5deg); white-space: nowrap">02 LE PROCESS</a>
+<a class="btnz" href="#labo" data-dc-onclick="{{go.labo}}" style="background: #121214; color: #F2EEE6; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 15px; padding: 7px 14px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-1deg); white-space: nowrap">03 LE LABO</a>
+<a class="btnz" href="#palette" data-dc-onclick="{{go.palette}}" style="background: #FFE98A; color: #121214; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 15px; padding: 7px 14px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(2deg); white-space: nowrap">04 COULEURS & TYPO</a>
+<a class="btnz" href="#logo" data-dc-onclick="{{go.logo}}" style="background: #F2EEE6; color: #121214; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 15px; padding: 7px 14px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-1.5deg); white-space: nowrap; box-shadow: inset 0 0 0 2px #121214">05 LE LOGO</a>
+</nav>
+<div style="display: flex; gap: 14px; align-items: center"><span style="font-size: 12px; letter-spacing: 0.12em; color: #5E5A53">DOSSIER 00 • À PART</span><a class="btnz" href="/" style="background: #121214; color: #F2EEE6; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 18px; padding: 9px 24px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-2deg)">← TOUS LES DOSSIERS</a></div>
+</header>
+</div>
+<section style="position: relative; height: 1010px">
+<div class="kick" style="position: absolute; left: 48px; top: 20px; color: #5E5A53"><span style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: #FF5A1F; animation: blink 1.1s infinite"></span>&nbsp; DOSSIER 00 • LES COULISSES DE MON IDENTITÉ</div>
+<div class="lt drag shadow" data-par="0.60" style="left: 40px; top: 90px; rotate: -7deg; z-index: 10; background: #FF5A1F; color: #1A0800; clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px))">M</div>
+<div class="lt drag shadow" data-par="0.85" style="left: 300px; top: 130px; rotate: 4deg; z-index: 11; background: #5B8CFF; color: #0B1030; clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px))">A</div>
+<div class="lt drag shadow" data-par="1.10" style="left: 640px; top: 70px; rotate: -3deg; z-index: 12; background: #121214; color: #F2EEE6; clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px))">D</div>
+<div class="lt drag shadow" data-par="1.35" style="left: 900px; top: 120px; rotate: 6deg; z-index: 13; background: #FFE98A; color: #121214; clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px))">A</div>
+<div class="bit drag" data-par="0.30" style="left: 470px; top: 40px; rotate: 0deg; z-index: 20"><div class="tape" style="position: static; display: block; width: 130px; height: 32px; rotate: -8deg"></div></div>
+<div class="bit drag" data-par="0.60" style="left: 1210px; top: 70px; rotate: 0deg; z-index: 21"><div style="width: 90px; height: 90px; background: #FF8FCB; border-radius: 44% 56% 60% 40%"></div></div>
+<div class="bit drag" data-par="0.90" style="left: 1180px; top: 470px; rotate: 8deg; z-index: 22"><div style="width: 160px; height: 26px; background: repeating-linear-gradient(-45deg, #FF5A1F 0 14px, #121214 14px 28px)"></div></div>
+<div class="bit drag" data-par="0.30" style="left: 1100px; top: 300px; rotate: -6deg; z-index: 23"><div style="font-family: 'Gochi Hand', cursive; font-size: 30px; background: #F2EEE6; padding: 8px 14px; box-shadow: 4px 5px 0 rgba(18,18,20,.18)">pas droit ✓</div></div>
+<div class="bit drag" data-par="0.60" style="left: 620px; top: 520px; rotate: 12deg; z-index: 24"><div style="width: 70px; height: 70px; background: #39D98A; clip-path: polygon(50% 0, 100% 100%, 0 100%)"></div></div>
+<div class="bit drag" data-par="0.90" style="left: 60px; top: 520px; rotate: -10deg; z-index: 25"><div style="width: 120px; height: 120px; background: #F2EEE6; border: 3px dashed #121214; display: flex; align-items: center; justify-content: center; font-family: 'Anton', sans-serif; font-size: 22px; text-align: center; line-height: 1">CROQUIS<br>N°48</div></div>
+<div class="hint" style="left: 1180px; top: 180px; font-size: 24px; transform: rotate(6deg)">← attrape les lettres<br>et range-les !</div>
+<div style="position: absolute; left: 48px; top: 680px; width: 760px; z-index: 25">
+<div style="font-family: 'Anton', sans-serif; font-size: 64px; line-height: .9">UNE DA EN PAPIER,<br>PAS DROITE.</div>
+<p class="lead" style="max-width: 660px">Les coulisses de mon identité visuelle : d'où elle vient, comment je l'ai construite, et les règles que je suis sur tous mes projets. Toute la DA du book, chaque page, chaque idée d'animation : c'est moi.</p>
+</div>
+<div style="position: absolute; right: 48px; top: 700px; display: flex; flex-direction: column; gap: 10px; align-items: flex-end; z-index: 25">
+<a class="chap" href="#histoire" data-dc-onclick="{{go.histoire}}" style="background: #FF5A1F; color: #1A0800; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 20px; padding: 8px 18px; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-1.5deg)">01 L'HISTOIRE</a>
+<a class="chap" href="#process" data-dc-onclick="{{go.process}}" style="background: #5B8CFF; color: #0B1030; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 20px; padding: 8px 18px; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%); transform: rotate(1deg)">02 LE PROCESS</a>
+<a class="chap" href="#labo" data-dc-onclick="{{go.labo}}" style="background: #121214; color: #F2EEE6; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 20px; padding: 8px 18px; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-1deg)">03 LE LABO</a>
+<a class="chap" href="#palette" data-dc-onclick="{{go.palette}}" style="background: #FFE98A; color: #121214; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 20px; padding: 8px 18px; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%); transform: rotate(1.5deg)">04 COULEURS & TYPO</a>
+<a class="chap" href="#logo" data-dc-onclick="{{go.logo}}" style="background: #F2EEE6; color: #121214; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 20px; padding: 8px 18px; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-1deg); box-shadow: inset 0 0 0 2px #121214">05 LE LOGO</a>
+</div>
+</section>
+<div style="background: #121214; color: #F2EEE6; overflow: hidden; padding: 12px 0; transform: rotate(-1.5deg); margin: 0 -20px; position: relative; z-index: 26"><div class="mq"><span>COINS COUPÉS</span><span style="color: #FF5A1F">✦</span><span>PAS DROIT</span><span style="color: #5B8CFF">✦</span><span>PAPIER DÉCOUPÉ</span><span style="color: #FFE98A">✦</span><span>COULEURS FRANCHES</span><span style="color: #FF8FCB">✦</span><span>COINS COUPÉS</span><span style="color: #FF5A1F">✦</span><span>PAS DROIT</span><span style="color: #5B8CFF">✦</span><span>PAPIER DÉCOUPÉ</span><span style="color: #FFE98A">✦</span><span>COULEURS FRANCHES</span><span style="color: #FF8FCB">✦</span><span>COINS COUPÉS</span><span style="color: #FF5A1F">✦</span><span>PAS DROIT</span><span style="color: #5B8CFF">✦</span><span>PAPIER DÉCOUPÉ</span><span style="color: #FFE98A">✦</span><span>COULEURS FRANCHES</span><span style="color: #FF8FCB">✦</span></div></div>
+<section id="histoire" style="position: relative; padding: 120px 48px 110px; background: #121214; color: #F2EEE6; margin-top: -20px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end"><div><div class="kick" style="color: #FF5A1F">// 01 • D'OÙ ELLE VIENT</div><h2 class="h2">L'HISTOIRE</h2></div>
+<p class="lead" style="width: 520px; color: #C9C3B8">Deux ans pour passer d'une idée floue à une vraie identité. Survole les cartes accrochées au fil.</p></div>
+<div style="position: relative; margin-top: 60px; height: 400px">
+<div class="line"></div>
+<div style="position: relative; display: flex; justify-content: space-between; padding-top: 108px">
+<div class="pin"><span class="clip"></span><div class="card sw" style="background: #F2EEE6; rotate: -4deg; animation-delay: -0.0s"><div class="d">2024</div><div class="t">L'IDÉE EN TÊTE</div><p>J'avais cette DA en tête depuis quasiment 2024. Mais impossible de la concrétiser : je tournais en rond.</p></div></div>
+<div class="pin"><span class="clip"></span><div class="card sw" style="background: #FFE98A; rotate: 3deg; animation-delay: -0.7s"><div class="d">SEPT. 2024</div><div class="t">LE LOGO</div><p>Un projet de cours : créer un logo avec nos deux initiales. Le mien, c'est un R et un L qui s'assemblent.</p></div></div>
+<div class="pin"><span class="clip"></span><div class="card sw" style="background: #FF5A1F; rotate: -2deg; animation-delay: -1.4s"><div class="d">LE DÉCLIC</div><div class="t">PANICORE IRL</div><p>En dessinant le logo et l'habillage graphique de Panicore, l'idée arrive : une DA un peu papier, pas droite.</p></div></div>
+<div class="pin"><span class="clip"></span><div class="card sw" style="background: #5B8CFF; rotate: 4deg; animation-delay: -2.1s"><div class="d">L'INSPI</div><div class="t">PAPER MARIO</div><p>Ma seule vraie inspiration : Paper Mario Color Splash, sur Wii U. C'est avec lui que j'ai construit ma DA.</p></div></div>
+<div class="pin"><span class="clip"></span><div class="card sw" style="background: #FF8FCB; rotate: -3deg; animation-delay: -2.8s"><div class="d">2026</div><div class="t">LE BOOK</div><p>Des croquis, des moodboards, des tests… et au bout, ce book. Ma DA devient mon identité, sur tous mes projets.</p></div></div>
+</div></div>
+<div style="margin-top: 20px; display: flex; gap: 40px; align-items: center; background: #F2EEE6; color: #121214; padding: 34px 40px" class="cut">
+<div style="flex: 0 0 auto; font-family: 'Anton', sans-serif; font-size: 120px; line-height: .8; color: #FF5A1F">«</div>
+<div><div style="font-family: 'Anton', sans-serif; font-size: 40px; line-height: 1">UN MONDE EN PAPIER, DÉCOUPÉ, PEINT, JAMAIS DROIT.</div>
+<p style="margin: 12px 0 0; font-size: 14px; line-height: 1.65; color: #3A3632">Ce que j'ai pris à Paper Mario Color Splash : l'idée que tout est en papier. Des formes découpées aux ciseaux, des couleurs franches qui éclaboussent, des éléments posés de travers comme sur une table. C'est de là que viennent mes coins coupés, mes étiquettes penchées et mes bouts de scotch.</p></div>
+</div>
+</section>
+<section id="process" style="position: relative; padding: 110px 48px 110px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end"><div><div class="kick" style="color: #5B8CFF">// 02 • COMMENT JE TRAVAILLE</div><h2 class="h2">LE PROCESS</h2></div>
+<p class="lead" style="width: 520px; color: #3A3632">Du papier à l'écran, en quatre étapes. Et ça commence toujours par un crayon.</p></div>
+<div style="margin-top: 50px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px">
+<div class="step cut" style="transform: rotate(-1.5deg)"><span class="step-n">01</span><div style="font-family: 'Anton', sans-serif; font-size: 34px; line-height: 1">LES CROQUIS</div><p style="margin: 12px 0 0; font-size: 13px; line-height: 1.6; color: #3A3632">Énormément de croquis papier. Des pages entières de formes, de mises en page, de lettres qui penchent.</p></div>
+<div class="step cut" style="transform: rotate(1deg)"><span class="step-n">02</span><div style="font-family: 'Anton', sans-serif; font-size: 34px; line-height: 1">LES MOODBOARDS</div><p style="margin: 12px 0 0; font-size: 13px; line-height: 1.6; color: #3A3632">Des interfaces graphiques de jeux et des choses que j'avais déjà vues, collées ensemble pour trouver le ton.</p></div>
+<div class="step cut" style="transform: rotate(-1deg)"><span class="step-n">03</span><div style="font-family: 'Anton', sans-serif; font-size: 34px; line-height: 1">LES TESTS</div><p style="margin: 12px 0 0; font-size: 13px; line-height: 1.6; color: #3A3632">Des pages test sur Illustrator : couleurs, typos, coins coupés… jusqu'à ce que ça claque.</p></div>
+<div class="step cut" style="transform: rotate(1.5deg)"><span class="step-n">04</span><div style="font-family: 'Anton', sans-serif; font-size: 34px; line-height: 1">LES PAGES</div><p style="margin: 12px 0 0; font-size: 13px; line-height: 1.6; color: #3A3632">Chaque page du book : son univers, son design, ses idées d'animation. Tout part de moi.</p></div>
+</div>
+<div style="margin-top: 70px; display: flex; gap: 40px; align-items: flex-start">
+<div style="flex: 0 0 340px">
+<div class="kick" style="color: #FF5A1F">À TOI DE JOUER</div>
+<div style="font-family: 'Anton', sans-serif; font-size: 60px; line-height: .9; margin-top: 6px">FAIS TON<br>CROQUIS</div>
+<p style="margin: 14px 0 0; font-size: 14px; line-height: 1.6; color: #3A3632">Tout a commencé comme ça. Dessine dans la feuille avec ta souris.</p>
+<div style="display: flex; gap: 12px; margin-top: 20px">
+<button type="button" data-dc-class="{{inkCls.ink}}" data-dc-onclick="{{pickInk.ink}}" aria-label="Couleur ink" style="background: #121214"></button>
+<button type="button" data-dc-class="{{inkCls.or}}" data-dc-onclick="{{pickInk.or}}" aria-label="Couleur or" style="background: #FF5A1F"></button>
+<button type="button" data-dc-class="{{inkCls.bl}}" data-dc-onclick="{{pickInk.bl}}" aria-label="Couleur bl" style="background: #5B8CFF"></button>
+<button type="button" data-dc-class="{{inkCls.ro}}" data-dc-onclick="{{pickInk.ro}}" aria-label="Couleur ro" style="background: #FF8FCB"></button>
+</div>
+<div style="display: flex; gap: 10px; margin-top: 18px"><button type="button" class="tool" data-dc-onclick="{{skClear}}" style="background: #121214; color: #F2EEE6">✕ NOUVELLE FEUILLE</button></div>
+</div>
+<div class="sk-wrap" style="flex: 1; height: 420px; transform: rotate(0.8deg)">
+<div class="tape" style="left: 45%; top: -14px; transform: rotate(-3deg)"></div>
+<canvas class="sk" data-dc-ref="{{skRef}}" width="960" height="420" style="position: relative; display: block; width: 100%; height: 420px"></canvas>
+<span class="hint" style="right: 18px; bottom: 12px; font-size: 20px; color: #8A8478">croquis n°49</span>
+</div>
+</div>
+</section>
+<section id="labo" style="position: relative; padding: 110px 48px 110px; background: #FF5A1F; color: #1A0800">
+<div style="display: flex; justify-content: space-between; align-items: flex-end"><div><div class="kick">// 03 • LES RÈGLES</div><h2 class="h2">LE LABO</h2></div>
+<p class="lead" style="width: 540px">Mes règles, une par une. Active-les et regarde une carte toute plate devenir une carte « à moi ».</p></div>
+<div style="margin-top: 50px; display: flex; gap: 40px; align-items: stretch">
+<div style="flex: 0 0 420px; display: flex; flex-direction: column; gap: 10px">
+<button type="button" data-dc-class="{{ruleCls.cut}}" data-dc-onclick="{{rule.cut}}"><i></i>COINS COUPÉS<small>RÈGLE 01</small></button>
+<button type="button" data-dc-class="{{ruleCls.tilt}}" data-dc-onclick="{{rule.tilt}}"><i></i>PAS DROIT<small>RÈGLE 02</small></button>
+<button type="button" data-dc-class="{{ruleCls.paper}}" data-dc-onclick="{{rule.paper}}"><i></i>OMBRE PAPIER<small>RÈGLE 03</small></button>
+<button type="button" data-dc-class="{{ruleCls.tape}}" data-dc-onclick="{{rule.tape}}"><i></i>UN BOUT DE SCOTCH<small>RÈGLE 04</small></button>
+<button type="button" data-dc-class="{{ruleCls.anton}}" data-dc-onclick="{{rule.anton}}"><i></i>TYPO ANTON<small>RÈGLE 05</small></button>
+<div style="margin-top: 10px; font-size: 11px; font-weight: 700; letter-spacing: .14em">LA COULEUR DE L'UNIVERS</div><div style="display: flex; gap: 10px">
+<button type="button" data-dc-class="{{colCls.or}}" data-dc-onclick="{{pickCol.or}}" aria-label="Couleur" style="background: #FF5A1F"></button>
+<button type="button" data-dc-class="{{colCls.bl}}" data-dc-onclick="{{pickCol.bl}}" aria-label="Couleur" style="background: #5B8CFF"></button>
+<button type="button" data-dc-class="{{colCls.ink}}" data-dc-onclick="{{pickCol.ink}}" aria-label="Couleur" style="background: #121214"></button>
+<button type="button" data-dc-class="{{colCls.ja}}" data-dc-onclick="{{pickCol.ja}}" aria-label="Couleur" style="background: #FFE98A"></button>
+<button type="button" data-dc-class="{{colCls.ro}}" data-dc-onclick="{{pickCol.ro}}" aria-label="Couleur" style="background: #FF8FCB"></button>
+</div>
+<button type="button" class="tool" data-dc-onclick="{{allRules}}" style="margin-top: 12px; align-self: flex-start; background: #121214; color: #F2EEE6; font-size: 20px; padding: 10px 22px">✦ TOUT ACTIVER</button>
+</div>
+<div class="lab-stage cut" style="flex: 1">
+<div class="paper-bg"></div>
+<div class="lab-card" data-dc-style="{{labSt}}">
+<div class="lab-tape" data-dc-style="{{labTape}}"></div>
+<div style="font-size: 11px; font-weight: 700; letter-spacing: .14em; opacity: .7">// DOSSIER 07</div>
+<div data-dc-style="{{labTitle}}">MON PROJET</div>
+<p style="margin: 12px 0 0; font-size: 13px; line-height: 1.6; opacity: .85">Une carte toute simple. Active les règles une par une pour la transformer.</p>
+<div data-dc-style="margin-top: 16px; display: inline-block; font-family: 'Anton', sans-serif; font-size: 16px; padding: 7px 16px; background: #F2EEE6; color: #121214; {{labBtn}}">VOIR →</div>
+</div>
+<div class="hint" style="left: 22px; bottom: 16px; font-size: 22px; color: #5E5A53">{{labNote}}</div>
+</div>
+</div>
+</section>
+<section id="palette" style="position: relative; padding: 110px 48px 110px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end"><div><div class="kick" style="color: #FF5A1F">// 04 • LES INGRÉDIENTS</div><h2 class="h2">COULEURS<br>&amp; TYPO</h2></div>
+<p class="lead" style="width: 520px; color: #3A3632">Cinq couleurs de base, partout. Puis chaque univers ajoute la sienne. Clique sur une couleur pour copier son code.</p></div>
+<div data-dc-ref="{{palRef}}" style="position: relative; margin-top: 50px; display: flex; gap: 14px; align-items: flex-end">
+<div class="blk cut" data-hex="#121214" style="width: 360px; height: 260px; background: #121214; color: #F2EEE6; transform: rotate(-1.5deg)"><span class="cp">CLIQUE = COPIER</span><div class="nm">ENCRE</div><div class="hx">#121214</div><div style="font-size: 11px; margin-top: 6px; opacity: .8">Le fond de base, le texte sur clair.</div></div>
+<div class="blk cut" data-hex="#F2EEE6" style="width: 260px; height: 260px; background: #F2EEE6; color: #121214; transform: rotate(1deg); box-shadow: inset 0 0 0 3px #121214"><span class="cp">CLIQUE = COPIER</span><div class="nm">CRÈME</div><div class="hx">#F2EEE6</div><div style="font-size: 11px; margin-top: 6px; opacity: .8">Le papier, les bulles, les boutons clairs.</div></div>
+<div class="blk cut" data-hex="#FF5A1F" style="width: 300px; height: 260px; background: #FF5A1F; color: #1A0800; transform: rotate(-1deg)"><span class="cp">CLIQUE = COPIER</span><div class="nm">ORANGE</div><div class="hx">#FF5A1F</div><div style="font-size: 11px; margin-top: 6px; opacity: .8">La signature. Pour ce qui compte.</div></div>
+<div class="blk cut" data-hex="#5B8CFF" style="width: 220px; height: 260px; background: #5B8CFF; color: #0B1030; transform: rotate(2deg)"><span class="cp">CLIQUE = COPIER</span><div class="nm">BLEU</div><div class="hx">#5B8CFF</div><div style="font-size: 11px; margin-top: 6px; opacity: .8">Le second accent.</div></div>
+<div class="blk cut" data-hex="#FFE98A" style="width: 200px; height: 260px; background: #FFE98A; color: #121214; transform: rotate(-2deg)"><span class="cp">CLIQUE = COPIER</span><div class="nm">POST-IT</div><div class="hx">#FFE98A</div><div style="font-size: 11px; margin-top: 6px; opacity: .8">Les notes scotchées.</div></div>
+</div><div style="margin-top: 26px; font-size: 11px; font-weight: 700; letter-spacing: .14em; color: #5E5A53">ET LES COULEURS DE CHAQUE UNIVERS</div><div style="margin-top: 12px; display: flex; gap: 12px">
+<div class="blk" data-hex="#FF8FCB" style="flex: 1; height: 110px; background: #FF8FCB; color: #2A0A22; transform: rotate(-1deg); clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%)"><span class="cp">COPIER</span><div class="nm" style="font-size: 20px">ROSE CHIBI</div><div class="hx">#FF8FCB</div></div>
+<div class="blk" data-hex="#0D0828" style="flex: 1; height: 110px; background: #0D0828; color: #B79BFF; transform: rotate(1deg); clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%)"><span class="cp">COPIER</span><div class="nm" style="font-size: 20px">VIOLET DARK TRIP</div><div class="hx">#0D0828</div></div>
+<div class="blk" data-hex="#2B5BFF" style="flex: 1; height: 110px; background: #2B5BFF; color: #FFFFFF; transform: rotate(-0.5deg); clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%)"><span class="cp">COPIER</span><div class="nm" style="font-size: 20px">BLEU RFX</div><div class="hx">#2B5BFF</div></div>
+<div class="blk" data-hex="#2A2019" style="flex: 1; height: 110px; background: #2A2019; color: #E0C2A0; transform: rotate(1.2deg); clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%)"><span class="cp">COPIER</span><div class="nm" style="font-size: 20px">SABLE PANICORE</div><div class="hx">#2A2019</div></div>
+<div class="blk" data-hex="#F3EEE2" style="flex: 1; height: 110px; background: #F3EEE2; color: #2445A8; transform: rotate(-1deg); clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%)"><span class="cp">COPIER</span><div class="nm" style="font-size: 20px">PAPIER SCOLAIRE</div><div class="hx">#F3EEE2</div></div>
+</div>
+<div style="margin-top: 80px; display: flex; gap: 40px; align-items: flex-start">
+<div style="flex: 0 0 380px"><div class="kick" style="color: #5B8CFF">LES TYPOS</div><div style="font-family: 'Anton', sans-serif; font-size: 60px; line-height: .9; margin-top: 6px">ÉCRIS<br>QUELQUE CHOSE</div>
+<p style="margin: 14px 0 0; font-size: 14px; line-height: 1.6; color: #3A3632">Tape ton texte : il s'affiche dans les quatre typos de la DA.</p>
+<input class="ty-in" type="text" maxlength="40" data-dc-value="{{tyText}}" data-dc-oninput="{{tyIn}}" aria-label="Texte à tester" style="margin-top: 18px"></div>
+<div style="flex: 1; display: flex; flex-direction: column; gap: 14px">
+<div class="ty" style="transform: rotate(-0.8deg)"><div class="ty-l"><span>ANTON • LES TITRES</span><span>TOUJOURS EN CAPITALES</span></div><div class="ty-s" style="font-family: 'Anton', sans-serif; font-size: 64px; line-height: 1">{{tyUp}}</div></div>
+<div class="ty" style="transform: rotate(0.6deg)"><div class="ty-l"><span>SPACE MONO • LE TEXTE &amp; LES LABELS</span><span>// 01 • COMME ÇA</span></div><div class="ty-s" style="font-size: 26px">{{tyText}}</div></div>
+<div class="ty" style="transform: rotate(-0.4deg)"><div class="ty-l"><span>GOCHI HAND • LES NOTES</span><span>AU FEUTRE</span></div><div class="ty-s" style="font-family: 'Gochi Hand', cursive; font-size: 40px; color: #E63946">{{tyText}}</div></div>
+<div class="ty" style="transform: rotate(0.8deg); background: #0D0828"><div class="ty-l" style="color: #8E96FF"><span>PIRATA ONE • UNIVERS DARK TRIP</span><span>RÉSERVÉE À SOLO</span></div><div class="ty-s" style="font-family: 'Pirata One', cursive; font-size: 54px; color: #B79BFF">{{tyText}}</div></div>
+</div>
+</div>
+</section>
+<section id="logo" data-dc-style="position: relative; padding: 110px 48px 120px; background: {{logoBg}}; color: {{logoFg}}; transition: background .5s, color .5s">
+<div style="display: flex; gap: 60px; align-items: center">
+<div style="flex: 1">
+<div class="kick" style="color: #FF5A1F">// 05 • LA SIGNATURE</div><h2 class="h2">LE LOGO</h2>
+<p class="lead" style="max-width: 560px">Septembre 2024, un projet de cours : créer un logo avec nos deux initiales. Le mien, c'est un <b>R</b> et un <b>L</b> qui s'assemblent en une seule forme.</p>
+<p class="lead" style="max-width: 560px">Une règle que je ne casse jamais : <b>il est noir ou blanc</b>. Aucune autre couleur.</p>
+<div style="display: flex; gap: 12px; margin-top: 26px">
+<button type="button" class="tool" data-dc-onclick="{{lgSplit}}" style="background: #FF5A1F; color: #1A0800; font-size: 20px; padding: 10px 22px">{{lgBtn}}</button>
+<button type="button" class="tool" data-dc-onclick="{{lgTheme}}" data-dc-style="background: {{logoFg}}; color: {{logoBg}}; font-size: 20px; padding: 10px 22px">{{lgThemeBtn}}</button>
+</div>
+</div>
+<div data-dc-class="{{lgCls}}" data-dc-onclick="{{lgSplit}}" style="cursor: pointer">
+<img class="a" data-dc-src="{{lgImg}}" alt="" aria-hidden="true"><img class="b" data-dc-src="{{lgImg}}" alt="Logo de Romain">
+<span class="lg-tag" style="left: -40px; top: 10px; background: #FF5A1F; color: #1A0800; rotate: -8deg">R</span>
+<span class="lg-tag" style="right: -40px; bottom: 10px; background: #5B8CFF; color: #0B1030; rotate: 6deg">L</span>
+</div>
+</div>
+</section>
+<a href="/" style="display: flex; align-items: center; justify-content: space-between; min-height: 240px; flex: 1 0 auto; background: #121214; color: #F2EEE6; text-decoration: none; padding: 0 56px; position: relative; overflow: hidden">
+<div style="position: absolute; left: 0; right: 0; top: 0; height: 22px; background: repeating-linear-gradient(-45deg, #FF5A1F 0 14px, #121214 14px 28px)"></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em; color: #FF5A1F">MAINTENANT QUE TU CONNAIS LA DA</span><span style="font-family: 'Anton', sans-serif; font-size: 110px; line-height: 0.85">VOIR LES DOSSIERS →</span></div>
+<img src="/assets/logo_solid_cream.webp" alt="" aria-hidden="true" style="width: 150px; height: 128px; object-fit: contain; transform: rotate(-8deg); animation: bob 4s ease-in-out infinite">
+</a>
+<div data-dc-ref="{{tpRef}}" class="tp-ov" aria-hidden="true"><div class="tp-band" style="background: #F2EEE6; --d: 0.000s"></div><div class="tp-band" style="background: #FF5A1F; --d: 0.035s"></div><div class="tp-band" style="background: #121214; --d: 0.070s"></div><div class="tp-band" style="background: #5B8CFF; --d: 0.105s"></div><div class="tp-band" style="background: #FFE98A; --d: 0.140s"></div><div class="tp-band" style="background: #FF8FCB; --d: 0.175s"></div><div class="tp-band" style="background: #121214; --d: 0.210s"></div><div data-dc-ref="{{tpLblRef}}" class="tp-lbl"></div></div>
+</div>
+</x-dc>
+<script src="/assets/dc.js?v=1b6c20c3"></script>
+<script>
+window.__DC = class Component extends DCLogic {
+  initHeader() {
+    if (this._hdInit || !this.hd || !this.hdWrap) return;
+    this._hdInit = true;
+    const hd = this.hd, wrap = this.hdWrap;
+    let last = 0, fixed = false;
+    const getY = (ev) => {
+      const tg = ev && ev.target;
+      if (tg && tg !== document && tg.nodeType === 1 && tg.scrollHeight > tg.clientHeight && tg.contains(hd)) return tg.scrollTop;
+      return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    };
+    this._hdScroll = (ev) => {
+      const y = getY(ev), h = wrap.offsetHeight || hd.offsetHeight || 100;
+      if (!fixed) wrap.style.height = hd.offsetHeight + 'px';
+      if (y <= h) { if (fixed) { fixed = false; hd.classList.remove('hd-fixed', 'hd-show', 'hd-instant'); } }
+      else {
+        if (!fixed) { fixed = true; hd.classList.add('hd-fixed', 'hd-instant'); void hd.offsetWidth; hd.classList.remove('hd-instant'); }
+        if (y < last - 2) hd.classList.add('hd-show'); else if (y > last + 2) hd.classList.remove('hd-show');
+      }
+      last = y;
+    };
+    document.addEventListener('scroll', this._hdScroll, true);
+  }
+  initZoom() {
+    if (this._zoomInit || typeof window === 'undefined') return;
+    this._zoomInit = true;
+    const fit = () => { const w = window.innerWidth || document.documentElement.clientWidth; if (w) document.documentElement.style.zoom = String(w / 1440); };
+    this._zoomFit = fit; fit(); window.addEventListener('resize', fit);
+  }
+  initDoc() {
+    if (this._docInit || typeof document === 'undefined') return;
+    this._docInit = true;
+    let cur = null, sx = 0, sy = 0, ox = 0, oy = 0, sc = 1, moved = false;
+    this._pDown = (e) => {
+      const t = e.target && e.target.closest ? e.target.closest('.drag') : null;
+      if (!t) return;
+      e.preventDefault();
+      cur = t; sx = e.clientX; sy = e.clientY; moved = false;
+      ox = parseFloat(t.style.left) || 0; oy = parseFloat(t.style.top) || 0;
+      const r = t.getBoundingClientRect(); sc = (r.width && t.offsetWidth) ? r.width / t.offsetWidth : 1;
+      if (!sc || !isFinite(sc)) sc = 1;
+      this._z = (this._z || 40) + 1; t.style.zIndex = this._z;
+      t.style.translate = '0 0';
+      t.classList.add('on');
+    };
+    this._pMove = (e) => {
+      if (cur) {
+        moved = true;
+        cur.style.left = (ox + (e.clientX - sx) / sc) + 'px';
+        cur.style.top = (oy + (e.clientY - sy) / sc) + 'px';
+        return;
+      }
+      // parallaxe douce du héros
+      const W = window.innerWidth || 1440, H = window.innerHeight || 900;
+      const dx = (e.clientX / W - 0.5), dy = (e.clientY / H - 0.5);
+      if (!this._parEls) this._parEls = Array.prototype.slice.call(document.querySelectorAll('[data-par]'));
+      this._parEls.forEach((el) => { if (el.classList.contains('moved')) return; const k = parseFloat(el.getAttribute('data-par')) || 0; el.style.translate = (dx * 30 * k).toFixed(1) + 'px ' + (dy * 20 * k).toFixed(1) + 'px'; });
+    };
+    this._pUp = () => { if (cur) { cur.classList.remove('on'); if (moved) cur.classList.add('moved'); } cur = null; };
+    this._click = (e) => {
+      const b = e.target && e.target.closest ? e.target.closest('[data-hex]') : null;
+      if (!b) return;
+      const hex = b.getAttribute('data-hex');
+      try { navigator.clipboard && navigator.clipboard.writeText(hex); } catch (err) {}
+      const r = b.getBoundingClientRect(), pr = b.parentElement.getBoundingClientRect(), z = r.width / (b.offsetWidth || r.width) || 1;
+      const s = document.createElement('div'); s.className = 'spl'; s.style.background = hex;
+      s.style.left = ((e.clientX - r.left) / z) + 'px'; s.style.top = ((e.clientY - r.top) / z) + 'px';
+      b.appendChild(s); setTimeout(() => s.remove(), 650);
+      const t = document.createElement('div'); t.className = 'toast'; t.textContent = 'COPIÉ : ' + hex;
+      document.body.appendChild(t); setTimeout(() => t.remove(), 1700);
+    };
+    document.addEventListener('pointerdown', this._pDown, true);
+    document.addEventListener('pointermove', this._pMove);
+    document.addEventListener('pointerup', this._pUp);
+    document.addEventListener('pointercancel', this._pUp);
+    document.addEventListener('click', this._click);
+  }
+  initSketch(cv) {
+    if (!cv || this._skCv === cv) return;
+    this._skCv = cv;
+    const ctx = cv.getContext('2d'); if (!ctx) return;
+    this._skCtx = ctx;
+    ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    const drawIntro = () => {
+      ctx.save(); ctx.font = '34px "Gochi Hand", cursive'; ctx.fillStyle = 'rgba(18,18,20,.35)'; ctx.fillText('dessine ici…', 90, 70); ctx.restore();
+    };
+    this._skIntro = drawIntro; drawIntro();
+    let down = false, lx = 0, ly = 0;
+    const pos = (e) => { const r = cv.getBoundingClientRect(); return [(e.clientX - r.left) * cv.width / r.width, (e.clientY - r.top) * cv.height / r.height]; };
+    cv.addEventListener('pointerdown', (e) => { down = true; [lx, ly] = pos(e); try { cv.setPointerCapture(e.pointerId); } catch (err) {} e.preventDefault(); });
+    cv.addEventListener('pointermove', (e) => {
+      if (!down) return;
+      const [x, y] = pos(e);
+      const col = this._ink || '#121214';
+      ctx.strokeStyle = col; ctx.globalAlpha = 0.9;
+      ctx.lineWidth = 3.2 + Math.random() * 1.4;
+      ctx.beginPath(); ctx.moveTo(lx, ly); ctx.lineTo(x, y); ctx.stroke();
+      ctx.globalAlpha = 0.25; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(lx + 1.5, ly + 1); ctx.lineTo(x + 1.5, y + 1); ctx.stroke();
+      ctx.globalAlpha = 1; lx = x; ly = y;
+    });
+    const up = () => { down = false; };
+    cv.addEventListener('pointerup', up); cv.addEventListener('pointerleave', up); cv.addEventListener('pointercancel', up);
+  }
+  componentWillUnmount() {
+    if (this._zoomFit) window.removeEventListener('resize', this._zoomFit);
+    if (this._hdScroll) document.removeEventListener('scroll', this._hdScroll, true);
+    if (this._pDown) { document.removeEventListener('pointerdown', this._pDown, true); document.removeEventListener('pointermove', this._pMove); document.removeEventListener('pointerup', this._pUp); document.removeEventListener('pointercancel', this._pUp); document.removeEventListener('click', this._click); }
+    (this._tpT || []).forEach(clearTimeout);
+  }
+  teleport(e, id, label) {
+    if (e && e.preventDefault) e.preventDefault();
+    const ov = this.tpEl, target = document.getElementById(id);
+    if (!target) return;
+    if (!ov) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
+    (this._tpT || []).forEach(clearTimeout); this._tpT = [];
+    const at = (ms, fn) => this._tpT.push(setTimeout(fn, ms));
+    if (this.tpLbl) this.tpLbl.textContent = label;
+    ov.className = 'tp-ov on';
+    at(20, () => ov.classList.add('in'));
+    at(500, () => { target.scrollIntoView({ behavior: 'auto', block: 'start' }); ov.classList.add('out'); });
+    at(1000, () => { ov.className = 'tp-ov'; });
+  }
+  renderVals() {
+    this.initZoom();
+    this.initDoc();
+    const st = this.state || {};
+    // croquis
+    const INKS = { ink: '#121214', or: '#FF5A1F', bl: '#5B8CFF', ro: '#FF8FCB' };
+    const ik = st.ink || 'ink'; this._ink = INKS[ik];
+    const inkCls = {}, pickInk = {};
+    Object.keys(INKS).forEach((k) => { inkCls[k] = 'ink-dot' + (k === ik ? ' on' : ''); pickInk[k] = () => this.setState({ ink: k }); });
+    // labo
+    const R = st.rules || {};
+    const KEYS = ['cut', 'tilt', 'paper', 'tape', 'anton'];
+    const ruleCls = {}, rule = {};
+    KEYS.forEach((k) => { ruleCls[k] = 'tg' + (R[k] ? ' on' : ''); rule[k] = () => this.setState({ rules: Object.assign({}, R, { [k]: !R[k] }) }); });
+    const allOn = KEYS.every((k) => R[k]);
+    const COLS = { or: ['#FF5A1F', '#1A0800'], bl: ['#5B8CFF', '#0B1030'], ink: ['#121214', '#F2EEE6'], ja: ['#FFE98A', '#121214'], ro: ['#FF8FCB', '#2A0A22'] };
+    const ck = st.col || 'or';
+    const colCls = {}, pickCol = {};
+    Object.keys(COLS).forEach((k) => { colCls[k] = 'sw-c' + (k === ck ? ' on' : ''); pickCol[k] = () => this.setState({ col: k }); });
+    const [cbg, cfg] = COLS[ck];
+    const n = KEYS.filter((k) => R[k]).length;
+    const labSt = 'background:' + cbg + ';color:' + cfg + ';' +
+      (R.cut ? 'clip-path:polygon(0 0,calc(100% - 30px) 0,100% 30px,100% 100%,30px 100%,0 calc(100% - 30px));' : 'clip-path:none;border-radius:14px;') +
+      (R.tilt ? 'transform:rotate(-4deg);' : 'transform:none;') +
+      (R.paper ? 'filter:drop-shadow(10px 12px 0 rgba(18,18,20,.28));' : 'filter:none;');
+    const labTitle = R.anton ? "font-family:Anton,sans-serif;font-size:58px;line-height:.9;margin-top:6px;text-transform:uppercase" : "font-family:Arial,sans-serif;font-size:30px;font-weight:600;margin-top:6px;text-transform:none";
+    const labBtn = R.cut ? 'clip-path:polygon(0 0,100% 0,92% 100%,0 100%);' + (R.tilt ? 'transform:rotate(3deg);' : '') : 'border-radius:999px;';
+    const NOTES = ['une carte toute plate… 😴', 'ça commence…', 'on y est presque', 'ça prend forme !', 'encore une !', 'et voilà : ma DA ✦'];
+    return {
+      inkCls, pickInk,
+      skRef: (el) => { if (el) this.initSketch(el); },
+      skClear: () => { const c = this._skCtx, cv = this._skCv; if (c && cv) { c.clearRect(0, 0, cv.width, cv.height); this._skIntro && this._skIntro(); } },
+      ruleCls, rule, colCls, pickCol,
+      allRules: () => this.setState({ rules: allOn ? {} : { cut: true, tilt: true, paper: true, tape: true, anton: true } }),
+      labSt, labTitle, labBtn, labTape: R.tape ? 'opacity:1;transform:rotate(-4deg)' : 'opacity:0;transform:translateY(-20px)',
+      labNote: NOTES[n],
+      tyText: st.ty != null ? st.ty : 'Une DA pas droite',
+      tyUp: (st.ty != null ? st.ty : 'Une DA pas droite').toUpperCase() || ' ',
+      tyIn: (e) => this.setState({ ty: e && e.target ? e.target.value : '' }),
+      lgCls: 'lg' + (st.lgs ? ' split' : ''),
+      lgSplit: () => this.setState({ lgs: !st.lgs }),
+      lgBtn: st.lgs ? '↺ RASSEMBLER' : '✂ SÉPARER R + L',
+      logoBg: st.lgd ? '#121214' : '#F2EEE6', logoFg: st.lgd ? '#F2EEE6' : '#121214',
+      lgImg: st.lgd ? '/assets/logo_solid_cream.webp' : '/assets/logo_solid_ink.webp',
+      lgTheme: () => this.setState({ lgd: !st.lgd }),
+      lgThemeBtn: st.lgd ? 'VERSION NOIRE' : 'VERSION BLANCHE',
+      rootRef: (el) => { if (el) this.root = el; },
+      hdWrapRef: (el) => { if (el) { this.hdWrap = el; this.initHeader(); } },
+      hdRef: (el) => { if (el) { this.hd = el; this.initHeader(); } },
+      tpRef: (el) => { if (el) this.tpEl = el; },
+      tpLblRef: (el) => { if (el) this.tpLbl = el; },
+      palRef: (el) => {},
+      go: {
+        histoire: (e) => this.teleport(e, 'histoire', "L'HISTOIRE"),
+        process: (e) => this.teleport(e, 'process', 'LE PROCESS'),
+        labo: (e) => this.teleport(e, 'labo', 'LE LABO'),
+        palette: (e) => this.teleport(e, 'palette', 'COULEURS & TYPO'),
+        logo: (e) => this.teleport(e, 'logo', 'LE LOGO'),
+      },
+    };
+  }
+}
+</script>
+<script>window.__dcBoot();</script>
+</body>
+</html>

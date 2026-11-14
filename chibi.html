@@ -1,0 +1,926 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mon univers chibi — Romain</title>
+<meta name="description" content="La bande de chibis dessinée par Romain : personnages, émotions, tenues et bonus.">
+<meta property="og:title" content="Mon univers chibi — Romain">
+<meta property="og:description" content="La bande de chibis dessinée par Romain : personnages, émotions, tenues et bonus.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://roomaaaain.fr/chibi.html">
+<meta name="theme-color" content="#121214">
+<link rel="icon" href="/assets/logo_solid_ink.webp">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&family=Gochi+Hand&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+html,body{background:#170912;overflow-x:hidden}
+html,body,body *{cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2222%22%20height%3D%2222%22%20viewBox%3D%220%200%2034%2034%22%3E%3Cpolygon%20points%3D%223%2C3%203%2C27%2010%2C21%2015%2C31%2020%2C29%2015%2C19%2025%2C19%22%20transform%3D%22translate%283%203%29%22%20fill%3D%22%23FF5A1F%22/%3E%3Cpolygon%20points%3D%223%2C3%203%2C27%2010%2C21%2015%2C31%2020%2C29%2015%2C19%2025%2C19%22%20fill%3D%22%23F2EEE6%22%20stroke%3D%22%23121214%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22/%3E%3C/svg%3E") 2 2, auto !important}
+a,a *,button,button *,[role="button"],.btnz,.chap,.stk,.stk *{cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2222%22%20height%3D%2222%22%20viewBox%3D%220%200%2034%2034%22%3E%3Cpolygon%20points%3D%223%2C3%203%2C27%2010%2C21%2015%2C31%2020%2C29%2015%2C19%2025%2C19%22%20transform%3D%22translate%283%203%29%22%20fill%3D%22%23F2EEE6%22/%3E%3Cpolygon%20points%3D%223%2C3%203%2C27%2010%2C21%2015%2C31%2020%2C29%2015%2C19%2025%2C19%22%20fill%3D%22%23FF5A1F%22%20stroke%3D%22%23121214%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22/%3E%3C/svg%3E") 2 2, pointer !important}
+.stk.drag,.stk.drag *{cursor:grabbing !important}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-10px) rotate(1deg)}}
+@keyframes bob2{0%,100%{translate:0 0}50%{translate:0 -9px}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes talk{0%{background-position-x:91.6667%}50%{background-position-x:100%}}
+@keyframes talkv{0%{background-position-x:var(--a)}50%{background-position-x:var(--b)}}
+@keyframes wob{0%,100%{rotate:-3deg}50%{rotate:3deg}}
+@keyframes twinkle{0%,100%{scale:.6;opacity:.3}50%{scale:1.15;opacity:1}}
+@keyframes pop{0%{transform:scale(.6);opacity:0}100%{transform:scale(1);opacity:1}}
+@keyframes stamp{0%,100%{rotate:-12deg;scale:1}50%{rotate:-8deg;scale:1.06}}
+@keyframes hop{0%{translate:0 0}35%{translate:0 -38px}70%{translate:0 0}85%{translate:0 -8px}100%{translate:0 0}}
+@keyframes flashbg{0%{opacity:.9}100%{opacity:0}}
+
+/* planches de sprites : 13 cases (12 émotions + parle 2) */
+.sp{background-repeat:no-repeat;background-size:1300% 100%;background-position:calc(var(--i,0) * 8.33333%) 0;aspect-ratio:280/484;display:block}
+.sp.v12{background-size:1200% 100%;background-position:calc(var(--i,0) * 9.09091%) 0}
+.sp.talk{animation:talk .34s steps(1) infinite}
+.sp.v12.talk{animation:talkv .34s steps(1) infinite}
+.stkr{filter:drop-shadow(3px 0 0 #F2EEE6) drop-shadow(-3px 0 0 #F2EEE6) drop-shadow(0 3px 0 #F2EEE6) drop-shadow(0 -3px 0 #F2EEE6) drop-shadow(8px 10px 0 rgba(0,0,0,.35))}
+
+.logo-hd{transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.logo-hd:hover{transform:rotate(-8deg) scale(1.1)}
+.chap,.btnz{display:inline-block;transition:transform .2s cubic-bezier(.3,1.6,.5,1),filter .2s}
+.chap:hover,.btnz:hover{transform:rotate(0deg) scale(1.12) !important;filter:brightness(1.1)}
+.chap:active,.btnz:active{transform:scale(0.94) !important}
+.stat{white-space:nowrap;transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+.stat:hover{transform:rotate(0deg) scale(1.08) !important}
+.hd{transition:transform .3s cubic-bezier(.3,1,.4,1),box-shadow .3s}
+.hd.hd-fixed{position:fixed !important;top:0;left:0;width:1440px;box-sizing:border-box;background:#170912;z-index:60 !important;box-shadow:0 6px 0 rgba(0,0,0,.25);transform:translateY(-110%)}
+.hd.hd-fixed.hd-show{transform:translateY(0)}
+.hd.hd-fixed.hd-instant{transition:none}
+.tp-ov{position:fixed;inset:0;z-index:9997;display:none;flex-direction:column;pointer-events:none}
+.tp-ov.on{display:flex;pointer-events:auto}
+.tp-band{flex:1;transform:translateX(-102%) skewX(-12deg);transition:transform .32s cubic-bezier(.7,0,.3,1);transition-delay:var(--d)}
+.tp-ov.in .tp-band{transform:translateX(0) skewX(0)}
+.tp-ov.out .tp-band{transform:translateX(102%) skewX(-12deg)}
+.tp-lbl{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.6) rotate(-4deg);font-family:'Anton',sans-serif;font-size:120px;line-height:1;color:#170912;background:#F2EEE6;padding:6px 34px;clip-path:polygon(4% 0,100% 0,96% 100%,0 100%);opacity:0;transition:opacity .15s,transform .25s cubic-bezier(.3,1.6,.5,1);white-space:nowrap}
+.tp-ov.in .tp-lbl{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(-2deg);transition-delay:.22s}
+.tp-ov.out .tp-lbl{opacity:0;transition-delay:0s}
+.dot{display:inline-block;width:12px;height:12px;border-radius:50%;background:#FF8FCB;animation:blink 1.1s infinite}
+.half{position:absolute;inset:0;background-image:radial-gradient(rgba(255,143,203,.16) 1.6px,transparent 1.8px);background-size:22px 22px;pointer-events:none}
+.bubble{background:#F2EEE6;color:#121214;padding:12px 16px;font-family:'Gochi Hand',cursive;font-size:21px;line-height:1.12;clip-path:polygon(0 0,100% 0,100% 100%,8% 100%,0 80%)}
+.gd{appearance:none;border:0;background:transparent;padding:0;display:block;transition:scale .2s}
+.gd:hover{scale:1.08}
+.gd:active{scale:.92}
+.gd-w{animation:bob2 3s ease-in-out infinite}
+.h2{margin:6px 0 0 0;font-family:'Anton',sans-serif;font-weight:400;font-size:160px;line-height:.88}
+.kick{font-size:13px;letter-spacing:.14em}
+.lead{margin:18px 0 0 0;width:680px;font-size:16px;line-height:1.65;color:#E3D6DD}
+
+/* HERO : la bande sur scène */
+.lu{position:relative;appearance:none;border:0;background:transparent;padding:0;display:flex;flex-direction:column;align-items:center;margin:0 -16px;transition:translate .25s cubic-bezier(.3,1.6,.5,1)}
+.lu .sp{width:196px;transition:scale .25s cubic-bezier(.3,1.6,.5,1)}
+.lu .lu-in{animation:bob2 3s ease-in-out infinite}
+.lu:hover{z-index:5}
+.lu:not(.set):hover .sp{--i:2 !important}
+.lu:hover .sp{scale:1.12}
+.lu.hop .lu-in{animation:hop .55s cubic-bezier(.3,.9,.4,1)}
+.lu-tag{margin-top:-6px;font-family:'Anton',sans-serif;font-size:20px;line-height:1;padding:5px 14px;clip-path:polygon(6% 0,100% 0,94% 100%,0 100%);transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+.lu:hover .lu-tag{transform:scale(1.15) rotate(-3deg)}
+.burst{position:absolute;border-radius:50%;background:repeating-conic-gradient(#FF8FCB 0deg 10deg,transparent 10deg 20deg);-webkit-mask-image:radial-gradient(circle,#000 10%,rgba(0,0,0,.5) 42%,transparent 68%);mask-image:radial-gradient(circle,#000 10%,rgba(0,0,0,.5) 42%,transparent 68%);animation:spin 60s linear infinite;opacity:.18;pointer-events:none}
+.star{position:absolute;color:#FF8FCB;font-size:28px;animation:twinkle 2.4s ease-in-out infinite;pointer-events:none}
+.stampz{position:absolute;border:4px solid #FF8FCB;color:#FF8FCB;font-family:'Anton',sans-serif;font-size:22px;line-height:1.05;padding:10px 16px;text-align:center;animation:stamp 4s ease-in-out infinite}
+
+/* DA */
+.pan{position:relative;background:#F2EEE6;color:#121214;padding:28px 26px 30px;box-sizing:border-box;display:flex;flex-direction:column;gap:14px;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.pan:hover{transform:rotate(0) scale(1.03) !important;z-index:3}
+.pan-n{position:absolute;right:18px;top:12px;font-family:'Anton',sans-serif;font-size:64px;line-height:1;color:rgba(18,18,20,.08)}
+.pan-t{font-family:'Anton',sans-serif;font-size:40px;line-height:.95}
+.pan-p{margin:0;font-size:13px;line-height:1.6;color:#3A3438}
+.tagp{align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:.12em;padding:4px 12px;clip-path:polygon(0 0,100% 0,94% 100%,0 100%)}
+.sw{display:flex;flex-direction:column;align-items:center;gap:5px;font-size:10px;font-weight:700;letter-spacing:.06em;transition:transform .2s cubic-bezier(.3,1.6,.5,1)}
+.sw:hover{transform:translateY(-6px) rotate(-4deg)}
+.sw i{display:block;width:34px;height:34px;border:3px solid #121214;clip-path:polygon(0 0,100% 0,100% 78%,78% 100%,0 100%)}
+.sil{position:relative;display:flex;flex-direction:column;align-items:center;gap:4px}
+.sil .sp{width:50px;filter:brightness(0);transition:filter .3s,scale .3s cubic-bezier(.3,1.6,.5,1)}
+.sil:hover .sp{filter:none;scale:1.18;--i:2 !important}
+.sil-n{font-family:'Anton',sans-serif;font-size:13px;opacity:0;transform:translateY(-4px);transition:opacity .2s,transform .2s}
+.sil-q{position:absolute;top:26px;font-family:'Anton',sans-serif;font-size:26px;color:#F2EEE6;transition:opacity .2s;pointer-events:none}
+.sil:hover .sil-n{opacity:1;transform:none}
+.sil:hover .sil-q{opacity:0}
+.meas{position:absolute;left:0;right:0;border-top:3px dashed #FF8FCB}
+
+/* LA BANDE : cartes */
+.grid4{display:flex;flex-wrap:wrap;justify-content:center;gap:34px 28px}
+.grid4 .cd{width:310px;flex:0 0 310px}
+.cd{position:relative;height:500px;text-decoration:none;color:var(--k);background:var(--c);overflow:hidden;clip-path:polygon(0 0,calc(100% - 28px) 0,100% 28px,100% 100%,28px 100%,0 calc(100% - 28px));transition:transform .35s cubic-bezier(.2,.8,.2,1);display:block}
+.cd:hover{transform:rotate(0deg) scale(1.04) !important;z-index:3}
+.cd-stripes{position:absolute;inset:0;background:repeating-linear-gradient(-45deg,rgba(255,255,255,.14) 0 14px,transparent 14px 34px)}
+.cd-n{position:absolute;left:20px;top:16px;font-size:12px;font-weight:700;letter-spacing:.14em}
+.cd .sp{position:absolute;left:50%;top:42px;width:230px;margin-left:-115px;transition:scale .35s cubic-bezier(.3,1.6,.5,1),translate .35s}
+.cd:hover .sp{--i:2 !important;scale:1.08;translate:0 -8px}
+.cd-b{position:absolute;left:0;right:0;bottom:0;padding:16px 20px 20px;background:var(--k);color:var(--c);display:flex;flex-direction:column;gap:4px}
+.cd-name{font-family:'Anton',sans-serif;font-size:50px;line-height:.9}
+.cd-t{font-size:11px;font-weight:700;letter-spacing:.08em;color:#F2EEE6}
+.cd-go{position:absolute;right:16px;top:-22px;background:#F2EEE6;color:#121214;font-family:'Anton',sans-serif;font-size:15px;padding:7px 14px;clip-path:polygon(6% 0,100% 0,94% 100%,0 100%);transform:rotate(-3deg) scale(.9);opacity:0;transition:opacity .2s,transform .25s cubic-bezier(.3,1.6,.5,1)}
+.cd:hover .cd-go{opacity:1;transform:rotate(-3deg) scale(1)}
+.cd-you{border:4px dashed #FF8FCB;background:transparent;color:#FF8FCB;clip-path:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;box-sizing:border-box}
+.cd-you:hover{background:rgba(255,143,203,.07)}
+
+/* STUDIO */
+.stage{position:relative;width:560px;height:760px;background:#2A0A22;overflow:hidden;clip-path:polygon(0 0,calc(100% - 34px) 0,100% 34px,100% 100%,34px 100%,0 calc(100% - 34px))}
+.stage-spot{position:absolute;left:50%;top:-80px;width:620px;height:900px;margin-left:-310px;background:radial-gradient(ellipse at 50% 72%,rgba(255,143,203,.38),transparent 62%);pointer-events:none}
+.stage-fl{position:absolute;left:0;right:0;bottom:0;height:120px;background:repeating-linear-gradient(90deg,#3A1230 0 60px,#2F0E27 60px 120px);border-top:6px solid #FF8FCB}
+.stage .sp{position:absolute;left:50%;bottom:110px;width:310px;margin-left:-155px}
+.stage .flash{position:absolute;inset:0;background:#F2EEE6;opacity:0;pointer-events:none}
+.stage .flash.go{animation:flashbg .35s ease-out}
+.ctl{appearance:none;border:0;font-family:'Anton',sans-serif;cursor:pointer;transition:transform .2s cubic-bezier(.3,1.6,.5,1),background .2s,color .2s}
+.ctl:hover{transform:scale(1.08) rotate(-2deg)}
+.ctl:active{transform:scale(.94)}
+.hb{position:relative;width:78px;height:78px;padding:0;overflow:hidden;background:#3A1230;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,0 100%);border:0}
+.hb .sp{position:absolute;left:50%;top:4px;width:96px;margin-left:-48px}
+.hb.on{background:var(--c);transform:translateY(-6px) rotate(-3deg)}
+.hb-n{display:block;margin-top:6px;text-align:center;font-family:'Anton',sans-serif;font-size:13px;color:#C9A9BD}
+.hb-w.on .hb-n{color:#F2EEE6}
+.eb{position:relative;appearance:none;border:0;padding:0 0 8px 0;background:#2A0A22;color:#F2EEE6;display:flex;flex-direction:column;align-items:center;overflow:hidden;clip-path:polygon(0 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%);transition:transform .2s cubic-bezier(.3,1.6,.5,1),background .2s}
+.eb:hover{transform:translateY(-5px) rotate(-2deg);background:#4A1640}
+.eb.on{background:#FF8FCB;color:#2A0A22;transform:translateY(-5px) rotate(2deg)}
+.eb .sp{width:100%;height:112px;aspect-ratio:auto;background-size:1300% auto;background-position-y:0}
+.eb .eb-l{font-family:'Anton',sans-serif;font-size:15px;line-height:1;margin-top:2px}
+.eb .soon{position:absolute;left:0;right:0;top:40px;text-align:center;font-size:10px;font-weight:700;letter-spacing:.1em;color:#FF8FCB}
+.eb.on .soon{color:#2A0A22}
+.tg{display:flex;gap:0}
+.tg button{appearance:none;border:0;padding:11px 20px;font-family:'Anton',sans-serif;font-size:19px;background:#3A1230;color:#C9A9BD;transition:background .2s,color .2s,transform .2s cubic-bezier(.3,1.6,.5,1)}
+.tg button:hover{transform:scale(1.06)}
+.tg button.on{background:#F2EEE6;color:#2A0A22}
+.soonbig{position:absolute;left:50%;top:300px;transform:translateX(-50%) rotate(-4deg);background:#F2EEE6;color:#2A0A22;font-family:'Gochi Hand',cursive;font-size:24px;padding:12px 18px;text-align:center;width:300px;clip-path:polygon(0 0,100% 0,100% 100%,8% 100%,0 80%)}
+
+/* VARIANTES */
+.vt{appearance:none;border:3px solid #FF8FCB;background:transparent;color:#FF8FCB;font-family:'Anton',sans-serif;font-size:22px;padding:10px 20px;display:flex;align-items:center;gap:12px;transition:background .2s,color .2s,transform .2s cubic-bezier(.3,1.6,.5,1)}
+.vt i{display:inline-block;width:18px;height:18px;border:3px solid currentColor;box-sizing:border-box}
+.vt:hover{transform:scale(1.05) rotate(-1.5deg)}
+.vt.on{background:#FF8FCB;color:#2A0A22}
+.vt.on i{background:#2A0A22}
+
+/* TENUES */
+.cmp{position:relative;width:440px;height:760px;background:#101014;overflow:hidden;clip-path:polygon(34px 0,100% 0,100% calc(100% - 34px),calc(100% - 34px) 100%,0 100%,0 34px)}
+.cmp .sp{position:absolute;left:50%;bottom:40px;width:390px;margin-left:-195px}
+.cmp-lt{position:absolute;inset:0;clip-path:inset(0 0 0 var(--x,50%));background:repeating-linear-gradient(-45deg,#1C1C10 0 18px,#14140C 18px 36px)}
+.cmp-bar{position:absolute;top:0;bottom:0;left:var(--x,50%);width:6px;margin-left:-3px;background:#FFC21A;pointer-events:none}
+.cmp-knob{position:absolute;top:50%;left:50%;width:58px;height:58px;margin:-29px 0 0 -29px;background:#FFC21A;color:#1A1400;font-family:'Anton',sans-serif;font-size:22px;display:flex;align-items:center;justify-content:center;clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%)}
+.cmp input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize !important}
+.cmp-l{position:absolute;top:18px;font-size:11px;font-weight:700;letter-spacing:.14em;padding:5px 10px;pointer-events:none}
+.crew{display:flex;justify-content:center;align-items:flex-end}
+.crew .cw{display:flex;flex-direction:column;align-items:center;margin:0 -12px;transition:translate .25s cubic-bezier(.3,1.6,.5,1)}
+.crew .cw .sp{width:128px}
+.crew .cw:hover{translate:0 -14px;z-index:3}
+.crew .cw:hover .sp{--i:6 !important}
+.lc{position:relative;display:flex;gap:26px;align-items:center;background:#140808;padding:26px 30px;overflow:hidden;clip-path:polygon(0 0,calc(100% - 26px) 0,100% 26px,100% 100%,26px 100%,0 calc(100% - 26px));transform:rotate(0.8deg);transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.lc:hover{transform:rotate(0) scale(1.02)}
+.lc-str{position:absolute;left:0;right:0;top:0;height:10px;background:repeating-linear-gradient(-45deg,#D7263D 0 12px,#140808 12px 24px)}
+.lc-logo{position:relative;flex:0 0 200px;height:200px;animation:flicker 4s infinite}
+.lc-logo img{width:100%;height:100%;object-fit:contain;display:block;filter:drop-shadow(0 0 14px rgba(215,38,61,.45))}
+.lc-stamp{position:absolute;right:26px;top:34px;border:4px solid #D7263D;color:#D7263D;font-family:'Anton',sans-serif;font-size:24px;padding:4px 14px;transform:rotate(-8deg);opacity:.9;animation:stamp 4s ease-in-out infinite}
+@keyframes flicker{0%,18%,22%,62%,64%,100%{opacity:1}20%,63%{opacity:.35}}
+.vid{position:relative;display:block;width:420px;text-decoration:none;color:#F2EEE6;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.vid:hover{transform:rotate(0) scale(1.04) !important}
+.vid img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)}
+.vid-p{position:absolute;left:50%;top:118px;width:74px;height:52px;margin:-26px 0 0 -37px;background:#D7263D;display:flex;align-items:center;justify-content:center;font-size:24px;clip-path:polygon(8% 0,100% 4%,92% 100%,0 96%)}
+
+/* BONUS : planche de stickers */
+.board{position:relative;height:720px;background:#F7D9E8;overflow:hidden;clip-path:polygon(0 0,calc(100% - 34px) 0,100% 34px,100% 100%,34px 100%,0 calc(100% - 34px))}
+.board-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(42,10,34,.09) 2px,transparent 2px),linear-gradient(90deg,rgba(42,10,34,.09) 2px,transparent 2px);background-size:44px 44px}
+.stk{position:absolute;touch-action:none;user-select:none;-webkit-user-select:none;transition:scale .2s cubic-bezier(.3,1.6,.5,1)}
+.stk:hover{scale:1.06;z-index:20}
+.stk.drag{scale:1.12;z-index:30;transition:none}
+.stk img,.stk .sp{display:block;pointer-events:none;-webkit-user-drag:none}
+.stk-c{position:absolute;font-family:'Gochi Hand',cursive;font-size:21px;color:#2A0A22;white-space:nowrap;pointer-events:none}
+.mq{display:flex;width:max-content;animation:marquee 26s linear infinite}
+.mq span{font-family:'Anton',sans-serif;font-size:30px;padding:0 22px;white-space:nowrap}
+
+/* 06 ORIGINES */
+.og-scene{position:relative;height:900px;perspective:1700px;perspective-origin:50% 40%;overflow:hidden;background:#12060E}
+.og-room{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.og-wall{position:absolute;inset:0;background:#1F0B19;background-image:linear-gradient(rgba(255,143,203,.05) 2px,transparent 2px),linear-gradient(90deg,rgba(255,143,203,.05) 2px,transparent 2px);background-size:48px 48px;transform:translateZ(-240px) scale(1.15)}
+.og-dark{position:absolute;inset:-40px;background:rgba(4,1,3,.8);pointer-events:none;transform:translateZ(100px);transition:background .5s}
+.og-scene.on .og-dark{background:radial-gradient(ellipse 620px 460px at 46% 46%,rgba(255,236,170,.10),rgba(4,1,3,.18) 70%)}
+.og-it{position:absolute;transform-style:preserve-3d}
+.og-hit{appearance:none;border:0;background:transparent;padding:0;font:inherit;color:inherit;display:block}
+.og-wob{transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+.og-hit:hover .og-wob{transform:scale(1.06) rotate(-2deg)}
+.og-hit:active .og-wob{transform:scale(.95)}
+.og-glow{animation:ogp 1.6s ease-in-out infinite}
+@keyframes ogp{0%,100%{box-shadow:0 0 0 0 rgba(255,210,63,.7)}50%{box-shadow:0 0 0 16px rgba(255,210,63,0)}}
+.og-scene.on .og-glow{animation:none}
+/* interrupteur */
+.og-sw{width:84px;height:124px;background:#F2EEE6;border:5px solid #121214;box-shadow:8px 8px 0 rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;perspective:300px}
+.og-rk{width:40px;height:72px;background:#E2DCD0;border:4px solid #121214;transform:rotateX(22deg);transition:transform .18s;box-shadow:0 10px 0 #9C958A}
+.og-scene.on .og-rk{transform:rotateX(-22deg);box-shadow:0 -10px 0 #9C958A}
+.og-cable{position:absolute;pointer-events:none}
+/* bureau */
+.og-top{position:absolute;left:40px;top:620px;width:1264px;height:100px;background:#E8D9C4;clip-path:polygon(70px 0,calc(100% - 70px) 0,100% 100%,0 100%)}
+.og-top::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 120px,rgba(42,10,34,.06) 120px 124px)}
+.og-front{position:absolute;left:40px;top:720px;width:1264px;height:56px;background:#2A0A22;border-top:6px solid #FF8FCB}
+.og-leg{position:absolute;top:776px;width:46px;height:140px;background:#0C0409;border-left:6px solid #2A0A22}
+/* table lumineuse */
+.og-lb{left:300px;top:150px;width:600px;height:470px;transform-origin:50% 100%;transform:translateZ(30px) rotateX(10deg)}
+.og-lbf{position:absolute;inset:0;background:#121214;padding:18px;box-shadow:0 26px 0 #08080A,14px 30px 0 rgba(0,0,0,.4)}
+.og-glass{position:relative;width:100%;height:100%;background:#2A2227;overflow:visible;transition:background .3s,box-shadow .3s}
+.og-scene.on .og-glass{background:#FFF6DA;box-shadow:0 0 90px 24px rgba(255,226,140,.45),inset 0 0 60px rgba(255,214,120,.6);animation:ogfl .7s steps(1) 1}
+@keyframes ogfl{0%{background:#2A2227}15%{background:#FFF6DA}30%{background:#2A2227}45%{background:#FFF6DA}55%{background:#2A2227}70%{background:#FFF6DA}}
+.og-lbleg{position:absolute;bottom:-60px;width:24px;height:70px;background:#121214}
+.og-sk{position:absolute;transform-style:preserve-3d;transition:transform .45s cubic-bezier(.2,.9,.25,1.2),opacity .4s,filter .4s}
+.og-sk img{display:block;width:100%;pointer-events:none;-webkit-user-drag:none}
+.og-scene:not(.on) .og-sk.pap{opacity:.18;filter:grayscale(1) brightness(.6)}
+.og-sk.pap{left:34px;top:-26px;width:250px;rotate:-4deg;box-shadow:6px 8px 0 rgba(0,0,0,.25)}
+.og-sk.pap.big{transform:translateZ(220px) translate(150px,40px) scale(1.25);z-index:30}
+.og-tape{position:absolute;width:90px;height:24px;background:rgba(255,210,63,.75);pointer-events:none}
+.og-hand{position:absolute;font-family:'Gochi Hand',cursive;color:#121214;line-height:1.05;pointer-events:none;transition:opacity .4s}
+.og-scene:not(.on) .og-hand{opacity:0}
+.og-stamp{position:absolute;left:120px;top:340px;border:4px solid #D7263D;color:#D7263D;font-family:'Anton',sans-serif;font-size:26px;white-space:nowrap;padding:2px 14px;rotate:-14deg;opacity:0;scale:2.4;transition:opacity .25s .5s,scale .3s cubic-bezier(.3,1.6,.5,1) .5s;pointer-events:none;background:rgba(255,246,218,.6)}
+.og-scene.on .og-stamp{opacity:.95;scale:1}
+/* téléphone */
+.og-ph{left:930px;top:332px;width:150px;transform:translateZ(60px) rotate(7deg)}
+.og-phb{background:#121214;border-radius:22px;padding:12px 9px 16px 9px;box-shadow:8px 10px 0 rgba(0,0,0,.45);transition:transform .45s cubic-bezier(.2,.9,.25,1.2)}
+.og-ph.big .og-phb{transform:translateZ(200px) translate(-170px,-120px) scale(1.9) rotate(-7deg)}
+.og-ph.big{z-index:31}
+.og-scr{position:relative;aspect-ratio:480/800;border-radius:12px;overflow:hidden;background:#000}
+.og-scr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .3s}
+.og-ph.unl .og-scr img{opacity:1}
+.og-lock{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:#F2EEE6;font-size:10px;text-align:center;transition:opacity .3s}
+.og-lock b{font-family:'Anton',sans-serif;font-size:34px;font-weight:400}
+.og-ph.unl .og-lock{opacity:0}
+/* objets */
+.og-book{left:110px;top:560px;width:170px;transform:translateZ(50px)}
+.og-bk{position:relative;height:74px;background:#FF8FCB;border:5px solid #121214;box-shadow:0 14px 0 #F2EEE6,0 19px 0 #121214,8px 22px 0 rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;gap:8px;font-family:'Anton',sans-serif;font-size:24px;color:#2A0A22}
+.og-bk img{width:36px;height:36px;object-fit:contain}
+.og-book.op .og-bk{background:#F2EEE6;font-family:'Gochi Hand',cursive;font-size:19px}
+.og-mug{left:200px;top:466px;width:84px;transform:translateZ(70px)}
+.og-mg{position:relative;width:70px;height:84px;background:#F2EEE6;border:5px solid #121214;border-radius:0 0 14px 14px;box-shadow:6px 8px 0 rgba(0,0,0,.4)}
+.og-mg::after{content:'';position:absolute;right:-26px;top:16px;width:20px;height:34px;border:5px solid #121214;border-left:0;border-radius:0 16px 16px 0}
+.og-mg span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Anton',sans-serif;font-size:18px;color:#FF8FCB;-webkit-text-stroke:1px #121214}
+.og-steam{position:absolute;left:14px;top:-50px;width:50px;height:46px;opacity:0;pointer-events:none}
+.og-steam i{position:absolute;bottom:0;width:8px;height:30px;border-radius:8px;background:rgba(242,238,230,.75);animation:ogst 1.4s ease-out infinite}
+@keyframes ogst{0%{transform:translateY(8px) scaleY(.4);opacity:0}40%{opacity:1}100%{transform:translateY(-22px) scaleY(1);opacity:0}}
+.og-mug.hot .og-steam{opacity:1}
+.og-pen{left:520px;top:668px;width:230px;transform:translateZ(90px)}
+.og-pn{height:22px;background:#FFD23F;border:4px solid #121214;clip-path:polygon(0 0,86% 0,100% 50%,86% 100%,0 100%);box-shadow:inset 26px 0 0 #FF8FCB}
+.og-pen.roll .og-pn{animation:ogroll 1s cubic-bezier(.3,.7,.3,1) 1}
+@keyframes ogroll{0%{transform:translateX(0)}50%{transform:translateX(160px) rotate(4deg)}100%{transform:translateX(0)}}
+.og-gum{left:790px;top:660px;width:74px;transform:translateZ(90px)}
+.og-gm{height:34px;background:#F2EEE6;border:4px solid #121214;box-shadow:inset 30px 0 0 #5B8CFF,5px 6px 0 rgba(0,0,0,.4)}
+.og-gum.rub .og-gm{animation:ogrub .12s linear 6}
+@keyframes ogrub{0%,100%{transform:translateX(0)}50%{transform:translateX(14px)}}
+.og-cal{left:70px;top:70px;width:170px;transform:translateZ(10px)}
+.og-cl{background:#F2EEE6;border:5px solid #121214;box-shadow:8px 8px 0 rgba(0,0,0,.45);text-align:center;color:#121214}
+.og-cl .yr{display:block;font-family:'Anton',sans-serif;font-size:62px;line-height:1;padding-top:6px;transition:transform .3s}
+.og-cl .lb{display:block;font-family:'Gochi Hand',cursive;font-size:18px;padding:0 6px 10px;min-height:22px}
+.og-cl .rg{display:block;height:20px;background:#D7263D;border-bottom:4px solid #121214}
+.og-todo{left:1000px;top:60px;width:230px;transform:translateZ(10px) rotate(3deg)}
+.og-td{background:#FFD23F;padding:16px 18px;box-shadow:8px 8px 0 rgba(0,0,0,.45);color:#121214;font-family:'Gochi Hand',cursive;font-size:20px;line-height:1.25;text-align:left;clip-path:polygon(0 0,100% 0,100% 86%,88% 100%,0 100%)}
+.og-poster{left:540px;top:12px;width:150px;transform:translateZ(0) rotate(-3deg);pointer-events:none}
+.og-chi{left:1100px;top:370px;width:170px;transform:translateZ(80px)}
+.og-chi .sp{width:170px}
+.og-bub{position:absolute;right:26px;top:214px;width:270px;transform:translateZ(120px) rotate(-2deg);pointer-events:none}
+.og-cnt{font-family:'Anton',sans-serif;font-size:26px;transform:rotate(-2deg);padding:6px 14px;background:#FF8FCB;color:#2A0A22;clip-path:polygon(0 0,100% 0,94% 100%,0 100%);pointer-events:none;transition:background .3s}
+.og-cnt.all{background:#FFD23F;color:#121214}
+.og-hint{font-size:11px;letter-spacing:.14em;color:#C9A9BD;pointer-events:none}
+</style>
+<style>x-dc{display:contents}</style>
+</head>
+<body>
+<x-dc>
+
+<div id="haut" style="width: 1440px; min-height: 10296px; background: #170912; color: #F2EEE6; font-family: 'Space Mono', monospace; overflow: hidden; position: relative; display: flex; flex-direction: column">
+<div class="half"></div>
+
+<div data-dc-ref="{{hdWrapRef}}" class="hd-wrap">
+<header data-dc-ref="{{hdRef}}" class="hd" style="display: flex; align-items: center; justify-content: space-between; padding: 26px 48px; position: relative; z-index: 5">
+<a href="/" class="logo-hd" style="display: flex; align-items: center; gap: 14px; text-decoration: none; color: #F2EEE6"><img src="/assets/logo_solid_cream.webp" alt="Logo de Romain" style="width: 48px; height: 41px; object-fit: contain"><span style="font-family: 'Anton', sans-serif; font-size: 32px; line-height: 1">ROMAIN</span></a>
+<nav aria-label="Chapitres du dossier" style="display: flex; gap: 6px; align-items: center">
+<a class="btnz" href="#da" data-dc-onclick="{{go.da}}" style="background: #FF8FCB; color: #2A0A22; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 15px; padding: 7px 14px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-2deg); white-space: nowrap">01 LA DA</a>
+<a class="btnz" href="#bande" data-dc-onclick="{{go.bande}}" style="background: #5B8CFF; color: #0B1030; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 15px; padding: 7px 14px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(1.5deg); white-space: nowrap">02 LA BANDE</a>
+<a class="btnz" href="#studio" data-dc-onclick="{{go.studio}}" style="background: #F2EEE6; color: #2A0A22; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 15px; padding: 7px 14px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-1deg); white-space: nowrap">03 ÉMOTIONS</a>
+<a class="btnz" href="#tenues" data-dc-onclick="{{go.tenues}}" style="background: #FFC21A; color: #1A1400; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 15px; padding: 7px 14px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(2deg); white-space: nowrap">04 TENUES</a>
+<a class="btnz" href="#bonus" data-dc-onclick="{{go.bonus}}" style="background: #39D98A; color: #04210F; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 15px; padding: 7px 14px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-1.5deg); white-space: nowrap">05 BONUS</a>
+<a class="btnz" href="#origines" data-dc-onclick="{{go.origines}}" style="background: #FFD23F; color: #1A1400; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 15px; padding: 7px 14px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(1deg); white-space: nowrap">06 ORIGINES</a>
+</nav>
+<div style="display: flex; gap: 14px; align-items: center"><span style="font-size: 12px; letter-spacing: 0.12em; color: #C9A9BD">DOSSIER 05 / 08</span><a class="btnz" href="/" style="background: #F2EEE6; color: #121214; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 18px; padding: 9px 24px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-2deg)">← TOUS LES DOSSIERS</a></div>
+</header>
+</div>
+<!-- HERO -->
+<section style="position: relative; height: 1300px">
+<div class="burst" style="left: 760px; top: -140px; width: 900px; height: 900px"></div>
+<span class="star" style="left: 700px; top: 90px">✦</span><span class="star" style="left: 1320px; top: 60px; animation-delay: -.8s; font-size: 20px">✦</span><span class="star" style="left: 1060px; top: 330px; animation-delay: -1.6s; font-size: 36px">✦</span><span class="star" style="left: 640px; top: 470px; animation-delay: -.4s; font-size: 18px">✦</span>
+<div class="kick" style="position: absolute; left: 48px; top: 24px; color: #C9A9BD"><span class="dot"></span>&nbsp; DOSSIER 05 • PERSONNAGES & DIRECTION ARTISTIQUE</div>
+<h1 style="position: absolute; z-index: 1; left: 36px; top: 46px; margin: 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 200px; line-height: 0.88">MON UNIVERS<br><span style="color: #FF8FCB; text-shadow: 10px 10px 0 #2A0A22">CHIBI</span></h1>
+<div class="stampz" style="left: 560px; top: 250px">100%<br>DESSINÉ<br>À LA MAIN</div>
+<p style="position: absolute; left: 52px; top: 430px; margin: 0; width: 640px; font-size: 16px; line-height: 1.65; color: #E3D6DD">Une bande de chibis que j'ai dessinée pour raconter des histoires sur YouTube. Chaque perso est inspiré d'une <b style="color: #FFFFFF">vraie personne</b> de mon entourage : style simple, très expressif, et la même DA d'une vidéo à l'autre. Dans les montages, ils réagissent, commentent, paniquent… bref, ils racontent.</p>
+<div style="position: absolute; left: 52px; top: 590px; display: flex; gap: 14px">
+<div class="stat" style="background: #FF8FCB; color: #2A0A22; padding: 14px 22px; transform: rotate(-2deg); clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%)"><div style="font-family: 'Anton', sans-serif; font-size: 58px; line-height: 1">7</div><div style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em">PERSONNAGES</div></div>
+<div class="stat" style="background: #F2EEE6; color: #121214; padding: 14px 22px; transform: rotate(1.5deg); clip-path: polygon(6% 0, 100% 0, 100% 100%, 0 100%)"><div style="font-family: 'Anton', sans-serif; font-size: 58px; line-height: 1">12</div><div style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em">ÉMOTIONS CHACUN</div></div>
+<div class="stat" style="background: #FFC21A; color: #1A1400; padding: 14px 22px; transform: rotate(-1deg); clip-path: polygon(0 0, 100% 0, 100% 100%, 6% 100%)"><div style="font-family: 'Anton', sans-serif; font-size: 58px; line-height: 1">2</div><div style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em">TENUES</div></div>
+<div class="stat" style="background: #5B8CFF; color: #0B1030; padding: 14px 22px; transform: rotate(2deg); clip-path: polygon(0 0, 94% 0, 100% 100%, 0 100%)"><div style="font-family: 'Anton', sans-serif; font-size: 58px; line-height: 1">880+</div><div style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em">DESSINS</div></div>
+</div>
+<div style="position: absolute; left: 52px; top: 730px; display: flex; gap: 10px">
+<a class="chap" href="#da" data-dc-onclick="{{go.da}}" style="background: #FF8FCB; color: #2A0A22; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 22px; padding: 10px 20px; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-1.5deg)">01 LA DA</a>
+<a class="chap" href="#bande" data-dc-onclick="{{go.bande}}" style="background: #5B8CFF; color: #0B1030; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 22px; padding: 10px 20px; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%); transform: rotate(1deg)">02 LA BANDE</a>
+<a class="chap" href="#studio" data-dc-onclick="{{go.studio}}" style="background: #F2EEE6; color: #2A0A22; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 22px; padding: 10px 20px; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-1deg)">03 ÉMOTIONS</a>
+<a class="chap" href="#tenues" data-dc-onclick="{{go.tenues}}" style="background: #FFC21A; color: #1A1400; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 22px; padding: 10px 20px; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%); transform: rotate(1.5deg)">04 TENUES</a>
+<a class="chap" href="#bonus" data-dc-onclick="{{go.bonus}}" style="background: #39D98A; color: #04210F; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 22px; padding: 10px 20px; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-1deg)">05 BONUS</a>
+<a class="chap" href="#origines" data-dc-onclick="{{go.origines}}" style="background: #FFD23F; color: #1A1400; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 22px; padding: 10px 20px; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%); transform: rotate(1deg)">06 ORIGINES</a>
+</div>
+<div style="position: absolute; left: 990px; top: 420px; display: flex; align-items: flex-start; gap: 4px; z-index: 3"><div class="bubble" style="width: 230px; margin-top: 30px; transform: rotate(-2deg)">{{msg.hero}}</div><button type="button" class="gd" data-dc-onclick="{{poke.hero}}" aria-label="Le chibi de Romain"><div class="gd-w"><div data-dc-class="{{gcls.hero}}" data-dc-style="{{gst.hero}}"></div></div></button></div>
+<div style="position: absolute; left: 0; right: 0; bottom: 40px; display: flex; flex-direction: column; align-items: center">
+<div style="display: flex; align-items: flex-end; justify-content: center; position: relative; z-index: 2">
+<button type="button" data-dc-class="{{luCls.romain}}" data-dc-onclick="{{luPoke.romain}}" data-dc-onmouseleave="{{luOut.romain}}" aria-label="Romain, clique pour changer son émotion"><div class="lu-in" style="animation-delay: -0.00s"><div class="sp stkr" data-dc-style="{{luSt.romain}}"></div></div><span class="lu-tag" style="background: #5B8CFF; color: #0B1030; transform: rotate(-3deg)">ROMAIN</span></button>
+<button type="button" data-dc-class="{{luCls.sliman}}" data-dc-onclick="{{luPoke.sliman}}" data-dc-onmouseleave="{{luOut.sliman}}" aria-label="Sliman, clique pour changer son émotion"><div class="lu-in" style="animation-delay: -0.43s"><div class="sp stkr" data-dc-style="{{luSt.sliman}}"></div></div><span class="lu-tag" style="background: #FF5A1F; color: #1A0800; transform: rotate(2deg)">SLIMAN</span></button>
+<button type="button" data-dc-class="{{luCls.florian}}" data-dc-onclick="{{luPoke.florian}}" data-dc-onmouseleave="{{luOut.florian}}" aria-label="Florian, clique pour changer son émotion"><div class="lu-in" style="animation-delay: -0.86s"><div class="sp stkr" data-dc-style="{{luSt.florian}}"></div></div><span class="lu-tag" style="background: #B48CFF; color: #1C0B3A; transform: rotate(-2deg)">FLORIAN</span></button>
+<button type="button" data-dc-class="{{luCls.antoine}}" data-dc-onclick="{{luPoke.antoine}}" data-dc-onmouseleave="{{luOut.antoine}}" aria-label="Antoine, clique pour changer son émotion"><div class="lu-in" style="animation-delay: -1.29s"><div class="sp stkr" data-dc-style="{{luSt.antoine}}"></div></div><span class="lu-tag" style="background: #2EC4B6; color: #04201D; transform: rotate(3deg)">ANTOINE</span></button>
+<button type="button" data-dc-class="{{luCls.maxime}}" data-dc-onclick="{{luPoke.maxime}}" data-dc-onmouseleave="{{luOut.maxime}}" aria-label="Maxime, clique pour changer son émotion"><div class="lu-in" style="animation-delay: -1.72s"><div class="sp stkr" data-dc-style="{{luSt.maxime}}"></div></div><span class="lu-tag" style="background: #FFD23F; color: #2A2000; transform: rotate(-1deg)">MAXIME</span></button>
+<button type="button" data-dc-class="{{luCls.mathys}}" data-dc-onclick="{{luPoke.mathys}}" data-dc-onmouseleave="{{luOut.mathys}}" aria-label="Mathys, clique pour changer son émotion"><div class="lu-in" style="animation-delay: -2.15s"><div class="sp stkr" data-dc-style="{{luSt.mathys}}"></div></div><span class="lu-tag" style="background: #39D98A; color: #04210F; transform: rotate(2deg)">MATHYS</span></button>
+<button type="button" data-dc-class="{{luCls.haroun}}" data-dc-onclick="{{luPoke.haroun}}" data-dc-onmouseleave="{{luOut.haroun}}" aria-label="Haroun, clique pour changer son émotion"><div class="lu-in" style="animation-delay: -2.58s"><div class="sp stkr" data-dc-style="{{luSt.haroun}}"></div></div><span class="lu-tag" style="background: #FF8FCB; color: #2A0A22; transform: rotate(-3deg)">HAROUN</span></button>
+</div>
+<div style="width: 1344px; height: 26px; margin-top: 10px; background: repeating-linear-gradient(-45deg, #FF8FCB 0 16px, #2A0A22 16px 32px); clip-path: polygon(0 0, 100% 0, 98% 100%, 2% 100%)"></div>
+<div style="margin-top: 10px; font-size: 11px; letter-spacing: 0.14em; color: #C9A9BD">★ SURVOLE LA BANDE • CLIQUE SUR UN PERSO POUR CHANGER SON ÉMOTION</div>
+</div>
+</section>
+<div style="background: #FF8FCB; color: #2A0A22; overflow: hidden; padding: 10px 0; transform: rotate(-1.5deg); margin: 10px -20px 0; position: relative; z-index: 2"><div class="mq"><span>ROMAIN</span><span>✦</span><span>SLIMAN</span><span>✦</span><span>FLORIAN</span><span>✦</span><span>ANTOINE</span><span>✦</span><span>MAXIME</span><span>✦</span><span>MATHYS</span><span>✦</span><span>HAROUN</span><span>✦</span><span>ROMAIN</span><span>✦</span><span>SLIMAN</span><span>✦</span><span>FLORIAN</span><span>✦</span><span>ANTOINE</span><span>✦</span><span>MAXIME</span><span>✦</span><span>MATHYS</span><span>✦</span><span>HAROUN</span><span>✦</span><span>ROMAIN</span><span>✦</span><span>SLIMAN</span><span>✦</span><span>FLORIAN</span><span>✦</span><span>ANTOINE</span><span>✦</span><span>MAXIME</span><span>✦</span><span>MATHYS</span><span>✦</span><span>HAROUN</span><span>✦</span><span>ROMAIN</span><span>✦</span><span>SLIMAN</span><span>✦</span><span>FLORIAN</span><span>✦</span><span>ANTOINE</span><span>✦</span><span>MAXIME</span><span>✦</span><span>MATHYS</span><span>✦</span><span>HAROUN</span><span>✦</span></div></div>
+<!-- 01 DA -->
+<section id="da" style="position: relative; padding: 110px 48px 90px 48px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 40px">
+<div><div class="kick" style="color: #FF8FCB">// 01 • DIRECTION ARTISTIQUE</div><h2 class="h2" style="color: #FF8FCB">LA DA</h2>
+<p class="lead">Le but : une identité visuelle qu'on reconnaît en un coup d'œil, même en tout petit dans un coin de vidéo. Trois règles, appliquées à tous les persos.</p></div>
+<div style="display: flex; align-items: flex-end; gap: 4px"><div class="bubble" style="width: 230px; margin-bottom: 110px; transform: rotate(2deg)">{{msg.da}}</div><button type="button" class="gd" data-dc-onclick="{{poke.da}}" aria-label="Le chibi de Romain"><div class="gd-w"><div data-dc-class="{{gcls.da}}" data-dc-style="{{gst.da}}"></div></div></button></div>
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; align-items: start">
+<div class="pan" style="transform: rotate(-1.2deg); clip-path: polygon(0 0, calc(100% - 26px) 0, 100% 26px, 100% 100%, 0 100%)">
+<span class="pan-n">01</span><span class="tagp" style="background: #FF8FCB; color: #2A0A22">RÈGLE 01</span><div class="pan-t">STYLE GRAPHIQUE</div>
+<p class="pan-p">Formes simples, contours épais et chauds, proportions exagérées. Une grosse tête pour les expressions, un petit corps qui suit : ça reste lisible même quand le chibi fait 80 pixels de haut.</p>
+<div style="position: relative; height: 380px; background: #EADFD3; margin-top: 6px; overflow: hidden">
+<div style="position: absolute; left: 50%; top: 10px; width: 200px; margin-left: -100px"><div class="sp " style="background-image:url(/assets/sp_romain_b.webp);--i:1;width:200px;"></div></div>
+<div class="meas" style="top: 14px"></div><div class="meas" style="top: 186px"></div><div class="meas" style="top: 352px"></div>
+<span style="position: absolute; right: 12px; top: 80px; background: #2A0A22; color: #FF8FCB; font-family: 'Anton', sans-serif; font-size: 22px; padding: 4px 10px; transform: rotate(4deg)">TÊTE ≈ ½</span>
+<span style="position: absolute; right: 12px; top: 250px; background: #FF8FCB; color: #2A0A22; font-family: 'Anton', sans-serif; font-size: 22px; padding: 4px 10px; transform: rotate(-3deg)">CORPS ≈ ½</span>
+<span style="position: absolute; left: 6px; top: 150px; font-family: 'Gochi Hand', cursive; font-size: 20px; color: #2A0A22; transform: rotate(-6deg)">contour<br>bien épais ↘</span>
+</div></div>
+<div class="pan" style="transform: rotate(1deg); margin-top: 40px; clip-path: polygon(26px 0, 100% 0, 100% 100%, 0 100%, 0 26px)">
+<span class="pan-n">02</span><span class="tagp" style="background: #5B8CFF; color: #0B1030">RÈGLE 02</span><div class="pan-t">COULEURS &amp; LISIBILITÉ</div>
+<p class="pan-p">Des aplats francs et des ombres simples, pas de dégradés. Les chibis restent lisibles partout : dans une miniature, en pleine scène ou en overlay par-dessus le gameplay.</p>
+<div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px">
+<div class="sw"><i style="background: #121212"></i>CONTOUR</div>
+<div class="sw"><i style="background: #E1C99B"></i>PEAU</div>
+<div class="sw"><i style="background: #B49363"></i>OMBRE</div>
+<div class="sw"><i style="background: #4A2E1C"></i>CHEVEUX</div>
+<div class="sw"><i style="background: #F3F7F7"></i>BLANC</div>
+<div class="sw"><i style="background: #7FC8E8"></i>ÉTOILE</div>
+<div class="sw"><i style="background: #FF8FC8"></i>JOUES</div>
+</div>
+<div style="position: relative; background: #121214; height: 200px; margin-top: 8px; display: flex; align-items: flex-end; justify-content: center; gap: 26px; padding-bottom: 14px; box-sizing: border-box; overflow: hidden">
+<div style="position: absolute; inset: 0; background: repeating-linear-gradient(-45deg, #1C1C20 0 12px, #16161A 12px 24px)"></div>
+<div style="position: relative; display: flex; flex-direction: column; align-items: center; gap: 4px"><div class="sp " style="background-image:url(/assets/sp_sliman_b.webp);--i:4;width:44px;"></div><span style="font-size: 10px; color: #A9A49B">44 PX</span></div>
+<div style="position: relative; display: flex; flex-direction: column; align-items: center; gap: 4px"><div class="sp " style="background-image:url(/assets/sp_sliman_b.webp);--i:4;width:76px;"></div><span style="font-size: 10px; color: #A9A49B">76 PX</span></div>
+<div style="position: relative; display: flex; flex-direction: column; align-items: center; gap: 4px"><div class="sp " style="background-image:url(/assets/sp_sliman_b.webp);--i:4;width:96px;"></div><span style="font-size: 10px; color: #A9A49B">96 PX</span></div>
+<span style="position: absolute; left: 10px; top: 8px; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; color: #FF8FCB">TEST MINIATURE ✓</span>
+</div></div>
+<div class="pan" style="transform: rotate(-0.6deg); margin-top: 10px; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 26px), calc(100% - 26px) 100%, 0 100%)">
+<span class="pan-n">03</span><span class="tagp" style="background: #FFC21A; color: #1A1400">RÈGLE 03</span><div class="pan-t">IDENTITÉ PAR LA TENUE</div>
+<p class="pan-p">Chaque perso a sa tenue signature, inspirée de son vrai style. Coiffure, silhouette, vêtements : on doit savoir qui c'est sans lire son nom. Le test ? Les silhouettes.</p>
+<div style="background: #2A0A22; padding: 16px 10px 12px; margin-top: 6px">
+<div style="font-family: 'Anton', sans-serif; font-size: 24px; color: #FF8FCB; text-align: center">DEVINE QUI C'EST ?</div>
+<div style="display: flex; justify-content: center; gap: 0; margin-top: 8px; flex-wrap: wrap">
+<div class="sil" style="color: #5B8CFF"><div class="sp " style="background-image:url(/assets/sp_romain_b.webp);--i:0;width:50px;"></div><span class="sil-q">?</span><span class="sil-n">ROMAIN</span></div>
+<div class="sil" style="color: #FF5A1F"><div class="sp " style="background-image:url(/assets/sp_sliman_b.webp);--i:0;width:50px;"></div><span class="sil-q">?</span><span class="sil-n">SLIMAN</span></div>
+<div class="sil" style="color: #B48CFF"><div class="sp " style="background-image:url(/assets/sp_florian_b.webp);--i:0;width:50px;"></div><span class="sil-q">?</span><span class="sil-n">FLORIAN</span></div>
+<div class="sil" style="color: #2EC4B6"><div class="sp " style="background-image:url(/assets/sp_antoine_b.webp);--i:0;width:50px;"></div><span class="sil-q">?</span><span class="sil-n">ANTOINE</span></div>
+<div class="sil" style="color: #FFD23F"><div class="sp " style="background-image:url(/assets/sp_maxime_b.webp);--i:0;width:50px;"></div><span class="sil-q">?</span><span class="sil-n">MAXIME</span></div>
+<div class="sil" style="color: #39D98A"><div class="sp " style="background-image:url(/assets/sp_mathys_b.webp);--i:0;width:50px;"></div><span class="sil-q">?</span><span class="sil-n">MATHYS</span></div>
+<div class="sil" style="color: #FF8FCB"><div class="sp " style="background-image:url(/assets/sp_haroun_b.webp);--i:0;width:50px;"></div><span class="sil-q">?</span><span class="sil-n">HAROUN</span></div>
+</div><div style="text-align: center; font-size: 10px; letter-spacing: 0.12em; color: #C9A9BD; margin-top: 6px">SURVOLE POUR RÉVÉLER</div></div>
+</div>
+</div>
+</section>
+<!-- 02 LA BANDE -->
+<section id="bande" style="position: relative; padding: 70px 48px 90px 48px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 40px">
+<div><div class="kick" style="color: #7FA6FF">// 02 • LES PERSONNAGES</div><h2 class="h2" style="color: #5B8CFF">LA BANDE</h2>
+<p class="lead">Sept persos, sept silhouettes. Ils sont inspirés de vraies personnes, sans chercher à faire des portraits exacts : une coiffure, une tenue, une attitude, et c'est parti. Ils marchent seuls comme en groupe.</p></div>
+<div style="display: flex; align-items: flex-end; gap: 4px"><div class="bubble" style="width: 220px; margin-bottom: 110px; transform: rotate(-2deg)">{{msg.bande}}</div><button type="button" class="gd" data-dc-onclick="{{poke.bande}}" aria-label="Le chibi de Romain"><div class="gd-w"><div data-dc-class="{{gcls.bande}}" data-dc-style="{{gst.bande}}"></div></div></button></div>
+</div>
+<div class="grid4">
+<a class="cd" href="#studio" data-dc-onclick="{{try_.romain}}" style="--c: #5B8CFF; --k: #0B1030; transform: rotate(-1.2deg)"><div class="cd-stripes"></div><span class="cd-n">N°01 • CHIBI</span><div class="sp " style="background-image:url(/assets/sp_romain_b.webp);--i:1;"></div><div class="cd-b"><span class="cd-go">L'ESSAYER AU STUDIO →</span><span class="cd-name">ROMAIN</span><span class="cd-t">TENUE : T-SHIRT BLANC, ÉTOILE BLEUE</span></div></a>
+<a class="cd" href="#studio" data-dc-onclick="{{try_.sliman}}" style="--c: #FF5A1F; --k: #1A0800; transform: rotate(0.8deg)"><div class="cd-stripes"></div><span class="cd-n">N°02 • CHIBI</span><div class="sp " style="background-image:url(/assets/sp_sliman_b.webp);--i:1;"></div><div class="cd-b"><span class="cd-go">L'ESSAYER AU STUDIO →</span><span class="cd-name">SLIMAN</span><span class="cd-t">TENUE : T-SHIRT NOIR, LOGO ORANGE</span></div></a>
+<a class="cd" href="#studio" data-dc-onclick="{{try_.florian}}" style="--c: #B48CFF; --k: #1C0B3A; transform: rotate(-0.6deg)"><div class="cd-stripes"></div><span class="cd-n">N°03 • CHIBI</span><div class="sp " style="background-image:url(/assets/sp_florian_b.webp);--i:1;"></div><div class="cd-b"><span class="cd-go">L'ESSAYER AU STUDIO →</span><span class="cd-name">FLORIAN</span><span class="cd-t">TENUE : VESTE NOIRE COL MONTANT</span></div></a>
+<a class="cd" href="#studio" data-dc-onclick="{{try_.antoine}}" style="--c: #2EC4B6; --k: #04201D; transform: rotate(1.2deg)"><div class="cd-stripes"></div><span class="cd-n">N°04 • CHIBI</span><div class="sp " style="background-image:url(/assets/sp_antoine_b.webp);--i:1;"></div><div class="cd-b"><span class="cd-go">L'ESSAYER AU STUDIO →</span><span class="cd-name">ANTOINE</span><span class="cd-t">TENUE : VESTE DE SURVÊT MARINE</span></div></a>
+<a class="cd" href="#studio" data-dc-onclick="{{try_.maxime}}" style="--c: #FFD23F; --k: #2A2000; transform: rotate(0.9deg)"><div class="cd-stripes"></div><span class="cd-n">N°05 • CHIBI</span><div class="sp " style="background-image:url(/assets/sp_maxime_b.webp);--i:1;"></div><div class="cd-b"><span class="cd-go">L'ESSAYER AU STUDIO →</span><span class="cd-name">MAXIME</span><span class="cd-t">TENUE : T-SHIRT JAUNE + COLLIER</span></div></a>
+<a class="cd" href="#studio" data-dc-onclick="{{try_.mathys}}" style="--c: #39D98A; --k: #04210F; transform: rotate(-1deg)"><div class="cd-stripes"></div><span class="cd-n">N°06 • CHIBI</span><div class="sp " style="background-image:url(/assets/sp_mathys_b.webp);--i:1;"></div><div class="cd-b"><span class="cd-go">L'ESSAYER AU STUDIO →</span><span class="cd-name">MATHYS</span><span class="cd-t">TENUE : T-SHIRT GRIS</span></div></a>
+<a class="cd" href="#studio" data-dc-onclick="{{try_.haroun}}" style="--c: #FF8FCB; --k: #2A0A22; transform: rotate(0.6deg)"><div class="cd-stripes"></div><span class="cd-n">N°07 • CHIBI</span><div class="sp " style="background-image:url(/assets/sp_haroun_b.webp);--i:1;"></div><div class="cd-b"><span class="cd-go">L'ESSAYER AU STUDIO →</span><span class="cd-name">HAROUN</span><span class="cd-t">TENUE : DOUDOUNE BLANCHE</span></div></a>
+</div>
+</section>
+<!-- 03 STUDIO -->
+<section id="studio" style="position: relative; padding: 70px 48px 90px 48px; display: flex; flex-direction: column; gap: 40px; background: #1F0B19">
+<div class="half" style="opacity: .6"></div>
+<div style="position: relative; display: flex; justify-content: space-between; align-items: flex-end; gap: 40px">
+<div><div class="kick" style="color: #FF8FCB">// 03 • LA BIBLIOTHÈQUE D'ÉMOTIONS</div><h2 class="h2">LE STUDIO</h2>
+<p class="lead">Tous les persos partagent la même bibliothèque d'émotions, dessinée avec les mêmes règles. C'est ce qui permet de raconter vite : une réaction, une image, et tout le monde comprend. Choisis un perso, une tenue, une émotion.</p></div>
+<div style="display: flex; align-items: flex-end; gap: 4px"><div class="bubble" style="width: 220px; margin-bottom: 110px; transform: rotate(2deg)">{{msg.studio}}</div><button type="button" class="gd" data-dc-onclick="{{poke.studio}}" aria-label="Le chibi de Romain"><div class="gd-w"><div data-dc-class="{{gcls.studio}}" data-dc-style="{{gst.studio}}"></div></div></button></div>
+</div>
+<div style="position: relative; display: flex; gap: 44px; align-items: flex-start">
+<div class="stage" style="transform: rotate(-0.8deg)">
+<div class="stage-spot"></div><div class="stage-fl"></div>
+<div data-dc-class="{{stCls}}" data-dc-style="{{stSt}}"></div>
+<div data-dc-ref="{{flashRef}}" class="flash"></div>
+<div data-dc-style="{{soonSt}}" class="soonbig">{{soonTxt}}</div>
+<div style="position: absolute; left: 22px; top: 20px; display: flex; flex-direction: column; gap: 6px">
+<span data-dc-style="{{stNameSt}}">{{stName}}</span>
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em; color: #C9A9BD">ÉMOTION : <b style="color: #F2EEE6">{{stEmo}}</b> • {{stTen}}</span>
+</div>
+<span style="position: absolute; right: 18px; bottom: 132px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #FF8FCB"><span class="dot" style="width: 9px; height: 9px"></span> LIVE</span>
+</div>
+<div style="flex: 1; display: flex; flex-direction: column; gap: 26px">
+<div><div class="kick" style="color: #C9A9BD; margin-bottom: 12px">01 — LE PERSO</div><div style="display: flex; gap: 12px">
+<div data-dc-class="{{hbW.romain}}"><button type="button" data-dc-class="{{hbCls.romain}}" data-dc-onclick="{{pickC.romain}}" aria-label="Romain" style="--c: #5B8CFF"><div class="sp " style="background-image:url(/assets/sp_romain_b.webp);--i:1;"></div></button><span class="hb-n">ROMAIN</span></div>
+<div data-dc-class="{{hbW.sliman}}"><button type="button" data-dc-class="{{hbCls.sliman}}" data-dc-onclick="{{pickC.sliman}}" aria-label="Sliman" style="--c: #FF5A1F"><div class="sp " style="background-image:url(/assets/sp_sliman_b.webp);--i:1;"></div></button><span class="hb-n">SLIMAN</span></div>
+<div data-dc-class="{{hbW.florian}}"><button type="button" data-dc-class="{{hbCls.florian}}" data-dc-onclick="{{pickC.florian}}" aria-label="Florian" style="--c: #B48CFF"><div class="sp " style="background-image:url(/assets/sp_florian_b.webp);--i:1;"></div></button><span class="hb-n">FLORIAN</span></div>
+<div data-dc-class="{{hbW.antoine}}"><button type="button" data-dc-class="{{hbCls.antoine}}" data-dc-onclick="{{pickC.antoine}}" aria-label="Antoine" style="--c: #2EC4B6"><div class="sp " style="background-image:url(/assets/sp_antoine_b.webp);--i:1;"></div></button><span class="hb-n">ANTOINE</span></div>
+<div data-dc-class="{{hbW.maxime}}"><button type="button" data-dc-class="{{hbCls.maxime}}" data-dc-onclick="{{pickC.maxime}}" aria-label="Maxime" style="--c: #FFD23F"><div class="sp " style="background-image:url(/assets/sp_maxime_b.webp);--i:1;"></div></button><span class="hb-n">MAXIME</span></div>
+<div data-dc-class="{{hbW.mathys}}"><button type="button" data-dc-class="{{hbCls.mathys}}" data-dc-onclick="{{pickC.mathys}}" aria-label="Mathys" style="--c: #39D98A"><div class="sp " style="background-image:url(/assets/sp_mathys_b.webp);--i:1;"></div></button><span class="hb-n">MATHYS</span></div>
+<div data-dc-class="{{hbW.haroun}}"><button type="button" data-dc-class="{{hbCls.haroun}}" data-dc-onclick="{{pickC.haroun}}" aria-label="Haroun" style="--c: #FF8FCB"><div class="sp " style="background-image:url(/assets/sp_haroun_b.webp);--i:1;"></div></button><span class="hb-n">HAROUN</span></div>
+</div></div>
+<div><div class="kick" style="color: #C9A9BD; margin-bottom: 12px">02 — LA TENUE</div><div class="tg"><button type="button" data-dc-class="{{tgCls.b}}" data-dc-onclick="{{pickT.b}}">TENUE CLASSIQUE</button><button type="button" data-dc-class="{{tgCls.lt}}" data-dc-onclick="{{pickT.lt}}">TENUE LETHAL COMPANY</button></div></div>
+<div><div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px"><span class="kick" style="color: #C9A9BD">03 — L'ÉMOTION</span>
+<div style="display: flex; gap: 10px"><button type="button" class="ctl" data-dc-onclick="{{rnd}}" style="background: #FFC21A; color: #1A1400; font-size: 17px; padding: 8px 16px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%)">🎲 AU HASARD</button><button type="button" class="ctl" data-dc-onclick="{{pickE.parle}}" style="background: #FF8FCB; color: #2A0A22; font-size: 17px; padding: 8px 16px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%)">▶ FAIS-LE PARLER</button></div></div>
+<div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px">
+<button type="button" data-dc-class="{{ebCls.neutre}}" data-dc-onclick="{{pickE.neutre}}"><div class="sp" data-dc-style="{{ebSt.neutre}}"></div><span class="eb-l">NEUTRE</span><span class="soon" data-dc-style="{{ebSoon.neutre}}">BIENTÔT</span></button>
+<button type="button" data-dc-class="{{ebCls.content}}" data-dc-onclick="{{pickE.content}}"><div class="sp" data-dc-style="{{ebSt.content}}"></div><span class="eb-l">CONTENT</span><span class="soon" data-dc-style="{{ebSoon.content}}">BIENTÔT</span></button>
+<button type="button" data-dc-class="{{ebCls.heureux}}" data-dc-onclick="{{pickE.heureux}}"><div class="sp" data-dc-style="{{ebSt.heureux}}"></div><span class="eb-l">HEUREUX</span><span class="soon" data-dc-style="{{ebSoon.heureux}}">BIENTÔT</span></button>
+<button type="button" data-dc-class="{{ebCls.triste}}" data-dc-onclick="{{pickE.triste}}"><div class="sp" data-dc-style="{{ebSt.triste}}"></div><span class="eb-l">TRISTE</span><span class="soon" data-dc-style="{{ebSoon.triste}}">BIENTÔT</span></button>
+<button type="button" data-dc-class="{{ebCls.enerve}}" data-dc-onclick="{{pickE.enerve}}"><div class="sp" data-dc-style="{{ebSt.enerve}}"></div><span class="eb-l">ÉNERVÉ</span><span class="soon" data-dc-style="{{ebSoon.enerve}}">BIENTÔT</span></button>
+<button type="button" data-dc-class="{{ebCls.contrarie}}" data-dc-onclick="{{pickE.contrarie}}"><div class="sp" data-dc-style="{{ebSt.contrarie}}"></div><span class="eb-l">CONTRARIÉ</span><span class="soon" data-dc-style="{{ebSoon.contrarie}}">BIENTÔT</span></button>
+<button type="button" data-dc-class="{{ebCls.peur}}" data-dc-onclick="{{pickE.peur}}"><div class="sp" data-dc-style="{{ebSt.peur}}"></div><span class="eb-l">PEUR</span><span class="soon" data-dc-style="{{ebSoon.peur}}">BIENTÔT</span></button>
+<button type="button" data-dc-class="{{ebCls.debile}}" data-dc-onclick="{{pickE.debile}}"><div class="sp" data-dc-style="{{ebSt.debile}}"></div><span class="eb-l">DÉBILE</span><span class="soon" data-dc-style="{{ebSoon.debile}}">BIENTÔT</span></button>
+<button type="button" data-dc-class="{{ebCls.kawaine}}" data-dc-onclick="{{pickE.kawaine}}"><div class="sp" data-dc-style="{{ebSt.kawaine}}"></div><span class="eb-l">KAWAINÉ</span><span class="soon" data-dc-style="{{ebSoon.kawaine}}">BIENTÔT</span></button>
+<button type="button" data-dc-class="{{ebCls.rigole}}" data-dc-onclick="{{pickE.rigole}}"><div class="sp" data-dc-style="{{ebSt.rigole}}"></div><span class="eb-l">RIGOLE</span><span class="soon" data-dc-style="{{ebSoon.rigole}}">BIENTÔT</span></button>
+<button type="button" data-dc-class="{{ebCls.party}}" data-dc-onclick="{{pickE.party}}"><div class="sp" data-dc-style="{{ebSt.party}}"></div><span class="eb-l">PARTY</span><span class="soon" data-dc-style="{{ebSoon.party}}">BIENTÔT</span></button>
+<button type="button" data-dc-class="{{ebCls.parle}}" data-dc-onclick="{{pickE.parle}}"><div class="sp" data-dc-style="{{ebSt.parle}}"></div><span class="eb-l">PARLE</span><span class="soon" data-dc-style="{{ebSoon.parle}}">BIENTÔT</span></button>
+</div></div>
+<div style="font-size: 12px; line-height: 1.6; color: #C9A9BD; border-left: 4px solid #FF8FCB; padding-left: 14px">Chaque émotion existe aussi en version <b style="color: #F2EEE6">bras croisés</b>, <b style="color: #F2EEE6">qui parle</b> (deux images pour animer la bouche) et parfois <b style="color: #F2EEE6">flattée</b>. En tout, plus de 60 dessins par perso.</div>
+</div>
+</div>
+<div style="position: relative; display: flex; gap: 60px; align-items: center; margin-top: 50px; padding-top: 50px; border-top: 4px dashed rgba(255,143,203,.35)">
+<div style="flex: 1">
+<div class="kick" style="color: #FF8FCB">// 03B • UNE ÉMOTION, PLUSIEURS VERSIONS</div>
+<div style="font-family: 'Anton', sans-serif; font-size: 96px; line-height: .9; margin-top: 6px">LES VARIANTES</div>
+<p class="lead" style="width: 560px">Pour que le chibi vive dans la vidéo, une seule image ne suffit pas. Chaque pose se décline : bras croisés, joues qui rougissent, bouche qui parle. Combine les options pour voir.</p>
+<div style="display: flex; gap: 12px; margin-top: 26px; flex-wrap: wrap">
+<button type="button" data-dc-class="{{vtCls.bc}}" data-dc-onclick="{{vt.bc}}"><i></i>BRAS CROISÉS</button>
+<button type="button" data-dc-class="{{vtCls.fl}}" data-dc-onclick="{{vt.fl}}"><i></i>IL ROUGIT</button>
+<button type="button" data-dc-class="{{vtCls.pa}}" data-dc-onclick="{{vt.pa}}"><i></i>IL PARLE</button>
+</div>
+<div style="margin-top: 22px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #C9A9BD">FICHIER : <span style="color: #F2EEE6">{{vtFile}}</span></div>
+</div>
+<div style="position: relative; width: 420px; height: 560px; background: #F2EEE6; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%); transform: rotate(1.5deg); overflow: hidden">
+<div style="position: absolute; inset: 0; background-image: radial-gradient(rgba(42,10,34,.12) 1.6px, transparent 1.8px); background-size: 20px 20px"></div>
+<div data-dc-class="{{vtSpCls}}" data-dc-style="{{vtSpSt}}"></div>
+<span style="position: absolute; left: 16px; top: 14px; background: #2A0A22; color: #FF8FCB; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; padding: 5px 10px">ROMAIN • CONTENT</span>
+</div>
+</div>
+</section>
+<!-- 04 TENUES -->
+<section id="tenues" style="position: relative; padding: 90px 48px 90px 48px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 40px">
+<div><div class="kick" style="color: #FFD66B">// 04 • TENUES & UNIVERS</div><h2 class="h2" style="color: #FFC21A">LES TENUES</h2>
+<p class="lead">Quand la vidéo change d'univers, la bande change de tenue. Pour Lethal Company, tout le monde a eu sa combinaison : même design pour toute l'équipe, une couleur par perso. Et toujours les 12 émotions, redessinées par-dessus.</p></div>
+<div style="display: flex; align-items: flex-end; gap: 4px"><div class="bubble" style="width: 220px; margin-bottom: 110px; transform: rotate(-2deg)">{{msg.tenues}}</div><button type="button" class="gd" data-dc-onclick="{{poke.tenues}}" aria-label="Le chibi de Romain"><div class="gd-w"><div data-dc-class="{{gcls.tenues}}" data-dc-style="{{gst.tenues}}"></div></div></button></div>
+</div>
+<div style="display: flex; gap: 50px; align-items: flex-start">
+<div class="cmp" data-dc-ref="{{cmpRef}}" style="transform: rotate(-1deg)">
+<div style="position: absolute; inset: 0; background: repeating-linear-gradient(-45deg, #1C1C20 0 18px, #16161A 18px 36px)"></div>
+<div class="sp" data-dc-style="{{cmpB}}"></div>
+<div class="cmp-lt"><div class="sp" data-dc-style="{{cmpL}}"></div></div>
+<div class="cmp-bar"><div class="cmp-knob">⇆</div></div>
+<span class="cmp-l" style="left: 18px; background: #F2EEE6; color: #121214">CLASSIQUE</span><span class="cmp-l" style="right: 18px; background: #FFC21A; color: #1A1400">LETHAL COMPANY</span>
+<input type="range" min="0" max="100" value="50" aria-label="Comparer les deux tenues" data-dc-oninput="{{cmpIn}}">
+</div>
+<div style="flex: 1; display: flex; flex-direction: column; gap: 28px">
+<div><div class="kick" style="color: #C9A9BD; margin-bottom: 12px">GLISSE LA BARRE • CHOISIS UN PERSO</div><div style="display: flex; gap: 12px">
+<div data-dc-class="{{tcW.romain}}"><button type="button" data-dc-class="{{tcCls.romain}}" data-dc-onclick="{{pickTc.romain}}" aria-label="Romain" style="--c: #5B8CFF"><div class="sp " style="background-image:url(/assets/sp_romain_lt.webp);--i:1;"></div></button><span class="hb-n">ROMAIN</span></div>
+<div data-dc-class="{{tcW.sliman}}"><button type="button" data-dc-class="{{tcCls.sliman}}" data-dc-onclick="{{pickTc.sliman}}" aria-label="Sliman" style="--c: #FF5A1F"><div class="sp " style="background-image:url(/assets/sp_sliman_lt.webp);--i:1;"></div></button><span class="hb-n">SLIMAN</span></div>
+<div data-dc-class="{{tcW.florian}}"><button type="button" data-dc-class="{{tcCls.florian}}" data-dc-onclick="{{pickTc.florian}}" aria-label="Florian" style="--c: #B48CFF"><div class="sp " style="background-image:url(/assets/sp_florian_lt.webp);--i:1;"></div></button><span class="hb-n">FLORIAN</span></div>
+<div data-dc-class="{{tcW.antoine}}"><button type="button" data-dc-class="{{tcCls.antoine}}" data-dc-onclick="{{pickTc.antoine}}" aria-label="Antoine" style="--c: #2EC4B6"><div class="sp " style="background-image:url(/assets/sp_antoine_lt.webp);--i:1;"></div></button><span class="hb-n">ANTOINE</span></div>
+<div data-dc-class="{{tcW.maxime}}"><button type="button" data-dc-class="{{tcCls.maxime}}" data-dc-onclick="{{pickTc.maxime}}" aria-label="Maxime" style="--c: #FFD23F"><div class="sp " style="background-image:url(/assets/sp_maxime_lt.webp);--i:1;"></div></button><span class="hb-n">MAXIME</span></div>
+<div data-dc-class="{{tcW.mathys}}"><button type="button" data-dc-class="{{tcCls.mathys}}" data-dc-onclick="{{pickTc.mathys}}" aria-label="Mathys" style="--c: #39D98A"><div class="sp " style="background-image:url(/assets/sp_mathys_lt.webp);--i:1;"></div></button><span class="hb-n">MATHYS</span></div>
+<div data-dc-class="{{tcW.haroun}}"><button type="button" data-dc-class="{{tcCls.haroun}}" data-dc-onclick="{{pickTc.haroun}}" aria-label="Haroun" style="--c: #FF8FCB"><div class="sp " style="background-image:url(/assets/sp_haroun_lt.webp);--i:1;"></div></button><span class="hb-n">HAROUN</span></div>
+</div></div>
+<div style="background: #1F1A08; padding: 26px 26px 10px; clip-path: polygon(0 0, calc(100% - 26px) 0, 100% 26px, 100% 100%, 0 100%); position: relative; overflow: hidden">
+<div style="position: absolute; inset: 0; background: repeating-linear-gradient(-45deg, rgba(255,194,26,.06) 0 14px, transparent 14px 28px)"></div>
+<div style="position: relative; font-family: 'Anton', sans-serif; font-size: 38px; color: #FFC21A">L'ÉQUIPAGE AU COMPLET</div>
+<div style="position: relative; font-size: 11px; letter-spacing: 0.12em; color: #C9B98A; margin-top: 4px">SURVOLE UN MEMBRE D'ÉQUIPAGE… IL A PEUR.</div>
+<div class="crew" style="position: relative; margin-top: 10px">
+<div class="cw"><div class="sp " style="background-image:url(/assets/sp_romain_lt.webp);--i:0;"></div></div>
+<div class="cw"><div class="sp " style="background-image:url(/assets/sp_sliman_lt.webp);--i:0;"></div></div>
+<div class="cw"><div class="sp " style="background-image:url(/assets/sp_florian_lt.webp);--i:0;"></div></div>
+<div class="cw"><div class="sp " style="background-image:url(/assets/sp_antoine_lt.webp);--i:0;"></div></div>
+<div class="cw"><div class="sp " style="background-image:url(/assets/sp_maxime_lt.webp);--i:0;"></div></div>
+<div class="cw"><div class="sp " style="background-image:url(/assets/sp_mathys_lt.webp);--i:0;"></div></div>
+<div class="cw"><div class="sp " style="background-image:url(/assets/sp_haroun_lt.webp);--i:0;"></div></div>
+</div></div>
+<div class="lc">
+<div class="lc-str"></div>
+<div class="lc-logo"><img src="/assets/lc100.webp" alt="Logo 100 jours dans Lethal Company"></div>
+<div style="position: relative; display: flex; flex-direction: column; gap: 10px; flex: 1">
+<span style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #FF6B6B">// PROJET VIDÉO • ABANDONNÉ</span>
+<span style="font-family: 'Anton', sans-serif; font-size: 40px; line-height: .95; color: #F2EEE6">100 JOURS DANS<br>LETHAL COMPANY</span>
+<p style="margin: 0; font-size: 13px; line-height: 1.6; color: #D8CFC9">Ces tenues ont été dessinées pour une vidéo « 100 jours dans Lethal Company ». Chaque membre de la bande avait sa combi et toutes ses émotions prêtes.</p>
+<p style="margin: 0; font-size: 13px; line-height: 1.6; color: #D8CFC9"><b style="color: #FF6B6B">Malheureusement, la vidéo ne verra jamais le jour : le projet a été abandonné.</b> Il ne reste que ces dessins, et ils méritaient au moins d'être vus quelque part.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 05 BONUS -->
+<section id="bonus" style="position: relative; padding: 70px 48px 100px 48px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 40px">
+<div><div class="kick" style="color: #7FE8B3">// 05 • TRUCS EN PLUS</div><h2 class="h2" style="color: #39D98A">LES BONUS</h2>
+<p class="lead">Certaines vidéos demandent des dessins sur mesure : un accessoire, une pose, une blague. Voilà la planche des extras. Attrape les stickers et range-les comme tu veux.</p></div>
+<div style="display: flex; align-items: flex-end; gap: 4px"><div class="bubble" style="width: 220px; margin-bottom: 110px; transform: rotate(2deg)">{{msg.bonus}}</div><button type="button" class="gd" data-dc-onclick="{{poke.bonus}}" aria-label="Le chibi de Romain"><div class="gd-w"><div data-dc-class="{{gcls.bonus}}" data-dc-style="{{gst.bonus}}"></div></div></button></div>
+</div>
+<div class="board" data-dc-ref="{{boardRef}}" style="transform: rotate(-0.5deg)">
+<div class="board-grid"></div>
+<span style="position: absolute; right: 30px; bottom: 22px; font-family: 'Anton', sans-serif; font-size: 22px; color: rgba(42,10,34,.35)">★ GLISSE-DÉPOSE LES STICKERS</span>
+<div class="stk" style="left: 60px; top: 60px; rotate: -6deg"><img class="stkr" src="/assets/x_sniper.webp" alt="Sliman, énervé… avec un sniper" style="width: 380px" draggable="false"><span class="stk-c" style="left: 40px; top: -34px">Sliman, énervé… avec un sniper</span></div>
+<div class="stk" style="left: 640px; top: 40px; rotate: -7deg"><img class="stkr" src="/assets/x_maxromain.webp" alt="Maxime en tenue de Romain ?!" style="width: 150px" draggable="false"><span class="stk-c" style="left: -20px; top: 335px">Maxime en tenue de Romain ?!</span></div>
+<div class="stk" style="left: 930px; top: 40px; rotate: -4deg"><img loading="lazy" decoding="async" class="stkr" src="/assets/x_photo.webp" alt="Romain caméraman" style="width: 170px" draggable="false"><span class="stk-c" style="left: 0px; top: -32px">Romain caméraman</span></div>
+<div class="stk" style="left: 520px; top: 430px; rotate: 5deg"><img loading="lazy" decoding="async" class="stkr" src="/assets/x_scie.webp" alt="Mathys a sorti la scie" style="width: 300px" draggable="false"><span class="stk-c" style="left: 300px; top: 200px">Mathys a sorti la scie</span></div>
+<div class="stk" style="left: 1100px; top: 420px; rotate: 8deg"><img loading="lazy" decoding="async" class="stkr" src="/assets/x_tete.webp" alt="juste la tête de Sliman" style="width: 170px" draggable="false"><span class="stk-c" style="left: -10px; top: 190px">juste la tête de Sliman</span></div>
+<div class="stk" style="left: 470px; top: 30px; rotate: 6deg"><div class="sp stkr" style="background-image:url(/assets/sp_haroun_b.webp);--i:8;width:120px;"></div></div>
+<div class="stk" style="left: 1170px; top: 40px; rotate: -8deg"><div class="sp stkr" style="background-image:url(/assets/sp_antoine_b.webp);--i:10;width:120px;"></div></div>
+<div class="stk" style="left: 130px; top: 430px; rotate: -5deg"><div class="sp stkr" style="background-image:url(/assets/sp_florian_b.webp);--i:7;width:130px;"></div></div>
+</div>
+</section>
+<!-- 06 ORIGINES -->
+<section id="origines" style="position: relative; padding: 70px 48px 100px 48px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 40px">
+<div><div class="kick" style="color: #FFD23F">// 06 • PETITE SURPRISE</div><h2 class="h2" style="color: #FFD23F">LES ORIGINES</h2>
+<p class="lead">Le chibi ne date pas d’hier : il existe depuis 2023, bien avant le book et bien avant la DA. J’ai retrouvé les tout premiers croquis sur mon bureau… Allume la lumière et fouille un peu, presque tout se touche.</p></div>
+<div style="display: flex; flex-direction: column; align-items: flex-end; gap: 12px"><div data-dc-class="{{ogCntCls}}">{{ogCnt}}</div><div class="og-hint">BOUGE LA SOURIS • TOUT SE CLIQUE</div></div>
+</div>
+<div data-dc-class="og-scene {{ogCls}}" data-dc-ref="{{ogRef}}" data-dc-onmouseleave="{{ogOut}}">
+<div class="og-room">
+<div class="og-wall"></div>
+<div class="og-it og-poster"><div style="background: #FF8FCB; border: 5px solid #121214; box-shadow: 8px 8px 0 rgba(0,0,0,.45); padding: 16px 14px 8px; text-align: center"><img loading="lazy" decoding="async" src="/assets/logo_solid_cream.webp" alt="Logo de Romain" style="width: 82px; height: 70px; object-fit: contain; filter: drop-shadow(3px 3px 0 #2A0A22)"><div style="font-family: 'Gochi Hand', cursive; font-size: 17px; color: #2A0A22">depuis sept. 2024</div></div></div>
+<!-- calendrier -->
+<button type="button" class="og-it og-cal og-hit" data-dc-onclick="{{og.cal}}" aria-label="Calendrier"><div class="og-cl og-wob"><span class="rg"></span><span class="yr">{{ogYear}}</span><span class="lb">{{ogYearLb}}</span></div></button>
+<!-- todo -->
+<button type="button" class="og-it og-todo og-hit" data-dc-onclick="{{og.todo}}" aria-label="Post-it"><div class="og-td og-wob"><b style="font-family: 'Anton', sans-serif; font-weight: 400; font-size: 22px">TODO 2023</b><br>☑ dessiner les chibis<br>{{ogTodo}}</div></button>
+<!-- interrupteur + câble -->
+<svg class="og-cable" style="left: 0; top: 0; width: 1344px; height: 900px; transform: translateZ(4px)" viewBox="0 0 1344 900"><path d="M118 470 C 118 560, 220 520, 300 600" fill="none" stroke="#0C0409" stroke-width="9" stroke-linecap="round"/></svg>
+<button type="button" class="og-it og-hit" style="left: 76px; top: 340px; transform: translateZ(110px)" data-dc-onclick="{{og.sw}}" aria-label="Interrupteur de la table lumineuse"><div class="og-sw og-wob og-glow"><div class="og-rk"></div></div></button>
+<span class="og-hand" style="left: 172px; top: 360px; font-size: 22px; color: #FFD23F; opacity: 1; transform: translateZ(110px); rotate: -4deg">{{ogSwTxt}}</span>
+<!-- bureau -->
+<div class="og-top"></div><div class="og-front"></div>
+<div class="og-leg" style="left: 90px"></div><div class="og-leg" style="left: 1208px"></div>
+<!-- table lumineuse -->
+<div class="og-it og-lb">
+<div class="og-lbleg" style="left: 60px"></div><div class="og-lbleg" style="right: 60px"></div>
+<div class="og-lbf"><div class="og-glass">
+<button type="button" data-dc-class="og-sk pap og-hit {{ogBigP}}" data-dc-onclick="{{og.proto}}" aria-label="Premier croquis du chibi de Maxime, 2023"><img loading="lazy" decoding="async" src="/assets/og_proto.webp" alt="Premier croquis du chibi de Maxime, 2023"><span class="og-tape" style="left: 80px; top: -10px; rotate: 3deg"></span><span class="og-stamp">AUCUN RAPPORT</span></button>
+<span class="og-hand" style="left: 320px; top: 30px; font-size: 30px; rotate: 2deg">MAXIME<br>— 2023 —</span>
+<span class="og-hand" style="left: 316px; top: 130px; font-size: 21px; width: 220px; rotate: -2deg">les yeux à lunettes, la coupe en chou-fleur, le collier…</span>
+<span class="og-hand" style="left: 316px; top: 236px; font-size: 21px; width: 220px; rotate: 1deg">« oui, c’est censé être Maxime »</span>
+<svg class="og-hand" style="left: 270px; top: 70px; width: 60px; height: 50px" viewBox="0 0 60 50"><path d="M56 8 C 34 6, 18 18, 8 40 M8 40 L 6 24 M8 40 L 22 34" fill="none" stroke="#121214" stroke-width="4" stroke-linecap="round"/></svg>
+<span class="og-hand" style="left: 316px; top: 330px; font-size: 18px; width: 230px; color: #D7263D">→ clique sur les croquis</span>
+</div></div>
+</div>
+<!-- téléphone -->
+<button type="button" data-dc-class="og-it og-ph og-hit {{ogPhCls}}" data-dc-onclick="{{og.phone}}" aria-label="Téléphone avec le croquis iPhone Notes"><div class="og-phb"><div class="og-scr"><img loading="lazy" decoding="async" src="/assets/og_notes.webp" alt="Deuxième croquis du chibi, dessiné dans Notes sur iPhone, 2023"><div class="og-lock"><b>21:02</b>Notes • 1 croquis<br>touche pour ouvrir</div></div></div></button>
+<!-- livre + mug -->
+<button type="button" data-dc-class="og-it og-book og-hit {{ogBookCls}}" data-dc-onclick="{{og.book}}" aria-label="Le book"><div class="og-bk og-wob">{{ogBookTxt}}</div></button>
+<button type="button" data-dc-class="og-it og-mug og-hit {{ogMugCls}}" data-dc-onclick="{{og.mug}}" aria-label="Tasse"><div class="og-steam"><i style="left: 6px"></i><i style="left: 22px; animation-delay: .4s"></i><i style="left: 38px; animation-delay: .8s"></i></div><div class="og-mg og-wob"><span>RL</span></div></button>
+<!-- crayon, gomme -->
+<button type="button" data-dc-class="og-it og-pen og-hit {{ogPenCls}}" data-dc-onclick="{{og.pen}}" aria-label="Crayon"><div class="og-pn"></div></button>
+<button type="button" data-dc-class="og-it og-gum og-hit {{ogGumCls}}" data-dc-onclick="{{og.gum}}" aria-label="Gomme"><div class="og-gm og-wob"></div></button>
+<!-- chibi -->
+<button type="button" class="og-it og-chi og-hit" data-dc-onclick="{{og.chi}}" aria-label="Le chibi de Romain"><div class="og-wob"><div data-dc-class="{{ogSpCls}}" data-dc-style="{{ogSpSt}}"></div></div></button>
+<div class="bubble og-bub">{{ogMsg}}</div>
+<div class="og-dark"></div>
+</div>
+</div>
+</section>
+<a href="/404.html" style="display: flex; align-items: center; justify-content: space-between; min-height: 270px; flex: 1 0 auto; background: #2A2019; color: #E0C2A0; text-decoration: none; padding: 0 56px; position: relative; overflow: hidden">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em; color: #C9A27A">DOSSIER SUIVANT — 06</span>
+<span style="font-family: 'Anton', sans-serif; font-size: 130px; line-height: 0.85">PANICORE IRL →</span>
+</div>
+<div style="display: flex; align-items: flex-end; gap: 10px">
+<div class="bubble" style="width: 210px; margin-bottom: 80px; transform: rotate(2deg); font-size: 20px">Là-bas, on rigole beaucoup moins…</div>
+<div class="sp " style="background-image:url(/assets/sp_romain_b.webp);--i:6;width:120px;animation: bob 2.4s ease-in-out infinite"></div>
+</div>
+</a>
+<div data-dc-ref="{{tpRef}}" class="tp-ov" aria-hidden="true"><div class="tp-band" style="background: #F2EEE6; --d: 0.000s"></div><div class="tp-band" style="background: #170912; --d: 0.035s"></div><div class="tp-band" style="background: #FF8FCB; --d: 0.070s"></div><div class="tp-band" style="background: #1F0B19; --d: 0.105s"></div><div class="tp-band" style="background: #5B8CFF; --d: 0.140s"></div><div class="tp-band" style="background: #FFC21A; --d: 0.175s"></div><div class="tp-band" style="background: #170912; --d: 0.210s"></div><div data-dc-ref="{{tpLblRef}}" class="tp-lbl"></div></div>
+</div>
+</x-dc>
+<script src="/assets/dc.js?v=1b6c20c3"></script>
+<script>
+window.__DC = class Component extends DCLogic {
+  initHeader() {
+    if (this._hdInit || !this.hd || !this.hdWrap) return;
+    this._hdInit = true;
+    const hd = this.hd, wrap = this.hdWrap;
+    let last = 0, fixed = false;
+    const getY = (ev) => {
+      const tg = ev && ev.target;
+      if (tg && tg !== document && tg.nodeType === 1 && tg.scrollHeight > tg.clientHeight && tg.contains(hd)) return tg.scrollTop;
+      return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    };
+    this._hdScroll = (ev) => {
+      const y = getY(ev), h = wrap.offsetHeight || hd.offsetHeight || 100;
+      if (!fixed) wrap.style.height = hd.offsetHeight + 'px';
+      if (y <= h) {
+        if (fixed) { fixed = false; hd.classList.remove('hd-fixed', 'hd-show', 'hd-instant'); }
+      } else {
+        if (!fixed) { fixed = true; hd.classList.add('hd-fixed', 'hd-instant'); void hd.offsetWidth; hd.classList.remove('hd-instant'); }
+        if (y < last - 2) hd.classList.add('hd-show');
+        else if (y > last + 2) hd.classList.remove('hd-show');
+      }
+      last = y;
+    };
+    document.addEventListener('scroll', this._hdScroll, true);
+  }
+  initZoom() {
+    if (this._zoomInit || typeof window === 'undefined') return;
+    this._zoomInit = true;
+    const fit = () => { const w = window.innerWidth || document.documentElement.clientWidth; if (w) document.documentElement.style.zoom = String(w / 1440); };
+    this._zoomFit = fit; fit(); window.addEventListener('resize', fit);
+  }
+  initDrag() {
+    if (this._dragInit || typeof document === 'undefined') return;
+    this._dragInit = true;
+    let cur = null, sx = 0, sy = 0, ox = 0, oy = 0, sc = 1;
+    this._pDown = (e) => {
+      const t = e.target && e.target.closest ? e.target.closest('.stk') : null;
+      if (!t) return;
+      e.preventDefault();
+      cur = t; sx = e.clientX; sy = e.clientY;
+      ox = parseFloat(t.style.left) || 0; oy = parseFloat(t.style.top) || 0;
+      const r = t.getBoundingClientRect(); sc = (r.width && t.offsetWidth) ? r.width / t.offsetWidth : 1;
+      if (!sc || !isFinite(sc)) sc = 1;
+      this._z = (this._z || 40) + 1; t.style.zIndex = this._z;
+      t.classList.add('drag');
+    };
+    this._pMove = (e) => {
+      if (!cur) return;
+      const b = this.boardEl;
+      let x = ox + (e.clientX - sx) / sc, y = oy + (e.clientY - sy) / sc;
+      if (b) { x = Math.max(-60, Math.min(b.offsetWidth - 80, x)); y = Math.max(-60, Math.min(b.offsetHeight - 80, y)); }
+      cur.style.left = x + 'px'; cur.style.top = y + 'px';
+    };
+    this._pUp = () => { if (cur) cur.classList.remove('drag'); cur = null; };
+    document.addEventListener('pointerdown', this._pDown, true);
+    document.addEventListener('pointermove', this._pMove);
+    document.addEventListener('pointerup', this._pUp);
+    document.addEventListener('pointercancel', this._pUp);
+  }
+  initOg() {
+    const el = this.ogEl; if (!el || el._ogMove) return;
+    el._ogMove = (e) => {
+      const r = el.getBoundingClientRect(); if (!r.width) return;
+      const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+      const room = el.firstElementChild; if (!room) return;
+      room.style.setProperty('--ry', (x * 7).toFixed(2) + 'deg');
+      room.style.setProperty('--rx', (-y * 5).toFixed(2) + 'deg');
+    };
+    el.addEventListener('pointermove', el._ogMove);
+  }
+  componentWillUnmount() {
+    Object.values(this._ogT || {}).forEach(clearTimeout);
+    if (this.ogEl && this.ogEl._ogMove) this.ogEl.removeEventListener('pointermove', this.ogEl._ogMove);
+    if (this._zoomFit) window.removeEventListener('resize', this._zoomFit);
+    if (this._hdScroll) document.removeEventListener('scroll', this._hdScroll, true);
+    if (this._pDown) { document.removeEventListener('pointerdown', this._pDown, true); document.removeEventListener('pointermove', this._pMove); document.removeEventListener('pointerup', this._pUp); document.removeEventListener('pointercancel', this._pUp); }
+    (this._tpT || []).forEach(clearTimeout);
+    Object.values(this._pokeT || {}).forEach(clearTimeout);
+    Object.values(this._hopT || {}).forEach(clearTimeout);
+  }
+  teleport(e, id, label) {
+    if (e && e.preventDefault) e.preventDefault();
+    const ov = this.tpEl, target = document.getElementById(id);
+    if (!target) return;
+    if (!ov) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
+    (this._tpT || []).forEach(clearTimeout); this._tpT = [];
+    const at = (ms, fn) => this._tpT.push(setTimeout(fn, ms));
+    if (this.tpLbl) this.tpLbl.textContent = label;
+    ov.className = 'tp-ov on';
+    at(20, () => ov.classList.add('in'));
+    at(500, () => { target.scrollIntoView({ behavior: 'auto', block: 'start' }); ov.classList.add('out'); });
+    at(1000, () => { ov.className = 'tp-ov'; });
+  }
+  flash() {
+    const f = this.flashEl; if (!f) return;
+    f.classList.remove('go'); void f.offsetWidth; f.classList.add('go');
+  }
+  renderVals() {
+    this.initZoom();
+    this.initDrag();
+    const st = this.state || {};
+    const CH = [["romain", "ROMAIN", "#5B8CFF", "#0B1030"], ["sliman", "SLIMAN", "#FF5A1F", "#1A0800"], ["florian", "FLORIAN", "#B48CFF", "#1C0B3A"], ["antoine", "ANTOINE", "#2EC4B6", "#04201D"], ["maxime", "MAXIME", "#FFD23F", "#2A2000"], ["mathys", "MATHYS", "#39D98A", "#04210F"], ["haroun", "HAROUN", "#FF8FCB", "#2A0A22"]];
+    const EMO = [["neutre", "NEUTRE"], ["content", "CONTENT"], ["heureux", "HEUREUX"], ["triste", "TRISTE"], ["enerve", "ÉNERVÉ"], ["contrarie", "CONTRARIÉ"], ["peur", "PEUR"], ["debile", "DÉBILE"], ["kawaine", "KAWAINÉ"], ["rigole", "RIGOLE"], ["party", "PARTY"], ["parle", "PARLE"]];
+    const SP = {
+      romain: { b: '/assets/sp_romain_b.webp', lt: '/assets/sp_romain_lt.webp' }, sliman: { b: '/assets/sp_sliman_b.webp', lt: '/assets/sp_sliman_lt.webp' },
+      florian: { b: '/assets/sp_florian_b.webp', lt: '/assets/sp_florian_lt.webp' }, antoine: { b: '/assets/sp_antoine_b.webp', lt: '/assets/sp_antoine_lt.webp' },
+      maxime: { b: '/assets/sp_maxime_b.webp', lt: '/assets/sp_maxime_lt.webp' }, mathys: { b: '/assets/sp_mathys_b.webp', lt: '/assets/sp_mathys_lt.webp' },
+      haroun: { b: '/assets/sp_haroun_b.webp', lt: '/assets/sp_haroun_lt.webp' },
+    };
+    const VAR = '/assets/sp_romain_var.webp';
+    const COL = {}; CH.forEach((c) => { COL[c[0]] = c; });
+    const MISS = { 'maxime_b_9': 1, 'antoine_b_6': 1 };
+    const missing = (c, t, e) => !!MISS[c + '_' + t + '_' + e];
+    const bg = (c, t, i) => 'background-image:url(' + SP[c][t] + ');--i:' + i + ';';
+
+    // guides (chibi de Romain qui parle)
+    const G = {
+      hero: ['Ici c’est chez nous. On est sept, et on a tous une tête à claques.', 2, 'Hé ! On touche pas au dessinateur.', 9],
+      da: ['Contours épais, couleurs franches : on me reconnaît même en tout petit.', 1, 'T’as vu ? Lisible même en icône.', 8],
+      bande: ['Ils existent en vrai. Mais en vrai, ils sont moins bien dessinés.', 9, 'Je rigole… à moitié.', 5],
+      studio: ['Choisis une émotion, je fais tout ce que tu veux.', 2, 'Tout sauf la tête débile. S’il te plaît.', 7],
+      tenues: ['Même combi pour tout l’équipage, une couleur chacun.', 1, 'Y’a un truc qui bouge dans le noir là-bas…', 6],
+      bonus: ['Ces dessins-là, je les ai faits pour des vidéos bien précises.', 10, 'Range-les bien, hein. Ou pas.', 9],
+    };
+    const msg = {}, gst = {}, gcls = {}, poke = {};
+    Object.keys(G).forEach((k) => {
+      const alt = !!st['p_' + k], g = G[k];
+      msg[k] = alt ? g[2] : g[0];
+      gst[k] = 'background-image:url(' + SP.romain.b + ');--i:' + (alt ? g[3] : 11) + ';width:120px;';
+      gcls[k] = alt ? 'sp' : 'sp talk';
+      poke[k] = () => {
+        this.setState({ ['p_' + k]: true });
+        this._pokeT = this._pokeT || {};
+        clearTimeout(this._pokeT[k]);
+        this._pokeT[k] = setTimeout(() => this.setState({ ['p_' + k]: false }), 4000);
+      };
+    });
+
+    // héros : la bande
+    const luSt = {}, luCls = {}, luPoke = {}, luOut = {};
+    CH.forEach(([k]) => {
+      const i = st['lu_' + k] != null ? st['lu_' + k] : 1;
+      luSt[k] = 'background-image:url(' + SP[k].b + ');--i:' + i + ';';
+      luCls[k] = 'lu' + (st['hop_' + k] ? ' hop' : '') + (st['set_' + k] ? ' set' : '');
+      luOut[k] = () => { if (this.state && this.state['set_' + k]) this.setState({ ['set_' + k]: false }); };
+      luPoke[k] = () => {
+        let n; const cur = st['lu_' + k] != null ? st['lu_' + k] : 1;
+        do { n = Math.floor(Math.random() * 11); } while (n === cur || n === 2 || missing(k, 'b', n));
+        this.setState({ ['lu_' + k]: n, ['hop_' + k]: true, ['set_' + k]: true });
+        this._hopT = this._hopT || {};
+        clearTimeout(this._hopT[k]);
+        this._hopT[k] = setTimeout(() => this.setState({ ['hop_' + k]: false }), 560);
+      };
+    });
+
+    // studio
+    const sc = st.sc || 'romain', stn = st.st || 'b', se = st.se != null ? st.se : 1;
+    const miss = missing(sc, stn, se);
+    const ebSt = {}, ebCls = {}, pickE = {};
+    EMO.forEach(([k], i) => {
+      ebSt[k] = bg(sc, stn, i) + (missing(sc, stn, i) ? 'visibility:hidden;' : '');
+      ebCls[k] = i === se ? 'eb on' : 'eb';
+      pickE[k] = () => { this.setState({ se: i }); this.flash(); };
+    });
+    const hbCls = {}, hbW = {}, pickC = {}, try_ = {};
+    CH.forEach(([k]) => {
+      hbCls[k] = k === sc ? 'hb on' : 'hb';
+      hbW[k] = k === sc ? 'hb-w on' : 'hb-w';
+      pickC[k] = () => { this.setState({ sc: k }); this.flash(); };
+      try_[k] = (e) => { this.setState({ sc: k, se: 2 }); this.teleport(e, 'studio', COL[k][1]); };
+    });
+    const tgCls = { b: stn === 'b' ? 'on' : '', lt: stn === 'lt' ? 'on' : '' };
+    const pickT = { b: () => { this.setState({ st: 'b' }); this.flash(); }, lt: () => { this.setState({ st: 'lt' }); this.flash(); } };
+    const rnd = () => {
+      let k, t, n;
+      do { k = CH[Math.floor(Math.random() * CH.length)][0]; t = Math.random() < 0.5 ? 'b' : 'lt'; n = Math.floor(Math.random() * 12); }
+      while ((k === sc && t === stn && n === se) || missing(k, t, n));
+      const ov = this.tpEl;
+      if (!ov) { this.setState({ sc: k, st: t, se: n }); this.flash(); return; }
+      (this._tpT || []).forEach(clearTimeout); this._tpT = [];
+      const at = (ms, fn) => this._tpT.push(setTimeout(fn, ms));
+      if (this.tpLbl) this.tpLbl.textContent = '🎲 AU HASARD';
+      ov.className = 'tp-ov on';
+      at(20, () => ov.classList.add('in'));
+      at(520, () => { this.setState({ sc: k, st: t, se: n }); ov.classList.add('out'); this.flash(); });
+      at(1020, () => { ov.className = 'tp-ov'; });
+    };
+    const c = COL[sc];
+
+    // variantes (Romain)
+    const bc = !!st.vbc, fl = !!st.vfl, pa = !!st.vpa;
+    let vi, vtSpCls = 'sp v12';
+    if (!pa) vi = (fl ? 2 : 0) + (bc ? 1 : 0);
+    else { vi = 4 + (fl ? 4 : 0) + (bc ? 2 : 0); vtSpCls = 'sp v12 talk'; }
+    const pct = (i) => (i * 9.09091).toFixed(4) + '%';
+    const vtSpSt = 'position:absolute;left:50%;bottom:-6px;width:320px;margin-left:-160px;background-image:url(' + VAR + ');--i:' + vi + ';--a:' + pct(vi) + ';--b:' + pct(vi + 1) + ';';
+    const vtFile = 'Romain-Content' + (pa ? '-Parle' : '') + (fl ? '-Flaté' : '') + (bc ? '-BC' : '') + '.png';
+
+    // tenues
+    const tc = st.tc || 'romain';
+    const tcCls = {}, tcW = {}, pickTc = {};
+    CH.forEach(([k]) => {
+      tcCls[k] = k === tc ? 'hb on' : 'hb';
+      tcW[k] = k === tc ? 'hb-w on' : 'hb-w';
+      pickTc[k] = () => this.setState({ tc: k });
+    });
+
+    // 06 origines
+    const OGR = {
+      off: ['Il fait tout noir ici… Appuie sur l’interrupteur, à gauche.', 11],
+      on: ['Ah oui… d’accord. On ressemblait à ÇA en 2023 ?!', 6],
+      offagain: ['Non non, rallume ! J’avais pas fini de me moquer de moi.', 3],
+      proto: ['Ça, c’est Maxime version 2023. Les lunettes, le chou-fleur… Effectivement, aucun rapport.', 9],
+      protoback: ['Range-le avant que Maxime le voie.', 7],
+      phone: ['Tout rouge, le poing en l’air, sur l’app Notes… En mode super-héros, apparemment.', 9],
+      phonelock: ['Il faut d’abord allumer la lumière, je vois rien moi.', 0],
+      chi: ['Trois ans de croquis pour arriver à cette tête-là. Ça valait le coup, non ?', 2],
+      mug: ['Faut bien ça pour tenir des heures sur un dessin.', 8],
+      book: ['Le book ? T’es dedans, là. En ce moment même.', 9],
+      bookc: ['Voilà, refermé. Comme mes vieux croquis.', 1],
+      pen: ['Attention, il roule ! C’est peut-être lui qui a fait le proto…', 6],
+      gum: ['Gommer 2023 ? Trop tard, c’est sur Internet maintenant.', 4],
+      todo: ['Deuxième case cochée. Il aura fallu le temps.', 10],
+      cal: ['2023 → 2026 : trois ans pour devenir moi.', 1],
+    };
+    const YRS = [['2023', 'premiers croquis'], ['2024', 'on s’entraîne'], ['2025', 'on s’entraîne encore'], ['2026', 'le book !']];
+    const ogOn = !!st.ogOn, ogSeen = st.ogSeen || {}, ogR = st.ogR || (ogOn ? 'on' : 'off');
+    const ogKeys = ['sw', 'proto', 'phone', 'chi', 'mug', 'book', 'pen', 'gum', 'todo', 'cal'];
+    const nSeen = ogKeys.filter((k) => ogSeen[k]).length;
+    const ogSay = (k, r, extra) => {
+      const s = Object.assign({}, this.state && this.state.ogSeen || {}); s[k] = 1;
+      this.setState(Object.assign({ ogR: r, ogSeen: s }, extra || {}));
+    };
+    const tmp = (key, ms) => { this._ogT = this._ogT || {}; clearTimeout(this._ogT[key]); this._ogT[key] = setTimeout(() => this.setState({ [key]: false }), ms); };
+    const og = {
+      sw: () => { const v = !ogOn; ogSay('sw', v ? 'on' : 'offagain', { ogOn: v, ogBigP: false, ogBigPh: false }); },
+      proto: () => { if (!ogOn) return ogSay('sw', 'off'); const v = !st.ogBigP; ogSay('proto', v ? 'proto' : 'protoback', { ogBigP: v, ogBigPh: false }); },
+      phone: () => {
+        if (!ogOn) return this.setState({ ogR: 'phonelock' });
+        if (!st.ogUnl) return ogSay('phone', 'phone', { ogUnl: true, ogBigPh: true, ogBigP: false });
+        ogSay('phone', st.ogBigPh ? 'chi' : 'phone', { ogBigPh: !st.ogBigPh, ogBigP: false });
+      },
+      chi: () => ogSay('chi', ogOn ? 'chi' : 'off'),
+      mug: () => { ogSay('mug', 'mug', { ogHot: true }); tmp('ogHot', 4000); },
+      book: () => ogSay('book', st.ogBook ? 'bookc' : 'book', { ogBook: !st.ogBook }),
+      pen: () => { ogSay('pen', 'pen', { ogPen: true }); tmp('ogPen', 1050); },
+      gum: () => { ogSay('gum', 'gum', { ogGum: true }); tmp('ogGum', 800); },
+      todo: () => ogSay('todo', 'todo', { ogTodo: true }),
+      cal: () => ogSay('cal', 'cal', { ogY: ((st.ogY || 0) + 1) % 4 }),
+    };
+    const ogRm = OGR[ogR] || OGR.off;
+    const ogFrame = ogRm[1];
+    const ogYi = st.ogY || 0;
+    return {
+      msg, gst, gcls, poke,
+      og, ogMsg: ogRm[0],
+      ogCls: ogOn ? 'on' : '',
+      ogSpCls: ogFrame === 11 ? 'sp talk' : 'sp',
+      ogSpSt: 'background-image:url(' + SP.romain.b + ');--i:' + ogFrame + ';',
+      ogSwTxt: ogOn ? 'allumé !' : '← allume-moi',
+      ogBigP: st.ogBigP ? 'big' : '',
+      ogPhCls: (st.ogUnl ? 'unl ' : '') + (st.ogBigPh ? 'big' : ''),
+      ogBookCls: st.ogBook ? 'op' : '', ogBookTxt: st.ogBook ? 'tu es ici ★' : 'BOOK',
+      ogMugCls: st.ogHot ? 'hot' : '', ogPenCls: st.ogPen ? 'roll' : '', ogGumCls: st.ogGum ? 'rub' : '',
+      ogTodo: st.ogTodo ? '☑ qu’ils nous ressemblent (2026)' : '☐ qu’ils nous ressemblent',
+      ogYear: YRS[ogYi][0], ogYearLb: YRS[ogYi][1],
+      ogCnt: nSeen >= ogKeys.length ? '★ BUREAU FOUILLÉ EN ENTIER !' : '★ ' + nSeen + '/' + ogKeys.length + ' TRUCS TROUVÉS',
+      ogCntCls: 'og-cnt' + (nSeen >= ogKeys.length ? ' all' : ''),
+      ogRef: (el) => { if (el && el !== this.ogEl) { this.ogEl = el; this.initOg(); } },
+      ogOut: () => { const r = this.ogEl && this.ogEl.firstElementChild; if (r) { r.style.setProperty('--rx', '0deg'); r.style.setProperty('--ry', '0deg'); } },
+      luSt, luCls, luPoke, luOut,
+      stSt: bg(sc, stn, se) + (miss ? 'visibility:hidden;' : ''),
+      stCls: se === 11 ? 'sp talk' : 'sp',
+      soonSt: miss ? '' : 'display:none',
+      ebSoon: Object.fromEntries(EMO.map(([k], i) => [k, missing(sc, stn, i) ? '' : 'display:none'])),
+      soonTxt: c[1].charAt(0) + c[1].slice(1).toLowerCase() + ' n’a pas encore de dessin « ' + EMO[se][1].toLowerCase() + ' » dans cette tenue. Dessin à venir !',
+      stName: c[1],
+      stNameSt: 'align-self:flex-start;font-family:Anton,sans-serif;font-size:54px;line-height:1;padding:4px 18px;background:' + c[2] + ';color:' + c[3] + ';clip-path:polygon(0 0,100% 0,94% 100%,0 100%);transform:rotate(-2deg)',
+      stEmo: EMO[se][1], stTen: stn === 'b' ? 'TENUE CLASSIQUE' : 'TENUE LETHAL COMPANY',
+      ebSt, ebCls, pickE, hbCls, hbW, pickC, try_, tgCls, pickT, rnd,
+      vtCls: { bc: bc ? 'vt on' : 'vt', fl: fl ? 'vt on' : 'vt', pa: pa ? 'vt on' : 'vt' },
+      vt: { bc: () => this.setState({ vbc: !bc }), fl: () => this.setState({ vfl: !fl }), pa: () => this.setState({ vpa: !pa }) },
+      vtSpCls, vtSpSt, vtFile,
+      tcCls, tcW, pickTc,
+      cmpB: bg(tc, 'b', 0), cmpL: bg(tc, 'lt', 0),
+      cmpIn: (e) => { const v = e && e.target ? e.target.value : 50; if (this.cmpEl) this.cmpEl.style.setProperty('--x', v + '%'); },
+      cmpRef: (el) => { if (el) this.cmpEl = el; },
+      boardRef: (el) => { if (el) this.boardEl = el; },
+      flashRef: (el) => { if (el) this.flashEl = el; },
+      hdWrapRef: (el) => { if (el) { this.hdWrap = el; this.initHeader(); } },
+      hdRef: (el) => { if (el) { this.hd = el; this.initHeader(); } },
+      tpRef: (el) => { if (el) this.tpEl = el; },
+      tpLblRef: (el) => { if (el) this.tpLbl = el; },
+      go: {
+        da: (e) => this.teleport(e, 'da', 'LA DA'),
+        bande: (e) => this.teleport(e, 'bande', 'LA BANDE'),
+        studio: (e) => this.teleport(e, 'studio', 'LE STUDIO'),
+        tenues: (e) => this.teleport(e, 'tenues', 'LES TENUES'),
+        bonus: (e) => this.teleport(e, 'bonus', 'LES BONUS'),
+        origines: (e) => this.teleport(e, 'origines', 'LES ORIGINES'),
+      },
+    };
+  }
+}
+</script>
+<script>window.__dcBoot();</script>
+</body>
+</html>

@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solo — Romain</title>
+<meta name="description" content="Covers et identité visuelle pour l’artiste Solo, par Romain.">
+<meta property="og:title" content="Solo — Romain">
+<meta property="og:description" content="Covers et identité visuelle pour l’artiste Solo, par Romain.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://roomaaaain.fr/solo.html">
+<meta name="theme-color" content="#121214">
+<link rel="icon" href="/assets/logo_solid_ink.webp">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&family=Gochi+Hand&family=IM+Fell+English+SC&family=Pirata+One&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#F2EEE6}a:hover{color:#FFFFFF}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-10px) rotate(1deg)}}
+@keyframes rain{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+@keyframes glitch{0%,86%,100%{text-shadow:0 0 0 transparent;transform:translate(0)}88%{text-shadow:-6px 0 #FF00C8,6px 0 #00F0FF;transform:translate(3px,-2px)}90%{text-shadow:5px 0 #FF00C8,-5px 0 #00F0FF;transform:translate(-4px,2px)}92%{text-shadow:0 0 0 transparent;transform:translate(0)}}
+@keyframes flicker{0%,18%,22%,62%,64%,100%{opacity:1}20%,63%{opacity:0.35}}
+@keyframes fadeSwap{0%,35%{opacity:0}50%,85%{opacity:1}100%{opacity:0}}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-12px) rotate(-1deg)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(57,255,20,0)}50%{box-shadow:0 0 50px 4px rgba(57,255,20,0.35)}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.z{transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.z:hover{transform:rotate(0deg) scale(1.04) !important;z-index:3}
+.dt3{position:relative;overflow:hidden;cursor:pointer}
+.dt3 img{transition:filter .6s ease}
+.dt3:hover img{filter:brightness(2.4) contrast(1.15) saturate(1.3)}
+.dt3-glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 45%,rgba(122,60,255,.35),transparent 60%);opacity:.35;animation:dt3p 3.2s ease-in-out infinite}
+.dt3:hover .dt3-glow{opacity:0;animation:none}
+.dt3-hint{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);background:#DCDFFF;color:#05061A;font-size:11px;font-weight:700;letter-spacing:.12em;padding:5px 12px;white-space:nowrap;transition:opacity .3s}
+.dt3:hover .dt3-hint{opacity:0}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+@keyframes dt3p{0%,100%{opacity:.2}50%{opacity:.55}}
+.logo-hd{transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.logo-hd:hover{transform:rotate(-8deg) scale(1.1)}
+.chap{display:inline-block;transition:transform .2s cubic-bezier(.3,1.6,.5,1),filter .2s}
+.chap:hover{transform:rotate(0deg) scale(1.12) !important;filter:brightness(1.1)}
+.chap:active{transform:scale(0.94) !important}
+.btnz{display:inline-block;transition:transform .2s cubic-bezier(.3,1.6,.5,1),filter .2s}
+.btnz:hover{transform:rotate(0deg) scale(1.12) !important;filter:brightness(1.1)}
+.btnz:active{transform:scale(0.94) !important}
+.hd{transition:transform .3s cubic-bezier(.3,1,.4,1),box-shadow .3s}
+.hd.hd-fixed{position:fixed !important;top:0;left:0;width:1440px;box-sizing:border-box;background:#050505;z-index:60 !important;box-shadow:0 6px 0 rgba(0,0,0,.25);transform:translateY(-110%)}
+.hd.hd-fixed.hd-show{transform:translateY(0)}
+.hd.hd-fixed.hd-instant{transition:none}
+.tp-ov{position:fixed;inset:0;z-index:9997;display:none;flex-direction:column;pointer-events:none}
+.tp-ov.on{display:flex;pointer-events:auto}
+.tp-band{flex:1;transform:translateX(-102%) skewX(-12deg);transition:transform .32s cubic-bezier(.7,0,.3,1);transition-delay:var(--d)}
+.tp-ov.in .tp-band{transform:translateX(0) skewX(0)}
+.tp-ov.out .tp-band{transform:translateX(102%) skewX(-12deg)}
+.tp-lbl{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.6) rotate(-4deg);font-family:'Anton',sans-serif;font-size:120px;line-height:1;color:#050505;background:#F2EEE6;padding:6px 34px;clip-path:polygon(4% 0,100% 0,96% 100%,0 100%);opacity:0;transition:opacity .15s,transform .25s cubic-bezier(.3,1.6,.5,1);white-space:nowrap}
+.tp-ov.in .tp-lbl{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(-2deg);transition-delay:.22s}
+.tp-ov.out .tp-lbl{opacity:0;transition-delay:0s}
+html,body{background:#050505;overflow-x:hidden}
+html,body,body *{cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2222%22%20height%3D%2222%22%20viewBox%3D%220%200%2034%2034%22%3E%3Cpolygon%20points%3D%223%2C3%203%2C27%2010%2C21%2015%2C31%2020%2C29%2015%2C19%2025%2C19%22%20transform%3D%22translate%283%203%29%22%20fill%3D%22%23FF5A1F%22/%3E%3Cpolygon%20points%3D%223%2C3%203%2C27%2010%2C21%2015%2C31%2020%2C29%2015%2C19%2025%2C19%22%20fill%3D%22%23F2EEE6%22%20stroke%3D%22%23121214%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22/%3E%3C/svg%3E") 3 3, auto !important}
+a,a *,button,button *,label,select,summary,[role="button"],[style*="cursor: pointer"],[style*="cursor: pointer"] *,.chibi-btn,.btnz,.chap,.z{cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2222%22%20height%3D%2222%22%20viewBox%3D%220%200%2034%2034%22%3E%3Cpolygon%20points%3D%223%2C3%203%2C27%2010%2C21%2015%2C31%2020%2C29%2015%2C19%2025%2C19%22%20transform%3D%22translate%283%203%29%22%20fill%3D%22%23F2EEE6%22/%3E%3Cpolygon%20points%3D%223%2C3%203%2C27%2010%2C21%2015%2C31%2020%2C29%2015%2C19%2025%2C19%22%20fill%3D%22%23FF5A1F%22%20stroke%3D%22%23121214%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22/%3E%3C/svg%3E") 3 3, pointer !important}
+input[type="text"],input[type="email"],textarea{cursor:text !important}
+</style>
+<style>x-dc{display:contents}</style>
+</head>
+<body>
+<x-dc>
+
+<div id="haut" style="width: 1440px; min-height: 8470px; background: #050505; color: #F2EEE6; font-family: 'Space Mono', monospace; overflow: hidden; position: relative; display: flex; flex-direction: column">
+
+<div data-dc-ref="{{hdWrapRef}}" class="hd-wrap">
+<header data-dc-ref="{{hdRef}}" class="hd" style="display: flex; align-items: center; justify-content: space-between; padding: 26px 48px; position: relative; z-index: 5">
+<a href="/" class="logo-hd" style="display: flex; align-items: center; gap: 14px; text-decoration: none">
+<img src="/assets/logo_solid_cream.webp" alt="Logo de Romain" style="width: 48px; height: 41px; object-fit: contain">
+<span style="font-family: 'Anton', sans-serif; font-size: 32px; line-height: 1">ROMAIN</span>
+</a>
+<nav aria-label="Chapitres du dossier" style="display: flex; gap: 6px; align-items: center"><a class="btnz" href="#ch1" data-dc-onclick="{{go.ch1}}" style="background: #39FF14; color: #062200; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 15px; padding: 7px 14px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-2deg); white-space: nowrap">01 GREEN BOY</a><a class="btnz" href="#ch2" data-dc-onclick="{{go.ch2}}" style="background: #EDE6D6; color: #0C0C0C; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 15px; padding: 7px 14px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(1.5deg); white-space: nowrap">02 RISK</a><a class="btnz" href="#ch3" data-dc-onclick="{{go.ch3}}" style="background: #4C5BFF; color: #04061A; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 15px; padding: 7px 14px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-1deg); white-space: nowrap">03 LE DARK TRIP</a></nav>
+<div style="display: flex; gap: 14px; align-items: center">
+<span style="font-size: 12px; letter-spacing: 0.12em; color: #A9A49B">DOSSIER 01 / 08</span>
+<a class="btnz" href="/" style="background: #F2EEE6; color: #121214; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 18px; padding: 9px 24px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-2deg)">← TOUS LES DOSSIERS</a>
+</div>
+</header>
+</div>
+
+<section style="position: relative; height: 760px">
+<div style="position: absolute; left: 48px; top: 24px; font-size: 13px; letter-spacing: 0.14em; color: #A9A49B">// DOSSIER 01 • ARTISTE RAP ÉMO</div>
+<h1 style="position: absolute; left: 36px; top: 40px; margin: 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 340px; line-height: 0.95">SOLO</h1>
+<p style="position: absolute; left: 52px; top: 390px; margin: 0; width: 600px; font-size: 16px; line-height: 1.65; color: #D8D3C9">Toute l'identité visuelle de Solo, de l'époque Green Boy jusqu'au Dark Trip : covers, remakes, affiches, visualizers, photo de profil et contenus TikTok. Plus tu descends, plus ça devient sombre.</p>
+<div style="position: absolute; left: 52px; top: 520px; width: 640px; display: flex; flex-wrap: wrap; gap: 8px">
+<span style="border: 1.5px solid #F2EEE6; padding: 6px 14px; font-size: 12px; font-weight: 700; letter-spacing: 0.1em">COVERS</span>
+<span style="border: 1.5px solid #F2EEE6; padding: 6px 14px; font-size: 12px; font-weight: 700; letter-spacing: 0.1em">REMAKES</span>
+<span style="border: 1.5px solid #F2EEE6; padding: 6px 14px; font-size: 12px; font-weight: 700; letter-spacing: 0.1em">AFFICHES</span>
+<span style="border: 1.5px solid #F2EEE6; padding: 6px 14px; font-size: 12px; font-weight: 700; letter-spacing: 0.1em">VISUALIZERS</span>
+<span style="border: 1.5px solid #F2EEE6; padding: 6px 14px; font-size: 12px; font-weight: 700; letter-spacing: 0.1em">PHOTO DE PROFIL</span>
+<span style="border: 1.5px solid #F2EEE6; padding: 6px 14px; font-size: 12px; font-weight: 700; letter-spacing: 0.1em">TIKTOK</span>
+</div>
+<div style="position: absolute; left: 52px; top: 630px; display: flex; gap: 10px">
+<a class="chap" href="#ch1" data-dc-onclick="{{go.ch1}}" style="background: #39FF14; color: #062200; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 24px; padding: 10px 24px; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-1.5deg)">01 GREEN BOY</a>
+<a class="chap" href="#ch2" data-dc-onclick="{{go.ch2}}" style="background: #EDE6D6; color: #0C0C0C; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 24px; padding: 10px 24px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(1deg)">02 RISK</a>
+<a class="chap" href="#ch3" data-dc-onclick="{{go.ch3}}" style="background: #4C5BFF; color: #04061A; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 24px; padding: 10px 24px; clip-path: polygon(6% 0, 100% 0, 100% 100%, 0 100%); transform: rotate(-1deg)">03 LE DARK TRIP</a>
+</div>
+<div class="z" style="position: absolute; right: 70px; top: 20px; width: 520px; height: 690px; transform: rotate(2deg)">
+<img src="/assets/solo_pdp.webp" alt="Photo de profil de Solo" style="width: 520px; height: 690px; object-fit: cover; display: block; clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 40px 100%, 0 calc(100% - 40px))">
+</div>
+</section>
+
+<section id="ch1" style="position: relative; background: #020602; color: #CFFFC0; padding: 80px 48px 80px 48px">
+<div aria-hidden="true" style="position: absolute; right: 0; top: 0; height: 900px; width: 300px; overflow: hidden; opacity: 0.3">
+<div style="font-size: 14px; line-height: 1.5; color: #39FF14; white-space: pre; animation: rain 14s linear infinite; text-align: right; padding-right: 30px">what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?
+what have you done?</div>
+</div>
+
+<div style="position: relative; display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; height: 240px">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<div style="align-self: flex-start; background: #39FF14; color: #062200; padding: 10px 50px 10px 22px; clip-path: polygon(0 0, 100% 0, 100% 100%, 4% 100%, 0 70%); transform: rotate(-1.5deg)">
+<div style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em">CHAPITRE 01</div>
+<div style="font-family: 'Anton', sans-serif; font-size: 28px; line-height: 1">GREEN BOY • 2025</div>
+</div>
+<h2 style="margin: 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 190px; line-height: 0.9; color: #39FF14; animation: glitch 4s infinite">GREEN BOY</h2>
+</div>
+<div style="position: relative; display: flex; align-items: flex-end; gap: 6px; margin-bottom: -10px">
+<div style="background: #CFFFC0; color: #062200; padding: 12px 16px; width: 270px; box-sizing: border-box; clip-path: polygon(0 0, 100% 0, 100% 78%, 94% 78%, 100% 100%, 84% 78%, 0 78%); padding-bottom: 32px; transform: rotate(-1.5deg); margin-bottom: 70px; font-family: 'Gochi Hand', cursive; font-size: 19px; line-height: 1.15">L’œil vert, le glitch, l’écran de terminal : bienvenue dans l’univers de Green Boy.</div>
+<img src="/assets/chibi_content.webp" alt="" style="width: 100px; height: 173px; object-fit: contain; animation: bob 3s ease-in-out infinite">
+</div>
+</div>
+
+<div class="z" style="position: relative; margin-top: 34px; height: 380px; overflow: hidden; clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 0 100%); background: #000000; transform: rotate(-0.5deg)">
+<video src="/assets/v_banner.mp4" autoplay="" muted="" loop="" playsinline="" data-dc-ref="{{vref}}" style="width: 100%; height: 100%; object-fit: cover; display: block"></video>
+<div style="position: absolute; left: 0; bottom: 24px; background: #39FF14; color: #062200; padding: 6px 30px 6px 20px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%)">BANNIÈRE ANIMÉE — GREEN BOY • 2025</div>
+</div>
+
+<div style="position: relative; margin-top: 34px; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 24px; align-items: start">
+<figure class="z" style="grid-column: span 4; margin: 0; transform: rotate(-1.5deg); animation: pulse 5s ease-in-out infinite">
+<img src="/assets/gb_old.webp" alt="Cover originale Green Boys" style="width: 100%; height: 420px; object-fit: cover; display: block; clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 0 100%)">
+<figcaption style="margin-top: 10px; font-size: 12px; letter-spacing: 0.12em; color: #39FF14">COVER — GREEN BOY • 2025</figcaption>
+</figure>
+<figure class="z" style="grid-column: span 4; margin: 0; display: flex; flex-direction: column; align-items: center">
+<img loading="lazy" decoding="async" src="/assets/gb_vinyl.webp" alt="Mockup vinyle Green Boys" style="width: 420px; height: 420px; object-fit: contain; display: block; animation: spin 7s linear infinite">
+<figcaption style="margin-top: 10px; font-size: 12px; letter-spacing: 0.12em; color: #39FF14; align-self: flex-start">MOCKUP — VINYLE</figcaption>
+</figure>
+<figure class="z" style="grid-column: span 4; margin: 0; transform: rotate(1.5deg)">
+<img loading="lazy" decoding="async" src="/assets/gb_hpyndumb.webp" alt="Cover single silhouettes" style="width: 100%; height: 420px; object-fit: cover; display: block; clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%, 0 30px)">
+<figcaption style="margin-top: 10px; font-size: 12px; letter-spacing: 0.12em; color: #39FF14">COVER — SINGLE</figcaption>
+</figure>
+<figure class="z" style="grid-column: span 7; margin: 0; transform: rotate(0.6deg)">
+<div style="width: 100%; height: 430px; background: #000000; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%)">
+<video src="/assets/v_greenmen.mp4" autoplay="" muted="" loop="" playsinline="" data-dc-ref="{{vref}}" style="width: 100%; height: 100%; object-fit: cover; display: block"></video>
+</div>
+<figcaption style="margin-top: 10px; font-size: 12px; letter-spacing: 0.12em; color: #39FF14">VISUALIZER — GREEN BOY</figcaption>
+</figure>
+<figure class="z" style="grid-column: span 5; margin: 0; transform: rotate(-1.5deg)">
+<img loading="lazy" decoding="async" src="/assets/gb_deluxe.webp" alt="Cover Green Boys Deluxe" style="width: 100%; height: 430px; object-fit: cover; display: block; clip-path: polygon(0 0, 100% 0, 100% 100%, 30px 100%, 0 calc(100% - 30px))">
+<figcaption style="margin-top: 10px; font-size: 12px; letter-spacing: 0.12em; color: #39FF14">COVER — GREEN BOY DELUXE</figcaption>
+</figure>
+</div>
+
+<div style="position: relative; margin-top: 60px; display: flex; align-items: center; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 10px; width: 330px">
+<h3 style="margin: 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 96px; line-height: 0.9; color: #39FF14">LE REMAKE</h3>
+<p style="margin: 0; font-size: 14px; line-height: 1.6">La cover Green Boy de 2025, refaite en 2026 dans une version épurée.</p>
+</div>
+<figure class="z" style="margin: 0; position: relative; transform: rotate(-2deg)">
+<img loading="lazy" decoding="async" src="/assets/gb_old.webp" alt="Ancienne cover Green Boy" style="width: 320px; height: 320px; object-fit: cover; display: block; filter: saturate(0.7)">
+<span style="position: absolute; left: 12px; top: 12px; background: #CFFFC0; color: #062200; padding: 5px 20px 5px 10px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%)">AVANT • 2025</span>
+</figure>
+<div style="font-family: 'Anton', sans-serif; font-size: 70px; color: #39FF14" aria-hidden="true">→</div>
+<figure class="z" style="margin: 0; position: relative; transform: rotate(1.5deg)">
+<img loading="lazy" decoding="async" src="/assets/gb_new.webp" alt="Nouvelle cover Green Boy" style="width: 320px; height: 320px; object-fit: cover; display: block">
+<span style="position: absolute; left: 12px; top: 12px; background: #39FF14; color: #062200; padding: 5px 20px 5px 10px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%)">APRÈS • 2026</span>
+</figure>
+</div>
+</section>
+
+
+<section style="position: relative; height: 360px; background: linear-gradient(180deg, #020602 0%, #0C0C0C 100%); overflow: hidden; display: flex; align-items: center; padding: 0 48px">
+<div aria-hidden="true" style="position: absolute; left: -40px; right: -40px; top: 60px; height: 22px; transform: rotate(-2deg); background: repeating-linear-gradient(-45deg, #39FF14 0 18px, #000000 18px 36px); opacity: 0.35"></div>
+<div style="position: relative; display: flex; flex-direction: column; gap: 14px">
+<div style="font-size: 13px; letter-spacing: 0.14em; color: #8E8A82">// FIN DE L'ÈRE VERTE</div>
+<h2 style="margin: 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 120px; line-height: 0.9">APRÈS GREEN BOY,<br><span style="color: #39FF14; text-decoration: line-through; text-decoration-thickness: 10px">LE VERT</span> C'EST FINI.</h2>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #C9C4BA">On abandonne totalement le vert. Direction le dark.</p>
+</div>
+</section>
+
+<section id="ch2" style="position: relative; background: #0C0C0C; color: #EDE6D6; padding: 50px 48px 80px 48px">
+<svg aria-hidden="true" width="1440" height="900" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; opacity: 0.12; pointer-events: none"><filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2"></feTurbulence></filter><rect width="100%" height="100%" filter="url(#grain)"></rect></svg>
+<div style="position: relative; display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; height: 230px">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div style="align-self: flex-start; background: #EDE6D6; color: #0C0C0C; padding: 10px 50px 10px 22px; clip-path: polygon(0 0, 100% 0, 96% 100%, 0 100%); transform: rotate(1.5deg)">
+<div style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em">CHAPITRE 02</div>
+<div style="font-family: 'Anton', sans-serif; font-size: 28px; line-height: 1">RISK</div>
+</div>
+<h2 style="margin: 0; font-family: 'IM Fell English SC', serif; font-weight: 400; font-size: 200px; line-height: 0.85">Risk</h2>
+</div>
+<div style="position: relative; display: flex; align-items: flex-end; gap: 6px; margin-bottom: -10px">
+<div style="background: #EDE6D6; color: #0C0C0C; padding: 12px 16px; width: 270px; box-sizing: border-box; clip-path: polygon(0 0, 100% 0, 100% 78%, 94% 78%, 100% 100%, 84% 78%, 0 78%); padding-bottom: 32px; transform: rotate(-1.5deg); margin-bottom: 70px; font-family: 'Gochi Hand', cursive; font-size: 19px; line-height: 1.15">Un portail blanc dans la forêt, tout en noir et blanc. Le chevalier en 3D ? C’est le visualizer.</div>
+<img loading="lazy" decoding="async" src="/assets/chibi_neutre.webp" alt="" style="width: 100px; height: 173px; object-fit: contain; animation: bob 3s ease-in-out infinite">
+</div>
+</div>
+<div style="position: relative; margin-top: 30px; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 24px; align-items: start">
+<div style="grid-column: span 5; position: relative; height: 520px">
+<figure class="z" style="margin: 0; position: absolute; left: 0; top: 0; width: 470px; transform: rotate(-1.5deg)">
+<img loading="lazy" decoding="async" src="/assets/risk_cover.webp" alt="Cover Risk" style="width: 470px; height: 470px; object-fit: cover; display: block">
+<figcaption style="margin-top: 10px; font-size: 12px; letter-spacing: 0.12em">COVER — RISK</figcaption>
+</figure>
+<figure class="z" style="margin: 0; position: absolute; right: -10px; bottom: -10px; width: 190px; transform: rotate(6deg)">
+<img loading="lazy" decoding="async" src="/assets/risk_affiche.webp" alt="Affiche Out Now Risk" style="width: 190px; height: 269px; object-fit: cover; display: block; box-shadow: 10px 10px 0 #EDE6D6">
+</figure>
+</div>
+<figure class="z" style="grid-column: span 7; margin: 0; transform: rotate(0.8deg)">
+<div style="width: 100%; height: 440px; background: #000000; clip-path: polygon(0 0, calc(100% - 34px) 0, 100% 34px, 100% 100%, 0 100%)">
+<video src="/assets/v_risk.mp4" autoplay="" muted="" loop="" playsinline="" data-dc-ref="{{vref}}" style="width: 100%; height: 100%; object-fit: cover; display: block"></video>
+</div>
+<figcaption style="margin-top: 10px; font-size: 12px; letter-spacing: 0.12em">VISUALIZER 3D — LE CHEVALIER</figcaption>
+</figure>
+</div>
+</section>
+
+
+<svg aria-hidden="true" width="1440" height="50" viewBox="0 0 1440 50" preserveAspectRatio="none" style="display: block; background: #05061A"><path d="M0 0 L1440 0 L1440 18 L1340 38 L1220 14 L1100 42 L980 16 L860 40 L740 12 L620 36 L500 14 L380 40 L260 16 L140 38 L0 14 Z" fill="#0C0C0C"></path></svg>
+
+<section id="ch3" style="position: relative; background: #05061A; color: #DCDFFF; padding: 90px 48px 90px 48px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; height: 250px">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div style="align-self: flex-start; background: #4C5BFF; color: #04061A; padding: 10px 50px 10px 22px; clip-path: polygon(3% 0, 100% 0, 100% 100%, 0 100%); transform: rotate(-1deg); animation: flicker 5s infinite">
+<div style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em">CHAPITRE 03</div>
+<div style="font-family: 'Anton', sans-serif; font-size: 28px; line-height: 1">LE DARK TRIP</div>
+</div>
+<h2 style="margin: 0; font-family: 'Pirata One', cursive; font-weight: 400; font-size: 210px; line-height: 0.85; color: #B9C0FF; animation: flicker 6s infinite">Dark Trip 2</h2>
+</div>
+<div style="position: relative; display: flex; align-items: flex-end; gap: 6px; margin-bottom: -10px">
+<div style="background: #DCDFFF; color: #05061A; padding: 12px 16px; width: 270px; box-sizing: border-box; clip-path: polygon(0 0, 100% 0, 100% 78%, 94% 78%, 100% 100%, 84% 78%, 0 78%); padding-bottom: 32px; transform: rotate(-1.5deg); margin-bottom: 70px; font-family: 'Gochi Hand', cursive; font-size: 19px; line-height: 1.15">La toute nouvelle ère de Solo : le Dark Trip. Ça commence avec Lucy et Trust Nbdy…</div>
+<img loading="lazy" decoding="async" src="/assets/chibi_peur.webp" alt="" style="width: 100px; height: 173px; object-fit: contain; animation: bob 3s ease-in-out infinite">
+</div>
+</div>
+
+<div style="margin-top: 40px; position: relative; overflow: hidden; background: radial-gradient(circle at 75% 50%, #5A0A12 0%, #2A0408 45%, #12020A 100%); padding: 44px 44px; clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 40px 100%, 0 calc(100% - 40px)); display: flex; align-items: center; justify-content: space-between; gap: 30px">
+<div style="display: flex; flex-direction: column; gap: 14px; max-width: 420px">
+<span style="align-self: flex-start; background: #C21E2E; color: #FFFFFF; padding: 6px 28px 6px 14px; clip-path: polygon(0 0, 100% 0, 92% 100%, 0 100%); font-size: 12px; font-weight: 700; letter-spacing: 0.12em">SINGLE 01</span>
+<h3 style="margin: 0; font-family: 'Pirata One', cursive; font-weight: 400; font-size: 150px; line-height: 0.85; color: #FF3B4E">Lucy</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #F3C9CD">Le premier single du Dark Trip, celui qui a démarré la machine ! Sorti en mai 2026, sa cover a été refaite en octobre 2026.</p>
+</div>
+<div style="display: flex; gap: 20px; align-items: center">
+<figure class="z" style="margin: 0; position: relative; transform: rotate(-2deg)">
+<img loading="lazy" decoding="async" src="/assets/lucy_old.webp" alt="Ancienne cover Lucy" style="width: 330px; height: 330px; object-fit: cover; display: block">
+<span style="position: absolute; left: 12px; top: 12px; background: #F3C9CD; color: #2A0408; padding: 5px 20px 5px 10px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%)">AVANT • MAI 2026</span>
+</figure>
+<figure class="z" style="margin: 0; position: relative; transform: rotate(1.5deg)">
+<img loading="lazy" decoding="async" src="/assets/lucy_final.webp" alt="Cover finale Lucy" style="width: 330px; height: 330px; object-fit: cover; display: block">
+<span style="position: absolute; left: 12px; top: 12px; background: #FF3B4E; color: #FFFFFF; padding: 5px 20px 5px 10px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%)">APRÈS • OCT. 2026</span>
+</figure>
+</div>
+</div>
+
+<div style="margin-top: 80px; display: flex; align-items: baseline; gap: 20px">
+<h3 style="margin: 0; font-family: 'Pirata One', cursive; font-weight: 400; font-size: 120px; line-height: 0.85; color: #B79BFF">Trust Nbdy</h3>
+<span style="background: #7A3CFF; color: #FFFFFF; padding: 6px 28px 6px 14px; clip-path: polygon(0 0, 100% 0, 92% 100%, 0 100%); font-size: 12px; font-weight: 700; letter-spacing: 0.12em">SINGLE 02 • COVER • VISUALIZER • AFFICHES</span>
+</div>
+<div style="margin-top: 24px; display: flex; gap: 22px; align-items: flex-start">
+<figure class="z" style="margin: 0; transform: rotate(-1.5deg)">
+<img loading="lazy" decoding="async" src="/assets/trust_cover.webp" alt="Cover Trust Nbdy" style="width: 400px; height: 400px; object-fit: cover; display: block">
+<figcaption style="margin-top: 10px; font-size: 12px; letter-spacing: 0.12em; color: #B79BFF">COVER</figcaption>
+</figure>
+<figure class="z" style="margin: 0; transform: rotate(2deg)">
+<div style="width: 250px; height: 444px; background: #000000; border-radius: 22px; overflow: hidden; border: 4px solid #2A2A40">
+<video src="/assets/v_trustviz.mp4" autoplay="" muted="" loop="" playsinline="" data-dc-ref="{{vref}}" style="width: 100%; height: 100%; object-fit: cover; display: block"></video>
+</div>
+<figcaption style="margin-top: 10px; font-size: 12px; letter-spacing: 0.12em; color: #B79BFF">VISUALIZER VERTICAL</figcaption>
+</figure>
+<div style="display: flex; flex-direction: column; gap: 22px">
+<figure class="z" style="margin: 0; transform: rotate(-2deg)">
+<div style="width: 260px; height: 264px; background: #000000; overflow: hidden">
+<video src="/assets/v_squelette.mp4" autoplay="" muted="" loop="" playsinline="" data-dc-ref="{{vref}}" style="width: 100%; height: 100%; object-fit: cover; display: block"></video>
+</div>
+<figcaption style="margin-top: 10px; font-size: 12px; letter-spacing: 0.12em; color: #B79BFF">ANIMATION — SQUELETTE</figcaption>
+</figure>
+</div>
+<figure class="z" style="margin: 0; transform: rotate(2.5deg)">
+<img loading="lazy" decoding="async" src="/assets/trust_affiche.webp" alt="Affiche Out Now Trust Nbdy" style="width: 300px; height: 424px; object-fit: cover; display: block">
+<figcaption style="margin-top: 10px; font-size: 12px; letter-spacing: 0.12em; color: #B79BFF">AFFICHE — OUT NOW</figcaption>
+</figure>
+</div>
+
+<div style="margin-top: 70px; position: relative; background: #0A0B22; padding: 40px; clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 40px 100%, 0 calc(100% - 40px))">
+<div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 32px; align-items: start">
+<div style="grid-column: span 5; display: flex; flex-direction: column; gap: 16px">
+<span style="align-self: flex-start; background: #B79BFF; color: #160723; padding: 6px 28px 6px 14px; clip-path: polygon(0 0, 100% 0, 92% 100%, 0 100%); font-size: 12px; font-weight: 700; letter-spacing: 0.12em">MAKING-OF • TRUST NBDY</span>
+<h3 style="margin: 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 64px; line-height: 0.95">COMMENT ON L'A FAIT</h3>
+<div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px; line-height: 1.55">
+<div><span style="color: #B79BFF; font-weight: 700">01 —</span> Un moodboard avec nos 3 idées principales.</div>
+<div><span style="color: #B79BFF; font-weight: 700">02 —</span> Toute la scène est faite sur Blender : le rideau de fer, le squelette riggé, le brouillard et les lumières.</div>
+<div><span style="color: #B79BFF; font-weight: 700">03 —</span> Rendu, grain et texte pour la cover, puis l'animation pour le visualizer.</div>
+</div>
+<div style="font-size: 11px; letter-spacing: 0.14em; color: #8E96FF; margin-top: 6px">LA PALETTE — ELLE RESTE POUR LES PROCHAINS PROJETS</div>
+<div style="display: flex; gap: 10px"><div style="display: flex; flex-direction: column; gap: 6px"><span style="width: 76px; height: 60px; background: #0B0610; border: 1px solid #3A3550; clip-path: polygon(0 0, 100% 0, 100% 80%, 84% 100%, 0 100%)"></span><span style="font-size: 10px; letter-spacing: 0.1em; color: #DCDFFF">NUIT</span><span style="font-size: 10px; color: #8E96FF">#0B0610</span></div><div style="display: flex; flex-direction: column; gap: 6px"><span style="width: 76px; height: 60px; background: #160723; border: 1px solid #3A3550; clip-path: polygon(0 0, 100% 0, 100% 80%, 84% 100%, 0 100%)"></span><span style="font-size: 10px; letter-spacing: 0.1em; color: #DCDFFF">PRUNE NOIRE</span><span style="font-size: 10px; color: #8E96FF">#160723</span></div><div style="display: flex; flex-direction: column; gap: 6px"><span style="width: 76px; height: 60px; background: #2A1639; border: 1px solid #3A3550; clip-path: polygon(0 0, 100% 0, 100% 80%, 84% 100%, 0 100%)"></span><span style="font-size: 10px; letter-spacing: 0.1em; color: #DCDFFF">VIOLET</span><span style="font-size: 10px; color: #8E96FF">#2A1639</span></div><div style="display: flex; flex-direction: column; gap: 6px"><span style="width: 76px; height: 60px; background: #4D464C; border: 1px solid #3A3550; clip-path: polygon(0 0, 100% 0, 100% 80%, 84% 100%, 0 100%)"></span><span style="font-size: 10px; letter-spacing: 0.1em; color: #DCDFFF">OS</span><span style="font-size: 10px; color: #8E96FF">#4D464C</span></div><div style="display: flex; flex-direction: column; gap: 6px"><span style="width: 76px; height: 60px; background: #B79BFF; border: 1px solid #3A3550; clip-path: polygon(0 0, 100% 0, 100% 80%, 84% 100%, 0 100%)"></span><span style="font-size: 10px; letter-spacing: 0.1em; color: #DCDFFF">LUEUR</span><span style="font-size: 10px; color: #8E96FF">#B79BFF</span></div></div>
+</div>
+<figure class="z" style="grid-column: span 7; margin: 0; transform: rotate(1deg)">
+<img loading="lazy" decoding="async" src="/assets/blender.webp" alt="Capture de la scène Trust Nbdy dans Blender" style="width: 100%; height: 430px; object-fit: cover; display: block; border: 4px solid #2A2A40; box-sizing: border-box">
+<figcaption style="margin-top: 10px; font-size: 12px; letter-spacing: 0.12em; color: #B79BFF">LA SCÈNE DANS BLENDER</figcaption>
+</figure>
+</div>
+<div style="margin-top: 44px; display: flex; align-items: flex-start; gap: 34px">
+<div style="width: 250px; display: flex; flex-direction: column; gap: 10px; padding-top: 20px">
+<h4 style="margin: 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 50px; line-height: 0.95">LE MOODBOARD</h4>
+<p style="margin: 0; font-size: 13px; line-height: 1.6; color: #C9CCF0">Nos 3 idées de départ pour la cover.</p>
+</div>
+<figure class="z" style="margin: 0; position: relative; transform: rotate(-3deg)">
+<div aria-hidden="true" style="position: absolute; left: 90px; top: -12px; width: 90px; height: 24px; background: rgba(220,223,255,0.45); transform: rotate(-6deg); z-index: 1"></div>
+<img loading="lazy" decoding="async" src="/assets/ref1.webp" alt="Référence : deux personnes devant un rideau de fer" style="width: 270px; height: 270px; object-fit: cover; display: block; border: 8px solid #DCDFFF; box-sizing: border-box">
+<figcaption style="margin-top: 10px; font-size: 11px; letter-spacing: 0.12em; color: #B79BFF">IDÉE 01 — LE RIDEAU DE FER</figcaption>
+</figure>
+<figure class="z" style="margin: 0; position: relative; transform: rotate(2deg)">
+<div aria-hidden="true" style="position: absolute; left: 90px; top: -12px; width: 90px; height: 24px; background: rgba(220,223,255,0.45); transform: rotate(5deg); z-index: 1"></div>
+<img loading="lazy" decoding="async" src="/assets/ref2.webp" alt="Référence pour les couleurs du fond" style="width: 270px; height: 270px; object-fit: cover; display: block; border: 8px solid #DCDFFF; box-sizing: border-box">
+<figcaption style="margin-top: 10px; font-size: 11px; letter-spacing: 0.12em; color: #B79BFF">IDÉE 02 — LES COULEURS DU FOND</figcaption>
+</figure>
+<figure class="z" style="margin: 0; position: relative; transform: rotate(-1.5deg)">
+<div aria-hidden="true" style="position: absolute; left: 60px; top: -12px; width: 80px; height: 24px; background: rgba(220,223,255,0.45); transform: rotate(-4deg); z-index: 1"></div>
+<img loading="lazy" decoding="async" src="/assets/ref3.webp" alt="Référence pour la pose du squelette" style="width: 200px; height: 270px; object-fit: cover; display: block; border: 8px solid #DCDFFF; box-sizing: border-box">
+<figcaption style="margin-top: 10px; font-size: 11px; letter-spacing: 0.12em; color: #B79BFF">IDÉE 03 — LA POSE DU SQUELETTE</figcaption>
+</figure>
+</div>
+</div>
+
+<div style="margin-top: 80px; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 24px; align-items: center">
+<div style="grid-column: span 4; display: flex; flex-direction: column; gap: 14px">
+<div style="align-self: flex-start; background: #DCDFFF; color: #05061A; padding: 8px 40px 8px 18px; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%); font-size: 12px; font-weight: 700; letter-spacing: 0.12em">LA PROMO</div>
+<h3 style="margin: 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 84px; line-height: 0.9">TIKTOK &amp; SPOTIFY</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.6">Les contenus TikTok pour lancer les sons, la photo de profil sur Spotify, et même des réactions d'autres créateurs à Trust Nbdy.</p>
+</div>
+<figure class="z" style="grid-column: span 3; margin: 0; transform: rotate(-2deg)">
+<div style="width: 100%; height: 330px; background: #FFFFFF; border-radius: 18px; overflow: hidden; border: 4px solid #2A2A40">
+<video src="/assets/v_toxic.mp4" autoplay="" muted="" loop="" playsinline="" data-dc-ref="{{vref}}" style="width: 100%; height: 100%; object-fit: cover; display: block"></video>
+</div>
+<figcaption style="margin-top: 10px; font-size: 12px; letter-spacing: 0.12em; color: #8E96FF">POST TIKTOK — LYRICS</figcaption>
+</figure>
+<figure class="z" style="grid-column: span 2; margin: 0; transform: rotate(2deg)">
+<div style="width: 100%; height: 330px; background: #000000; border-radius: 18px; overflow: hidden; border: 4px solid #2A2A40">
+<video src="/assets/v_reaction.mp4" autoplay="" muted="" loop="" playsinline="" data-dc-ref="{{vref}}" style="width: 100%; height: 100%; object-fit: cover; display: block"></video>
+</div>
+<figcaption style="margin-top: 10px; font-size: 12px; letter-spacing: 0.12em; color: #8E96FF">RÉACTION</figcaption>
+</figure>
+<figure class="z" style="grid-column: span 3; margin: 0; transform: rotate(-1deg)">
+<img loading="lazy" decoding="async" src="/assets/spotify.webp" alt="Page Spotify de Solo avec la photo de profil" style="width: 100%; height: 330px; object-fit: cover; object-position: top; display: block; border-radius: 18px; border: 4px solid #2A2A40; box-sizing: border-box">
+<figcaption style="margin-top: 10px; font-size: 12px; letter-spacing: 0.12em; color: #8E96FF">SPOTIFY — PROFIL</figcaption>
+</figure>
+</div>
+<div style="margin-top: 80px; position: relative; overflow: hidden; background: radial-gradient(circle at 70% 50%, #1E1150 0%, #0D0828 50%, #05040F 100%); padding: 44px; clip-path: polygon(40px 0, 100% 0, 100% calc(100% - 40px), calc(100% - 40px) 100%, 0 100%, 0 40px); display: flex; align-items: center; justify-content: space-between; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 14px; max-width: 470px">
+<div style="display: flex; gap: 8px; align-items: center"><span style="background: #7A3CFF; color: #FFFFFF; padding: 6px 28px 6px 14px; clip-path: polygon(0 0, 100% 0, 92% 100%, 0 100%); font-size: 12px; font-weight: 700; letter-spacing: 0.12em">SINGLE 03 • COVER</span><span style="background: #DCDFFF; color: #05061A; padding: 6px 20px 6px 12px; clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%); font-size: 12px; font-weight: 700; letter-spacing: 0.12em"><span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #C21E2E; animation: blink 1s infinite"></span>&nbsp; SORTIE LE 27 NOVEMBRE</span></div>
+<h3 style="margin: 0; font-family: 'Pirata One', cursive; font-weight: 400; font-size: 130px; line-height: 0.85; color: #B79BFF">3 Cans a Day</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #C9CCF0"><b style="color: #DCDFFF">3 Cans a Day</b>, le prochain son du Dark Trip, sort le 27 novembre. J'ai fait la cover sur Photoshop : on a mis 1h30 pour arriver au résultat. Une des plus simples du Dark Trip, pas plus.</p>
+<div style="display: flex; gap: 12px; margin-top: 6px">
+<div style="background: #0A0B22; border: 1px solid #2E3266; padding: 10px 16px"><div style="font-family: 'Anton', sans-serif; font-size: 34px; line-height: 1; color: #DCDFFF">1H30</div><div style="font-size: 10px; font-weight: 700; letter-spacing: 0.12em; color: #8E96FF">DE TRAVAIL</div></div>
+<div style="background: #0A0B22; border: 1px solid #2E3266; padding: 10px 16px; display: flex; align-items: center; gap: 10px"><img loading="lazy" decoding="async" src="/assets/sw_photoshop.webp" alt="" style="width: 34px; height: 34px; object-fit: contain"><div><div style="font-family: 'Anton', sans-serif; font-size: 22px; line-height: 1; color: #DCDFFF">PHOTOSHOP</div><div style="font-size: 10px; font-weight: 700; letter-spacing: 0.12em; color: #8E96FF">LOGICIEL</div></div></div>
+<div style="background: #0A0B22; border: 1px solid #2E3266; padding: 10px 16px"><div style="font-family: 'Anton', sans-serif; font-size: 34px; line-height: 1; color: #DCDFFF">27.11</div><div style="font-size: 10px; font-weight: 700; letter-spacing: 0.12em; color: #8E96FF">SORTIE</div></div>
+</div>
+</div>
+<figure class="z dt3" style="margin: 0; transform: rotate(1.5deg)">
+<img loading="lazy" decoding="async" src="/assets/dt3_cover.webp" alt="Cover de 3 Cans a Day" style="width: 440px; height: 440px; object-fit: cover; display: block">
+<div class="dt3-glow"></div>
+<span class="dt3-hint">SURVOLE POUR ÉCLAIRER</span>
+</figure>
+</div>
+
+<div style="margin-top: 70px; position: relative; height: 180px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; border-top: 1px dashed #2E3266; border-bottom: 1px dashed #2E3266">
+<div style="font-family: 'Pirata One', cursive; font-size: 120px; line-height: 1; color: #B9C0FF; animation: flicker 3.5s infinite; filter: blur(0.6px)">Dark Trip 2 — 2027 ??</div>
+</div>
+</section>
+
+
+<a href="/fc-suspect.html" style="display: flex; align-items: center; justify-content: space-between; min-height: 270px; flex: 1 0 auto; background: #FFC21A; color: #2A1A00; text-decoration: none; padding: 0 56px; position: relative; overflow: hidden">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em">DOSSIER SUIVANT — 02</span>
+<span style="font-family: 'Anton', sans-serif; font-size: 150px; line-height: 0.85">FC SUSPECT →</span>
+</div>
+<div style="display: flex; align-items: flex-end; gap: 10px">
+<div style="background: #FFFFFF; color: #121214; padding: 10px 14px; width: 210px; clip-path: polygon(0 0, 100% 0, 100% 100%, 8% 100%, 0 80%); transform: rotate(2deg); margin-bottom: 80px; font-family: 'Gochi Hand', cursive; font-size: 20px; line-height: 1.1">C'était sombre hein ? Allez, on va jouer au foot.</div>
+<img loading="lazy" decoding="async" src="/assets/chibi_rigole.webp" alt="" style="width: 120px; height: 208px; object-fit: contain; animation: bob 2.4s ease-in-out infinite">
+</div>
+</a>
+
+<div data-dc-ref="{{tpRef}}" class="tp-ov" aria-hidden="true"><div class="tp-band" style="background: #F2EEE6; --d: 0.000s"></div><div class="tp-band" style="background: #050505; --d: 0.035s"></div><div class="tp-band" style="background: #39FF14; --d: 0.070s"></div><div class="tp-band" style="background: #0C0C0C; --d: 0.105s"></div><div class="tp-band" style="background: #EDE6D6; --d: 0.140s"></div><div class="tp-band" style="background: #4C5BFF; --d: 0.175s"></div><div class="tp-band" style="background: #050505; --d: 0.210s"></div><div data-dc-ref="{{tpLblRef}}" class="tp-lbl"></div></div>
+</div>
+</x-dc>
+<script src="/assets/dc.js?v=1b6c20c3"></script>
+<script>
+window.__DC = class Component extends DCLogic {
+  initHeader() {
+    if (this._hdInit || !this.hd || !this.hdWrap) return;
+    this._hdInit = true;
+    const hd = this.hd, wrap = this.hdWrap;
+    let last = 0, fixed = false;
+    const getY = (ev) => {
+      const tg = ev && ev.target;
+      if (tg && tg !== document && tg.nodeType === 1 && tg.scrollHeight > tg.clientHeight && tg.contains(hd)) return tg.scrollTop;
+      return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    };
+    this._hdScroll = (ev) => {
+      const y = getY(ev), h = wrap.offsetHeight || hd.offsetHeight || 100;
+      if (!fixed) wrap.style.height = hd.offsetHeight + 'px';
+      if (y <= h) {
+        if (fixed) { fixed = false; hd.classList.remove('hd-fixed', 'hd-show', 'hd-instant'); }
+      } else {
+        if (!fixed) { fixed = true; hd.classList.add('hd-fixed', 'hd-instant'); void hd.offsetWidth; hd.classList.remove('hd-instant'); }
+        if (y < last - 2) hd.classList.add('hd-show');
+        else if (y > last + 2) hd.classList.remove('hd-show');
+      }
+      last = y;
+    };
+    document.addEventListener('scroll', this._hdScroll, true);
+  }
+  componentWillUnmount() { if (this._zoomFit) window.removeEventListener('resize', this._zoomFit); if (this._hdScroll) document.removeEventListener('scroll', this._hdScroll, true); (this._tpT || []).forEach(clearTimeout); }
+  teleport(e, id, label) {
+    if (e && e.preventDefault) e.preventDefault();
+    const ov = this.tpEl, target = document.getElementById(id);
+    if (!target) return;
+    if (!ov) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
+    (this._tpT || []).forEach(clearTimeout); this._tpT = [];
+    const at = (ms, fn) => this._tpT.push(setTimeout(fn, ms));
+    if (this.tpLbl) this.tpLbl.textContent = label;
+    ov.className = 'tp-ov on';
+    at(20, () => ov.classList.add('in'));
+    at(500, () => { target.scrollIntoView({ behavior: 'auto', block: 'start' }); ov.classList.add('out'); });
+    at(1000, () => { ov.className = 'tp-ov'; });
+  }
+  initZoom() {
+    if (this._zoomInit || typeof window === 'undefined') return;
+    this._zoomInit = true;
+    const fit = () => {
+      const w = window.innerWidth || document.documentElement.clientWidth;
+      if (!w) return;
+      document.documentElement.style.zoom = String(w / 1440);
+    };
+    this._zoomFit = fit;
+    fit();
+    window.addEventListener('resize', fit);
+  }
+  renderVals() {
+    this.initZoom();
+    return {
+      hdWrapRef: (el) => { if (el) { this.hdWrap = el; this.initHeader(); } },
+      hdRef: (el) => { if (el) { this.hd = el; this.initHeader(); } },
+      tpRef: (el) => { if (el) this.tpEl = el; },
+      tpLblRef: (el) => { if (el) this.tpLbl = el; },
+      go: {
+        ch1: (e) => this.teleport(e, 'ch1', 'GREEN BOY'),
+        ch2: (e) => this.teleport(e, 'ch2', 'RISK'),
+        ch3: (e) => this.teleport(e, 'ch3', 'LE DARK TRIP'),
+      },
+      vref: (el) => {
+        if (el) {
+          el.muted = true;
+          const p = el.play && el.play();
+          if (p && p.catch) p.catch(() => {});
+        }
+      }
+    };
+  }
+}
+</script>
+<script>window.__dcBoot();</script>
+</body>
+</html>

@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book scolaire — Romain</title>
+<meta name="description" content="Les projets scolaires de Romain (Bac Pro CVPM), de 2024 à 2026.">
+<meta property="og:title" content="Book scolaire — Romain">
+<meta property="og:description" content="Les projets scolaires de Romain (Bac Pro CVPM), de 2024 à 2026.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://roomaaaain.fr/book-scolaire.html">
+<meta name="theme-color" content="#121214">
+<link rel="icon" href="/assets/logo_solid_ink.webp">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&family=Gochi+Hand&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+html,body{background:#F3EEE2;overflow-x:hidden}
+html,body,body *{cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2222%22%20height%3D%2222%22%20viewBox%3D%220%200%2034%2034%22%3E%3Cpolygon%20points%3D%223%2C3%203%2C27%2010%2C21%2015%2C31%2020%2C29%2015%2C19%2025%2C19%22%20transform%3D%22translate%283%203%29%22%20fill%3D%22%23FF5A1F%22/%3E%3Cpolygon%20points%3D%223%2C3%203%2C27%2010%2C21%2015%2C31%2020%2C29%2015%2C19%2025%2C19%22%20fill%3D%22%23F2EEE6%22%20stroke%3D%22%23121214%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22/%3E%3C/svg%3E") 2 2, auto !important}
+a,a *,button,button *,[role="button"],.btnz,.chap,[data-zoom],[data-zoom] *{cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2222%22%20height%3D%2222%22%20viewBox%3D%220%200%2034%2034%22%3E%3Cpolygon%20points%3D%223%2C3%203%2C27%2010%2C21%2015%2C31%2020%2C29%2015%2C19%2025%2C19%22%20transform%3D%22translate%283%203%29%22%20fill%3D%22%23F2EEE6%22/%3E%3Cpolygon%20points%3D%223%2C3%203%2C27%2010%2C21%2015%2C31%2020%2C29%2015%2C19%2025%2C19%22%20fill%3D%22%23FF5A1F%22%20stroke%3D%22%23121214%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22/%3E%3C/svg%3E") 2 2, pointer !important}
+@keyframes bob2{0%,100%{translate:0 0}50%{translate:0 -9px}}
+@keyframes talk{0%{background-position-x:91.6667%}50%{background-position-x:100%}}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+@keyframes hl{from{background-size:0% 42%}to{background-size:100% 42%}}
+@keyframes wob{0%,100%{rotate:-2deg}50%{rotate:2deg}}
+@keyframes scrollsite{0%,8%{transform:translateY(0)}92%,100%{transform:translateY(calc(-100% + 420px))}}
+@keyframes pop{0%{transform:scale(.6);opacity:0}100%{transform:scale(1);opacity:1}}
+@keyframes circ{from{stroke-dashoffset:400}to{stroke-dashoffset:0}}
+.sp{background-repeat:no-repeat;background-size:1300% 100%;background-position:calc(var(--i,0) * 8.33333%) 0;aspect-ratio:280/484;display:block}
+.sp.talk{animation:talk .34s steps(1) infinite}
+.paper{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(#C9D6E6 1.5px,transparent 1.5px);background-size:100% 34px;opacity:.7}
+.margin{position:absolute;top:0;bottom:0;left:96px;width:3px;background:#E63946;opacity:.55;pointer-events:none}
+.holes{position:absolute;top:0;bottom:0;left:30px;width:26px;pointer-events:none;background-image:radial-gradient(circle at 13px 13px,#D9D2C2 11px,transparent 12px);background-size:26px 260px;background-repeat:repeat-y;background-position:0 120px}
+.logo-hd{transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.logo-hd:hover{transform:rotate(-8deg) scale(1.1)}
+.chap,.btnz{display:inline-block;transition:transform .2s cubic-bezier(.3,1.6,.5,1),filter .2s}
+.chap:hover,.btnz:hover{transform:rotate(0deg) scale(1.12) !important}
+.chap:active,.btnz:active{transform:scale(0.94) !important}
+.hd{transition:transform .3s cubic-bezier(.3,1,.4,1),box-shadow .3s}
+.hd.hd-fixed{position:fixed !important;top:0;left:0;width:1440px;box-sizing:border-box;background:#F3EEE2;z-index:60 !important;box-shadow:0 4px 0 rgba(18,18,20,.12);transform:translateY(-110%)}
+.hd.hd-fixed.hd-show{transform:translateY(0)}
+.hd.hd-fixed.hd-instant{transition:none}
+.tp-ov{position:fixed;inset:0;z-index:9997;display:none;flex-direction:column;pointer-events:none}
+.tp-ov.on{display:flex;pointer-events:auto}
+.tp-band{flex:1;transform:translateX(-102%) skewX(-12deg);transition:transform .32s cubic-bezier(.7,0,.3,1);transition-delay:var(--d)}
+.tp-ov.in .tp-band{transform:translateX(0) skewX(0)}
+.tp-ov.out .tp-band{transform:translateX(102%) skewX(-12deg)}
+.tp-lbl{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.6) rotate(-4deg);font-family:'Anton',sans-serif;font-size:120px;line-height:1;color:#F3EEE2;background:#121214;padding:6px 34px;clip-path:polygon(4% 0,100% 0,96% 100%,0 100%);opacity:0;transition:opacity .15s,transform .25s cubic-bezier(.3,1.6,.5,1);white-space:nowrap}
+.tp-ov.in .tp-lbl{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(-2deg);transition-delay:.22s}
+.tp-ov.out .tp-lbl{opacity:0;transition-delay:0s}
+.bubble{background:#FFFFFF;color:#121214;border:3px solid #121214;padding:10px 14px;font-family:'Gochi Hand',cursive;font-size:21px;line-height:1.12;clip-path:polygon(0 0,100% 0,100% 100%,8% 100%,0 80%)}
+.gd{appearance:none;border:0;background:transparent;padding:0;display:block;transition:scale .2s}
+.gd:hover{scale:1.08}
+.gd:active{scale:.92}
+.gd-w{animation:bob2 3s ease-in-out infinite}
+.hand{font-family:'Gochi Hand',cursive}
+.hlt{background-image:linear-gradient(#FFE45C,#FFE45C);background-repeat:no-repeat;background-position:0 86%;background-size:100% 42%;animation:hl 1.1s .4s cubic-bezier(.6,0,.3,1) both;padding:0 10px}
+.tape{position:absolute;width:110px;height:30px;background:rgba(255,236,150,.75);box-shadow:0 1px 2px rgba(0,0,0,.08);z-index:3}
+.postit{position:relative;background:#FFE98A;color:#121214;padding:30px 30px 26px;box-shadow:6px 8px 0 rgba(18,18,20,.12);transition:transform .3s cubic-bezier(.3,1.6,.5,1)}
+.postit:hover{transform:rotate(0) scale(1.02) !important}
+.bul{background:#FFFFFF;border:3px solid #121214;box-shadow:8px 8px 0 #121214;transition:transform .3s cubic-bezier(.3,1.6,.5,1)}
+.bul:hover{transform:rotate(0) !important}
+.bul-row{display:flex;border-top:2px solid #121214}
+.bul-k{width:230px;flex:0 0 230px;padding:12px 16px;font-size:11px;font-weight:700;letter-spacing:.12em;background:#ECE6D8;border-right:2px solid #121214;display:flex;align-items:center}
+.bul-v{flex:1;padding:12px 18px;font-size:14px;display:flex;align-items:center;gap:12px;position:relative}
+.circ{position:absolute;left:-14px;top:-12px;width:150px;height:74px;pointer-events:none}
+.circ ellipse{fill:none;stroke:#E63946;stroke-width:4;stroke-dasharray:400;animation:circ 1.2s .6s ease-out both}
+.sw{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;padding:4px 9px;border:2px solid #121214;background:#FFFFFF}
+.sw.on{background:#2445A8;color:#FFFFFF;border-color:#2445A8}
+
+/* frise */
+.frise{position:relative;padding:20px 0 60px}
+.axis{position:absolute;left:50%;top:0;bottom:0;width:4px;margin-left:-2px;background:repeating-linear-gradient(180deg,#2445A8 0 14px,transparent 14px 24px)}
+.yr{position:relative;z-index:2;display:flex;justify-content:center;margin:40px 0 30px}
+.yr span{font-family:'Anton',sans-serif;font-size:110px;line-height:1;color:#121214;background:#F3EEE2;padding:0 26px}
+.yr span b{font-weight:400;background-image:linear-gradient(#FFE45C,#FFE45C);background-repeat:no-repeat;background-position:0 72%;background-size:100% 55%;padding:0 8px}
+.ent{position:relative;display:flex;margin:0 0 70px;transition:opacity .6s,translate .6s cubic-bezier(.2,.8,.2,1)}
+.ent.l{justify-content:flex-start}
+.ent.r{justify-content:flex-end}
+.js .ent{opacity:0;translate:0 50px}
+.js .ent.in{opacity:1;translate:0 0}
+.dot{position:absolute;left:50%;top:26px;width:26px;height:26px;margin-left:-13px;background:#F3EEE2;border:5px solid #2445A8;border-radius:50%;box-sizing:border-box;z-index:2}
+.date{position:absolute;top:18px;font-family:'Anton',sans-serif;font-size:30px;line-height:1;color:#2445A8;white-space:nowrap}
+.ent.l .date{left:calc(50% + 32px)}
+.ent.r .date{right:calc(50% + 32px)}
+.card{position:relative;width:620px;box-sizing:border-box;background:#FFFFFF;padding:30px 30px 28px;box-shadow:8px 10px 0 rgba(18,18,20,.10);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.card:hover{transform:rotate(0) scale(1.015) !important;z-index:4}
+.card.big{width:1340px}
+.ent.big{justify-content:center}
+.ent.big .dot{top:-34px}
+.ent.big .date{left:50%;top:-84px;transform:translateX(-50%);right:auto;background:#F3EEE2;padding:4px 14px}
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.12em;padding:4px 10px;margin-right:6px;background:#121214;color:#F3EEE2}
+.tag.gp{background:#E63946;color:#FFFFFF}
+.tag.lt{background:#ECE6D8;color:#121214}
+.c-t{font-family:'Anton',sans-serif;font-size:52px;line-height:.92;margin:14px 0 12px;color:#121214}
+.c-p{margin:0 0 10px;font-size:13.5px;line-height:1.65;color:#3A3A40}
+.note{font-family:'Gochi Hand',cursive;color:#E63946;font-size:22px;line-height:1.1}
+.zm{position:relative;display:block;overflow:hidden;background:#ECE6D8;border:2px solid #121214;transition:transform .3s cubic-bezier(.3,1.6,.5,1),box-shadow .3s}
+.zm img{display:block;width:100%;height:100%;object-fit:cover}
+.zm:hover{transform:rotate(0) scale(1.04) !important;box-shadow:6px 6px 0 #2445A8;z-index:3}
+.zm::after{content:'⤢ AGRANDIR';position:absolute;right:8px;bottom:8px;background:#121214;color:#F3EEE2;font-size:10px;font-weight:700;letter-spacing:.1em;padding:3px 7px;opacity:0;transition:opacity .2s}
+.zm:hover::after{opacity:1}
+.zm.ct img{object-fit:contain;background:#FFFFFF}
+.lbl{display:block;margin-top:6px;font-size:10px;font-weight:700;letter-spacing:.12em;color:#55555C}
+.browser{position:relative;border:3px solid #121214;background:#FFFFFF;overflow:hidden}
+.browser-bar{height:26px;background:#121214;display:flex;align-items:center;gap:6px;padding:0 10px}
+.browser-bar i{width:9px;height:9px;border-radius:50%;background:#55555C;display:block}
+.browser-bar span{margin-left:10px;font-size:10px;color:#A9A49B;letter-spacing:.08em}
+.browser-v{position:relative;height:420px;overflow:hidden}
+.browser-v img{display:block;width:100%;animation:scrollsite 14s ease-in-out infinite alternate}
+.browser:hover .browser-v img{animation-play-state:paused}
+.lb{position:fixed;inset:0;z-index:9998;display:none;align-items:center;justify-content:center;background:rgba(18,18,20,.88)}
+.lb.on{display:flex}
+.lb-w{display:flex;flex-direction:column;gap:12px;align-items:center;animation:pop .25s cubic-bezier(.3,1.6,.5,1)}
+.lb-w img{display:block;max-width:1200px;max-height:780px;background:#FFFFFF;border:4px solid #F3EEE2}
+.lb-x{appearance:none;border:0;background:#F3EEE2;color:#121214;font-family:'Anton',sans-serif;font-size:18px;padding:8px 18px;clip-path:polygon(6% 0,100% 0,94% 100%,0 100%)}
+</style>
+<style>x-dc{display:contents}</style>
+</head>
+<body>
+<x-dc>
+
+<div id="haut" data-dc-ref="{{rootRef}}" style="width: 1440px; min-height: 7900px; background: #F3EEE2; color: #121214; font-family: 'Space Mono', monospace; overflow: hidden; position: relative; display: flex; flex-direction: column">
+<div class="paper"></div><div class="margin"></div><div class="holes"></div>
+
+<div data-dc-ref="{{hdWrapRef}}" class="hd-wrap">
+<header data-dc-ref="{{hdRef}}" class="hd" style="display: flex; align-items: center; justify-content: space-between; padding: 26px 48px 26px 130px; position: relative; z-index: 5">
+<a href="/" class="logo-hd" style="display: flex; align-items: center; gap: 14px; text-decoration: none; color: #121214"><img src="/assets/logo_solid_ink.webp" alt="Logo de Romain" style="width: 48px; height: 41px; object-fit: contain"><span style="font-family: 'Anton', sans-serif; font-size: 32px; line-height: 1">ROMAIN</span></a>
+<nav aria-label="Chapitres du dossier" style="display: flex; gap: 6px; align-items: center">
+<a class="btnz" href="#ctx" data-dc-onclick="{{go.ctx}}" style="background: #121214; color: #F3EEE2; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 15px; padding: 7px 16px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-2deg); white-space: nowrap">LE CONTEXTE</a>
+<a class="btnz" href="#y2024" data-dc-onclick="{{go.y2024}}" style="background: #2445A8; color: #FFFFFF; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 15px; padding: 7px 16px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(1.5deg); white-space: nowrap">2024</a>
+<a class="btnz" href="#y2025" data-dc-onclick="{{go.y2025}}" style="background: #E63946; color: #FFFFFF; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 15px; padding: 7px 16px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-1deg); white-space: nowrap">2025</a>
+<a class="btnz" href="#y2026" data-dc-onclick="{{go.y2026}}" style="background: #FFE45C; color: #121214; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 15px; padding: 7px 16px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(2deg); white-space: nowrap">2026</a>
+</nav>
+<div style="display: flex; gap: 14px; align-items: center"><span style="font-size: 12px; letter-spacing: 0.12em; color: #55555C">DOSSIER 07 / 08</span><a class="btnz" href="/" style="background: #121214; color: #F3EEE2; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 18px; padding: 9px 24px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-2deg)">← TOUS LES DOSSIERS</a></div>
+</header>
+</div>
+<section style="position: relative; height: 760px; padding-left: 130px">
+<div style="position: absolute; left: 130px; top: 20px; font-size: 13px; letter-spacing: 0.14em; color: #55555C"><span style="display: inline-block; width: 12px; height: 12px; background: #E63946; border-radius: 50%; animation: blink 1.1s infinite"></span>&nbsp; DOSSIER 07 • ARCHIVES DU LYCÉE</div>
+<h1 style="position: absolute; left: 118px; top: 50px; margin: 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 210px; line-height: 0.9; color: #121214">BOOK<br><span class="hlt">SCOLAIRE</span></h1>
+<div class="hand" style="position: absolute; left: 900px; top: 120px; font-size: 64px; color: #2445A8; transform: rotate(-6deg)">2024 → 2026</div>
+<div class="postit" style="position: absolute; left: 134px; top: 500px; width: 620px; transform: rotate(-1.5deg)">
+<div class="tape" style="left: 250px; top: -14px; transform: rotate(-3deg)"></div>
+<div style="font-family: 'Anton', sans-serif; font-size: 30px; line-height: 1; color: #E63946">⚠ AVANT DE REGARDER</div>
+<p style="margin: 12px 0 0 0; font-size: 14px; line-height: 1.65">Ce sont d'<b>assez vieux projets</b>, faits au lycée. Honnêtement, je ne les aime plus trop et ils ne sont pas fous… Mais je les garde ici pour montrer <b>tout le travail que j'ai fait</b> et le chemin parcouru depuis.</p>
+</div>
+<div style="position: absolute; left: 960px; top: 330px; display: flex; align-items: flex-start; gap: 6px"><div class="bubble" style="width: 220px; margin-top: 30px; transform: rotate(-2deg)">{{msg.hero}}</div><button type="button" class="gd" data-dc-onclick="{{poke.hero}}" aria-label="Le chibi de Romain"><div class="gd-w"><div data-dc-class="{{gcls.hero}}" data-dc-style="{{gst.hero}}"></div></div></button></div>
+</section>
+<section id="ctx" style="position: relative; padding: 70px 48px 90px 130px; display: flex; gap: 60px; align-items: flex-start">
+<div style="flex: 0 0 420px">
+<div style="font-size: 13px; letter-spacing: 0.14em; color: #E63946">// LE CONTEXTE</div>
+<h2 style="margin: 6px 0 0 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 130px; line-height: .88">LE LYCÉE</h2>
+<p style="margin: 18px 0 0 0; font-size: 15px; line-height: 1.65; color: #3A3A40">J'étais au lycée Amyot d'Inville, en Bac Pro <b>Communication Visuelle et Plurimédia</b>. C'est là que j'ai appris <b>Illustrator</b>. Tous les autres logiciels que j'utilise aujourd'hui, je les ai appris de moi-même.</p>
+<div class="note" style="margin-top: 22px; transform: rotate(-3deg)">→ le reste du book, c'est du fait maison !</div>
+</div>
+<div class="bul" style="flex: 1; transform: rotate(1deg)">
+<div style="display: flex; align-items: center; gap: 18px; padding: 16px 18px">
+<img src="/assets/s_lycee.webp" alt="Logo du lycée Amyot d'Inville" style="width: 120px; height: 68px; object-fit: contain">
+<div><div style="font-family: 'Anton', sans-serif; font-size: 30px; line-height: 1">BULLETIN — ROMAIN</div><div style="font-size: 11px; letter-spacing: 0.12em; color: #55555C; margin-top: 4px">LYCÉE AMYOT D'INVILLE • 2024 — 2026</div></div>
+</div>
+<div class="bul-row"><div class="bul-k">FORMATION</div><div class="bul-v">Bac Pro Communication Visuelle &amp; Plurimédia</div></div>
+<div class="bul-row"><div class="bul-k">MOYENNE GÉNÉRALE</div><div class="bul-v" style="height: 64px"><span style="position: relative; font-family: 'Anton', sans-serif; font-size: 40px; line-height: 1; color: #121214; padding-left: 10px">16<span style="font-size: 22px">/20</span><svg class="circ" viewBox="0 0 150 74" aria-hidden="true"><ellipse cx="72" cy="38" rx="66" ry="30" transform="rotate(-4 72 38)"></ellipse></svg></span><span class="note" style="font-size: 24px; margin-left: 40px">pas mal !</span></div></div>
+<div class="bul-row"><div class="bul-k">APPRIS EN COURS</div><div class="bul-v"><span class="sw on">ILLUSTRATOR</span></div></div>
+<div class="bul-row"><div class="bul-k">APPRIS TOUT SEUL</div><div class="bul-v" style="flex-wrap: wrap; gap: 6px"><span class="sw">PREMIERE PRO</span><span class="sw">AFTER EFFECTS</span><span class="sw">PHOTOSHOP</span><span class="sw">BLENDER</span><span class="sw">ET LE RESTE…</span></div></div>
+<div class="bul-row"><div class="bul-k">APPRÉCIATION<br>(PAR MOI-MÊME)</div><div class="bul-v"><span class="note" style="font-size: 23px; color: #2445A8">Élève sérieux qui a surtout appris à apprendre tout seul. Continue comme ça.</span></div></div>
+</div>
+</section>
+<section style="position: relative; padding: 30px 48px 40px 130px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end">
+<div><div style="font-size: 13px; letter-spacing: 0.14em; color: #E63946">// LA FRISE • DU PLUS VIEUX AU PLUS RÉCENT</div>
+<h2 style="margin: 6px 0 0 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 130px; line-height: .88">LES PROJETS</h2>
+<p style="margin: 16px 0 0 0; width: 640px; font-size: 15px; line-height: 1.65; color: #3A3A40">Sept projets, dans l'ordre. Clique sur une image pour l'agrandir. Les trois « grands projets » étaient les plus longs, avec une vraie démarche : demande, recherches, propositions.</p></div>
+<div style="display: flex; align-items: flex-end; gap: 6px"><div class="bubble" style="width: 210px; margin-bottom: 110px; transform: rotate(2deg)">{{msg.frise}}</div><button type="button" class="gd" data-dc-onclick="{{poke.frise}}" aria-label="Le chibi de Romain"><div class="gd-w"><div data-dc-class="{{gcls.frise}}" data-dc-style="{{gst.frise}}"></div></div></button></div>
+</div>
+</section>
+<div class="frise" style="margin: 0 48px 0 50px">
+<div class="axis"></div>
+<div class="yr" id="y2024"><span><b>2024</b></span></div>
+<div class="ent l"><span class="dot"></span><span class="date">OCT. 2024</span><div class="card" style="transform: rotate(-0.6deg)"><div class="tape" style="left: 40%; top: -14px; transform: rotate(3deg)"></div>
+<span class="tag">AFFICHE</span><span class="tag lt">INDIVIDUEL</span>
+<div class="c-t">AFFICHE ANTI-HARCÈLEMENT</div>
+<div style="display: flex; gap: 22px; align-items: flex-start">
+<div style="display: flex; flex-direction: column; transform: rotate(-1.5deg)"><a class="zm" href="#" data-zoom="/assets/s_harcel.webp" data-cap="Affiche anti-harcèlement" style="width: 230px; height: 324px"><img src="/assets/s_harcel.webp" alt="Affiche anti-harcèlement" loading="lazy"></a><span class="lbl">AFFICHE • A3</span></div>
+<div style="flex: 1"><p class="c-p">Une affiche contre le harcèlement, affichée dans le lycée pour donner le courage d'en parler et briser le silence.</p>
+<div class="note" style="margin-top: 14px; transform: rotate(-3deg)">affichée pour de vrai<br>dans les couloirs ✓</div></div>
+</div></div></div>
+<div class="ent r"><span class="dot"></span><span class="date">DÉC. 2024</span><div class="card" style="transform: rotate(0.5deg)"><div class="tape" style="left: 12%; top: -14px; transform: rotate(-4deg)"></div>
+<span class="tag">AFFICHE</span><span class="tag">IDENTITÉ</span><span class="tag lt">FLYERS</span>
+<div class="c-t">PROJET MEAL CENTER</div>
+<p class="c-p">Pour Meal Center (kebab &amp; pizza) : une affiche publicitaire avec une composition dynamique et des visuels qui donnent faim, plus l'identité visuelle de l'enseigne et ses flyers.</p>
+<div style="display: flex; gap: 18px; margin-top: 12px; align-items: flex-start">
+<div style="display: flex; flex-direction: column; transform: rotate(1deg)"><a class="zm" href="#" data-zoom="/assets/s_meal1.webp" data-cap="Affiche Meal Center" style="width: 270px; height: 310px"><img src="/assets/s_meal1.webp" alt="Affiche Meal Center" loading="lazy"></a><span class="lbl">AFFICHE PUBLICITAIRE</span></div>
+<div style="display: flex; flex-direction: column; transform: rotate(-1.5deg)"><a class="zm ct" href="#" data-zoom="/assets/s_meal2.webp" data-cap="Logo Meal Center" style="width: 250px; height: 284px"><img src="/assets/s_meal2.webp" alt="Logo Meal Center" loading="lazy"></a><span class="lbl">IDENTITÉ VISUELLE</span></div>
+</div></div></div>
+<div class="yr" id="y2025"><span><b>2025</b></span></div>
+<div class="ent l"><span class="dot"></span><span class="date">JANV. 2025</span><div class="card" style="transform: rotate(-0.4deg)"><div class="tape" style="left: 60%; top: -14px; transform: rotate(5deg)"></div>
+<span class="tag">LOGO</span><span class="tag lt">INDIVIDUEL</span>
+<div class="c-t">IDENTITÉ VISUELLE PERSONNELLE</div>
+<p class="c-p">Mon premier logotype perso : mes initiales « R » et « L » dans un design minimaliste et géométrique, équilibré et moderne.</p>
+<div style="display: flex; gap: 20px; align-items: center; margin-top: 12px">
+<div style="display: flex; flex-direction: column; transform: rotate(-2deg)"><a class="zm ct" href="#" data-zoom="/assets/s_logo_rl.webp" data-cap="Ancien logo RL" style="width: 240px; height: 224px"><img src="/assets/s_logo_rl.webp" alt="Ancien logo RL" loading="lazy"></a><span class="lbl">AVANT • 2025</span></div>
+<div class="note" style="font-size: 40px">→</div>
+<div style="display: flex; flex-direction: column; transform: rotate(2deg)"><div style="width: 200px; height: 224px; border: 2px solid #121214; background: #121214; display: flex; align-items: center; justify-content: center"><img loading="lazy" decoding="async" src="/assets/logo_solid_cream.webp" alt="Logo actuel de Romain" style="width: 130px; height: 112px; object-fit: contain"></div><span class="lbl">MAINTENANT</span></div>
+</div>
+<div class="note" style="margin-top: 10px; transform: rotate(-2deg)">il a bien changé depuis…</div></div></div>
+<div class="ent r"><span class="dot"></span><span class="date">FÉV. 2025</span><div class="card" style="transform: rotate(0.4deg)"><div class="tape" style="left: 45%; top: -14px; transform: rotate(-2deg)"></div>
+<span class="tag gp">GRAND PROJET</span><span class="tag">PICTOGRAMMES</span>
+<div class="c-t">PROJET PICTOGRAMME</div>
+<p class="c-p">Des pictogrammes pour aider les élèves allophones à trouver les outils en atelier. Un design clair et épuré, et une couleur par famille d'outils pour les reconnaître plus vite. Le but : plus de compréhension et plus d'autonomie dans l'atelier.</p>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 12px">
+<div style="display: flex; flex-direction: column; transform: rotate(-1deg)"><a class="zm" href="#" data-zoom="/assets/s_picto1.webp" data-cap="Pictogrammes, planche 1" style="width: 270px; height: 191px"><img src="/assets/s_picto1.webp" alt="Pictogrammes, planche 1" loading="lazy"></a><span class="lbl">PLANCHE 1</span></div>
+<div style="display: flex; flex-direction: column; transform: rotate(1deg)"><a class="zm" href="#" data-zoom="/assets/s_picto2.webp" data-cap="Pictogrammes, planche 2" style="width: 270px; height: 191px"><img src="/assets/s_picto2.webp" alt="Pictogrammes, planche 2" loading="lazy"></a><span class="lbl">PLANCHE 2</span></div>
+<div style="display: flex; flex-direction: column; transform: rotate(0.5deg)"><a class="zm" href="#" data-zoom="/assets/s_picto3.webp" data-cap="Pictogrammes, planche 3" style="width: 270px; height: 191px"><img src="/assets/s_picto3.webp" alt="Pictogrammes, planche 3" loading="lazy"></a><span class="lbl">PLANCHE 3</span></div>
+<div style="display: flex; flex-direction: column; transform: rotate(-0.5deg)"><a class="zm" href="#" data-zoom="/assets/s_picto4.webp" data-cap="Pictogrammes, planche 4" style="width: 270px; height: 191px"><img src="/assets/s_picto4.webp" alt="Pictogrammes, planche 4" loading="lazy"></a><span class="lbl">PLANCHE 4</span></div>
+</div></div></div>
+<div class="ent big"><span class="dot"></span><span class="date">MAI 2025</span><div class="card big" style="transform: rotate(0.3deg)"><div class="tape" style="left: 48%; top: -14px; transform: rotate(2deg)"></div>
+<div style="display: flex; gap: 40px">
+<div style="flex: 0 0 420px">
+<span class="tag gp">GRAND PROJET</span><span class="tag">AFFICHE</span><span class="tag lt">DÉMARCHE</span>
+<div class="c-t">CONFÉRENCE DES MÉTIERS</div>
+<p class="c-p">Une affiche pour promouvoir la conférence des métiers : un design qui attire l'œil, une mise en page soignée et des infos claires.</p>
+<p class="c-p">La démarche complète : analyse de la demande, recherche de références graphiques, <b>trois propositions argumentées</b>, puis la version finale.</p>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px">
+<div style="display: flex; flex-direction: column; transform: rotate(-1deg)"><a class="zm" href="#" data-zoom="/assets/s_conf_dem.webp" data-cap="La demande" style="width: 200px; height: 141px"><img src="/assets/s_conf_dem.webp" alt="La demande" loading="lazy"></a><span class="lbl">LA DEMANDE</span></div>
+<div style="display: flex; flex-direction: column; transform: rotate(1deg)"><a class="zm" href="#" data-zoom="/assets/s_conf_ref.webp" data-cap="Références graphiques" style="width: 200px; height: 141px"><img src="/assets/s_conf_ref.webp" alt="Références graphiques" loading="lazy"></a><span class="lbl">RÉFÉRENCES</span></div>
+<div style="display: flex; flex-direction: column; transform: rotate(0.5deg)"><a class="zm" href="#" data-zoom="/assets/s_conf_prop.webp" data-cap="Trois propositions argumentées" style="width: 200px; height: 141px"><img src="/assets/s_conf_prop.webp" alt="Trois propositions argumentées" loading="lazy"></a><span class="lbl">3 PROPOSITIONS</span></div>
+<div style="display: flex; flex-direction: column; transform: rotate(-0.5deg)"><a class="zm" href="#" data-zoom="/assets/s_conf_final.webp" data-cap="Proposition finale" style="width: 200px; height: 141px"><img src="/assets/s_conf_final.webp" alt="Proposition finale" loading="lazy"></a><span class="lbl">PROPOSITION FINALE</span></div>
+</div>
+</div>
+<div style="flex: 1; display: flex; gap: 22px; align-items: flex-start; padding-top: 30px">
+<div style="position: relative"><div style="display: flex; flex-direction: column; transform: rotate(-2deg)"><a class="zm" href="#" data-zoom="/assets/s_conf_a1.webp" data-cap="Proposition d'affiche 1 (retenue)" style="width: 260px; height: 368px"><img src="/assets/s_conf_a1.webp" alt="Proposition d'affiche 1 (retenue)" loading="lazy"></a><span class="lbl">PROPOSITION 1</span></div><span class="note" style="position: absolute; left: 20px; top: -40px; transform: rotate(-6deg); white-space: nowrap">★ celle retenue !</span></div>
+<div style="padding-top: 40px"><div style="display: flex; flex-direction: column; transform: rotate(1.5deg)"><a class="zm" href="#" data-zoom="/assets/s_conf_a2.webp" data-cap="Proposition d'affiche 2" style="width: 240px; height: 334px"><img src="/assets/s_conf_a2.webp" alt="Proposition d'affiche 2" loading="lazy"></a><span class="lbl">PROPOSITION 2</span></div></div>
+<div style="padding-top: 10px"><div style="display: flex; flex-direction: column; transform: rotate(-1deg)"><a class="zm" href="#" data-zoom="/assets/s_conf_a3.webp" data-cap="Proposition d'affiche 3" style="width: 240px; height: 292px"><img src="/assets/s_conf_a3.webp" alt="Proposition d'affiche 3" loading="lazy"></a><span class="lbl">PROPOSITION 3</span></div></div>
+</div>
+</div></div></div>
+<div class="ent big"><span class="dot"></span><span class="date">SEPT. 2025</span><div class="card big" style="transform: rotate(-0.3deg)"><div class="tape" style="left: 30%; top: -14px; transform: rotate(-3deg)"></div>
+<div style="display: flex; gap: 40px">
+<div style="flex: 0 0 470px">
+<span class="tag gp">GRAND PROJET</span><span class="tag">IDENTITÉ</span><span class="tag">SITE WEB</span>
+<div class="c-t">STILL</div>
+<p class="c-p"><b>STILL</b> est une marque fictive de vêtements et d'équipements pour les sports de combat, surtout la boxe. Le projet : créer son identité visuelle et son site web, en <b>deux semaines</b>.</p>
+<p class="c-p">Le nom vient de l'anglais « still », qui veut dire « encore », « toujours » : rester debout, persévérer, se relever même après la chute. Le logo joue sur des formes inclinées et tendues pour la vitesse et la détermination, en noir, cuivré et gris clair.</p>
+<div style="display: flex; gap: 12px; margin-top: 14px; align-items: flex-start">
+<div style="display: flex; flex-direction: column; transform: rotate(-1.5deg)"><a class="zm ct" href="#" data-zoom="/assets/s_still_logo.webp" data-cap="Logo STILL" style="width: 150px; height: 150px"><img src="/assets/s_still_logo.webp" alt="Logo STILL" loading="lazy"></a><span class="lbl">LOGO</span></div>
+<div style="display: flex; flex-direction: column; transform: rotate(1deg)"><a class="zm ct" href="#" data-zoom="/assets/s_still_charte.webp" data-cap="Charte graphique STILL" style="width: 290px; height: 110px"><img src="/assets/s_still_charte.webp" alt="Charte graphique STILL" loading="lazy"></a><span class="lbl">CHARTE GRAPHIQUE</span></div>
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px">
+<div style="display: flex; flex-direction: column; transform: rotate(0.5deg)"><a class="zm" href="#" data-zoom="/assets/s_still_demande.webp" data-cap="La demande" style="width: 222px; height: 157px"><img src="/assets/s_still_demande.webp" alt="La demande" loading="lazy"></a><span class="lbl">LA DEMANDE</span></div>
+<div style="display: flex; flex-direction: column; transform: rotate(-0.5deg)"><a class="zm" href="#" data-zoom="/assets/s_still_conc.webp" data-cap="La concurrence" style="width: 222px; height: 157px"><img src="/assets/s_still_conc.webp" alt="La concurrence" loading="lazy"></a><span class="lbl">LA CONCURRENCE</span></div>
+</div>
+<div style="margin-top: 12px"><div style="display: flex; flex-direction: column; transform: rotate(0deg)"><a class="zm ct" href="#" data-zoom="/assets/s_still_arbo.webp" data-cap="Arborescence du site" style="width: 460px; height: 101px"><img src="/assets/s_still_arbo.webp" alt="Arborescence du site" loading="lazy"></a><span class="lbl">ARBORESCENCE DU SITE</span></div></div>
+</div>
+<div style="flex: 1; display: flex; flex-direction: column; gap: 10px">
+<div class="browser" style="transform: rotate(1deg)"><div class="browser-bar"><i></i><i></i><i></i><span>STILL — maquette du site</span></div>
+<a class="browser-v" href="#" data-zoom="/assets/s_still_site.webp" data-cap="Maquette du site STILL" style="display: block"><img loading="lazy" decoding="async" src="/assets/s_still_site.webp" alt="Maquette du site STILL"></a></div>
+<span class="lbl">LE SITE WEB • ÇA DÉFILE TOUT SEUL (SURVOLE POUR METTRE EN PAUSE)</span>
+
+</div>
+</div></div></div>
+<div class="yr" id="y2026"><span><b>2026</b></span></div>
+<div class="ent l"><span class="dot"></span><span class="date">MAI 2026</span><div class="card" style="transform: rotate(0.6deg)"><div class="tape" style="left: 38%; top: -14px; transform: rotate(4deg)"></div>
+<span class="tag">AFFICHE</span><span class="tag lt">INDIVIDUEL</span>
+<div class="c-t">AFFICHE CONCOURS DE CHANT</div>
+<div style="display: flex; gap: 22px; align-items: flex-start">
+<div style="display: flex; flex-direction: column; transform: rotate(1.5deg)"><a class="zm" href="#" data-zoom="/assets/s_chant.webp" data-cap="Affiche du concours de chant" style="width: 240px; height: 339px"><img src="/assets/s_chant.webp" alt="Affiche du concours de chant" loading="lazy"></a><span class="lbl">AFFICHE</span></div>
+<div style="flex: 1"><p class="c-p">L'affiche du concours de chant de la spécialité musique. Un micro au centre, symbole de la scène, des couleurs chaudes et une texture grainée pour l'énergie du spectacle. Une composition verticale et des infos bien hiérarchisées pour une lecture rapide.</p>
+<div class="note" style="margin-top: 12px; transform: rotate(-3deg)">le plus récent de la frise</div></div>
+</div></div></div>
+</div>
+<section style="position: relative; padding: 40px 48px 90px 130px; display: flex; justify-content: center">
+<div class="postit" style="width: 820px; transform: rotate(1deg); display: flex; gap: 26px; align-items: center">
+<div class="tape" style="left: 360px; top: -14px; transform: rotate(2deg)"></div>
+<div style="flex: 1"><div style="font-family: 'Anton', sans-serif; font-size: 40px; line-height: 1">ET APRÈS LE LYCÉE ?</div>
+<p style="margin: 10px 0 0 0; font-size: 14px; line-height: 1.6">Tout le reste du book (montages, covers, 3D, chibis), c'est ce que j'ai appris tout seul, à côté. C'est là que ça devient intéressant.</p>
+<a class="btnz" href="/" style="margin-top: 16px; background: #121214; color: #F3EEE2; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 20px; padding: 10px 24px; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-1.5deg)">← VOIR LES AUTRES DOSSIERS</a></div>
+<div style="display: flex; align-items: flex-end; gap: 4px"><div class="bubble" style="width: 170px; margin-bottom: 100px; transform: rotate(-2deg); font-size: 19px">{{msg.fin}}</div><button type="button" class="gd" data-dc-onclick="{{poke.fin}}" aria-label="Le chibi de Romain"><div class="gd-w"><div data-dc-class="{{gcls.fin}}" data-dc-style="{{gst.fin}}"></div></div></button></div>
+</div>
+</section>
+<a href="/404.html" style="display: flex; align-items: center; justify-content: space-between; min-height: 260px; flex: 1 0 auto; background: #1C1C20; color: #F2EEE6; text-decoration: none; padding: 0 56px 0 130px; position: relative; overflow: hidden">
+<div style="position: absolute; left: 0; top: 0; bottom: 0; width: 26px; background: repeating-linear-gradient(-45deg, #FF5A1F 0 12px, #1C1C20 12px 24px)"></div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em; color: #FF5A1F">DOSSIER SUIVANT — 08</span>
+<span style="font-family: 'Anton', sans-serif; font-size: 130px; line-height: 0.85">PRO →</span>
+</div>
+<div class="bubble" style="width: 230px; transform: rotate(2deg); font-size: 20px; border-color: #F2EEE6">Fini l'école. Place au vrai boulot.</div>
+</a>
+<div data-dc-ref="{{lbRef}}" class="lb" role="dialog" aria-label="Image agrandie"><div class="lb-w"><img loading="lazy" decoding="async" data-dc-ref="{{lbImgRef}}" alt=""><div style="display: flex; gap: 14px; align-items: center"><span data-dc-ref="{{lbCapRef}}" style="font-size: 12px; font-weight: 700; letter-spacing: .12em; color: #F3EEE2"></span><button type="button" class="lb-x" data-close="1">✕ FERMER</button></div></div></div>
+<div data-dc-ref="{{tpRef}}" class="tp-ov" aria-hidden="true"><div class="tp-band" style="background: #121214; --d: 0.000s"></div><div class="tp-band" style="background: #F3EEE2; --d: 0.035s"></div><div class="tp-band" style="background: #2445A8; --d: 0.070s"></div><div class="tp-band" style="background: #FFE45C; --d: 0.105s"></div><div class="tp-band" style="background: #E63946; --d: 0.140s"></div><div class="tp-band" style="background: #F3EEE2; --d: 0.175s"></div><div class="tp-band" style="background: #121214; --d: 0.210s"></div><div data-dc-ref="{{tpLblRef}}" class="tp-lbl"></div></div>
+</div>
+</x-dc>
+<script src="/assets/dc.js?v=1b6c20c3"></script>
+<script>
+window.__DC = class Component extends DCLogic {
+  initHeader() {
+    if (this._hdInit || !this.hd || !this.hdWrap) return;
+    this._hdInit = true;
+    const hd = this.hd, wrap = this.hdWrap;
+    let last = 0, fixed = false;
+    const getY = (ev) => {
+      const tg = ev && ev.target;
+      if (tg && tg !== document && tg.nodeType === 1 && tg.scrollHeight > tg.clientHeight && tg.contains(hd)) return tg.scrollTop;
+      return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    };
+    this._hdScroll = (ev) => {
+      const y = getY(ev), h = wrap.offsetHeight || hd.offsetHeight || 100;
+      if (!fixed) wrap.style.height = hd.offsetHeight + 'px';
+      if (y <= h) {
+        if (fixed) { fixed = false; hd.classList.remove('hd-fixed', 'hd-show', 'hd-instant'); }
+      } else {
+        if (!fixed) { fixed = true; hd.classList.add('hd-fixed', 'hd-instant'); void hd.offsetWidth; hd.classList.remove('hd-instant'); }
+        if (y < last - 2) hd.classList.add('hd-show');
+        else if (y > last + 2) hd.classList.remove('hd-show');
+      }
+      last = y;
+    };
+    document.addEventListener('scroll', this._hdScroll, true);
+  }
+  initZoom() {
+    if (this._zoomInit || typeof window === 'undefined') return;
+    this._zoomInit = true;
+    const fit = () => { const w = window.innerWidth || document.documentElement.clientWidth; if (w) document.documentElement.style.zoom = String(w / 1440); };
+    this._zoomFit = fit; fit(); window.addEventListener('resize', fit);
+  }
+  initReveal() {
+    if (this._rvInit || !this.root || typeof IntersectionObserver === 'undefined') return;
+    this._rvInit = true;
+    const root = this.root;
+    root.classList.add('js');
+    const els = root.querySelectorAll('.ent');
+    this._io = new IntersectionObserver((es) => { es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); this._io.unobserve(e.target); } }); }, { threshold: 0.12 });
+    els.forEach((el) => this._io.observe(el));
+    this._rvT = setTimeout(() => els.forEach((el) => el.classList.add('in')), 6000);
+  }
+  initLightbox() {
+    if (this._lbInit || typeof document === 'undefined') return;
+    this._lbInit = true;
+    this._lbClick = (e) => {
+      const t = e.target; if (!t || !t.closest) return;
+      if (this.lb && this.lb.classList.contains('on')) {
+        if (t.closest('[data-close]') || t === this.lb) { e.preventDefault(); this.lb.classList.remove('on'); }
+        return;
+      }
+      const a = t.closest('[data-zoom]'); if (!a) return;
+      e.preventDefault();
+      if (!this.lb || !this.lbImg) return;
+      this.lbImg.src = a.getAttribute('data-zoom');
+      if (this.lbCap) this.lbCap.textContent = (a.getAttribute('data-cap') || '').toUpperCase();
+      this.lb.classList.add('on');
+    };
+    this._lbKey = (e) => { if (e.key === 'Escape' && this.lb) this.lb.classList.remove('on'); };
+    document.addEventListener('click', this._lbClick, true);
+    document.addEventListener('keydown', this._lbKey);
+  }
+  componentWillUnmount() {
+    if (this._zoomFit) window.removeEventListener('resize', this._zoomFit);
+    if (this._hdScroll) document.removeEventListener('scroll', this._hdScroll, true);
+    if (this._lbClick) document.removeEventListener('click', this._lbClick, true);
+    if (this._lbKey) document.removeEventListener('keydown', this._lbKey);
+    if (this._io) this._io.disconnect();
+    clearTimeout(this._rvT);
+    (this._tpT || []).forEach(clearTimeout);
+    Object.values(this._pokeT || {}).forEach(clearTimeout);
+  }
+  teleport(e, id, label) {
+    if (e && e.preventDefault) e.preventDefault();
+    const ov = this.tpEl, target = document.getElementById(id);
+    if (!target) return;
+    if (!ov) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
+    (this._tpT || []).forEach(clearTimeout); this._tpT = [];
+    const at = (ms, fn) => this._tpT.push(setTimeout(fn, ms));
+    if (this.tpLbl) this.tpLbl.textContent = label;
+    ov.className = 'tp-ov on';
+    at(20, () => ov.classList.add('in'));
+    at(500, () => { target.scrollIntoView({ behavior: 'auto', block: 'start' }); ov.classList.add('out'); });
+    at(1000, () => { ov.className = 'tp-ov'; });
+  }
+  renderVals() {
+    this.initZoom();
+    this.initLightbox();
+    const st = this.state || {};
+    const SP = '/assets/sp_romain_b.webp';
+    const G = {
+      hero: ['Sois indulgent, c’était il y a un moment…', 3, 'Arrête de me regarder comme ça, c’était le lycée !', 4],
+      frise: ['Regarde dans l’ordre : on voit que ça progresse. Un peu.', 1, 'Bon… beaucoup, même. Enfin j’espère.', 8],
+      fin: ['La suite est bien plus cool, promis.', 2, 'Allez, file voir le reste !', 10],
+    };
+    const msg = {}, gst = {}, gcls = {}, poke = {};
+    Object.keys(G).forEach((k) => {
+      const alt = !!st['p_' + k], g = G[k];
+      msg[k] = alt ? g[2] : g[0];
+      gst[k] = 'background-image:url(' + SP + ');--i:' + (alt ? g[3] : 11) + ';width:116px;';
+      gcls[k] = alt ? 'sp' : 'sp talk';
+      poke[k] = () => {
+        this.setState({ ['p_' + k]: true });
+        this._pokeT = this._pokeT || {};
+        clearTimeout(this._pokeT[k]);
+        this._pokeT[k] = setTimeout(() => this.setState({ ['p_' + k]: false }), 4000);
+      };
+    });
+    return {
+      msg, gst, gcls, poke,
+      rootRef: (el) => { if (el) { this.root = el; setTimeout(() => this.initReveal(), 0); } },
+      lbRef: (el) => { if (el) this.lb = el; },
+      lbImgRef: (el) => { if (el) this.lbImg = el; },
+      lbCapRef: (el) => { if (el) this.lbCap = el; },
+      hdWrapRef: (el) => { if (el) { this.hdWrap = el; this.initHeader(); } },
+      hdRef: (el) => { if (el) { this.hd = el; this.initHeader(); } },
+      tpRef: (el) => { if (el) this.tpEl = el; },
+      tpLblRef: (el) => { if (el) this.tpLbl = el; },
+      go: {
+        ctx: (e) => this.teleport(e, 'ctx', 'LE LYCÉE'),
+        y2024: (e) => this.teleport(e, 'y2024', '2024'),
+        y2025: (e) => this.teleport(e, 'y2025', '2025'),
+        y2026: (e) => this.teleport(e, 'y2026', '2026'),
+      },
+    };
+  }
+}
+</script>
+<script>window.__dcBoot();</script>
+</body>
+</html>

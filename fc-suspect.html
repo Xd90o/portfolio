@@ -1,0 +1,895 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FC Suspect — Romain</title>
+<meta name="description" content="FC Suspect : identité, réseaux et motion design, par Romain.">
+<meta property="og:title" content="FC Suspect — Romain">
+<meta property="og:description" content="FC Suspect : identité, réseaux et motion design, par Romain.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://roomaaaain.fr/fc-suspect.html">
+<meta name="theme-color" content="#121214">
+<link rel="icon" href="/assets/logo_solid_ink.webp">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&family=Gochi+Hand&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#FFF1DE}a:hover{color:#FFFFFF}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-10px) rotate(1deg)}}
+@keyframes wiggle{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes confetti{0%{transform:translateY(0) rotate(0deg);opacity:1}100%{transform:translateY(820px) rotate(540deg);opacity:0.6}}
+@keyframes party{0%,100%{background-color:#D7261E}33%{background-color:#F26A10}66%{background-color:#B0140F}}
+@keyframes shake{0%,100%{transform:rotate(-1deg) translate(0,0)}20%{transform:rotate(0.5deg) translate(-2px,1px)}40%{transform:rotate(-0.5deg) translate(2px,-1px)}60%{transform:rotate(1deg) translate(-1px,1px)}80%{transform:rotate(-1.2deg) translate(1px,-1px)}}
+@keyframes boom{0%,100%{transform:scale(1) rotate(-6deg)}50%{transform:scale(1.12) rotate(-3deg)}}
+@keyframes flash{0%,100%{opacity:0.15}50%{opacity:0.45}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.z{transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.z:hover{transform:rotate(0deg) scale(1.04) !important;z-index:3}
+.fcs-name{transition:color .2s}
+.fcs-name:hover{background:linear-gradient(90deg,#E8302A 50%,#F7931E 50%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.score{display:inline-block;cursor:default}
+.score:hover{animation:scoreshake 0.25s linear infinite}
+@keyframes scoreshake{0%,100%{transform:translate(0,0) rotate(0)}25%{transform:translate(-3px,2px) rotate(-3deg)}50%{transform:translate(3px,-2px) rotate(3deg)}75%{transform:translate(-2px,-2px) rotate(-2deg)}}
+.sbtn{transition:transform .15s cubic-bezier(.3,1.6,.5,1),background .15s}
+.sbtn:hover{transform:scale(1.18) rotate(-6deg);background:#F7931E !important}
+.sbtn:active{transform:scale(0.82) rotate(4deg);transition-duration:.05s}
+.pgbtn{transition:transform .18s cubic-bezier(.3,1.6,.5,1),filter .15s}
+.pgbtn:hover{transform:translateY(-4px) rotate(-3deg) scale(1.06);filter:brightness(1.15)}
+.pgbtn:active{transform:translateY(2px) scale(0.9) rotate(2deg);transition-duration:.05s}
+.slidein{animation:slidein .28s cubic-bezier(.2,1.4,.4,1)}
+@keyframes slidein{0%{transform:scale(0.92);opacity:.3}100%{transform:scale(1);opacity:1}}
+.edpop{animation:edpop .35s cubic-bezier(.2,1.4,.4,1)}
+@keyframes edpop{0%{transform:translateY(16px);opacity:0}100%{transform:none;opacity:1}}
+.swap .top,.swap .lbl-top,.swap .lbl-bot{transition:opacity .25s,transform .25s}
+.swap .lbl-bot{opacity:0;transform:translateY(8px)}
+.swap:hover .top,.swap:hover .lbl-top{opacity:0}
+.swap:hover .lbl-top{transform:translateY(-8px)}
+.swap:hover .lbl-bot{opacity:1;transform:none}
+.swt{display:inline-block;animation:swt 1.8s ease-in-out infinite}
+@keyframes swt{0%,60%,100%{transform:translateY(0) rotate(0)}20%{transform:translateY(-10px) rotate(-8deg)}40%{transform:translateY(0) rotate(4deg)}}
+.evo{transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+.evo img{transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+.evo:hover{transform:rotate(0deg) !important}
+.evo:hover img{transform:scale(1.15)}
+.stripe{animation:stripe 6s linear infinite}
+@keyframes stripe{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.amp{display:inline-block;animation:ampc 3.2s steps(1) infinite, ampw 1.6s ease-in-out infinite}
+@keyframes ampc{0%{color:#FFC21A}25%{color:#F7931E}50%{color:#E8302A}75%{color:#2F6BFF}}
+@keyframes ampw{0%,100%{transform:rotate(-8deg) scale(1)}50%{transform:rotate(8deg) scale(1.08)}}
+.logofloat{animation:logofloat 3s ease-in-out infinite;cursor:pointer;transition:filter .2s}
+@keyframes logofloat{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-10px) rotate(3deg)}}
+.logofloat:hover{animation:logospin .7s cubic-bezier(.3,1.4,.5,1) 1;filter:drop-shadow(0 0 12px rgba(255,194,26,.7))}
+@keyframes logospin{from{transform:rotate(0) scale(1)}60%{transform:rotate(380deg) scale(1.15)}to{transform:rotate(360deg) scale(1)}}
+.push{display:inline-block;animation:push 1.1s ease-in-out infinite}
+@keyframes push{0%,100%{transform:translateX(-6px)}50%{transform:translateX(10px)}}
+.sway{animation:sway 3s ease-in-out infinite}
+@keyframes sway{0%,100%{transform:rotate(-2deg) translateY(0)}50%{transform:rotate(2deg) translateY(-8px)}}
+.stat{transition:transform .2s cubic-bezier(.3,1.6,.5,1);cursor:default}
+.stat:hover{transform:scale(1.12) rotate(-2deg);position:relative;z-index:3}
+.fragon{transition:color .2s}
+.fragon:hover{color:#FFC21A}
+.logo-hd{transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.logo-hd:hover{transform:rotate(-8deg) scale(1.1)}
+.btnz{display:inline-block;transition:transform .2s cubic-bezier(.3,1.6,.5,1),filter .2s}
+.btnz:hover{transform:rotate(0deg) scale(1.12) !important;filter:brightness(1.1)}
+.btnz:active{transform:scale(0.94) !important}
+.hd{transition:transform .3s cubic-bezier(.3,1,.4,1),box-shadow .3s}
+.hd.hd-fixed{position:fixed !important;top:0;left:0;width:1440px;box-sizing:border-box;background:#140A07;z-index:60 !important;box-shadow:0 6px 0 rgba(0,0,0,.25);transform:translateY(-110%)}
+.hd.hd-fixed.hd-show{transform:translateY(0)}
+.hd.hd-fixed.hd-instant{transition:none}
+html,body{background:#140A07;overflow-x:hidden}
+.tp-ov{position:fixed;inset:0;z-index:9997;display:none;flex-direction:column;pointer-events:none}
+.tp-ov.on{display:flex;pointer-events:auto}
+.tp-band{flex:1;transform:translateX(-102%) skewX(-12deg);transition:transform .32s cubic-bezier(.7,0,.3,1);transition-delay:var(--d)}
+.tp-ov.in .tp-band{transform:translateX(0) skewX(0)}
+.tp-ov.out .tp-band{transform:translateX(102%) skewX(-12deg)}
+.tp-lbl{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.6) rotate(-4deg);font-family:'Anton',sans-serif;font-size:120px;line-height:1;color:#140A07;background:#FFF1DE;padding:6px 34px;clip-path:polygon(4% 0,100% 0,96% 100%,0 100%);opacity:0;transition:opacity .15s,transform .25s cubic-bezier(.3,1.6,.5,1);white-space:nowrap}
+.tp-ov.in .tp-lbl{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(-2deg);transition-delay:.22s}
+.tp-ov.out .tp-lbl{opacity:0;transition-delay:0s}
+html,body,body *{cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2222%22%20height%3D%2222%22%20viewBox%3D%220%200%2034%2034%22%3E%3Cpolygon%20points%3D%223%2C3%203%2C27%2010%2C21%2015%2C31%2020%2C29%2015%2C19%2025%2C19%22%20transform%3D%22translate%283%203%29%22%20fill%3D%22%23FF5A1F%22/%3E%3Cpolygon%20points%3D%223%2C3%203%2C27%2010%2C21%2015%2C31%2020%2C29%2015%2C19%2025%2C19%22%20fill%3D%22%23F2EEE6%22%20stroke%3D%22%23121214%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22/%3E%3C/svg%3E") 3 3, auto !important}
+a,a *,button,button *,label,select,summary,[role="button"],[style*="cursor: pointer"],[style*="cursor: pointer"] *,.chibi-btn,.btnz,.chap,.z{cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2222%22%20height%3D%2222%22%20viewBox%3D%220%200%2034%2034%22%3E%3Cpolygon%20points%3D%223%2C3%203%2C27%2010%2C21%2015%2C31%2020%2C29%2015%2C19%2025%2C19%22%20transform%3D%22translate%283%203%29%22%20fill%3D%22%23F2EEE6%22/%3E%3Cpolygon%20points%3D%223%2C3%203%2C27%2010%2C21%2015%2C31%2020%2C29%2015%2C19%2025%2C19%22%20fill%3D%22%23FF5A1F%22%20stroke%3D%22%23121214%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22/%3E%3C/svg%3E") 3 3, pointer !important}
+input[type="text"],input[type="email"],textarea{cursor:text !important}
+</style>
+<style>x-dc{display:contents}</style>
+</head>
+<body>
+<x-dc>
+
+<div id="haut" style="width: 1440px; min-height: 12400px; background: #140A07; color: #FFF1DE; font-family: 'Space Mono', monospace; overflow: hidden; position: relative; display: flex; flex-direction: column">
+
+<div data-dc-ref="{{hdWrapRef}}" class="hd-wrap">
+<header data-dc-ref="{{hdRef}}" class="hd" style="display: flex; align-items: center; justify-content: space-between; padding: 26px 48px; position: relative; z-index: 5">
+<a href="/" class="logo-hd" style="display: flex; align-items: center; gap: 14px; text-decoration: none">
+<img src="/assets/logo_solid_cream.webp" alt="Logo de Romain" style="width: 48px; height: 41px; object-fit: contain">
+<span style="font-family: 'Anton', sans-serif; font-size: 32px; line-height: 1">ROMAIN</span>
+</a>
+<nav aria-label="Sections du dossier" style="display: flex; gap: 6px; align-items: center"><a class="btnz" href="#identite" data-dc-onclick="{{go.identite}}" style="background: #FFF1DE; color: #140A07; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 15px; padding: 7px 14px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-2deg); white-space: nowrap">01 IDENTITÉ</a><a class="btnz" href="#affiches" data-dc-onclick="{{go.affiches}}" style="background: #F7931E; color: #2A1004; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 15px; padding: 7px 14px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(1.5deg); white-space: nowrap">02 AFFICHES</a><a class="btnz" href="#vieclub" data-dc-onclick="{{go.vieclub}}" style="background: #FFC21A; color: #2A1A00; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 15px; padding: 7px 14px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-1deg); white-space: nowrap">03 VIE DU CLUB</a><a class="btnz" href="#en3d" data-dc-onclick="{{go.en3d}}" style="background: #FFF1DE; color: #140A07; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 15px; padding: 7px 14px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(2deg); white-space: nowrap">04 3D</a><a class="btnz" href="#scup" data-dc-onclick="{{go.scup}}" style="background: #D7261E; color: #FFF1DE; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 15px; padding: 7px 14px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-1.5deg); white-space: nowrap">05 SUSPECT CUP</a><a class="btnz" href="#videos" data-dc-onclick="{{go.videos}}" style="background: #F7931E; color: #2A1004; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 15px; padding: 7px 14px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(1deg); white-space: nowrap">06 VIDÉOS</a></nav>
+<div style="display: flex; gap: 14px; align-items: center">
+<span style="font-size: 12px; letter-spacing: 0.12em; color: #C9AE97">DOSSIER 02 / 08</span>
+<a class="btnz" href="/" style="background: #FFF1DE; color: #140A07; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 18px; padding: 9px 24px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-2deg)">← TOUS LES DOSSIERS</a>
+</div>
+</header>
+</div>
+
+<section style="position: relative; height: 660px; flex-shrink: 0">
+<div style="position: absolute; left: 48px; top: 20px; font-size: 13px; letter-spacing: 0.14em; color: #C9AE97">// DOSSIER 02 • CLUB VIRTUEL ROBLOX</div>
+<h1 style="position: absolute; left: 40px; top: 40px; margin: 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 210px; line-height: 0.88; color: #FFF1DE">FC<br><span style="color: #F7931E">SUSPECT</span></h1>
+<p style="position: absolute; left: 52px; top: 430px; margin: 0; width: 600px; font-size: 15px; line-height: 1.65; color: #E8D3BF">Le club fondé par Romain et Sliman. Né sur MPS, passé sur Real Futbol 24 en 2024, puis sur Real Futboll X. Toute l'identité, les affiches, les vidéos et même un tournoi : la Suspect Cup.</p>
+<div style="position: absolute; left: 52px; top: 540px; display: grid; grid-template-columns: repeat(4, 150px); gap: 10px">
+<div class="stat" style="background: #D7261E; color: #FFF1DE; padding: 12px 14px; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%)"><div style="font-size: 10px; letter-spacing: 0.12em">CRÉÉ LE</div><div style="font-family: 'Anton', sans-serif; font-size: 26px; line-height: 1.1">04.01.2023</div></div>
+<div class="stat" style="background: #F7931E; color: #2A1004; padding: 12px 14px; clip-path: polygon(4% 0, 100% 0, 100% 100%, 0 100%)"><div style="font-size: 10px; letter-spacing: 0.12em">FONDATEURS</div><div style="font-family: 'Anton', sans-serif; font-size: 22px; line-height: 1.2">ROMAIN &amp; SLIMAN</div></div>
+<div class="stat" style="background: #FFC21A; color: #2A1A00; padding: 12px 14px; clip-path: polygon(0 0, 96% 0, 100% 100%, 0 100%)"><div style="font-size: 10px; letter-spacing: 0.12em">DISCORD</div><div style="font-family: 'Anton', sans-serif; font-size: 26px; line-height: 1.1">+100 MEMBRES</div></div>
+<div class="stat" style="background: #FFF1DE; color: #140A07; padding: 12px 14px; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%)"><div style="font-size: 10px; letter-spacing: 0.12em">RÉSEAUX</div><div style="font-family: 'Anton', sans-serif; font-size: 26px; line-height: 1.1">+1000 ABONNÉS</div></div>
+</div>
+<div aria-hidden="true" style="position: absolute; right: 120px; top: 30px; width: 600px; height: 600px; border-radius: 50%; background: repeating-conic-gradient(#F7931E 0deg 22.5deg, #FFC21A 22.5deg 45deg); opacity: 0.9; animation: spin 40s linear infinite"></div>
+<div aria-hidden="true" style="position: absolute; right: 170px; top: 80px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(20,10,7,0) 55%, rgba(20,10,7,0.55) 100%)"></div>
+<img src="/assets/fcs_logo.webp" alt="Logo du FC Suspect" style="position: absolute; right: 190px; top: 100px; width: 460px; height: 470px; object-fit: contain; animation: wiggle 3.2s ease-in-out infinite">
+</section>
+
+<section id="identite" style="position: relative; flex-shrink: 0; background: #0E1533; padding: 70px 48px 64px 48px; clip-path: polygon(0 0, 100% 20px, 100% 100%, 0 calc(100% - 20px))">
+<div style="position: absolute; left: 0; right: 0; top: 0; height: 14px; overflow: hidden"><div class="stripe" style="display: flex; width: 200%"><span style="flex: 1; height: 14px; background: #FFC21A"></span><span style="flex: 1; height: 14px; background: #F7931E"></span><span style="flex: 1; height: 14px; background: #E8302A"></span><span style="flex: 1; height: 14px; background: #2F6BFF"></span><span style="flex: 1; height: 14px; background: #FFC21A"></span><span style="flex: 1; height: 14px; background: #F7931E"></span><span style="flex: 1; height: 14px; background: #E8302A"></span><span style="flex: 1; height: 14px; background: #2F6BFF"></span></div></div>
+<div style="display: flex; justify-content: space-between; align-items: flex-end">
+<div>
+<div style="font-size: 13px; letter-spacing: 0.14em; color: #9FB0E8">// L'IDENTITÉ VISUELLE DU CLUB</div>
+<h2 style="margin: 8px 0 0 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 104px; line-height: 0.9">LE LOGO <span class="amp">&amp;</span> LES MAILLOTS</h2>
+</div>
+<p style="margin: 0 0 10px auto; max-width: 300px; font-size: 12px; line-height: 1.6; color: #C9D3F5; text-align: right">Avant les affiches et la 3D, il fallait une identité. Voilà comment le logo et les tenues du FC Suspect sont nés, et comment ils ont évolué.</p>
+</div>
+<div style="margin-top: 40px; display: grid; grid-template-columns: 520px minmax(0, 1fr); gap: 40px; align-items: stretch">
+<div style="background: #FFF1DE; color: #140A07; padding: 26px; display: flex; flex-direction: column; gap: 16px; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 26px), calc(100% - 26px) 100%, 0 100%)">
+<span style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #2F6BFF">01 — LE LOGO</span>
+<div style="display: flex; gap: 22px; align-items: center">
+<img class="logofloat" src="/assets/fcs_logo.webp" alt="Logo du FC Suspect" style="width: 170px; height: 170px; object-fit: contain">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; gap: 6px"><span class="swt" title="Jaune" style="width: 38px; height: 38px; background: #FFC21A; border: 2px solid #140A07; animation-delay: 0.0s"></span><span class="swt" title="Orange" style="width: 38px; height: 38px; background: #F7931E; border: 2px solid #140A07; animation-delay: 0.15s"></span><span class="swt" title="Rouge" style="width: 38px; height: 38px; background: #E8302A; border: 2px solid #140A07; animation-delay: 0.3s"></span><span class="swt" title="Bleu" style="width: 38px; height: 38px; background: #2F6BFF; border: 2px solid #140A07; animation-delay: 0.44999999999999996s"></span></div>
+<span style="font-size: 11px; letter-spacing: 0.1em">JAUNE • ORANGE • ROUGE • BLEU</span>
+</div>
+</div>
+<p style="margin: 0; font-size: 14px; line-height: 1.65">Le logo s'inspire d'<b>Among Us</b>, le jeu qui a donné son nom au club. Style minimaliste et moderne, formes fluides et dynamiques, et quatre couleurs principales. C'est le symbole des débuts du club et de son identité.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 18px">
+<span style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #FFC21A">02 — L'ÉVOLUTION</span>
+<div style="display: flex; align-items: center; gap: 26px">
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px; align-items: center"><div class="evo" style="width: 230px; height: 230px; background: #1B2550; display: flex; align-items: center; justify-content: center; transform: rotate(-2deg)"><img src="/assets/logo_old.webp" alt="Ancien logo du FC Suspect, 2023" style="width: 190px; height: 190px; object-fit: contain; opacity: 0.9"></div><figcaption style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #9FB0E8">2023 — L'ORIGINAL</figcaption></figure>
+<span class="push" style="font-family: 'Anton', sans-serif; font-size: 80px; color: #F7931E">→</span>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px; align-items: center"><div class="evo" style="width: 230px; height: 230px; background: #FFF1DE; display: flex; align-items: center; justify-content: center; transform: rotate(2deg); box-shadow: 8px 8px 0 #E8302A"><img loading="lazy" decoding="async" src="/assets/fcs_logo.webp" alt="Nouveau logo du FC Suspect, 2025" style="width: 190px; height: 190px; object-fit: contain"></div><figcaption style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #FFC21A">2025 — REFAIT &amp; VECTORISÉ</figcaption></figure>
+</div>
+<p style="margin: 0; max-width: 640px; font-size: 14px; line-height: 1.65; color: #C9D3F5">En 2023, le logo était assemblé avec des éléments trouvés sur le web. En 2025, je l'ai entièrement reconstruit et vectorisé : plus moderne, plus net, plus pro, tout en gardant l'inspiration Among Us.</p>
+</div>
+</div>
+<div style="margin-top: 48px; display: flex; flex-direction: column; gap: 18px">
+<span style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #F7931E">03 — LES MAILLOTS &amp; TENUES</span>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px">
+<figure class="z" style="margin: 0; transform: rotate(-0.8deg)"><img loading="lazy" decoding="async" src="/assets/vd07_0.webp" alt="Maillot domicile du FC Suspect" style="width: 100%; height: 360px; object-fit: cover; display: block; border: 4px solid #E8302A; box-sizing: border-box"><figcaption style="margin-top: 10px; font-size: 13px; line-height: 1.55; color: #C9D3F5"><b style="color: #FFC21A">DOMICILE</b> — Rouge et jaune à rayures verticales, logo sur la poitrine.</figcaption></figure>
+<figure class="z" style="margin: 0; transform: rotate(0.8deg)"><img loading="lazy" decoding="async" src="/assets/vd07_1.webp" alt="Maillot extérieur du FC Suspect" style="width: 100%; height: 360px; object-fit: cover; display: block; border: 4px solid #2F6BFF; box-sizing: border-box"><figcaption style="margin-top: 10px; font-size: 13px; line-height: 1.55; color: #C9D3F5"><b style="color: #7FD8FF">EXTÉRIEUR</b> — Bleu et turquoise, une version plus froide pour les matchs à l'extérieur.</figcaption></figure>
+</div>
+</div>
+<div style="margin-top: 48px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end"><span style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #FFC21A">04 — LA FIERTÉ : NOS MAILLOTS DANS LE JEU</span><span style="font-size: 13px; color: #C9D3F5">Ajoutés directement dans Real Futboll X par les développeurs du jeu.</span></div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px">
+<figure class="z" style="margin: 0; transform: rotate(0.8deg)"><div style="height: 360px; background: #1B2550; border: 4px solid #E8302A; box-sizing: border-box; display: flex; align-items: center; justify-content: center"><img loading="lazy" decoding="async" src="/assets/kit1.webp" alt="Maillot domicile du FC Suspect dans le jeu" style="height: 330px; width: auto; display: block"></div><figcaption style="margin-top: 10px; font-size: 13px; line-height: 1.55; color: #C9D3F5"><b style="color: #FFC21A">DOMICILE</b> — Le maillot domicile, tel qu'il apparaît dans le jeu.</figcaption></figure>
+<figure class="z" style="margin: 0; transform: rotate(-0.8deg)"><div style="height: 360px; background: #1B2550; border: 4px solid #2F6BFF; box-sizing: border-box; display: flex; align-items: center; justify-content: center"><img loading="lazy" decoding="async" src="/assets/kit2.webp" alt="Maillot extérieur du FC Suspect dans le jeu" style="height: 330px; width: auto; display: block"></div><figcaption style="margin-top: 10px; font-size: 13px; line-height: 1.55; color: #C9D3F5"><b style="color: #7FD8FF">EXTÉRIEUR</b> — Le maillot extérieur, tel qu'il apparaît dans le jeu.</figcaption></figure>
+</div>
+</div>
+</section>
+
+<section style="position: relative; flex-shrink: 0; background: #2A0D07; padding: 56px 48px 50px 48px; clip-path: polygon(0 24px, 100% 0, 100% calc(100% - 24px), 0 100%)">
+<div aria-hidden="true" style="position: absolute; left: -40px; right: -40px; top: 26px; height: 14px; transform: rotate(-1deg); background: repeating-linear-gradient(-45deg, #FFC21A 0 14px, #2A0D07 14px 28px)"></div>
+<div style="display: flex; gap: 34px; align-items: center">
+<div style="width: 420px; display: flex; flex-direction: column; gap: 14px; flex-shrink: 0">
+<span style="align-self: flex-start; background: #FFC21A; color: #2A1A00; padding: 6px 28px 6px 14px; clip-path: polygon(0 0, 100% 0, 92% 100%, 0 100%); font-size: 12px; font-weight: 700; letter-spacing: 0.12em">NOUVEAU • 2026</span>
+<h2 style="margin: 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 50px; line-height: 0.95">TOUTE LA NOUVELLE COM' : MON RIG HUMANISÉ</h2>
+<p style="margin: 0; font-size: 14px; line-height: 1.6; color: #E8D3BF">Un rig que j'ai construit moi-même sur Blender : corps, visages, poses et maillots du club. Toutes les affiches de cette page sont faites avec. Et RFX l'a officiellement adopté : c'est devenu le rig officiel utilisé dans leur jeu sur Roblox. <span style="color: #FFC21A">(On t'explique tout ça mieux dans le dossier 04 — Real Futboll X.)</span></p>
+</div>
+<div style="display: flex; gap: 12px; align-items: flex-end; flex-shrink: 0">
+<figure class="z" style="margin: 0; transform: rotate(-2deg)"><img loading="lazy" decoding="async" src="/assets/rig1.webp" alt="Le rig dans Blender, vue du modèle" style="width: 191px; height: 230px; object-fit: cover; display: block; border: 3px solid #F7931E; box-sizing: border-box"><figcaption style="margin-top: 6px; font-size: 10px; letter-spacing: 0.12em; color: #F7931E">LE MODÈLE</figcaption></figure>
+<figure class="z" style="margin: 0; transform: rotate(2deg)"><img loading="lazy" decoding="async" src="/assets/rig2.webp" alt="Le rig dans Blender, vue des os" style="width: 166px; height: 230px; object-fit: cover; display: block; border: 3px solid #F7931E; box-sizing: border-box"><figcaption style="margin-top: 6px; font-size: 10px; letter-spacing: 0.12em; color: #F7931E">LE SQUELETTE</figcaption></figure>
+</div>
+<div style="display: flex; gap: 12px; align-items: flex-end">
+<div class="z" style="width: 140px; height: 140px; overflow: hidden; background: #000000; transform: rotate(3deg); animation: float 4s ease-in-out infinite"><video src="/assets/v_pdp.mp4" autoplay="" muted="" loop="" playsinline="" data-dc-ref="{{vref}}" style="width: 100%; height: 100%; object-fit: cover; display: block"></video></div>
+<img loading="lazy" decoding="async" class="z" src="/assets/r_endibab.webp" alt="Rendu du rig : Endibab" style="width: 140px; height: 140px; object-fit: cover; transform: rotate(-2deg); animation: float 4.6s ease-in-out infinite">
+<img loading="lazy" decoding="async" class="z" src="/assets/r_abdel4.webp" alt="Rendu du rig : Abdel" style="width: 140px; height: 140px; object-fit: cover; background: #000000; transform: rotate(2deg); animation: float 3.8s ease-in-out infinite">
+</div>
+</div>
+</section>
+
+<section style="position: relative; flex-shrink: 0; height: 760px; overflow: hidden; animation: party 1.6s steps(1) infinite">
+<div aria-hidden="true" style="position: absolute; left: 50%; top: 50%; width: 1800px; height: 1800px; margin: -900px 0 0 -900px; background: repeating-conic-gradient(from 0deg at 50% 50%, rgba(255,194,26,0.25) 0deg 10deg, rgba(0,0,0,0) 10deg 20deg); animation: spin 30s linear infinite; transform-origin: 50% 50%"></div>
+<div aria-hidden="true" style="position: absolute; inset: 0; background: #FFFFFF; animation: flash 0.8s ease-in-out infinite; mix-blend-mode: overlay"></div>
+<span aria-hidden="true" style="position: absolute; left: 41%; top: -30px; width: 8px; height: 14px; background: #39FF14; transform: rotate(24deg); animation: confetti 2.99s linear 2.84s infinite"></span>
+<span aria-hidden="true" style="position: absolute; left: 46%; top: -30px; width: 10px; height: 14px; background: #FFC21A; transform: rotate(111deg); animation: confetti 4.02s linear 1.75s infinite"></span>
+<span aria-hidden="true" style="position: absolute; left: 53%; top: -30px; width: 14px; height: 14px; background: #39FF14; transform: rotate(31deg); animation: confetti 2.38s linear 0.21s infinite"></span>
+<span aria-hidden="true" style="position: absolute; left: 28%; top: -30px; width: 8px; height: 22px; background: #39FF14; transform: rotate(101deg); animation: confetti 3.37s linear 1.89s infinite"></span>
+<span aria-hidden="true" style="position: absolute; left: 6%; top: -30px; width: 10px; height: 18px; background: #FFFFFF; transform: rotate(36deg); animation: confetti 2.29s linear 2.93s infinite"></span>
+<span aria-hidden="true" style="position: absolute; left: 69%; top: -30px; width: 10px; height: 14px; background: #39FF14; transform: rotate(146deg); animation: confetti 2.82s linear 0.35s infinite"></span>
+<span aria-hidden="true" style="position: absolute; left: 81%; top: -30px; width: 8px; height: 22px; background: #FFC21A; transform: rotate(158deg); animation: confetti 2.39s linear 0.56s infinite"></span>
+<span aria-hidden="true" style="position: absolute; left: 26%; top: -30px; width: 12px; height: 18px; background: #39FF14; transform: rotate(116deg); animation: confetti 3.26s linear 1.49s infinite"></span>
+<span aria-hidden="true" style="position: absolute; left: 46%; top: -30px; width: 10px; height: 14px; background: #39FF14; transform: rotate(76deg); animation: confetti 3.79s linear 0.9s infinite"></span>
+<span aria-hidden="true" style="position: absolute; left: 67%; top: -30px; width: 14px; height: 18px; background: #39FF14; transform: rotate(18deg); animation: confetti 2.89s linear 1.49s infinite"></span>
+<span aria-hidden="true" style="position: absolute; left: 15%; top: -30px; width: 12px; height: 14px; background: #FFFFFF; transform: rotate(107deg); animation: confetti 2.53s linear 1.54s infinite"></span>
+<span aria-hidden="true" style="position: absolute; left: 5%; top: -30px; width: 12px; height: 18px; background: #5B8CFF; transform: rotate(89deg); animation: confetti 2.36s linear 2.89s infinite"></span>
+<span aria-hidden="true" style="position: absolute; left: 76%; top: -30px; width: 8px; height: 14px; background: #D7261E; transform: rotate(121deg); animation: confetti 3.79s linear 1.49s infinite"></span>
+<span aria-hidden="true" style="position: absolute; left: 89%; top: -30px; width: 12px; height: 22px; background: #39FF14; transform: rotate(174deg); animation: confetti 2.32s linear 1.99s infinite"></span>
+<span aria-hidden="true" style="position: absolute; left: 57%; top: -30px; width: 12px; height: 14px; background: #FFFFFF; transform: rotate(90deg); animation: confetti 2.97s linear 0.85s infinite"></span>
+<span aria-hidden="true" style="position: absolute; left: 21%; top: -30px; width: 10px; height: 18px; background: #F7931E; transform: rotate(63deg); animation: confetti 3.19s linear 1.83s infinite"></span>
+<span aria-hidden="true" style="position: absolute; left: 50%; top: -30px; width: 8px; height: 14px; background: #FFFFFF; transform: rotate(102deg); animation: confetti 3.94s linear 1.17s infinite"></span>
+<span aria-hidden="true" style="position: absolute; left: 70%; top: -30px; width: 14px; height: 22px; background: #D7261E; transform: rotate(180deg); animation: confetti 2.47s linear 0.83s infinite"></span>
+<span aria-hidden="true" style="position: absolute; left: 53%; top: -30px; width: 14px; height: 14px; background: #F7931E; transform: rotate(21deg); animation: confetti 3.57s linear 2.96s infinite"></span>
+<span aria-hidden="true" style="position: absolute; left: 22%; top: -30px; width: 8px; height: 18px; background: #39FF14; transform: rotate(46deg); animation: confetti 3.52s linear 0.45s infinite"></span>
+<span aria-hidden="true" style="position: absolute; left: 33%; top: -30px; width: 12px; height: 22px; background: #39FF14; transform: rotate(81deg); animation: confetti 2.49s linear 0.85s infinite"></span>
+<span aria-hidden="true" style="position: absolute; left: 16%; top: -30px; width: 8px; height: 18px; background: #5B8CFF; transform: rotate(143deg); animation: confetti 3.23s linear 2.07s infinite"></span>
+<span aria-hidden="true" style="position: absolute; left: 50%; top: -30px; width: 14px; height: 22px; background: #FFFFFF; transform: rotate(15deg); animation: confetti 2.99s linear 1.19s infinite"></span>
+<span aria-hidden="true" style="position: absolute; left: 24%; top: -30px; width: 10px; height: 14px; background: #D7261E; transform: rotate(153deg); animation: confetti 2.62s linear 0.2s infinite"></span>
+<span aria-hidden="true" style="position: absolute; left: 6%; top: -30px; width: 8px; height: 18px; background: #39FF14; transform: rotate(6deg); animation: confetti 3.33s linear 0.31s infinite"></span>
+<span aria-hidden="true" style="position: absolute; left: 9%; top: -30px; width: 10px; height: 22px; background: #D7261E; transform: rotate(88deg); animation: confetti 3.43s linear 2.62s infinite"></span>
+<span aria-hidden="true" style="position: absolute; left: 77%; top: -30px; width: 14px; height: 18px; background: #FFFFFF; transform: rotate(123deg); animation: confetti 2.45s linear 1.09s infinite"></span>
+<span aria-hidden="true" style="position: absolute; left: 39%; top: -30px; width: 12px; height: 22px; background: #D7261E; transform: rotate(122deg); animation: confetti 2.4s linear 0.26s infinite"></span>
+<span aria-hidden="true" style="position: absolute; left: 88%; top: -30px; width: 12px; height: 14px; background: #5B8CFF; transform: rotate(139deg); animation: confetti 2.25s linear 0.48s infinite"></span>
+<span aria-hidden="true" style="position: absolute; left: 3%; top: -30px; width: 8px; height: 22px; background: #D7261E; transform: rotate(132deg); animation: confetti 2.8s linear 2.27s infinite"></span>
+<span aria-hidden="true" style="position: absolute; left: 46%; top: -30px; width: 10px; height: 22px; background: #39FF14; transform: rotate(128deg); animation: confetti 2.91s linear 2.72s infinite"></span>
+<span aria-hidden="true" style="position: absolute; left: 42%; top: -30px; width: 10px; height: 14px; background: #FFFFFF; transform: rotate(58deg); animation: confetti 3.43s linear 1.91s infinite"></span>
+<span aria-hidden="true" style="position: absolute; left: 25%; top: -30px; width: 8px; height: 14px; background: #D7261E; transform: rotate(120deg); animation: confetti 2.91s linear 1.55s infinite"></span>
+<span aria-hidden="true" style="position: absolute; left: 33%; top: -30px; width: 12px; height: 18px; background: #5B8CFF; transform: rotate(89deg); animation: confetti 3.41s linear 0.58s infinite"></span>
+<div aria-hidden="true" style="position: absolute; left: -20px; top: 70px; font-family: 'Anton', sans-serif; font-size: 230px; line-height: 0.85; color: rgba(255,241,222,0.18); white-space: nowrap; animation: marquee 9s linear infinite; width: max-content">RETOURNÉE !!! RETOURNÉE !!! RETOURNÉE !!! RETOURNÉE !!!</div>
+<div style="position: absolute; left: 60px; top: 70px; display: flex; flex-direction: column; gap: 14px; width: 440px; z-index: 5">
+<span style="align-self: flex-start; background: #140A07; color: #FFC21A; padding: 6px 28px 6px 14px; clip-path: polygon(0 0, 100% 0, 92% 100%, 0 100%); font-size: 12px; font-weight: 700; letter-spacing: 0.12em">MON PLUS BEAU BUT</span>
+<div style="font-family: 'Anton', sans-serif; font-size: 100px; line-height: 1.02; color: #FFFFFF; animation: boom 0.9s ease-in-out infinite; transform-origin: left center">RETOURNÉE<br>!!!</div>
+<div style="background: #140A07; padding: 14px 18px; display: flex; align-items: center; gap: 14px; clip-path: polygon(0 0, 100% 0, 96% 100%, 0 100%); align-self: flex-start">
+<span class="fcs-name" style="font-family: 'Anton', sans-serif; font-size: 26px">FC SUSPECT</span>
+<span class="score" data-dc-onmouseenter="{{scoreOn}}" data-dc-onmouseleave="{{scoreOff}}" style="font-family: 'Anton', sans-serif; font-size: 40px; color: #FFC21A">6 - 1</span>
+<span class="fragon" style="font-family: 'Anton', sans-serif; font-size: 26px">FRAGON FC</span>
+</div>
+<p style="margin: 0; font-size: 14px; line-height: 1.6; color: #FFF1DE">La 30e seconde, en boucle. Parce qu'une retournée comme ça, on la regarde au moins 40 fois.</p>
+</div>
+<div style="position: absolute; left: 540px; top: 50px; width: 360px; height: 640px; border-radius: 34px; overflow: hidden; border: 8px solid #140A07; box-shadow: 0 0 0 4px #FFC21A; animation: shake 0.9s ease-in-out infinite; background: #000000">
+<video src="/assets/v_retourne.mp4" autoplay="" muted="" loop="" playsinline="" preload="metadata" data-dc-ref="{{vref}}" style="width: 100%; height: 100%; object-fit: cover; display: block"></video>
+</div>
+<div style="position: absolute; right: 70px; top: 70px; display: flex; flex-direction: column; gap: 10px; align-items: center">
+<div style="width: 230px; height: 409px; border-radius: 24px; overflow: hidden; border: 6px solid #140A07; background: #000000">
+<video src="/assets/v_fragon_full.mp4" controls="" playsinline="" preload="metadata" style="width: 100%; height: 100%; object-fit: cover; display: block"></video>
+</div>
+<div style="font-size: 12px; letter-spacing: 0.12em; font-weight: 700">▶ LE MATCH EN ENTIER</div>
+</div>
+<div style="position: absolute; right: 40px; bottom: 20px; display: flex; align-items: flex-end; gap: 6px">
+<div style="background: #FFFFFF; color: #140A07; padding: 10px 14px 30px 14px; width: 210px; box-sizing: border-box; clip-path: polygon(0 0, 100% 0, 100% 78%, 94% 78%, 100% 100%, 84% 78%, 0 78%); transform: rotate(2deg); margin-bottom: 70px; font-family: 'Gochi Hand', cursive; font-size: 19px; line-height: 1.15">{{goalChibi.msg}}</div>
+<img loading="lazy" decoding="async" data-dc-src="{{goalChibi.img}}" alt="" style="width: 90px; height: 156px; object-fit: contain; animation: wiggle 0.5s ease-in-out infinite">
+</div>
+</section>
+
+<section id="affiches" style="position: relative; flex-shrink: 0; padding: 60px 48px 40px 48px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; height: 110px">
+<div>
+<div style="font-size: 13px; letter-spacing: 0.14em; color: #C9AE97">// LA COMMUNICATION DU CLUB</div>
+<h2 style="margin: 8px 0 0 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 110px; line-height: 0.9">LES AFFICHES</h2>
+</div>
+<p style="margin: 0 0 10px 0; max-width: 380px; font-size: 14px; line-height: 1.6; color: #E8D3BF">Les joueurs du club mis en avant comme dans les vrais médias foot. Classées de la plus récente à la plus ancienne.</p>
+</div>
+<div style="margin-top: 30px; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 24px; align-items: start">
+<figure class="z" style="grid-column: span 4; margin: 0; transform: rotate(-0.6deg)"><img loading="lazy" decoding="async" src="/assets/p_endibab.webp" alt="Affiche Endibab" style="width: 100%; height: 470px; object-fit: cover; display: block"><figcaption style="margin-top: 8px; font-size: 11px; letter-spacing: 0.12em; color: #F7931E"><span style="background: #F7931E; color: #140A07; padding: 2px 6px; margin-right: 8px; font-weight: 700">2026</span>ENDIBAB — SON AFFICHE RIEN QUE POUR LUI</figcaption></figure>
+<figure class="z" style="grid-column: span 4; margin: 0; transform: rotate(1deg)"><img loading="lazy" decoding="async" src="/assets/p_duo.webp" alt="Affiche Le Duo" style="width: 100%; height: 470px; object-fit: cover; display: block"><figcaption style="margin-top: 8px; font-size: 11px; letter-spacing: 0.12em; color: #F7931E"><span style="background: #F7931E; color: #140A07; padding: 2px 6px; margin-right: 8px; font-weight: 700">2025</span>LE DUO — MERCATO</figcaption></figure>
+<figure class="z" style="grid-column: span 4; margin: 0; transform: rotate(-1.2deg)"><img loading="lazy" decoding="async" src="/assets/p_romain.webp" alt="Affiche Xd90" style="width: 100%; height: 470px; object-fit: cover; display: block"><figcaption style="margin-top: 8px; font-size: 11px; letter-spacing: 0.12em; color: #F7931E"><span style="background: #F7931E; color: #140A07; padding: 2px 6px; margin-right: 8px; font-weight: 700">2025</span>XD90 — LE PATRON</figcaption></figure>
+</div>
+<div style="margin-top: 24px; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 24px; align-items: start">
+<figure class="z" style="grid-column: span 8; margin: 0; transform: rotate(-0.8deg)"><img loading="lazy" decoding="async" src="/assets/p_kd.webp" alt="Affiche KD au format paysage" style="width: 100%; height: 440px; object-fit: cover; display: block"><figcaption style="margin-top: 8px; font-size: 11px; letter-spacing: 0.12em; color: #F7931E"><span style="background: #F7931E; color: #140A07; padding: 2px 6px; margin-right: 8px; font-weight: 700">2025</span>KD — FORMAT PAYSAGE</figcaption></figure>
+<figure class="z" style="grid-column: span 4; margin: 0; transform: rotate(1.5deg)"><img loading="lazy" decoding="async" src="/assets/p_lui.webp" alt="Affiche Luicoolblade" style="width: 100%; height: 440px; object-fit: cover; display: block"><figcaption style="margin-top: 8px; font-size: 11px; letter-spacing: 0.12em; color: #F7931E"><span style="background: #F7931E; color: #140A07; padding: 2px 6px; margin-right: 8px; font-weight: 700">2025</span>LUICOOLBLADE — KING OF THE FIELD</figcaption></figure>
+</div>
+</section>
+
+<section id="vieclub" style="position: relative; flex-shrink: 0; background: #FFF1DE; color: #140A07; padding: 56px 48px 50px 48px; clip-path: polygon(0 26px, 12% 0, 30% 22px, 48% 2px, 66% 26px, 84% 4px, 100% 20px, 100% 100%, 0 100%)">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; height: 110px">
+<h2 style="margin: 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 96px; line-height: 0.9">LA VIE DU CLUB</h2>
+<p style="margin: 0 0 8px 0; max-width: 440px; font-size: 14px; line-height: 1.6">Le compte du club, post par post, du plus récent au plus ancien. Change d’édition en bas : 2026 sur Real Futboll X, 2025 sur Real Futbol 24.</p>
+</div>
+<div data-dc-ref="{{edARef}}" style="display: block">
+<div style="margin-top: 22px; display: flex; align-items: center; gap: 12px"><span style="font-family: 'Anton', sans-serif; font-size: 84px; line-height: 0.85; color: #F26A10; margin-right: 6px">2026</span><span style="display: flex; flex-direction: column; gap: 4px; margin-right: 18px"><span style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em">ÉDITION</span><span style="font-size: 13px; font-weight: 700">REAL FUTBOLL X</span></span><button class="pgbtn" aria-label="Posts plus récents" data-dc-onclick="{{feedPrev}}" style="width: 54px; height: 54px; border: none; cursor: pointer; background: #140A07; color: #FFF1DE; font-family: 'Space Mono', monospace; font-size: 22px; font-weight: 700; clip-path: polygon(0 0, 100% 0, 100% 72%, 72% 100%, 0 100%)">←</button><button class="pgbtn" aria-label="Posts plus anciens" data-dc-onclick="{{feedNext}}" style="width: 54px; height: 54px; border: none; cursor: pointer; background: #140A07; color: #FFF1DE; font-family: 'Space Mono', monospace; font-size: 22px; font-weight: 700; clip-path: polygon(0 0, 100% 0, 100% 72%, 72% 100%, 0 100%)">→</button><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em">PLUS RÉCENT ← 11 POSTS → PLUS ANCIEN</span></div>
+<div data-dc-ref="{{feedARef}}" style="margin: 18px -48px 0 -48px; padding: 14px 48px 24px 48px; display: flex; gap: 30px; overflow-x: auto; scroll-behavior: smooth">
+<article style="flex: 0 0 300px; background: #140A07; color: #FFF1DE; transform: rotate(-0.6deg); box-shadow: 6px 6px 0 #F26A10">
+<header style="display: flex; align-items: center; gap: 10px; padding: 10px 12px"><img loading="lazy" decoding="async" src="/assets/fcs_logo.webp" alt="" style="width: 30px; height: 30px; border-radius: 50%; background: #FFF1DE; object-fit: contain"><span style="font-size: 12px; font-weight: 700">fcsuspect</span><span style="margin-left: auto; background: #F7931E; color: #140A07; padding: 2px 7px; font-size: 11px; font-weight: 700">15.08</span></header>
+<div style="position: relative; width: 300px; height: 375px; background: #000000">
+<img loading="lazy" decoding="async" data-dc-ref="{{p10.imgRef}}" data-dc-src="{{p10.img}}" data-dc-alt="Grey is back, slide {{p10.n}}" style="width: 100%; height: 100%; object-fit: contain; display: block">
+<span style="position: absolute; top: 10px; right: 10px; background: rgba(20,10,7,0.8); padding: 3px 8px; font-size: 11px; font-weight: 700"><span data-dc-ref="{{p10.numRef}}">{{p10.n}}</span> / 3</span>
+<button class="sbtn" aria-label="Slide précédente" data-dc-onclick="{{p10.prev}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); left: 8px">‹</button>
+<button class="sbtn" aria-label="Slide suivante" data-dc-onclick="{{p10.next}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); right: 8px">›</button>
+</div>
+<div style="padding: 10px 12px 14px 12px"><div style="font-family: 'Anton', sans-serif; font-size: 22px; line-height: 1.05">GREY IS BACK</div><div style="margin-top: 4px; font-size: 11px; letter-spacing: 0.1em; color: #C9AE97">3 PHOTOS</div></div>
+</article>
+<article style="flex: 0 0 300px; background: #140A07; color: #FFF1DE; transform: rotate(0.8deg); box-shadow: 6px 6px 0 #F26A10">
+<header style="display: flex; align-items: center; gap: 10px; padding: 10px 12px"><img loading="lazy" decoding="async" src="/assets/fcs_logo.webp" alt="" style="width: 30px; height: 30px; border-radius: 50%; background: #FFF1DE; object-fit: contain"><span style="font-size: 12px; font-weight: 700">fcsuspect</span><span style="margin-left: auto; background: #F7931E; color: #140A07; padding: 2px 7px; font-size: 11px; font-weight: 700">11.08</span></header>
+<div style="position: relative; width: 300px; height: 375px; background: #000000">
+<img loading="lazy" decoding="async" data-dc-ref="{{p9.imgRef}}" data-dc-src="{{p9.img}}" data-dc-alt="Frame par frame — luicool, slide {{p9.n}}" style="width: 100%; height: 100%; object-fit: contain; display: block">
+<span style="position: absolute; top: 10px; right: 10px; background: rgba(20,10,7,0.8); padding: 3px 8px; font-size: 11px; font-weight: 700"><span data-dc-ref="{{p9.numRef}}">{{p9.n}}</span> / 7</span>
+<button class="sbtn" aria-label="Slide précédente" data-dc-onclick="{{p9.prev}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); left: 8px">‹</button>
+<button class="sbtn" aria-label="Slide suivante" data-dc-onclick="{{p9.next}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); right: 8px">›</button>
+</div>
+<div style="padding: 10px 12px 14px 12px"><div style="font-family: 'Anton', sans-serif; font-size: 22px; line-height: 1.05">FRAME PAR FRAME — LUICOOL</div><div style="margin-top: 4px; font-size: 11px; letter-spacing: 0.1em; color: #C9AE97">7 PHOTOS</div></div>
+</article>
+<article style="flex: 0 0 300px; background: #140A07; color: #FFF1DE; transform: rotate(-1deg); box-shadow: 6px 6px 0 #F26A10">
+<header style="display: flex; align-items: center; gap: 10px; padding: 10px 12px"><img loading="lazy" decoding="async" src="/assets/fcs_logo.webp" alt="" style="width: 30px; height: 30px; border-radius: 50%; background: #FFF1DE; object-fit: contain"><span style="font-size: 12px; font-weight: 700">fcsuspect</span><span style="margin-left: auto; background: #F7931E; color: #140A07; padding: 2px 7px; font-size: 11px; font-weight: 700">09.08</span></header>
+<div style="position: relative; width: 300px; height: 375px; background: #000000">
+<img loading="lazy" decoding="async" data-dc-ref="{{p8.imgRef}}" data-dc-src="{{p8.img}}" data-dc-alt="Fou le seum, le coach, slide {{p8.n}}" style="width: 100%; height: 100%; object-fit: contain; display: block">
+<span style="position: absolute; top: 10px; right: 10px; background: rgba(20,10,7,0.8); padding: 3px 8px; font-size: 11px; font-weight: 700"><span data-dc-ref="{{p8.numRef}}">{{p8.n}}</span> / 4</span>
+<button class="sbtn" aria-label="Slide précédente" data-dc-onclick="{{p8.prev}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); left: 8px">‹</button>
+<button class="sbtn" aria-label="Slide suivante" data-dc-onclick="{{p8.next}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); right: 8px">›</button>
+</div>
+<div style="padding: 10px 12px 14px 12px"><div style="font-family: 'Anton', sans-serif; font-size: 22px; line-height: 1.05">FOU LE SEUM, LE COACH</div><div style="margin-top: 4px; font-size: 11px; letter-spacing: 0.1em; color: #C9AE97">4 PHOTOS</div></div>
+</article>
+<article style="flex: 0 0 300px; background: #140A07; color: #FFF1DE; transform: rotate(1.2deg); box-shadow: 6px 6px 0 #F26A10">
+<header style="display: flex; align-items: center; gap: 10px; padding: 10px 12px"><img loading="lazy" decoding="async" src="/assets/fcs_logo.webp" alt="" style="width: 30px; height: 30px; border-radius: 50%; background: #FFF1DE; object-fit: contain"><span style="font-size: 12px; font-weight: 700">fcsuspect</span><span style="margin-left: auto; background: #F7931E; color: #140A07; padding: 2px 7px; font-size: 11px; font-weight: 700">07.08</span></header>
+<div style="position: relative; width: 300px; height: 375px; background: #000000">
+<img loading="lazy" decoding="async" data-dc-ref="{{p7.imgRef}}" data-dc-src="{{p7.img}}" data-dc-alt="Les vestiaires de chaque joueur, slide {{p7.n}}" style="width: 100%; height: 100%; object-fit: contain; display: block">
+<span style="position: absolute; top: 10px; right: 10px; background: rgba(20,10,7,0.8); padding: 3px 8px; font-size: 11px; font-weight: 700"><span data-dc-ref="{{p7.numRef}}">{{p7.n}}</span> / 9</span>
+<button class="sbtn" aria-label="Slide précédente" data-dc-onclick="{{p7.prev}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); left: 8px">‹</button>
+<button class="sbtn" aria-label="Slide suivante" data-dc-onclick="{{p7.next}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); right: 8px">›</button>
+</div>
+<div style="padding: 10px 12px 14px 12px"><div style="font-family: 'Anton', sans-serif; font-size: 22px; line-height: 1.05">LES VESTIAIRES DE CHAQUE JOUEUR</div><div style="margin-top: 4px; font-size: 11px; letter-spacing: 0.1em; color: #C9AE97">9 PHOTOS</div></div>
+</article>
+<article style="flex: 0 0 300px; background: #140A07; color: #FFF1DE; transform: rotate(-0.6deg); box-shadow: 6px 6px 0 #F26A10">
+<header style="display: flex; align-items: center; gap: 10px; padding: 10px 12px"><img loading="lazy" decoding="async" src="/assets/fcs_logo.webp" alt="" style="width: 30px; height: 30px; border-radius: 50%; background: #FFF1DE; object-fit: contain"><span style="font-size: 12px; font-weight: 700">fcsuspect</span><span style="margin-left: auto; background: #F7931E; color: #140A07; padding: 2px 7px; font-size: 11px; font-weight: 700">05.08</span></header>
+<div style="position: relative; width: 300px; height: 375px; background: #000000">
+<img loading="lazy" decoding="async" data-dc-ref="{{p6.imgRef}}" data-dc-src="{{p6.img}}" data-dc-alt="Choisis où tirer, slide {{p6.n}}" style="width: 100%; height: 100%; object-fit: contain; display: block">
+<span style="position: absolute; top: 10px; right: 10px; background: rgba(20,10,7,0.8); padding: 3px 8px; font-size: 11px; font-weight: 700"><span data-dc-ref="{{p6.numRef}}">{{p6.n}}</span> / 3</span>
+<button class="sbtn" aria-label="Slide précédente" data-dc-onclick="{{p6.prev}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); left: 8px">‹</button>
+<button class="sbtn" aria-label="Slide suivante" data-dc-onclick="{{p6.next}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); right: 8px">›</button>
+</div>
+<div style="padding: 10px 12px 14px 12px"><div style="font-family: 'Anton', sans-serif; font-size: 22px; line-height: 1.05">CHOISIS OÙ TIRER</div><div style="margin-top: 4px; font-size: 11px; letter-spacing: 0.1em; color: #C9AE97">3 PHOTOS</div></div>
+</article>
+<article style="flex: 0 0 300px; background: #140A07; color: #FFF1DE; transform: rotate(0.8deg); box-shadow: 6px 6px 0 #F26A10">
+<header style="display: flex; align-items: center; gap: 10px; padding: 10px 12px"><img loading="lazy" decoding="async" src="/assets/fcs_logo.webp" alt="" style="width: 30px; height: 30px; border-radius: 50%; background: #FFF1DE; object-fit: contain"><span style="font-size: 12px; font-weight: 700">fcsuspect</span><span style="margin-left: auto; background: #F7931E; color: #140A07; padding: 2px 7px; font-size: 11px; font-weight: 700">01.08</span></header>
+<div style="position: relative; width: 300px; height: 375px; background: #000000">
+<img loading="lazy" decoding="async" data-dc-ref="{{p5.imgRef}}" data-dc-src="{{p5.img}}" data-dc-alt="Premier pas sur rfx, slide {{p5.n}}" style="width: 100%; height: 100%; object-fit: contain; display: block">
+<span style="position: absolute; top: 10px; right: 10px; background: rgba(20,10,7,0.8); padding: 3px 8px; font-size: 11px; font-weight: 700"><span data-dc-ref="{{p5.numRef}}">{{p5.n}}</span> / 2</span>
+<button class="sbtn" aria-label="Slide précédente" data-dc-onclick="{{p5.prev}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); left: 8px">‹</button>
+<button class="sbtn" aria-label="Slide suivante" data-dc-onclick="{{p5.next}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); right: 8px">›</button>
+</div>
+<div style="padding: 10px 12px 14px 12px"><div style="font-family: 'Anton', sans-serif; font-size: 22px; line-height: 1.05">PREMIER PAS SUR RFX</div><div style="margin-top: 4px; font-size: 11px; letter-spacing: 0.1em; color: #C9AE97">2 PHOTOS</div></div>
+</article>
+<article style="flex: 0 0 300px; background: #140A07; color: #FFF1DE; transform: rotate(-1deg); box-shadow: 6px 6px 0 #F26A10">
+<header style="display: flex; align-items: center; gap: 10px; padding: 10px 12px"><img loading="lazy" decoding="async" src="/assets/fcs_logo.webp" alt="" style="width: 30px; height: 30px; border-radius: 50%; background: #FFF1DE; object-fit: contain"><span style="font-size: 12px; font-weight: 700">fcsuspect</span><span style="margin-left: auto; background: #F7931E; color: #140A07; padding: 2px 7px; font-size: 11px; font-weight: 700">31.07</span></header>
+<div style="position: relative; width: 300px; height: 375px; background: #000000">
+<img loading="lazy" decoding="async" data-dc-ref="{{p4.imgRef}}" data-dc-src="{{p4.img}}" data-dc-alt="Back to work, slide {{p4.n}}" style="width: 100%; height: 100%; object-fit: contain; display: block">
+<span style="position: absolute; top: 10px; right: 10px; background: rgba(20,10,7,0.8); padding: 3px 8px; font-size: 11px; font-weight: 700"><span data-dc-ref="{{p4.numRef}}">{{p4.n}}</span> / 3</span>
+<button class="sbtn" aria-label="Slide précédente" data-dc-onclick="{{p4.prev}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); left: 8px">‹</button>
+<button class="sbtn" aria-label="Slide suivante" data-dc-onclick="{{p4.next}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); right: 8px">›</button>
+</div>
+<div style="padding: 10px 12px 14px 12px"><div style="font-family: 'Anton', sans-serif; font-size: 22px; line-height: 1.05">BACK TO WORK</div><div style="margin-top: 4px; font-size: 11px; letter-spacing: 0.1em; color: #C9AE97">3 PHOTOS</div></div>
+</article>
+<article style="flex: 0 0 300px; background: #140A07; color: #FFF1DE; transform: rotate(1.2deg); box-shadow: 6px 6px 0 #F26A10">
+<header style="display: flex; align-items: center; gap: 10px; padding: 10px 12px"><img loading="lazy" decoding="async" src="/assets/fcs_logo.webp" alt="" style="width: 30px; height: 30px; border-radius: 50%; background: #FFF1DE; object-fit: contain"><span style="font-size: 12px; font-weight: 700">fcsuspect</span><span style="margin-left: auto; background: #F7931E; color: #140A07; padding: 2px 7px; font-size: 11px; font-weight: 700">30.07</span></header>
+<div style="position: relative; width: 300px; height: 375px; background: #000000">
+<img loading="lazy" decoding="async" data-dc-ref="{{p3.imgRef}}" data-dc-src="{{p3.img}}" data-dc-alt="Abdel — best gk, slide {{p3.n}}" style="width: 100%; height: 100%; object-fit: contain; display: block">
+<span style="position: absolute; top: 10px; right: 10px; background: rgba(20,10,7,0.8); padding: 3px 8px; font-size: 11px; font-weight: 700"><span data-dc-ref="{{p3.numRef}}">{{p3.n}}</span> / 3</span>
+<button class="sbtn" aria-label="Slide précédente" data-dc-onclick="{{p3.prev}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); left: 8px">‹</button>
+<button class="sbtn" aria-label="Slide suivante" data-dc-onclick="{{p3.next}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); right: 8px">›</button>
+</div>
+<div style="padding: 10px 12px 14px 12px"><div style="font-family: 'Anton', sans-serif; font-size: 22px; line-height: 1.05">ABDEL — BEST GK</div><div style="margin-top: 4px; font-size: 11px; letter-spacing: 0.1em; color: #C9AE97">3 PHOTOS</div></div>
+</article>
+<article style="flex: 0 0 300px; background: #140A07; color: #FFF1DE; transform: rotate(-0.6deg); box-shadow: 6px 6px 0 #F26A10">
+<header style="display: flex; align-items: center; gap: 10px; padding: 10px 12px"><img loading="lazy" decoding="async" src="/assets/fcs_logo.webp" alt="" style="width: 30px; height: 30px; border-radius: 50%; background: #FFF1DE; object-fit: contain"><span style="font-size: 12px; font-weight: 700">fcsuspect</span><span style="margin-left: auto; background: #F7931E; color: #140A07; padding: 2px 7px; font-size: 11px; font-weight: 700">29.07</span></header>
+<div style="position: relative; width: 300px; height: 375px; background: #000000">
+<img loading="lazy" decoding="async" data-dc-ref="{{p2.imgRef}}" data-dc-src="{{p2.img}}" data-dc-alt="Où sera tiré ce penalty ?, slide {{p2.n}}" style="width: 100%; height: 100%; object-fit: contain; display: block">
+<span style="position: absolute; top: 10px; right: 10px; background: rgba(20,10,7,0.8); padding: 3px 8px; font-size: 11px; font-weight: 700"><span data-dc-ref="{{p2.numRef}}">{{p2.n}}</span> / 2</span>
+<button class="sbtn" aria-label="Slide précédente" data-dc-onclick="{{p2.prev}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); left: 8px">‹</button>
+<button class="sbtn" aria-label="Slide suivante" data-dc-onclick="{{p2.next}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); right: 8px">›</button>
+</div>
+<div style="padding: 10px 12px 14px 12px"><div style="font-family: 'Anton', sans-serif; font-size: 22px; line-height: 1.05">OÙ SERA TIRÉ CE PENALTY ?</div><div style="margin-top: 4px; font-size: 11px; letter-spacing: 0.1em; color: #C9AE97">2 PHOTOS</div></div>
+</article>
+<article style="flex: 0 0 300px; background: #140A07; color: #FFF1DE; transform: rotate(0.8deg); box-shadow: 6px 6px 0 #F26A10">
+<header style="display: flex; align-items: center; gap: 10px; padding: 10px 12px"><img loading="lazy" decoding="async" src="/assets/fcs_logo.webp" alt="" style="width: 30px; height: 30px; border-radius: 50%; background: #FFF1DE; object-fit: contain"><span style="font-size: 12px; font-weight: 700">fcsuspect</span><span style="margin-left: auto; background: #F7931E; color: #140A07; padding: 2px 7px; font-size: 11px; font-weight: 700">28.07</span></header>
+<div style="position: relative; width: 300px; height: 375px; background: #000000">
+<img loading="lazy" decoding="async" data-dc-ref="{{p1.imgRef}}" data-dc-src="{{p1.img}}" data-dc-alt="Romain life, slide {{p1.n}}" style="width: 100%; height: 100%; object-fit: contain; display: block">
+<span style="position: absolute; top: 10px; right: 10px; background: rgba(20,10,7,0.8); padding: 3px 8px; font-size: 11px; font-weight: 700"><span data-dc-ref="{{p1.numRef}}">{{p1.n}}</span> / 3</span>
+<button class="sbtn" aria-label="Slide précédente" data-dc-onclick="{{p1.prev}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); left: 8px">‹</button>
+<button class="sbtn" aria-label="Slide suivante" data-dc-onclick="{{p1.next}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); right: 8px">›</button>
+</div>
+<div style="padding: 10px 12px 14px 12px"><div style="font-family: 'Anton', sans-serif; font-size: 22px; line-height: 1.05">ROMAIN LIFE</div><div style="margin-top: 4px; font-size: 11px; letter-spacing: 0.1em; color: #C9AE97">3 PHOTOS</div></div>
+</article>
+<article style="flex: 0 0 300px; background: #140A07; color: #FFF1DE; transform: rotate(-1deg); box-shadow: 6px 6px 0 #F26A10">
+<header style="display: flex; align-items: center; gap: 10px; padding: 10px 12px"><img loading="lazy" decoding="async" src="/assets/fcs_logo.webp" alt="" style="width: 30px; height: 30px; border-radius: 50%; background: #FFF1DE; object-fit: contain"><span style="font-size: 12px; font-weight: 700">fcsuspect</span><span style="margin-left: auto; background: #F7931E; color: #140A07; padding: 2px 7px; font-size: 11px; font-weight: 700">27.07</span></header>
+<div style="position: relative; width: 300px; height: 375px; background: #000000">
+<img loading="lazy" decoding="async" data-dc-ref="{{p0.imgRef}}" data-dc-src="{{p0.img}}" data-dc-alt="Anniversaire hatim, slide {{p0.n}}" style="width: 100%; height: 100%; object-fit: contain; display: block">
+<span style="position: absolute; top: 10px; right: 10px; background: rgba(20,10,7,0.8); padding: 3px 8px; font-size: 11px; font-weight: 700"><span data-dc-ref="{{p0.numRef}}">{{p0.n}}</span> / 3</span>
+<button class="sbtn" aria-label="Slide précédente" data-dc-onclick="{{p0.prev}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); left: 8px">‹</button>
+<button class="sbtn" aria-label="Slide suivante" data-dc-onclick="{{p0.next}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); right: 8px">›</button>
+</div>
+<div style="padding: 10px 12px 14px 12px"><div style="font-family: 'Anton', sans-serif; font-size: 22px; line-height: 1.05">ANNIVERSAIRE HATIM</div><div style="margin-top: 4px; font-size: 11px; letter-spacing: 0.1em; color: #C9AE97">3 PHOTOS</div></div>
+</article>
+</div>
+</div>
+<div data-dc-ref="{{edBRef}}" style="display: none">
+<div style="margin-top: 22px; display: flex; align-items: center; gap: 12px"><span style="font-family: 'Anton', sans-serif; font-size: 84px; line-height: 0.85; color: #F26A10; margin-right: 6px">2025</span><span style="display: flex; flex-direction: column; gap: 4px; margin-right: 18px"><span style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em">ÉDITION</span><span style="font-size: 13px; font-weight: 700">REAL FUTBOL 24</span></span><button class="pgbtn" aria-label="Posts plus récents" data-dc-onclick="{{feedPrev}}" style="width: 54px; height: 54px; border: none; cursor: pointer; background: #140A07; color: #FFF1DE; font-family: 'Space Mono', monospace; font-size: 22px; font-weight: 700; clip-path: polygon(0 0, 100% 0, 100% 72%, 72% 100%, 0 100%)">←</button><button class="pgbtn" aria-label="Posts plus anciens" data-dc-onclick="{{feedNext}}" style="width: 54px; height: 54px; border: none; cursor: pointer; background: #140A07; color: #FFF1DE; font-family: 'Space Mono', monospace; font-size: 22px; font-weight: 700; clip-path: polygon(0 0, 100% 0, 100% 72%, 72% 100%, 0 100%)">→</button><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em">PLUS RÉCENT ← 9 POSTS → PLUS ANCIEN</span></div>
+<div data-dc-ref="{{feedBRef}}" style="margin: 18px -48px 0 -48px; padding: 14px 48px 24px 48px; display: flex; gap: 30px; overflow-x: auto; scroll-behavior: smooth">
+<article style="flex: 0 0 300px; background: #140A07; color: #FFF1DE; transform: rotate(-1deg); box-shadow: 6px 6px 0 #F26A10">
+<header style="display: flex; align-items: center; gap: 10px; padding: 10px 12px"><img loading="lazy" decoding="async" src="/assets/fcs_logo.webp" alt="" style="width: 30px; height: 30px; border-radius: 50%; background: #FFF1DE; object-fit: contain"><span style="font-size: 12px; font-weight: 700">fcsuspect</span><span style="margin-left: auto; background: #F7931E; color: #140A07; padding: 2px 7px; font-size: 11px; font-weight: 700">01.08</span></header>
+<div style="position: relative; width: 300px; height: 375px; background: #000000">
+<img loading="lazy" decoding="async" data-dc-ref="{{p11.imgRef}}" data-dc-src="{{p11.img}}" data-dc-alt="Jour j, slide {{p11.n}}" style="width: 100%; height: 100%; object-fit: contain; display: block">
+<span style="position: absolute; top: 10px; right: 10px; background: rgba(20,10,7,0.8); padding: 3px 8px; font-size: 11px; font-weight: 700"><span data-dc-ref="{{p11.numRef}}">{{p11.n}}</span> / 1</span>
+</div>
+<div style="padding: 10px 12px 14px 12px"><div style="font-family: 'Anton', sans-serif; font-size: 22px; line-height: 1.05">JOUR J</div><div style="margin-top: 4px; font-size: 11px; letter-spacing: 0.1em; color: #C9AE97">1 PHOTO</div></div>
+</article>
+<article style="flex: 0 0 300px; background: #140A07; color: #FFF1DE; transform: rotate(0.8deg); box-shadow: 6px 6px 0 #F26A10">
+<header style="display: flex; align-items: center; gap: 10px; padding: 10px 12px"><img loading="lazy" decoding="async" src="/assets/fcs_logo.webp" alt="" style="width: 30px; height: 30px; border-radius: 50%; background: #FFF1DE; object-fit: contain"><span style="font-size: 12px; font-weight: 700">fcsuspect</span><span style="margin-left: auto; background: #F7931E; color: #140A07; padding: 2px 7px; font-size: 11px; font-weight: 700">26.07</span></header>
+<div style="position: relative; width: 300px; height: 375px; background: #000000">
+<img loading="lazy" decoding="async" data-dc-ref="{{p12.imgRef}}" data-dc-src="{{p12.img}}" data-dc-alt="Match nul contre le real, slide {{p12.n}}" style="width: 100%; height: 100%; object-fit: contain; display: block">
+<span style="position: absolute; top: 10px; right: 10px; background: rgba(20,10,7,0.8); padding: 3px 8px; font-size: 11px; font-weight: 700"><span data-dc-ref="{{p12.numRef}}">{{p12.n}}</span> / 2</span>
+<button class="sbtn" aria-label="Slide précédente" data-dc-onclick="{{p12.prev}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); left: 8px">‹</button>
+<button class="sbtn" aria-label="Slide suivante" data-dc-onclick="{{p12.next}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); right: 8px">›</button>
+</div>
+<div style="padding: 10px 12px 14px 12px"><div style="font-family: 'Anton', sans-serif; font-size: 22px; line-height: 1.05">MATCH NUL CONTRE LE REAL</div><div style="margin-top: 4px; font-size: 11px; letter-spacing: 0.1em; color: #C9AE97">2 PHOTOS</div></div>
+</article>
+<article style="flex: 0 0 300px; background: #140A07; color: #FFF1DE; transform: rotate(-0.6deg); box-shadow: 6px 6px 0 #F26A10">
+<header style="display: flex; align-items: center; gap: 10px; padding: 10px 12px"><img loading="lazy" decoding="async" src="/assets/fcs_logo.webp" alt="" style="width: 30px; height: 30px; border-radius: 50%; background: #FFF1DE; object-fit: contain"><span style="font-size: 12px; font-weight: 700">fcsuspect</span><span style="margin-left: auto; background: #F7931E; color: #140A07; padding: 2px 7px; font-size: 11px; font-weight: 700">24.07</span></header>
+<div style="position: relative; width: 300px; height: 375px; background: #000000">
+<img loading="lazy" decoding="async" data-dc-ref="{{p13.imgRef}}" data-dc-src="{{p13.img}}" data-dc-alt="Nouveau duo au fc suspect, slide {{p13.n}}" style="width: 100%; height: 100%; object-fit: contain; display: block">
+<span style="position: absolute; top: 10px; right: 10px; background: rgba(20,10,7,0.8); padding: 3px 8px; font-size: 11px; font-weight: 700"><span data-dc-ref="{{p13.numRef}}">{{p13.n}}</span> / 3</span>
+<button class="sbtn" aria-label="Slide précédente" data-dc-onclick="{{p13.prev}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); left: 8px">‹</button>
+<button class="sbtn" aria-label="Slide suivante" data-dc-onclick="{{p13.next}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); right: 8px">›</button>
+</div>
+<div style="padding: 10px 12px 14px 12px"><div style="font-family: 'Anton', sans-serif; font-size: 22px; line-height: 1.05">NOUVEAU DUO AU FC SUSPECT</div><div style="margin-top: 4px; font-size: 11px; letter-spacing: 0.1em; color: #C9AE97">3 PHOTOS</div></div>
+</article>
+<article style="flex: 0 0 300px; background: #140A07; color: #FFF1DE; transform: rotate(1.2deg); box-shadow: 6px 6px 0 #F26A10">
+<header style="display: flex; align-items: center; gap: 10px; padding: 10px 12px"><img loading="lazy" decoding="async" src="/assets/fcs_logo.webp" alt="" style="width: 30px; height: 30px; border-radius: 50%; background: #FFF1DE; object-fit: contain"><span style="font-size: 12px; font-weight: 700">fcsuspect</span><span style="margin-left: auto; background: #F7931E; color: #140A07; padding: 2px 7px; font-size: 11px; font-weight: 700">24.07</span></header>
+<div style="position: relative; width: 300px; height: 375px; background: #000000">
+<img loading="lazy" decoding="async" data-dc-ref="{{p14.imgRef}}" data-dc-src="{{p14.img}}" data-dc-alt="8-2 contre new castle, slide {{p14.n}}" style="width: 100%; height: 100%; object-fit: contain; display: block">
+<span style="position: absolute; top: 10px; right: 10px; background: rgba(20,10,7,0.8); padding: 3px 8px; font-size: 11px; font-weight: 700"><span data-dc-ref="{{p14.numRef}}">{{p14.n}}</span> / 2</span>
+<button class="sbtn" aria-label="Slide précédente" data-dc-onclick="{{p14.prev}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); left: 8px">‹</button>
+<button class="sbtn" aria-label="Slide suivante" data-dc-onclick="{{p14.next}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); right: 8px">›</button>
+</div>
+<div style="padding: 10px 12px 14px 12px"><div style="font-family: 'Anton', sans-serif; font-size: 22px; line-height: 1.05">8-2 CONTRE NEW CASTLE</div><div style="margin-top: 4px; font-size: 11px; letter-spacing: 0.1em; color: #C9AE97">2 PHOTOS</div></div>
+</article>
+<article style="flex: 0 0 300px; background: #140A07; color: #FFF1DE; transform: rotate(-1deg); box-shadow: 6px 6px 0 #F26A10">
+<header style="display: flex; align-items: center; gap: 10px; padding: 10px 12px"><img loading="lazy" decoding="async" src="/assets/fcs_logo.webp" alt="" style="width: 30px; height: 30px; border-radius: 50%; background: #FFF1DE; object-fit: contain"><span style="font-size: 12px; font-weight: 700">fcsuspect</span><span style="margin-left: auto; background: #F7931E; color: #140A07; padding: 2px 7px; font-size: 11px; font-weight: 700">21.07</span></header>
+<div style="position: relative; width: 300px; height: 375px; background: #000000">
+<img loading="lazy" decoding="async" data-dc-ref="{{p15.imgRef}}" data-dc-src="{{p15.img}}" data-dc-alt="Xd90o, meilleur défenseur de la league, slide {{p15.n}}" style="width: 100%; height: 100%; object-fit: contain; display: block">
+<span style="position: absolute; top: 10px; right: 10px; background: rgba(20,10,7,0.8); padding: 3px 8px; font-size: 11px; font-weight: 700"><span data-dc-ref="{{p15.numRef}}">{{p15.n}}</span> / 3</span>
+<button class="sbtn" aria-label="Slide précédente" data-dc-onclick="{{p15.prev}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); left: 8px">‹</button>
+<button class="sbtn" aria-label="Slide suivante" data-dc-onclick="{{p15.next}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); right: 8px">›</button>
+</div>
+<div style="padding: 10px 12px 14px 12px"><div style="font-family: 'Anton', sans-serif; font-size: 22px; line-height: 1.05">XD90O, MEILLEUR DÉFENSEUR DE LA LEAGUE</div><div style="margin-top: 4px; font-size: 11px; letter-spacing: 0.1em; color: #C9AE97">3 PHOTOS</div></div>
+</article>
+<article style="flex: 0 0 300px; background: #140A07; color: #FFF1DE; transform: rotate(0.8deg); box-shadow: 6px 6px 0 #F26A10">
+<header style="display: flex; align-items: center; gap: 10px; padding: 10px 12px"><img loading="lazy" decoding="async" src="/assets/fcs_logo.webp" alt="" style="width: 30px; height: 30px; border-radius: 50%; background: #FFF1DE; object-fit: contain"><span style="font-size: 12px; font-weight: 700">fcsuspect</span><span style="margin-left: auto; background: #F7931E; color: #140A07; padding: 2px 7px; font-size: 11px; font-weight: 700">20.07</span></header>
+<div style="position: relative; width: 300px; height: 375px; background: #000000">
+<img loading="lazy" decoding="async" data-dc-ref="{{p16.imgRef}}" data-dc-src="{{p16.img}}" data-dc-alt="Le fcs signe en srfl, slide {{p16.n}}" style="width: 100%; height: 100%; object-fit: contain; display: block">
+<span style="position: absolute; top: 10px; right: 10px; background: rgba(20,10,7,0.8); padding: 3px 8px; font-size: 11px; font-weight: 700"><span data-dc-ref="{{p16.numRef}}">{{p16.n}}</span> / 3</span>
+<button class="sbtn" aria-label="Slide précédente" data-dc-onclick="{{p16.prev}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); left: 8px">‹</button>
+<button class="sbtn" aria-label="Slide suivante" data-dc-onclick="{{p16.next}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); right: 8px">›</button>
+</div>
+<div style="padding: 10px 12px 14px 12px"><div style="font-family: 'Anton', sans-serif; font-size: 22px; line-height: 1.05">LE FCS SIGNE EN SRFL</div><div style="margin-top: 4px; font-size: 11px; letter-spacing: 0.1em; color: #C9AE97">3 PHOTOS</div></div>
+</article>
+<article style="flex: 0 0 300px; background: #140A07; color: #FFF1DE; transform: rotate(-0.6deg); box-shadow: 6px 6px 0 #F26A10">
+<header style="display: flex; align-items: center; gap: 10px; padding: 10px 12px"><img loading="lazy" decoding="async" src="/assets/fcs_logo.webp" alt="" style="width: 30px; height: 30px; border-radius: 50%; background: #FFF1DE; object-fit: contain"><span style="font-size: 12px; font-weight: 700">fcsuspect</span><span style="margin-left: auto; background: #F7931E; color: #140A07; padding: 2px 7px; font-size: 11px; font-weight: 700">19.07</span></header>
+<div style="position: relative; width: 300px; height: 375px; background: #000000">
+<img loading="lazy" decoding="async" data-dc-ref="{{p17.imgRef}}" data-dc-src="{{p17.img}}" data-dc-alt="Entraînement à haute intensité, slide {{p17.n}}" style="width: 100%; height: 100%; object-fit: contain; display: block">
+<span style="position: absolute; top: 10px; right: 10px; background: rgba(20,10,7,0.8); padding: 3px 8px; font-size: 11px; font-weight: 700"><span data-dc-ref="{{p17.numRef}}">{{p17.n}}</span> / 4</span>
+<button class="sbtn" aria-label="Slide précédente" data-dc-onclick="{{p17.prev}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); left: 8px">‹</button>
+<button class="sbtn" aria-label="Slide suivante" data-dc-onclick="{{p17.next}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); right: 8px">›</button>
+</div>
+<div style="padding: 10px 12px 14px 12px"><div style="font-family: 'Anton', sans-serif; font-size: 22px; line-height: 1.05">ENTRAÎNEMENT À HAUTE INTENSITÉ</div><div style="margin-top: 4px; font-size: 11px; letter-spacing: 0.1em; color: #C9AE97">4 PHOTOS</div></div>
+</article>
+<article style="flex: 0 0 300px; background: #140A07; color: #FFF1DE; transform: rotate(1.2deg); box-shadow: 6px 6px 0 #F26A10">
+<header style="display: flex; align-items: center; gap: 10px; padding: 10px 12px"><img loading="lazy" decoding="async" src="/assets/fcs_logo.webp" alt="" style="width: 30px; height: 30px; border-radius: 50%; background: #FFF1DE; object-fit: contain"><span style="font-size: 12px; font-weight: 700">fcsuspect</span><span style="margin-left: auto; background: #F7931E; color: #140A07; padding: 2px 7px; font-size: 11px; font-weight: 700">18.07</span></header>
+<div style="position: relative; width: 300px; height: 375px; background: #000000">
+<img loading="lazy" decoding="async" data-dc-ref="{{p18.imgRef}}" data-dc-src="{{p18.img}}" data-dc-alt="Les nouveaux maillots, slide {{p18.n}}" style="width: 100%; height: 100%; object-fit: contain; display: block">
+<span style="position: absolute; top: 10px; right: 10px; background: rgba(20,10,7,0.8); padding: 3px 8px; font-size: 11px; font-weight: 700"><span data-dc-ref="{{p18.numRef}}">{{p18.n}}</span> / 2</span>
+<button class="sbtn" aria-label="Slide précédente" data-dc-onclick="{{p18.prev}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); left: 8px">‹</button>
+<button class="sbtn" aria-label="Slide suivante" data-dc-onclick="{{p18.next}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); right: 8px">›</button>
+</div>
+<div style="padding: 10px 12px 14px 12px"><div style="font-family: 'Anton', sans-serif; font-size: 22px; line-height: 1.05">LES NOUVEAUX MAILLOTS</div><div style="margin-top: 4px; font-size: 11px; letter-spacing: 0.1em; color: #C9AE97">2 PHOTOS</div></div>
+</article>
+<article style="flex: 0 0 300px; background: #140A07; color: #FFF1DE; transform: rotate(-1deg); box-shadow: 6px 6px 0 #F26A10">
+<header style="display: flex; align-items: center; gap: 10px; padding: 10px 12px"><img loading="lazy" decoding="async" src="/assets/fcs_logo.webp" alt="" style="width: 30px; height: 30px; border-radius: 50%; background: #FFF1DE; object-fit: contain"><span style="font-size: 12px; font-weight: 700">fcsuspect</span><span style="margin-left: auto; background: #F7931E; color: #140A07; padding: 2px 7px; font-size: 11px; font-weight: 700">16.07</span></header>
+<div style="position: relative; width: 300px; height: 375px; background: #000000">
+<img loading="lazy" decoding="async" data-dc-ref="{{p19.imgRef}}" data-dc-src="{{p19.img}}" data-dc-alt="Nouveau coach, slide {{p19.n}}" style="width: 100%; height: 100%; object-fit: contain; display: block">
+<span style="position: absolute; top: 10px; right: 10px; background: rgba(20,10,7,0.8); padding: 3px 8px; font-size: 11px; font-weight: 700"><span data-dc-ref="{{p19.numRef}}">{{p19.n}}</span> / 3</span>
+<button class="sbtn" aria-label="Slide précédente" data-dc-onclick="{{p19.prev}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); left: 8px">‹</button>
+<button class="sbtn" aria-label="Slide suivante" data-dc-onclick="{{p19.next}}" style="position: absolute; top: 50%; margin-top: -19px; width: 38px; height: 38px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); right: 8px">›</button>
+</div>
+<div style="padding: 10px 12px 14px 12px"><div style="font-family: 'Anton', sans-serif; font-size: 22px; line-height: 1.05">NOUVEAU COACH</div><div style="margin-top: 4px; font-size: 11px; letter-spacing: 0.1em; color: #C9AE97">3 PHOTOS</div></div>
+</article>
+</div>
+</div>
+<div style="margin-top: 6px; display: flex; align-items: center; gap: 10px">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em; margin-right: 6px">ÉDITIONS</span>
+<button class="pgbtn" data-dc-ref="{{pgARef}}" data-dc-onclick="{{showA}}" style="height: 44px; padding: 0 18px; border: none; cursor: pointer; font-family: 'Space Mono', monospace; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; clip-path: polygon(0 0, 100% 0, 100% 70%, 88% 100%, 0 100%); background: #F26A10; color: #140A07">1 — 2026</button>
+<span style="font-size: 14px; font-weight: 700">/</span>
+<button class="pgbtn" data-dc-ref="{{pgBRef}}" data-dc-onclick="{{showB}}" style="height: 44px; padding: 0 18px; border: none; cursor: pointer; font-family: 'Space Mono', monospace; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; clip-path: polygon(0 0, 100% 0, 100% 70%, 88% 100%, 0 100%); background: #140A07; color: #FFF1DE">2 — 2025</button>
+</div>
+</section>
+
+<section id="en3d" style="position: relative; flex-shrink: 0; padding: 70px 48px 30px 48px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end">
+<div>
+<div style="font-size: 13px; letter-spacing: 0.14em; color: #C9AE97">// SUR BLENDER</div>
+<h2 style="margin: 8px 0 0 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 110px; line-height: 0.9">EN 3D</h2>
+</div>
+<p style="margin: 0 0 10px 0; max-width: 430px; font-size: 14px; line-height: 1.6; color: #E8D3BF">Ici, c'est la technique : les environnements que j'ai construits et comment ils sont faits. Passe la souris sur les images pour voir l'envers du décor.</p>
+</div>
+<div style="margin-top: 34px; display: flex; gap: 32px; align-items: stretch">
+<figure class="z" style="margin: 0; width: 860px; flex-shrink: 0; transform: rotate(-0.6deg)"><img loading="lazy" decoding="async" src="/assets/env_trophy.webp" alt="Salle des trophées de la XFL, rendu final" style="width: 860px; height: 484px; object-fit: cover; display: block; border: 4px solid #F7931E; box-sizing: border-box"></figure>
+<div style="display: flex; flex-direction: column; gap: 14px; justify-content: center">
+<div style="display: flex; gap: 10px; align-items: center"><span style="background: #F26A10; color: #140A07; padding: 3px 9px; font-size: 12px; font-weight: 700">2026</span><span style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #C9AE97">ENVIRONNEMENT 01</span></div>
+<h3 style="margin: 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 54px; line-height: 0.92">LA SALLE DES TROPHÉES — XFL</h3>
+<p style="margin: 0; font-size: 14px; line-height: 1.65; color: #E8D3BF">La salle de cérémonie de la XFL (Real Futbol X Fan League) : une scène avec escaliers lumineux, un écran géant au logo de la ligue et des centaines de sièges alignés. Sols en marbre, murs sombres et filets dorés pour l'ambiance soirée de gala. Rendu final sur Blender.</p>
+</div>
+</div>
+<div style="margin-top: 50px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; gap: 10px; align-items: center"><span style="background: #F26A10; color: #140A07; padding: 3px 9px; font-size: 12px; font-weight: 700">2026</span><span style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #C9AE97">ENVIRONNEMENT 02</span></div>
+<h3 style="margin: 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 40px; line-height: 0.95">UN TERRAIN OFFICIEL DE RFX</h3>
+<div class="swap" style="position: relative; height: 324px; overflow: hidden; background: #000000">
+<img loading="lazy" decoding="async" src="/assets/env_stade_solid.webp" alt="Stade officiel de Real Futboll X, vue solide" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<img loading="lazy" decoding="async" class="top" src="/assets/env_stade.webp" alt="Stade officiel de Real Futboll X, aperçu matériaux" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<span class="lbl-top" style="position: absolute; left: 12px; bottom: 12px; background: #FFF1DE; color: #140A07; padding: 4px 10px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em">APERÇU MATÉRIAUX</span>
+<span class="lbl-bot" style="position: absolute; left: 12px; bottom: 12px; background: #F7931E; color: #140A07; padding: 4px 10px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em">VUE SOLIDE</span>
+<span style="position: absolute; right: 12px; top: 12px; background: rgba(20,10,7,0.85); color: #FFF1DE; padding: 4px 10px; font-size: 11px">SURVOLE → VUE SOLIDE</span>
+</div>
+<p style="margin: 0; font-size: 13px; line-height: 1.6; color: #E8D3BF">Un stade utilisé dans le jeu sur Roblox : tribunes, pylônes d'éclairage, parking et quartier autour. La vue solide montre chaque objet de la scène séparé par couleur.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; gap: 10px; align-items: center"><span style="background: #F26A10; color: #140A07; padding: 3px 9px; font-size: 12px; font-weight: 700">2025</span><span style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #C9AE97">ENVIRONNEMENT 03</span></div>
+<h3 style="margin: 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 40px; line-height: 0.95">LE TERRAIN D'ENTRAÎNEMENT</h3>
+<div class="swap" style="position: relative; height: 324px; overflow: hidden; background: #000000">
+<img loading="lazy" decoding="async" src="/assets/env_train_solid.webp" alt="Terrain d'entraînement, vue solide" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<img loading="lazy" decoding="async" class="top" src="/assets/env_train.webp" alt="Terrain d'entraînement, aperçu matériaux" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<span class="lbl-top" style="position: absolute; left: 12px; bottom: 12px; background: #FFF1DE; color: #140A07; padding: 4px 10px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em">APERÇU MATÉRIAUX</span>
+<span class="lbl-bot" style="position: absolute; left: 12px; bottom: 12px; background: #F7931E; color: #140A07; padding: 4px 10px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em">VUE SOLIDE</span>
+<span style="position: absolute; right: 12px; top: 12px; background: rgba(20,10,7,0.85); color: #FFF1DE; padding: 4px 10px; font-size: 11px">SURVOLE → VUE SOLIDE</span>
+</div>
+<p style="margin: 0; font-size: 13px; line-height: 1.6; color: #E8D3BF">Le terrain d'entraînement du club, entouré d'immeubles, d'arbres et d'un bâtiment avec tribune. En vue solide, on voit les volumes bruts avant les textures.</p>
+</div>
+</div>
+</section>
+
+<section style="position: relative; flex-shrink: 0; padding: 30px 48px 50px 48px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end">
+<h3 style="margin: 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 64px; line-height: 0.9">MES ANIMATIONS</h3>
+<p style="margin: 0 0 6px 0; max-width: 430px; font-size: 14px; line-height: 1.6; color: #E8D3BF">Toutes les animations 3D que j'ai faites pour le club, de la plus récente à la plus ancienne. Appuie sur play.</p>
+</div>
+<div data-dc-ref="{{edCRef}}" style="display: block">
+<div style="margin-top: 22px; display: flex; align-items: center; gap: 12px"><span style="font-family: 'Anton', sans-serif; font-size: 84px; line-height: 0.85; color: #F26A10; margin-right: 6px">2026</span><span style="display: flex; flex-direction: column; gap: 4px; margin-right: 18px"><span style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em">ÉDITION</span><span style="font-size: 13px; font-weight: 700">REAL FUTBOLL X</span></span><button class="pgbtn" aria-label="Animations plus récentes" data-dc-onclick="{{feedPrev2}}" style="width: 54px; height: 54px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-size: 22px; font-weight: 700; clip-path: polygon(0 0, 100% 0, 100% 72%, 72% 100%, 0 100%)">←</button><button class="pgbtn" aria-label="Animations plus anciennes" data-dc-onclick="{{feedNext2}}" style="width: 54px; height: 54px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-size: 22px; font-weight: 700; clip-path: polygon(0 0, 100% 0, 100% 72%, 72% 100%, 0 100%)">→</button><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em">PLUS RÉCENT ← 4 ANIMATIONS → PLUS ANCIEN</span></div>
+<div data-dc-ref="{{feedCRef}}" style="margin: 18px -48px 0 -48px; padding: 14px 48px 24px 48px; display: flex; gap: 30px; overflow-x: auto; scroll-behavior: smooth">
+<article style="flex: 0 0 300px; background: #FFF1DE; color: #140A07; transform: rotate(-1deg); box-shadow: 6px 6px 0 #F26A10">
+<header style="display: flex; align-items: center; gap: 10px; padding: 10px 12px"><img loading="lazy" decoding="async" src="/assets/fcs_logo.webp" alt="" style="width: 30px; height: 30px; border-radius: 50%; background: #140A07; object-fit: contain"><span style="font-size: 12px; font-weight: 700">fcsuspect</span><span style="margin-left: auto; background: #140A07; color: #FFF1DE; padding: 2px 7px; font-size: 11px; font-weight: 700">13.08</span></header>
+<div style="width: 300px; height: 375px; background: #000000"><video src="/assets/an0.mp4" poster="/assets/an0_poster.webp" controls="" preload="metadata" playsinline="" style="width: 100%; height: 100%; object-fit: contain; display: block"></video></div>
+<div style="padding: 10px 12px 14px 12px"><div style="font-family: 'Anton', sans-serif; font-size: 22px; line-height: 1.05">COUP FRANC ROMAIN</div><div style="margin-top: 4px; font-size: 11px; letter-spacing: 0.1em; color: #7A5A44">ANIMATION 3D</div></div>
+</article>
+<article style="flex: 0 0 300px; background: #FFF1DE; color: #140A07; transform: rotate(0.8deg); box-shadow: 6px 6px 0 #F26A10">
+<header style="display: flex; align-items: center; gap: 10px; padding: 10px 12px"><img loading="lazy" decoding="async" src="/assets/fcs_logo.webp" alt="" style="width: 30px; height: 30px; border-radius: 50%; background: #140A07; object-fit: contain"><span style="font-size: 12px; font-weight: 700">fcsuspect</span><span style="margin-left: auto; background: #140A07; color: #FFF1DE; padding: 2px 7px; font-size: 11px; font-weight: 700">02.08</span></header>
+<div style="width: 300px; height: 375px; background: #000000"><video src="/assets/an1.mp4" poster="/assets/an1_poster.webp" controls="" preload="metadata" playsinline="" style="width: 100%; height: 100%; object-fit: contain; display: block"></video></div>
+<div style="padding: 10px 12px 14px 12px"><div style="font-family: 'Anton', sans-serif; font-size: 22px; line-height: 1.05">VESTIAIRES</div><div style="margin-top: 4px; font-size: 11px; letter-spacing: 0.1em; color: #7A5A44">ANIMATION 3D</div></div>
+</article>
+<article style="flex: 0 0 300px; background: #FFF1DE; color: #140A07; transform: rotate(-0.6deg); box-shadow: 6px 6px 0 #F26A10">
+<header style="display: flex; align-items: center; gap: 10px; padding: 10px 12px"><img loading="lazy" decoding="async" src="/assets/fcs_logo.webp" alt="" style="width: 30px; height: 30px; border-radius: 50%; background: #140A07; object-fit: contain"><span style="font-size: 12px; font-weight: 700">fcsuspect</span><span style="margin-left: auto; background: #140A07; color: #FFF1DE; padding: 2px 7px; font-size: 11px; font-weight: 700">01.08</span></header>
+<div style="width: 300px; height: 375px; background: #000000"><video src="/assets/an2.mp4" poster="/assets/an2_poster.webp" controls="" preload="metadata" playsinline="" style="width: 100%; height: 100%; object-fit: contain; display: block"></video></div>
+<div style="padding: 10px 12px 14px 12px"><div style="font-family: 'Anton', sans-serif; font-size: 22px; line-height: 1.05">PLUS QUE 6H AVANT L'OUVERTURE DE RFX</div><div style="margin-top: 4px; font-size: 11px; letter-spacing: 0.1em; color: #7A5A44">ANIMATION 3D</div></div>
+</article>
+<article style="flex: 0 0 300px; background: #FFF1DE; color: #140A07; transform: rotate(1.2deg); box-shadow: 6px 6px 0 #F26A10">
+<header style="display: flex; align-items: center; gap: 10px; padding: 10px 12px"><img loading="lazy" decoding="async" src="/assets/fcs_logo.webp" alt="" style="width: 30px; height: 30px; border-radius: 50%; background: #140A07; object-fit: contain"><span style="font-size: 12px; font-weight: 700">fcsuspect</span><span style="margin-left: auto; background: #140A07; color: #FFF1DE; padding: 2px 7px; font-size: 11px; font-weight: 700">25.07</span></header>
+<div style="width: 300px; height: 375px; background: #000000"><video src="/assets/an3.mp4" poster="/assets/an3_poster.webp" controls="" preload="metadata" playsinline="" style="width: 100%; height: 100%; object-fit: contain; display: block"></video></div>
+<div style="padding: 10px 12px 14px 12px"><div style="font-family: 'Anton', sans-serif; font-size: 22px; line-height: 1.05">LE RETOUR POUR RFX</div><div style="margin-top: 4px; font-size: 11px; letter-spacing: 0.1em; color: #7A5A44">ANIMATION 3D</div></div>
+</article>
+</div>
+</div>
+<div data-dc-ref="{{edDRef}}" style="display: none">
+<div style="margin-top: 22px; display: flex; align-items: center; gap: 12px"><span style="font-family: 'Anton', sans-serif; font-size: 84px; line-height: 0.85; color: #F26A10; margin-right: 6px">2025</span><span style="display: flex; flex-direction: column; gap: 4px; margin-right: 18px"><span style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em">ÉDITION</span><span style="font-size: 13px; font-weight: 700">REAL FUTBOL 24</span></span><button class="pgbtn" aria-label="Animations plus récentes" data-dc-onclick="{{feedPrev2}}" style="width: 54px; height: 54px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-size: 22px; font-weight: 700; clip-path: polygon(0 0, 100% 0, 100% 72%, 72% 100%, 0 100%)">←</button><button class="pgbtn" aria-label="Animations plus anciennes" data-dc-onclick="{{feedNext2}}" style="width: 54px; height: 54px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-size: 22px; font-weight: 700; clip-path: polygon(0 0, 100% 0, 100% 72%, 72% 100%, 0 100%)">→</button><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em">PLUS RÉCENT ← 1 ANIMATION → PLUS ANCIEN</span></div>
+<div data-dc-ref="{{feedDRef}}" style="margin: 18px -48px 0 -48px; padding: 14px 48px 24px 48px; display: flex; gap: 30px; overflow-x: auto; scroll-behavior: smooth">
+<article style="flex: 0 0 300px; background: #FFF1DE; color: #140A07; transform: rotate(-1deg); box-shadow: 6px 6px 0 #F26A10">
+<header style="display: flex; align-items: center; gap: 10px; padding: 10px 12px"><img loading="lazy" decoding="async" src="/assets/fcs_logo.webp" alt="" style="width: 30px; height: 30px; border-radius: 50%; background: #140A07; object-fit: contain"><span style="font-size: 12px; font-weight: 700">fcsuspect</span><span style="margin-left: auto; background: #140A07; color: #FFF1DE; padding: 2px 7px; font-size: 11px; font-weight: 700">14.07</span></header>
+<div style="width: 300px; height: 375px; background: #000000"><video src="/assets/an4.mp4" poster="/assets/an4_poster.webp" controls="" preload="metadata" playsinline="" style="width: 100%; height: 100%; object-fit: contain; display: block"></video></div>
+<div style="padding: 10px 12px 14px 12px"><div style="font-family: 'Anton', sans-serif; font-size: 22px; line-height: 1.05">PREMIÈRE ANIMATION FCS</div><div style="margin-top: 4px; font-size: 11px; letter-spacing: 0.1em; color: #7A5A44">ANIMATION 3D</div></div>
+</article>
+</div>
+</div>
+<div style="margin-top: 6px; display: flex; align-items: center; gap: 10px">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em; margin-right: 6px">ÉDITIONS</span>
+<button class="pgbtn" data-dc-ref="{{pgCRef}}" data-dc-onclick="{{showC}}" style="height: 44px; padding: 0 18px; border: none; cursor: pointer; font-family: 'Space Mono', monospace; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; clip-path: polygon(0 0, 100% 0, 100% 70%, 88% 100%, 0 100%); background: #F26A10; color: #140A07">1 — 2026</button>
+<span style="font-size: 14px; font-weight: 700">/</span>
+<button class="pgbtn" data-dc-ref="{{pgDRef}}" data-dc-onclick="{{showD}}" style="height: 44px; padding: 0 18px; border: none; cursor: pointer; font-family: 'Space Mono', monospace; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; clip-path: polygon(0 0, 100% 0, 100% 70%, 88% 100%, 0 100%); background: #FFF1DE; color: #140A07">2 — 2025</button>
+</div>
+</section>
+
+<section style="position: relative; flex-shrink: 0; padding: 50px 48px 60px 48px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span style="align-self: flex-start; background: #FFF1DE; color: #140A07; padding: 6px 28px 6px 14px; clip-path: polygon(0 0, 100% 0, 92% 100%, 0 100%); font-size: 11px; font-weight: 700; letter-spacing: 0.14em">COMMANDES</span>
+<h3 style="margin: 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 72px; line-height: 0.9">GFX POUR DES JOUEURS</h3>
+</div>
+<p style="margin: 0 0 8px auto; max-width: 320px; font-size: 13px; line-height: 1.6; color: #E8D3BF; text-align: right">Des visuels faits sur commande pour des joueurs.</p>
+</div>
+<div style="margin-top: 28px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px">
+<figure class="z" style="margin: 0; transform: rotate(-0.8deg)"><div style="height: 420px; background: #2A0D07; border: 4px solid #F7931E; box-sizing: border-box; display: flex; align-items: center; justify-content: center; overflow: hidden"><img loading="lazy" decoding="async" src="/assets/c_leon1.webp" alt="GFX pour le joueur Leon" style="height: 100%; width: 100%; object-fit: cover; display: block"></div><figcaption style="margin-top: 10px; font-size: 13px; line-height: 1.55; color: #E8D3BF"><b style="color: #F7931E">LEON</b> — GFX n°1</figcaption></figure>
+<figure class="z" style="margin: 0; transform: rotate(0.6deg)"><div style="height: 420px; background: #2A0D07; border: 4px solid #E8302A; box-sizing: border-box; display: flex; align-items: center; justify-content: center; overflow: hidden"><img loading="lazy" decoding="async" src="/assets/c_leon2.webp" alt="GFX pour le joueur Leon, variante" style="height: 100%; width: 100%; object-fit: cover; display: block"></div><figcaption style="margin-top: 10px; font-size: 13px; line-height: 1.55; color: #E8D3BF"><b style="color: #F7931E">LEON</b> — GFX n°2</figcaption></figure>
+<figure class="z" style="margin: 0; transform: rotate(-0.6deg)"><div style="height: 420px; background: #2A0D07; border: 4px solid #FFC21A; box-sizing: border-box; display: flex; align-items: center; justify-content: center; overflow: hidden"><img loading="lazy" decoding="async" src="/assets/c_ayoub.webp" alt="Rendu pour le joueur Ayoub" style="height: 100%; width: 100%; object-fit: cover; display: block"></div><figcaption style="margin-top: 10px; font-size: 13px; line-height: 1.55; color: #E8D3BF"><b style="color: #F7931E">AYOUB</b> — Rendu</figcaption></figure>
+</div>
+</section>
+
+<section id="scup" style="position: relative; flex-shrink: 0; background: #0B0807; padding: 80px 48px 70px 48px; border-top: 4px solid #F26A10">
+<div aria-hidden="true" style="position: absolute; right: -60px; top: -60px; width: 420px; height: 420px; border-radius: 50%; background: radial-gradient(circle, rgba(242,106,16,0.35) 0%, rgba(242,106,16,0) 70%)"></div>
+<div style="position: relative; display: flex; justify-content: space-between; align-items: flex-end; height: 160px">
+<div style="display: flex; align-items: center; gap: 24px">
+<img loading="lazy" decoding="async" src="/assets/s_badge.webp" alt="Badge officiel de la Suspect Cup" style="width: 130px; height: 129px; animation: spin 20s linear infinite">
+<div>
+<div style="font-size: 13px; letter-spacing: 0.14em; color: #F26A10">// LE TOURNOI ORGANISÉ PAR LE FC SUSPECT</div>
+<h2 style="margin: 6px 0 0 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 104px; line-height: 0.9">SUSPECT CUP <span style="color: #F26A10">2026</span></h2>
+</div>
+</div>
+<div style="display: flex; align-items: flex-end; gap: 6px">
+<div style="background: #F26A10; color: #1A0800; padding: 10px 14px 30px 14px; width: 220px; box-sizing: border-box; clip-path: polygon(0 0, 100% 0, 100% 78%, 94% 78%, 100% 100%, 84% 78%, 0 78%); transform: rotate(-1.5deg); margin-bottom: 70px; font-family: 'Gochi Hand', cursive; font-size: 18px; line-height: 1.15">Un tournoi entier, de l'identité jusqu'au trophée.</div>
+<img loading="lazy" decoding="async" src="/assets/chibi_content.webp" alt="" style="width: 90px; height: 156px; object-fit: contain; animation: bob 3s ease-in-out infinite">
+</div>
+</div>
+<div style="position: relative; margin-top: 36px; display: grid; grid-template-columns: 7fr 5fr; gap: 36px; align-items: center">
+<figure class="z" style="margin: 0; transform: rotate(-0.5deg)"><div style="height: 460px; background: #140A07; border: 3px solid #3A1A0A; box-sizing: border-box; display: flex; align-items: center; justify-content: center; overflow: hidden"><img loading="lazy" decoding="async" src="/assets/s_charte.webp" alt="Charte graphique de la Suspect Cup" style="max-width: 100%; max-height: 100%; object-fit: contain; display: block"></div><figcaption style="margin-top: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #E8D3BF">CHARTE GRAPHIQUE — LOGO, COULEURS, TYPOS</figcaption></figure>
+<div style="display: flex; flex-direction: column; gap: 14px">
+<span style="font-family: 'Anton', sans-serif; font-size: 64px; line-height: 0.9; color: #F26A10">01</span>
+<h3 style="margin: 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 46px; line-height: 0.95">L'IDENTITÉ DU TOURNOI</h3>
+<p style="margin: 0; font-size: 14px; line-height: 1.65; color: #E8D3BF">Tout part de la charte : le logo, les couleurs et les typos de la Suspect Cup. Chaque visuel du tournoi, de l'inscription à la finale, est construit dessus.</p>
+</div>
+</div>
+<div style="position: relative; margin-top: 50px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; align-items: baseline; gap: 16px; border-bottom: 2px dashed #3A1A0A; padding-bottom: 10px"><span style="font-family: 'Anton', sans-serif; font-size: 44px; line-height: 1; color: #F26A10">02</span><span style="font-family: 'Anton', sans-serif; font-size: 30px; line-height: 1">LES INSCRIPTIONS</span><span style="margin-left: auto; font-size: 13px; color: #C9AE97">Annoncer le tournoi et faire venir les équipes</span></div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px">
+<figure class="z" style="margin: 0; transform: rotate(-1deg)"><div style="height: 360px; background: #140A07; border: 3px solid #3A1A0A; box-sizing: border-box; display: flex; align-items: center; justify-content: center; overflow: hidden"><img loading="lazy" decoding="async" src="/assets/s_inscr.webp" alt="Inscriptions ouvertes" style="max-width: 100%; max-height: 100%; object-fit: contain; display: block"></div><figcaption style="margin-top: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #E8D3BF">INSCRIPTIONS OUVERTES</figcaption></figure>
+<figure class="z" style="margin: 0; transform: rotate(0.8deg)"><div style="height: 360px; background: #140A07; border: 3px solid #3A1A0A; box-sizing: border-box; display: flex; align-items: center; justify-content: center; overflow: hidden"><img loading="lazy" decoding="async" src="/assets/s_comment.webp" alt="Comment s'inscrire" style="max-width: 100%; max-height: 100%; object-fit: contain; display: block"></div><figcaption style="margin-top: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #E8D3BF">COMMENT S'INSCRIRE</figcaption></figure>
+<figure class="z" style="margin: 0; transform: rotate(-0.6deg)"><div style="height: 360px; background: #140A07; border: 3px solid #3A1A0A; box-sizing: border-box; display: flex; align-items: center; justify-content: center; overflow: hidden"><img loading="lazy" decoding="async" src="/assets/s_date.webp" alt="Date limite des inscriptions" style="max-width: 100%; max-height: 100%; object-fit: contain; display: block"></div><figcaption style="margin-top: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #E8D3BF">DATE LIMITE</figcaption></figure>
+</div>
+</div>
+<div style="position: relative; margin-top: 50px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; align-items: baseline; gap: 16px; border-bottom: 2px dashed #3A1A0A; padding-bottom: 10px"><span style="font-family: 'Anton', sans-serif; font-size: 44px; line-height: 1; color: #F26A10">03</span><span style="font-family: 'Anton', sans-serif; font-size: 30px; line-height: 1">LE TOURNOI</span><span style="margin-left: auto; font-size: 13px; color: #C9AE97">Les équipes, les poules et le tableau</span></div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px">
+<figure class="z" style="margin: 0; transform: rotate(-1deg)"><div style="height: 320px; background: #140A07; border: 3px solid #3A1A0A; box-sizing: border-box; display: flex; align-items: center; justify-content: center; overflow: hidden"><img loading="lazy" decoding="async" src="/assets/s_reveal.webp" alt="Team reveal" style="max-width: 100%; max-height: 100%; object-fit: contain; display: block"></div><figcaption style="margin-top: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #E8D3BF">TEAM REVEAL</figcaption></figure>
+<figure class="z" style="margin: 0; transform: rotate(0.8deg)"><div style="height: 320px; background: #140A07; border: 3px solid #3A1A0A; box-sizing: border-box; display: flex; align-items: center; justify-content: center; overflow: hidden"><img loading="lazy" decoding="async" src="/assets/s_poules.webp" alt="Classement des poules" style="max-width: 100%; max-height: 100%; object-fit: contain; display: block"></div><figcaption style="margin-top: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #E8D3BF">LES POULES</figcaption></figure>
+<figure class="z" style="margin: 0; transform: rotate(-0.6deg)"><div style="height: 320px; background: #140A07; border: 3px solid #3A1A0A; box-sizing: border-box; display: flex; align-items: center; justify-content: center; overflow: hidden"><img loading="lazy" decoding="async" src="/assets/s_arbre.webp" alt="Tableau du tournoi" style="max-width: 100%; max-height: 100%; object-fit: contain; display: block"></div><figcaption style="margin-top: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #E8D3BF">LE TABLEAU</figcaption></figure>
+<figure class="z" style="margin: 0; transform: rotate(1deg)"><div style="height: 320px; background: #140A07; border: 3px solid #3A1A0A; box-sizing: border-box; display: flex; align-items: center; justify-content: center; overflow: hidden"><img loading="lazy" decoding="async" src="/assets/s_next.webp" alt="Prochain match" style="max-width: 100%; max-height: 100%; object-fit: contain; display: block"></div><figcaption style="margin-top: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #E8D3BF">PROCHAIN MATCH</figcaption></figure>
+</div>
+</div>
+<div style="position: relative; margin-top: 50px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px">
+<div style="display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; align-items: baseline; gap: 16px; border-bottom: 2px dashed #3A1A0A; padding-bottom: 10px"><span style="font-family: 'Anton', sans-serif; font-size: 44px; line-height: 1; color: #F26A10">04</span><span style="font-family: 'Anton', sans-serif; font-size: 30px; line-height: 1">LES MATCHS</span><span style="margin-left: auto; font-size: 13px; color: #C9AE97">Après chaque match</span></div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px">
+<figure class="z" style="margin: 0; transform: rotate(-1deg)"><div style="height: 320px; background: #140A07; border: 3px solid #3A1A0A; box-sizing: border-box; display: flex; align-items: center; justify-content: center; overflow: hidden"><img loading="lazy" decoding="async" src="/assets/s_mvpm.webp" alt="MVP du match" style="max-width: 100%; max-height: 100%; object-fit: contain; display: block"></div><figcaption style="margin-top: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #E8D3BF">MVP DU MATCH</figcaption></figure>
+<figure class="z" style="margin: 0; transform: rotate(0.8deg)"><div style="height: 320px; background: #140A07; border: 3px solid #3A1A0A; box-sizing: border-box; display: flex; align-items: center; justify-content: center; overflow: hidden"><img loading="lazy" decoding="async" src="/assets/s_stats.webp" alt="Statistiques du match" style="max-width: 100%; max-height: 100%; object-fit: contain; display: block"></div><figcaption style="margin-top: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #E8D3BF">STATS DU MATCH</figcaption></figure>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; align-items: baseline; gap: 16px; border-bottom: 2px dashed #3A1A0A; padding-bottom: 10px"><span style="font-family: 'Anton', sans-serif; font-size: 44px; line-height: 1; color: #F26A10">05</span><span style="font-family: 'Anton', sans-serif; font-size: 30px; line-height: 1">LES RÉCOMPENSES</span><span style="margin-left: auto; font-size: 13px; color: #C9AE97">À la fin du tournoi</span></div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px">
+<figure class="z" style="margin: 0; transform: rotate(-0.6deg)"><div style="height: 320px; background: #140A07; border: 3px solid #3A1A0A; box-sizing: border-box; display: flex; align-items: center; justify-content: center; overflow: hidden"><img loading="lazy" decoding="async" src="/assets/s_gloves.webp" alt="Récompense Golden Gloves" style="max-width: 100%; max-height: 100%; object-fit: contain; display: block"></div><figcaption style="margin-top: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #E8D3BF">GOLDEN GLOVES</figcaption></figure>
+<figure class="z" style="margin: 0; transform: rotate(1deg)"><div style="height: 320px; background: #140A07; border: 3px solid #3A1A0A; box-sizing: border-box; display: flex; align-items: center; justify-content: center; overflow: hidden"><img loading="lazy" decoding="async" src="/assets/s_mvp.webp" alt="Récompense MVP" style="max-width: 100%; max-height: 100%; object-fit: contain; display: block"></div><figcaption style="margin-top: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #E8D3BF">MVP</figcaption></figure>
+</div>
+</div>
+</div>
+</section>
+
+<section id="videos" style="position: relative; flex-shrink: 0; padding: 60px 48px 50px 48px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span style="align-self: flex-start; background: #D7261E; color: #FFF1DE; padding: 6px 28px 6px 14px; clip-path: polygon(0 0, 100% 0, 92% 100%, 0 100%); font-size: 12px; font-weight: 700; letter-spacing: 0.12em">TIKTOK • INSTAGRAM</span>
+<h2 style="margin: 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 96px; line-height: 0.9">LES VIDÉOS DU CLUB</h2>
+</div>
+<p style="margin: 0 0 8px auto; max-width: 340px; font-size: 13px; line-height: 1.6; color: #E8D3BF; text-align: right">Les matchs, scrims, edits et entraînements, montés pour les réseaux. Du plus récent au plus ancien. Appuie sur play.</p>
+</div>
+<div style="margin-top: 22px; display: flex; align-items: center; gap: 12px"><span style="font-family: 'Anton', sans-serif; font-size: 84px; line-height: 0.85; color: #D7261E; margin-right: 6px">2026</span><span style="display: flex; flex-direction: column; gap: 4px; margin-right: 18px"><span style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em">ÉDITION</span><span style="font-size: 13px; font-weight: 700">REAL FUTBOLL X</span></span><button class="pgbtn" aria-label="Vidéos plus récentes" data-dc-onclick="{{feedPrev3}}" style="width: 54px; height: 54px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-size: 22px; font-weight: 700; clip-path: polygon(0 0, 100% 0, 100% 72%, 72% 100%, 0 100%)">←</button><button class="pgbtn" aria-label="Vidéos plus anciennes" data-dc-onclick="{{feedNext3}}" style="width: 54px; height: 54px; border: none; cursor: pointer; background: #FFF1DE; color: #140A07; font-family: 'Space Mono', monospace; font-size: 22px; font-weight: 700; clip-path: polygon(0 0, 100% 0, 100% 72%, 72% 100%, 0 100%)">→</button><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em">PLUS RÉCENT ← 7 VIDÉOS → PLUS ANCIEN</span></div>
+<div data-dc-ref="{{feedERef}}" style="margin: 18px -48px 0 -48px; padding: 14px 48px 24px 48px; display: flex; gap: 30px; overflow-x: auto; scroll-behavior: smooth">
+<article style="flex: 0 0 300px; background: #FFF1DE; color: #140A07; transform: rotate(-1deg); box-shadow: 6px 6px 0 #D7261E">
+<header style="display: flex; align-items: center; gap: 10px; padding: 10px 12px"><img loading="lazy" decoding="async" src="/assets/fcs_logo.webp" alt="" style="width: 30px; height: 30px; border-radius: 50%; background: #140A07; object-fit: contain"><span style="font-size: 12px; font-weight: 700">fcsuspect</span><span style="margin-left: auto; background: #140A07; color: #FFF1DE; padding: 2px 7px; font-size: 11px; font-weight: 700">27.08</span></header>
+<div style="width: 300px; height: 500px; background: #000000"><video src="/assets/cv0.mp4" poster="/assets/cv0_poster.webp" controls="" preload="metadata" playsinline="" style="width: 100%; height: 100%; object-fit: contain; display: block"></video></div>
+<div style="padding: 10px 12px 14px 12px"><div style="font-family: 'Anton', sans-serif; font-size: 22px; line-height: 1.05">REMONTADA ENDIBAB</div><div style="margin-top: 4px; font-size: 11px; letter-spacing: 0.1em; color: #7A5A44">VIDÉO DU CLUB</div></div>
+</article>
+<article style="flex: 0 0 300px; background: #FFF1DE; color: #140A07; transform: rotate(0.8deg); box-shadow: 6px 6px 0 #D7261E">
+<header style="display: flex; align-items: center; gap: 10px; padding: 10px 12px"><img loading="lazy" decoding="async" src="/assets/fcs_logo.webp" alt="" style="width: 30px; height: 30px; border-radius: 50%; background: #140A07; object-fit: contain"><span style="font-size: 12px; font-weight: 700">fcsuspect</span><span style="margin-left: auto; background: #140A07; color: #FFF1DE; padding: 2px 7px; font-size: 11px; font-weight: 700">16.08</span></header>
+<div style="width: 300px; height: 500px; background: #000000"><video src="/assets/cv1.mp4" poster="/assets/cv1_poster.webp" controls="" preload="metadata" playsinline="" style="width: 100%; height: 100%; object-fit: contain; display: block"></video></div>
+<div style="padding: 10px 12px 14px 12px"><div style="font-family: 'Anton', sans-serif; font-size: 22px; line-height: 1.05">MATCH CONTRE FRAGON FC</div><div style="margin-top: 4px; font-size: 11px; letter-spacing: 0.1em; color: #7A5A44">VIDÉO DU CLUB</div></div>
+</article>
+<article style="flex: 0 0 300px; background: #FFF1DE; color: #140A07; transform: rotate(-0.6deg); box-shadow: 6px 6px 0 #D7261E">
+<header style="display: flex; align-items: center; gap: 10px; padding: 10px 12px"><img loading="lazy" decoding="async" src="/assets/fcs_logo.webp" alt="" style="width: 30px; height: 30px; border-radius: 50%; background: #140A07; object-fit: contain"><span style="font-size: 12px; font-weight: 700">fcsuspect</span><span style="margin-left: auto; background: #140A07; color: #FFF1DE; padding: 2px 7px; font-size: 11px; font-weight: 700">14.08</span></header>
+<div style="width: 300px; height: 500px; background: #000000"><video src="/assets/cv2.mp4" poster="/assets/cv2_poster.webp" controls="" preload="metadata" playsinline="" style="width: 100%; height: 100%; object-fit: contain; display: block"></video></div>
+<div style="padding: 10px 12px 14px 12px"><div style="font-family: 'Anton', sans-serif; font-size: 22px; line-height: 1.05">SCRIM N°1</div><div style="margin-top: 4px; font-size: 11px; letter-spacing: 0.1em; color: #7A5A44">VIDÉO DU CLUB</div></div>
+</article>
+<article style="flex: 0 0 300px; background: #FFF1DE; color: #140A07; transform: rotate(1.2deg); box-shadow: 6px 6px 0 #D7261E">
+<header style="display: flex; align-items: center; gap: 10px; padding: 10px 12px"><img loading="lazy" decoding="async" src="/assets/fcs_logo.webp" alt="" style="width: 30px; height: 30px; border-radius: 50%; background: #140A07; object-fit: contain"><span style="font-size: 12px; font-weight: 700">fcsuspect</span><span style="margin-left: auto; background: #140A07; color: #FFF1DE; padding: 2px 7px; font-size: 11px; font-weight: 700">08.08</span></header>
+<div style="width: 300px; height: 500px; background: #000000"><video src="/assets/cv3.mp4" poster="/assets/cv3_poster.webp" controls="" preload="metadata" playsinline="" style="width: 100%; height: 100%; object-fit: contain; display: block"></video></div>
+<div style="padding: 10px 12px 14px 12px"><div style="font-family: 'Anton', sans-serif; font-size: 22px; line-height: 1.05">DRIBBLE ROMAIN</div><div style="margin-top: 4px; font-size: 11px; letter-spacing: 0.1em; color: #7A5A44">VIDÉO DU CLUB</div></div>
+</article>
+<article style="flex: 0 0 300px; background: #FFF1DE; color: #140A07; transform: rotate(-1deg); box-shadow: 6px 6px 0 #D7261E">
+<header style="display: flex; align-items: center; gap: 10px; padding: 10px 12px"><img loading="lazy" decoding="async" src="/assets/fcs_logo.webp" alt="" style="width: 30px; height: 30px; border-radius: 50%; background: #140A07; object-fit: contain"><span style="font-size: 12px; font-weight: 700">fcsuspect</span><span style="margin-left: auto; background: #140A07; color: #FFF1DE; padding: 2px 7px; font-size: 11px; font-weight: 700">06.08</span></header>
+<div style="width: 300px; height: 500px; background: #000000"><video src="/assets/cv4.mp4" poster="/assets/cv4_poster.webp" controls="" preload="metadata" playsinline="" style="width: 100%; height: 100%; object-fit: contain; display: block"></video></div>
+<div style="padding: 10px 12px 14px 12px"><div style="font-family: 'Anton', sans-serif; font-size: 22px; line-height: 1.05">EDIT GK</div><div style="margin-top: 4px; font-size: 11px; letter-spacing: 0.1em; color: #7A5A44">VIDÉO DU CLUB</div></div>
+</article>
+<article style="flex: 0 0 300px; background: #FFF1DE; color: #140A07; transform: rotate(0.8deg); box-shadow: 6px 6px 0 #D7261E">
+<header style="display: flex; align-items: center; gap: 10px; padding: 10px 12px"><img loading="lazy" decoding="async" src="/assets/fcs_logo.webp" alt="" style="width: 30px; height: 30px; border-radius: 50%; background: #140A07; object-fit: contain"><span style="font-size: 12px; font-weight: 700">fcsuspect</span><span style="margin-left: auto; background: #140A07; color: #FFF1DE; padding: 2px 7px; font-size: 11px; font-weight: 700">03.08</span></header>
+<div style="width: 300px; height: 500px; background: #000000"><video src="/assets/cv5.mp4" poster="/assets/cv5_poster.webp" controls="" preload="metadata" playsinline="" style="width: 100%; height: 100%; object-fit: contain; display: block"></video></div>
+<div style="padding: 10px 12px 14px 12px"><div style="font-family: 'Anton', sans-serif; font-size: 22px; line-height: 1.05">MATCH D'ENTRAÎNEMENT</div><div style="margin-top: 4px; font-size: 11px; letter-spacing: 0.1em; color: #7A5A44">VIDÉO DU CLUB</div></div>
+</article>
+<article style="flex: 0 0 300px; background: #FFF1DE; color: #140A07; transform: rotate(-0.6deg); box-shadow: 6px 6px 0 #D7261E">
+<header style="display: flex; align-items: center; gap: 10px; padding: 10px 12px"><img loading="lazy" decoding="async" src="/assets/fcs_logo.webp" alt="" style="width: 30px; height: 30px; border-radius: 50%; background: #140A07; object-fit: contain"><span style="font-size: 12px; font-weight: 700">fcsuspect</span><span style="margin-left: auto; background: #140A07; color: #FFF1DE; padding: 2px 7px; font-size: 11px; font-weight: 700">01.08</span></header>
+<div style="width: 300px; height: 500px; background: #000000"><video src="/assets/cv6.mp4" poster="/assets/cv6_poster.webp" controls="" preload="metadata" playsinline="" style="width: 100%; height: 100%; object-fit: contain; display: block"></video></div>
+<div style="padding: 10px 12px 14px 12px"><div style="font-family: 'Anton', sans-serif; font-size: 22px; line-height: 1.05">PREMIÈRES HEURES SUR RFX</div><div style="margin-top: 4px; font-size: 11px; letter-spacing: 0.1em; color: #7A5A44">VIDÉO DU CLUB</div></div>
+</article>
+</div>
+</section>
+
+
+<a href="/youtube.html" style="display: flex; align-items: center; justify-content: space-between; min-height: 270px; flex: 1 0 auto; background: #D7263D; color: #FFFFFF; text-decoration: none; padding: 0 56px; position: relative; overflow: hidden">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em">DOSSIER SUIVANT — 03</span>
+<span style="font-family: 'Anton', sans-serif; font-size: 130px; line-height: 0.85">CHAÎNES YOUTUBE →</span>
+</div>
+<img loading="lazy" decoding="async" src="/assets/chibi_peur.webp" alt="" style="width: 110px; height: 190px; object-fit: contain; animation: bob 2.4s ease-in-out infinite">
+</a>
+
+<div data-dc-ref="{{tpRef}}" class="tp-ov" aria-hidden="true"><div class="tp-band" style="background: #140A07; --d: 0.000s"></div><div class="tp-band" style="background: #FFF1DE; --d: 0.035s"></div><div class="tp-band" style="background: #D7261E; --d: 0.070s"></div><div class="tp-band" style="background: #F7931E; --d: 0.105s"></div><div class="tp-band" style="background: #2A0D07; --d: 0.140s"></div><div class="tp-band" style="background: #FFC21A; --d: 0.175s"></div><div class="tp-band" style="background: #140A07; --d: 0.210s"></div><div data-dc-ref="{{tpLblRef}}" class="tp-lbl"></div></div>
+</div>
+</x-dc>
+<script src="/assets/dc.js?v=1b6c20c3"></script>
+<script>
+window.__DC = class Component extends DCLogic {
+  setEd2(e) {
+    this.ed2 = e;
+    if (this.edC) this.edC.style.display = e === 'D' ? 'none' : 'block';
+    if (this.edD) this.edD.style.display = e === 'D' ? 'block' : 'none';
+    const sh = e === 'D' ? this.edD : this.edC;
+    if (sh) { sh.classList.remove('edpop'); void sh.offsetWidth; sh.classList.add('edpop'); }
+    this.paintPager2();
+  }
+  paintPager2() {
+    const on = this.ed2 === 'D' ? this.pgD : this.pgC, off = this.ed2 === 'D' ? this.pgC : this.pgD;
+    if (on) { on.style.background = '#F26A10'; }
+    if (off) { off.style.background = '#FFF1DE'; }
+  }
+  setEd(e) {
+    this.ed = e;
+    if (this.edA) this.edA.style.display = e === 'B' ? 'none' : 'block';
+    if (this.edB) this.edB.style.display = e === 'B' ? 'block' : 'none';
+    const sh = e === 'B' ? this.edB : this.edA;
+    if (sh) { sh.classList.remove('edpop'); void sh.offsetWidth; sh.classList.add('edpop'); }
+    this.paintPager();
+  }
+  paintPager() {
+    const on = this.ed === 'B' ? this.pgB : this.pgA, off = this.ed === 'B' ? this.pgA : this.pgB;
+    if (on) { on.style.background = '#F26A10'; on.style.color = '#140A07'; }
+    if (off) { off.style.background = '#140A07'; off.style.color = '#FFF1DE'; }
+  }
+  initHeader() {
+    if (this._hdInit || !this.hd || !this.hdWrap) return;
+    this._hdInit = true;
+    const hd = this.hd, wrap = this.hdWrap;
+    let last = 0, fixed = false;
+    const getY = (ev) => {
+      const tg = ev && ev.target;
+      if (tg && tg !== document && tg.nodeType === 1 && tg.scrollHeight > tg.clientHeight && tg.contains(hd)) return tg.scrollTop;
+      return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    };
+    this._hdScroll = (ev) => {
+      const y = getY(ev), h = wrap.offsetHeight || hd.offsetHeight || 100;
+      if (!fixed) wrap.style.height = hd.offsetHeight + 'px';
+      if (y <= h) {
+        if (fixed) { fixed = false; hd.classList.remove('hd-fixed', 'hd-show', 'hd-instant'); }
+      } else {
+        if (!fixed) { fixed = true; hd.classList.add('hd-fixed', 'hd-instant'); void hd.offsetWidth; hd.classList.remove('hd-instant'); }
+        if (y < last - 2) hd.classList.add('hd-show');
+        else if (y > last + 2) hd.classList.remove('hd-show');
+      }
+      last = y;
+    };
+    document.addEventListener('scroll', this._hdScroll, true);
+  }
+  componentWillUnmount() { if (this._zoomFit) window.removeEventListener('resize', this._zoomFit); if (this._hdScroll) document.removeEventListener('scroll', this._hdScroll, true); (this._tpT || []).forEach(clearTimeout); }
+  initZoom() {
+    if (this._zoomInit || typeof window === 'undefined') return;
+    this._zoomInit = true;
+    const fit = () => {
+      const w = window.innerWidth || document.documentElement.clientWidth;
+      if (!w) return;
+      document.documentElement.style.zoom = String(w / 1440);
+    };
+    this._zoomFit = fit;
+    fit();
+    window.addEventListener('resize', fit);
+  }
+  teleport(e, id, label) {
+    if (e && e.preventDefault) e.preventDefault();
+    const ov = this.tpEl, target = document.getElementById(id);
+    if (!target) return;
+    if (!ov) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
+    (this._tpT || []).forEach(clearTimeout); this._tpT = [];
+    const at = (ms, fn) => this._tpT.push(setTimeout(fn, ms));
+    if (this.tpLbl) this.tpLbl.textContent = label;
+    ov.className = 'tp-ov on';
+    at(20, () => ov.classList.add('in'));
+    at(500, () => { target.scrollIntoView({ behavior: 'auto', block: 'start' }); ov.classList.add('out'); });
+    at(1000, () => { ov.className = 'tp-ov'; });
+  }
+  renderVals() {
+    this.initZoom();
+    const scared = this.state && this.state.scared;
+    const POSTS = [["/assets/vc00_0.webp", "/assets/vc00_1.webp", "/assets/vc00_2.webp"], ["/assets/vc01_0.webp", "/assets/vc01_1.webp", "/assets/vc01_2.webp"], ["/assets/vc02_0.webp", "/assets/vc02_1.webp"], ["/assets/vc03_0.webp", "/assets/vc03_1.webp", "/assets/vc03_2.webp"], ["/assets/vc04_0.webp", "/assets/vc04_1.webp", "/assets/vc04_2.webp"], ["/assets/vc05_0.webp", "/assets/vc05_1.webp"], ["/assets/vc06_0.webp", "/assets/vc06_1.webp", "/assets/vc06_2.webp"], ["/assets/vc07_0.webp", "/assets/vc07_1.webp", "/assets/vc07_2.webp", "/assets/vc07_3.webp", "/assets/vc07_4.webp", "/assets/vc07_5.webp", "/assets/vc07_6.webp", "/assets/vc07_7.webp", "/assets/vc07_8.webp"], ["/assets/vc08_0.webp", "/assets/vc08_1.webp", "/assets/vc08_2.webp", "/assets/vc08_3.webp"], ["/assets/vc09_0.webp", "/assets/vc09_1.webp", "/assets/vc09_2.webp", "/assets/vc09_3.webp", "/assets/vc09_4.webp", "/assets/vc09_5.webp", "/assets/vc09_6.webp"], ["/assets/vc10_0.webp", "/assets/vc10_1.webp", "/assets/vc10_2.webp"], ["/assets/vd00_0.webp"], ["/assets/vd01_0.webp", "/assets/vd01_1.webp"], ["/assets/vd02_0.webp", "/assets/vd02_1.webp", "/assets/vd02_2.webp"], ["/assets/vd03_0.webp", "/assets/vd03_1.webp"], ["/assets/vd04_0.webp", "/assets/vd04_1.webp", "/assets/vd04_2.webp"], ["/assets/vd05_0.webp", "/assets/vd05_1.webp", "/assets/vd05_2.webp"], ["/assets/vd06_0.webp", "/assets/vd06_1.webp", "/assets/vd06_2.webp", "/assets/vd06_3.webp"], ["/assets/vd07_0.webp", "/assets/vd07_1.webp"], ["/assets/vd08_0.webp", "/assets/vd08_1.webp", "/assets/vd08_2.webp"]];
+    if (!this.idx) {
+      this.idx = {}; this.imgEls = {}; this.numEls = {};
+      POSTS.forEach((imgs) => imgs.forEach((src) => { const im = new Image(); im.src = src; }));
+    }
+    const go = (k, d) => () => {
+      const n = POSTS[k].length;
+      const i = (((this.idx[k] || 0) + d) % n + n) % n;
+      this.idx[k] = i;
+      const im = this.imgEls[k];
+      if (im) { im.src = POSTS[k][i]; im.classList.remove('slidein'); void im.offsetWidth; im.classList.add('slidein'); }
+      if (this.numEls[k]) this.numEls[k].textContent = String(i + 1);
+    };
+    const posts = {};
+    POSTS.forEach((imgs, k) => {
+      const i = this.idx[k] || 0;
+      posts['p' + k] = { img: imgs[i], n: i + 1, prev: go(k, -1), next: go(k, 1),
+        imgRef: (el) => { if (el) this.imgEls[k] = el; },
+        numRef: (el) => { if (el) this.numEls[k] = el; } };
+    });
+    return {
+      tpRef: (el) => { if (el) this.tpEl = el; },
+      tpLblRef: (el) => { if (el) this.tpLbl = el; },
+      go: {
+        identite: (e) => this.teleport(e, 'identite', 'IDENTITÉ'),
+        affiches: (e) => this.teleport(e, 'affiches', 'AFFICHES'),
+        vieclub: (e) => this.teleport(e, 'vieclub', 'VIE DU CLUB'),
+        en3d: (e) => this.teleport(e, 'en3d', '3D'),
+        scup: (e) => this.teleport(e, 'scup', 'SUSPECT CUP'),
+        videos: (e) => this.teleport(e, 'videos', 'VIDÉOS'),
+      },
+      hdWrapRef: (el) => { if (el) { this.hdWrap = el; this.initHeader(); } },
+      hdRef: (el) => { if (el) { this.hd = el; this.initHeader(); } },
+      ...posts,
+      feedERef: (el) => { if (el) this.feedE = el; },
+      feedPrev3: () => { if (this.feedE) this.feedE.scrollBy({ left: -660, behavior: 'smooth' }); },
+      feedNext3: () => { if (this.feedE) this.feedE.scrollBy({ left: 660, behavior: 'smooth' }); },
+      feedCRef: (el) => { if (el) this.feedC = el; },
+      feedDRef: (el) => { if (el) this.feedD = el; },
+      feedPrev2: () => { const f = this.ed2 === 'D' ? this.feedD : this.feedC; if (f) f.scrollBy({ left: -660, behavior: 'smooth' }); },
+      feedNext2: () => { const f = this.ed2 === 'D' ? this.feedD : this.feedC; if (f) f.scrollBy({ left: 660, behavior: 'smooth' }); },
+      edCRef: (el) => { if (el) { this.edC = el; el.style.display = this.ed2 === 'D' ? 'none' : 'block'; } },
+      edDRef: (el) => { if (el) { this.edD = el; el.style.display = this.ed2 === 'D' ? 'block' : 'none'; } },
+      pgCRef: (el) => { if (el) { this.pgC = el; this.paintPager2(); } },
+      pgDRef: (el) => { if (el) { this.pgD = el; this.paintPager2(); } },
+      showC: () => this.setEd2('C'),
+      showD: () => this.setEd2('D'),
+      feedARef: (el) => { if (el) this.feedA = el; },
+      feedBRef: (el) => { if (el) this.feedB = el; },
+      feedPrev: () => { const f = this.ed === 'B' ? this.feedB : this.feedA; if (f) f.scrollBy({ left: -660, behavior: 'smooth' }); },
+      feedNext: () => { const f = this.ed === 'B' ? this.feedB : this.feedA; if (f) f.scrollBy({ left: 660, behavior: 'smooth' }); },
+      edARef: (el) => { if (el) { this.edA = el; el.style.display = this.ed === 'B' ? 'none' : 'block'; } },
+      edBRef: (el) => { if (el) { this.edB = el; el.style.display = this.ed === 'B' ? 'block' : 'none'; } },
+      pgARef: (el) => { if (el) { this.pgA = el; this.paintPager(); } },
+      pgBRef: (el) => { if (el) { this.pgB = el; this.paintPager(); } },
+      showA: () => this.setEd('A'),
+      showB: () => this.setEd('B'),
+      goalChibi: scared
+        ? { img: '/assets/chibi_peur.webp', msg: 'Un score effroyable… la puissance du FC Suspect.' }
+        : { img: '/assets/chibi_party.webp', msg: 'Oui oui, c\u2019est bien moi qui la mets.' },
+      scoreOn: () => this.setState({ scared: true }),
+      scoreOff: () => this.setState({ scared: false }),
+      vref: (el) => {
+        if (!el || el._vInit) return;
+        el._vInit = true;
+        el.muted = true; el.defaultMuted = true; el.playsInline = true; el.loop = true;
+        el.setAttribute('muted', ''); el.setAttribute('playsinline', '');
+        const tryPlay = () => { try { const p = el.play(); if (p && p.catch) p.catch(() => {}); } catch (e) {} };
+        el.addEventListener('loadeddata', tryPlay);
+        el.addEventListener('canplay', tryPlay);
+        el.addEventListener('pause', () => { if (!el._userPaused) setTimeout(tryPlay, 300); });
+        el.addEventListener('click', tryPlay);
+        if (typeof IntersectionObserver !== 'undefined') {
+          const io = new IntersectionObserver((es) => es.forEach((en) => { if (en.isIntersecting) tryPlay(); }), { threshold: 0.1 });
+          io.observe(el);
+        }
+        if (el.readyState === 0) { try { el.load(); } catch (e) {} }
+        tryPlay();
+      }
+    };
+  }
+}
+</script>
+<script>window.__dcBoot();</script>
+</body>
+</html>

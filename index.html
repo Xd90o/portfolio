@@ -1,105 +1,1062 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ROMAIN — Book en travaux</title>
-<meta name="description" content="Le book de Romain est en construction.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<title>Romain — Book / Portfolio</title>
+<meta name="description" content="Le book de Romain : vidéo, motion design, 3D, DA et identité visuelle. Tous les projets, faits main.">
+<meta property="og:title" content="Romain — Book / Portfolio">
+<meta property="og:description" content="Le book de Romain : vidéo, motion design, 3D, DA et identité visuelle. Tous les projets, faits main.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://roomaaaain.fr/">
+<meta name="theme-color" content="#121214">
+<link rel="icon" href="/assets/logo_solid_ink.webp">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&family=Gochi+Hand&family=Pirata+One&display=swap" rel="stylesheet">
 <style>
-  :root{--bg:#0B0B0D;--cream:#F4EBD9;--orange:#FF6A1A;--blue:#7BA3FF;}
-  *{box-sizing:border-box;margin:0;padding:0}
-  html,body{height:100%;background:var(--bg);color:var(--cream);overflow:hidden}
-  body{font-family:'Space Mono',monospace;display:flex;align-items:center;justify-content:center;position:relative}
+body{margin:0}
+a{color:#F2EEE6}a:hover{color:#FFFFFF}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-12px) rotate(1deg)}}
+@keyframes walk{0%,100%{transform:translateY(0) rotate(-4deg)}25%{transform:translateY(-10px) rotate(0deg)}50%{transform:translateY(0) rotate(4deg)}75%{transform:translateY(-10px) rotate(0deg)}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes marqueeR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+@keyframes stamp{0%,100%{transform:rotate(-12deg) scale(1)}50%{transform:rotate(-9deg) scale(1.06)}}
+@keyframes wiggle{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes drift{0%,100%{transform:rotate(-4deg) scale(1)}50%{transform:rotate(3deg) scale(1.03)}}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0.25}}
+@keyframes fill{0%{width:0}100%{width:14%}}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-14px) rotate(-2deg)}}
+@keyframes peekup{0%,60%,100%{transform:translateY(40px)}70%,90%{transform:translateY(0)}}
+@keyframes slowzoom{0%,100%{transform:scale(1.08)}50%{transform:scale(1.16)}}
+.dossier{transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.cube{transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.cube:hover{transform:rotate(0deg) scale(1.045) !important;z-index:3}
+.cube:hover img.ph{transform:scale(1.06)}
+.dossier img.ph{transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+/* bandes scolaire + pro */
+.band-da:hover{transform:rotate(0deg) scale(1.015) !important}
+.band-da .bd-dots{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(120,90,50,.12) 1px,transparent 1.4px);background-size:8px 8px}
+.band-da .bd-ttl{transition:translate .4s cubic-bezier(.3,1.6,.5,1)}
+.band-da:hover .bd-ttl{translate:10px 0}
+.band-da .bd-l{position:absolute;font-family:'Anton',sans-serif;font-size:72px;line-height:.85;padding:6px 9px 0;rotate:var(--r);clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));filter:drop-shadow(4px 5px 0 rgba(18,18,20,.2));transition:rotate .45s cubic-bezier(.3,1.6,.5,1),translate .45s cubic-bezier(.3,1.6,.5,1)}
+.band-da:hover .bd-l{rotate:var(--hr);translate:0 var(--hy)}
+.band-da:hover .bd-l:nth-child(2){transition-delay:.04s}.band-da:hover .bd-l:nth-child(3){transition-delay:.08s}.band-da:hover .bd-l:nth-child(4){transition-delay:.12s}
+.band-da .bd-tape{position:absolute;left:80px;top:-4px;width:80px;height:20px;background:rgba(255,246,200,.85);rotate:-6deg;opacity:0;translate:0 -20px;transition:opacity .3s,translate .4s cubic-bezier(.3,1.6,.5,1)}
+.band-da:hover .bd-tape{opacity:1;translate:0 0}
+.band-sco:hover,.band-pro:hover{transform:rotate(0deg) scale(1.015) !important}
+.band-sco .bs-ttl{white-space:nowrap;transition:translate .4s cubic-bezier(.3,1.6,.5,1)}
+.band-sco:hover .bs-ttl{translate:10px 0}
+.band-sco .bs-yr{background-image:linear-gradient(#FFE45C,#FFE45C);background-repeat:no-repeat;background-position:0 78%;background-size:0% 42%;transition:background-size .5s cubic-bezier(.6,0,.3,1)}
+.band-sco:hover .bs-yr{background-size:100% 42%}
+.band-sco .bs-ph{transition:rotate .45s cubic-bezier(.3,1.6,.5,1),translate .45s cubic-bezier(.3,1.6,.5,1),box-shadow .3s}
+.band-sco:hover .bs-ph.a{rotate:-7deg;translate:-16px -10px;box-shadow:6px 6px 0 #3A63D8}
+.band-sco:hover .bs-ph.b{rotate:6deg;translate:10px -16px;box-shadow:6px 6px 0 #121214}
+.band-sco .bs-lines{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(58,99,216,.16) 1.5px,transparent 1.5px);background-size:100% 30px;opacity:0;transition:opacity .4s}
+.band-sco:hover .bs-lines{opacity:1}
+.band-sco .bs-margin{position:absolute;top:0;bottom:0;left:0;width:3px;background:#E63946;transform:scaleY(0);transform-origin:top;transition:transform .5s cubic-bezier(.6,0,.3,1)}
+.band-sco:hover .bs-margin{transform:scaleY(1)}
+.band-pro .bp-stripe{overflow:hidden}
+.band-pro .bp-stripe::before{content:'';position:absolute;left:0;right:0;top:-68px;bottom:0;background:repeating-linear-gradient(-45deg,#FF5A1F 0 12px,#1C1C20 12px 24px);will-change:transform}
+@keyframes bpstripe{from{transform:translateY(0)}to{transform:translateY(33.941px)}}
+.band-pro:hover .bp-stripe::before{animation:bpstripe .55s linear infinite}
+@keyframes bpcorner{0%,100%{filter:brightness(1)}50%{filter:brightness(1.35)}}
+.band-pro:hover .bp-corner{animation:bpcorner .8s ease-in-out infinite}
+.band-pro .bp-ttl{transition:translate .4s cubic-bezier(.3,1.6,.5,1)}
+.band-pro:hover .bp-ttl{translate:14px 0}
+.band-pro .bp-word{display:inline-block;transition:letter-spacing .4s cubic-bezier(.3,1.6,.5,1),text-shadow .3s}
+.band-pro:hover .bp-word{letter-spacing:.03em;text-shadow:4px 4px 0 #3A1408}
+.band-pro .bp-sheets{transition:translate .45s cubic-bezier(.3,1.6,.5,1)}
+.band-pro:hover .bp-sheets{translate:-10px -8px}
+.band-pro:hover .pf-sheet{animation-duration:1.1s}
+.dossier:hover img.ph{transform:scale(1.06)}
+.chibi-btn{transition:scale .12s cubic-bezier(.3,1.6,.5,1)}
+.chibi-btn:active{scale:0.92}
+.logo-hd{transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.logo-hd:hover{transform:rotate(-8deg) scale(1.1)}
+.soft{transition:transform .3s}
+.soft:hover{transform:translateY(-4px) rotate(-1deg)}
+.btnz{display:inline-block;transition:transform .2s cubic-bezier(.3,1.6,.5,1),filter .2s}
+.btnz:hover{transform:rotate(0deg) scale(1.12) !important;filter:brightness(1.1)}
+.btnz:active{transform:scale(0.94) !important}
+.fp-photo{transition:transform .3s cubic-bezier(.3,1.5,.5,1),filter .3s}
+.fp-photo:hover{transform:rotate(0deg) scale(1.04) !important;filter:saturate(1.3)}
+.fp-sticker{animation:fpstk 3.2s ease-in-out infinite;transition:transform .2s}
+@keyframes fpstk{0%,100%{transform:rotate(10deg) translateY(0)}50%{transform:rotate(-4deg) translateY(-8px)}}
+.fp-sticker:hover{animation:fpspin .8s cubic-bezier(.3,1.4,.5,1) 1}
+@keyframes fpspin{from{transform:rotate(10deg) scale(1)}60%{transform:rotate(390deg) scale(1.2)}to{transform:rotate(370deg) scale(1)}}
+.fp-caret{animation:fpblink 1s steps(1) infinite;margin-left:2px}
+@keyframes fpblink{50%{opacity:0}}
+.fp-dot{display:inline-block;color:#FF5A1F;animation:fpdot 1.4s cubic-bezier(.3,1.6,.5,1) infinite}
+@keyframes fpdot{0%,70%,100%{transform:translateY(0) scale(1)}35%{transform:translateY(-22px) scale(1.15)}}
+.fp-card{transition:transform .2s cubic-bezier(.3,1.6,.5,1)}
+.fp-card:hover{transform:scale(1.05) rotate(-1deg)}
+.cnt{font-variant-numeric:tabular-nums}
+.st{position:relative;transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+.st:hover{transform:rotate(0deg) scale(1.07) translateY(-4px) !important;z-index:2}
+.st-bar{height:3px;margin-top:8px;opacity:.55;transform-origin:left;transform:scaleX(var(--p,1))}
+.pi{transition:transform .3s cubic-bezier(.3,1.6,.5,1)}
+.pi:hover{transform:rotate(0deg) !important}
+.pi-solo,.pi-pan{transition:transform .3s cubic-bezier(.3,1.6,.5,1),box-shadow .3s}
+.pi-solo:hover{transform:translateY(-4px) rotate(-1deg);box-shadow:0 0 22px rgba(122,60,255,.6)}
+.pi-solo::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(183,155,255,.35),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}
+.pi-solo:hover::after{opacity:1}
+.pi-go{position:absolute;right:10px;bottom:8px;font-size:10px;font-weight:700;letter-spacing:.12em;color:#B79BFF;opacity:0;transform:translateX(-6px);transition:opacity .25s,transform .25s}
+.pi-solo:hover .pi-go{opacity:1;transform:none}
+.pi-pan:hover{transform:translateY(-4px) rotate(1deg)}
+.pi-pan:hover .pi-pan-t{animation:panfl .9s steps(1) infinite}
+@keyframes panfl{0%,100%{opacity:1}20%{opacity:.35}25%{opacity:1}60%{opacity:.5}63%{opacity:1}}
+.dip{position:relative;overflow:hidden;transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+.dip:hover{transform:scale(1.04) rotate(-1deg)}
+.dip-gold{background:linear-gradient(115deg,#7A5410 0%,#D4A12A 22%,#FFE7A0 38%,#E2B33C 52%,#A8761A 72%,#F5D27A 100%);background-size:220% 100%;animation:dipgold 6s ease-in-out infinite;color:#2A1A00;border:3px solid #121214;box-shadow:0 0 26px rgba(255,200,60,.55)}
+.dip-gold::before{content:'';position:absolute;top:-20%;bottom:-20%;left:-40%;width:28%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.85),transparent);transform:skewX(-20deg);animation:dipshine 2.8s ease-in-out infinite;pointer-events:none}
+.dip-gold:hover{transform:scale(1.07) rotate(-1.5deg);box-shadow:0 0 44px rgba(255,200,60,.85)}
+.dip-star{position:absolute;color:#FFF6CF;font-size:16px;text-shadow:0 0 8px #FFD34D;animation:dipstar 1.8s ease-in-out infinite;pointer-events:none}
+.dip-rib{display:inline-block;background:#121214;color:#FFD34D;font-size:11px;font-weight:700;letter-spacing:.14em;padding:4px 12px;clip-path:polygon(0 0,100% 0,94% 100%,0 100%)}
+@keyframes dipgold{0%,100%{background-position:0% 0}50%{background-position:100% 0}}
+@keyframes dipshine{0%{left:-40%}60%,100%{left:130%}}
+@keyframes dipstar{0%,100%{opacity:.2;scale:.5;rotate:0deg}50%{opacity:1;scale:1.15;rotate:45deg}}
+.fp-chip{transition:transform .2s cubic-bezier(.3,1.6,.5,1),background .2s}
+.fp-chip:hover{transform:translateY(-4px) scale(1.08) rotate(-2deg);background:#2A2A30 !important}
+.fp-ico{transition:transform .45s cubic-bezier(.3,1.5,.5,1)}
+.fp-chip:hover .fp-ico{transform:rotate(360deg) scale(1.25)}
+.ct-wrap{position:relative;display:inline-block;z-index:3}
+.ct-btn{position:relative;z-index:2;display:inline-block;transition:transform .2s cubic-bezier(.3,1.6,.5,1)}
+.ct-wrap:hover .ct-btn{transform:rotate(0deg) scale(1.08) !important}
+.ct-chibi{position:absolute;left:50%;top:50%;margin:-45px 0 0 -26px;z-index:1;opacity:0;transform:translate(0,0) scale(.3) rotate(0);transition:transform .35s cubic-bezier(.3,1.6,.5,1),opacity .2s;pointer-events:none}
+.ct-wrap:hover .ct-chibi{opacity:1;transform:translate(var(--x),var(--y)) scale(1) rotate(var(--r))}
+.ct-chibi img{animation:ctshake .18s linear infinite}
+@keyframes ctshake{0%,100%{transform:translate(0,0) rotate(0)}25%{transform:translate(-2px,1px) rotate(-4deg)}50%{transform:translate(2px,-1px) rotate(3deg)}75%{transform:translate(-1px,-2px) rotate(-2deg)}}
+.fuir{display:inline-block;position:relative;z-index:0;transition:transform .2s cubic-bezier(.3,1.6,.5,1),background .2s,color .2s}
+.fuir:hover{background:#E8302A !important;color:#FFFFFF !important;transform:rotate(0deg) scale(1.15) !important}
+.ft-q{display:inline-block;color:#FF8FCB;animation:ftq 2s ease-in-out infinite;transform-origin:50% 90%}
+@keyframes ftq{0%,100%{transform:rotate(-10deg)}50%{transform:rotate(12deg)}}
+.ft-pink{animation:ftpink 3s ease-in-out infinite}
+@keyframes ftpink{0%,100%{transform:rotate(-1.5deg) translateY(0)}50%{transform:rotate(1deg) translateY(-4px)}}
+.ft-soc{display:inline-block;transition:transform .2s cubic-bezier(.3,1.6,.5,1),color .2s}
+.ft-soc:hover{color:#FF8FCB !important;transform:translateY(-5px) rotate(-4deg)}
+.ft-big{animation:ftbig 14s ease-in-out infinite}
+@keyframes ftbig{0%,100%{transform:translateX(0)}50%{transform:translateX(-60px)}}
+.fl-ov{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;background:rgba(10,10,12,0);transition:background .3s;overflow:hidden}
+.fl-ov.on{display:flex}
+.fl-ov.dim{background:rgba(10,10,12,.65)}
+.fl-win{width:520px;background:#F2EEE6;color:#121214;box-shadow:10px 10px 0 #FF5A1F;transform:scale(.6);opacity:0;transition:transform .35s cubic-bezier(.3,1.6,.5,1),opacity .2s}
+.fl-ov.dim .fl-win{transform:scale(1);opacity:1}
+.fl-ov.swept .fl-win{visibility:hidden}
+.fl-shard{position:absolute;margin:0;pointer-events:none;will-change:transform}
+.fl-cw{position:absolute;left:calc(50% + 200px);top:50%;margin-top:-90px;width:150px;height:260px;transform:translateX(120vw);transform-origin:50% 100%}
+.fl-chibi{width:150px;height:260px;object-fit:contain;display:block;transform-origin:50% 100%}
+.fl-ov.chibi .fl-cw{animation:flIn .5s cubic-bezier(.2,1.2,.4,1) forwards}
+@keyframes flIn{0%{transform:translateX(70vw) rotate(-10deg)}55%{transform:translateX(-30px) rotate(-6deg)}75%{transform:translateX(10px) rotate(4deg)}100%{transform:translateX(0) rotate(0)}}
+.fl-ov.chibi .fl-chibi{animation:flLand .5s ease-out .35s, flAngry .14s linear .85s infinite}
+@keyframes flLand{0%{transform:scale(1,1)}30%{transform:scale(1.15,.82)}60%{transform:scale(.92,1.1)}100%{transform:scale(1,1)}}
+@keyframes flAngry{0%,100%{transform:translate(0,0) rotate(0)}25%{transform:translate(-2px,0) rotate(-2deg)}75%{transform:translate(2px,0) rotate(2deg)}}
+.fl-ov.wind .fl-cw{animation:flWind .25s ease-out forwards}
+@keyframes flWind{from{transform:translateX(0) rotate(0)}to{transform:translateX(30px) rotate(14deg)}}
+.fl-ov.wind .fl-chibi{animation:none;transform:scale(1.05,.95)}
+.fl-ov.swept .fl-cw{animation:flSwing .45s cubic-bezier(.5,0,.3,1.3) forwards}
+@keyframes flSwing{0%{transform:translateX(30px) rotate(14deg)}60%{transform:translateX(-230px) rotate(-38deg)}100%{transform:translateX(-200px) rotate(-24deg)}}
+.fl-ov.swept .fl-chibi{animation:none;transform:none}
+.fl-ov.exit .fl-cw{animation:flOut .5s cubic-bezier(.5,-0.4,.8,.6) forwards}
+@keyframes flOut{0%{transform:translateX(-200px) rotate(-24deg)}35%{transform:translate(-190px,-60px) rotate(8deg)}100%{transform:translate(60vw,40px) rotate(20deg)}}
+.fl-bubble{position:absolute;top:calc(50% - 150px);right:calc(50% - 380px);background:#FFFFFF;color:#121214;font-family:'Gochi Hand',cursive;font-size:22px;padding:8px 14px;opacity:0;transform:scale(.5);transition:opacity .2s,transform .25s cubic-bezier(.3,1.6,.5,1)}
+.fl-ov.chibi .fl-bubble{opacity:1;transform:scale(1) rotate(3deg);transition-delay:.4s}
+.fl-ov.swept .fl-bubble{opacity:0;transition-delay:0s}
+.ml-ov{position:fixed;inset:0;z-index:9998;display:none;align-items:center;justify-content:center;background:rgba(10,10,12,0);transition:background .25s;cursor:pointer}
+.ml-ov.on{display:flex}
+.ml-ov.show{background:rgba(10,10,12,.65)}
+.ml-win{width:540px;background:#F2EEE6;color:#121214;box-shadow:10px 10px 0 #FF8FCB;transform:scale(.6) rotate(-3deg);opacity:0;transition:transform .35s cubic-bezier(.3,1.6,.5,1),opacity .2s;cursor:default}
+.ml-ov.show .ml-win{transform:scale(1) rotate(-1deg);opacity:1}
+.ml-x{appearance:none;border:0;background:transparent;font:inherit;font-size:16px;cursor:pointer;color:inherit;transition:transform .2s}
+.ml-x:hover{transform:scale(1.3) rotate(90deg)}
+.ml-btn{appearance:none;border:0;padding:10px 22px;font-family:'Anton',sans-serif;font-size:18px;cursor:pointer;display:inline-block;transition:transform .2s cubic-bezier(.3,1.6,.5,1)}
+.ml-btn:hover{transform:scale(1.08) rotate(-2deg)}
+.tp-ov{position:fixed;inset:0;z-index:9997;display:none;flex-direction:column;pointer-events:none}
+.tp-ov.on{display:flex;pointer-events:auto}
+.tp-band{flex:1;transform:translateX(-102%) skewX(-12deg);transition:transform .32s cubic-bezier(.7,0,.3,1);transition-delay:var(--d)}
+.tp-ov.in .tp-band{transform:translateX(0) skewX(0)}
+.tp-ov.out .tp-band{transform:translateX(102%) skewX(-12deg)}
+.tp-lbl{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.6) rotate(-4deg);font-family:'Anton',sans-serif;font-size:120px;line-height:1;color:#121214;background:#F2EEE6;padding:6px 34px;clip-path:polygon(4% 0,100% 0,96% 100%,0 100%);opacity:0;transition:opacity .15s,transform .25s cubic-bezier(.3,1.6,.5,1)}
+.tp-ov.in .tp-lbl{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(-2deg);transition-delay:.22s}
+.tp-ov.out .tp-lbl{opacity:0;transition-delay:0s}
+.hd{transition:transform .3s cubic-bezier(.3,1,.4,1),box-shadow .3s}
+.hd.hd-fixed{position:fixed !important;top:0;left:0;width:1440px;box-sizing:border-box;background:#121214;z-index:60 !important;box-shadow:0 6px 0 rgba(0,0,0,.25);transform:translateY(-110%)}
+.hd.hd-fixed.hd-show{transform:translateY(0)}
+.hd.hd-fixed.hd-instant{transition:none}
+.tc-area{position:absolute;right:20px;bottom:10px;width:560px;height:340px;z-index:4;pointer-events:none}
+.tc-area.playing{pointer-events:auto;cursor:crosshair}
+.tc-start{pointer-events:auto;appearance:none;border:0;cursor:pointer;background:#FF5A1F;color:#1A0800;font-family:'Anton',sans-serif;font-size:22px;line-height:1.05;padding:8px 18px 10px 14px;text-align:left;clip-path:polygon(0 0,100% 0,94% 100%,0 100%);transform:rotate(-3deg);transition:transform .2s cubic-bezier(.3,1.6,.5,1)}
+.tc-start:hover{transform:rotate(0deg) scale(1.1)}
+.tc-start:active{transform:scale(.92)}
+.tc-logo{transition:filter .2s}
+.tc-logo:hover{filter:drop-shadow(0 0 10px rgba(242,238,230,.35))}
+.tc-logo:active{scale:.92}
+.tc-hud{position:absolute;left:0;top:0;display:none;gap:10px;font-family:'Anton',sans-serif;font-size:26px;pointer-events:none}
+.tc-area.playing .tc-hud{display:flex}
+.tc-time{background:#F2EEE6;color:#121214;padding:2px 12px}
+.tc-score{background:#FF5A1F;color:#1A0800;padding:2px 14px;min-width:30px;text-align:center}
+.tc-score.bump{animation:tcbump .25s cubic-bezier(.3,1.6,.5,1)}
+@keyframes tcbump{50%{transform:scale(1.35) rotate(-6deg)}}
+.tc-chibi{position:absolute;width:62px;height:108px;object-fit:contain;cursor:pointer;transform-origin:50% 100%;animation:tcpop .25s cubic-bezier(.3,1.6,.5,1) both;filter:drop-shadow(0 4px 0 rgba(0,0,0,.35))}
+@keyframes tcpop{from{transform:translateY(30px) scale(.2)}to{transform:none}}
+.tc-chibi.bye{animation:tcbye .18s ease-in forwards}
+@keyframes tcbye{to{transform:translateY(20px) scale(.2);opacity:0}}
+.tc-chibi.hit{animation:tchit .3s ease-out forwards}
+@keyframes tchit{0%{transform:scale(1.25,.7)}100%{transform:scale(.1) rotate(25deg);opacity:0}}
+.tc-plus{position:absolute;font-family:'Anton',sans-serif;font-size:30px;color:#FF5A1F;pointer-events:none;animation:tcplus .6s ease-out forwards}
+@keyframes tcplus{to{transform:translateY(-50px);opacity:0}}
+.tc-end{position:absolute;right:20px;top:20px;width:300px;display:none;flex-direction:column;align-items:flex-end;gap:8px;pointer-events:auto;text-align:right}
+.tc-area.ended .tc-end{display:flex;animation:tcpop .3s cubic-bezier(.3,1.6,.5,1)}
+.tc-end-score{font-family:'Anton',sans-serif;font-size:72px;line-height:.9;color:#FF5A1F}
+.tc-end-msg{font-family:'Gochi Hand',cursive;font-size:22px;line-height:1.15;background:#F2EEE6;color:#121214;padding:6px 12px;transform:rotate(-2deg)}
+.tc-again{position:static;transform:rotate(-2deg)}
+.tc-area.locked .tc-again{opacity:.4;pointer-events:none}
+.tc-area.fading .tc-end{opacity:0;transform:translateY(10px);transition:opacity .3s,transform .3s}
+html,body{background:#121214;overflow-x:hidden}
+.lw{text-shadow:0 0 0 rgba(255,143,203,0);animation:ftpink 3s ease-in-out infinite, lwglow 2.6s ease-in-out infinite}
+@keyframes lwglow{0%,100%{text-shadow:0 0 0 rgba(255,143,203,0)}50%{text-shadow:0 0 14px rgba(255,143,203,.55)}}
+.lw-c{display:inline-block;animation:lwwave 2.4s ease-in-out infinite}
+@keyframes lwwave{0%,100%{transform:translateY(0) rotate(0)}25%{transform:translateY(-5px) rotate(-3deg)}50%{transform:translateY(0) rotate(0)}75%{transform:translateY(3px) rotate(2deg)}}
+.lw-h{position:absolute;bottom:20px;color:#FF8FCB;opacity:0;pointer-events:none;animation:lwheart 3.2s ease-out infinite}
+@keyframes lwheart{0%{transform:translate(0,0) scale(.4);opacity:0}15%{opacity:.9}100%{transform:translate(-10px,-70px) scale(1.1) rotate(-15deg);opacity:0}}
+.cf-win{box-shadow:10px 10px 0 #FF5A1F}
+.cf-in{appearance:none;border:2px solid #121214;background:#FFFFFF;color:#121214;font-family:'Space Mono',monospace;font-size:14px;padding:9px 11px;outline:none;resize:vertical;transition:box-shadow .15s,border-color .15s}
+.cf-in:focus{box-shadow:4px 4px 0 #FF5A1F}
+.cf-in.bad{border-color:#E8302A;box-shadow:4px 4px 0 #E8302A}
+.cf-err{font-size:12px;color:#E8302A;font-weight:700}
+.cf-win.sending .cf-send{opacity:.6;pointer-events:none}
+.cf-win.done .cf-body{display:none !important}
+.cf-win.done .cf-done{display:flex !important;animation:tcpop .35s cubic-bezier(.3,1.6,.5,1)}
+.pf-sheet{transform:rotate(var(--r));animation:pfsheet 3.4s ease-in-out infinite}
+@keyframes pfsheet{0%,100%{transform:translateY(0) rotate(var(--r))}50%{transform:translateY(-8px) rotate(calc(var(--r) * 0.6))}}
+[data-hov]{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
+.cls{transform:rotate(-2.5deg);cursor:default}
+.cls-in{transform-origin:0% 100%;transition:scale .3s cubic-bezier(.3,1.6,.5,1),background .25s}
+.cls:hover .cls-in{scale:1.1;background:#7BA3FF !important;animation:clsdance .8s ease-in-out infinite}
+@keyframes clsdance{0%,100%{transform:rotate(0deg) translateY(0)}25%{transform:rotate(2deg) translateY(8px)}50%{transform:rotate(0deg) translateY(0)}75%{transform:rotate(4deg) translateY(8px)}}
+.cls-w{display:inline-block}
+.cls:hover .cls-w{animation:clsword .4s ease-in-out infinite alternate;animation-delay:var(--d)}
+@keyframes clsword{0%{transform:translateY(0) rotate(0)}100%{transform:translateY(5px) rotate(-3deg)}}
+.cls:hover .cls-t{animation:clstag .4s steps(2) infinite}
+@keyframes clstag{0%{letter-spacing:.14em}100%{letter-spacing:.3em}}
+.rn{pointer-events:none}
+.rn .rl{display:inline-block;position:relative;pointer-events:none;transform-origin:50% 90%;transition:scale .35s cubic-bezier(.3,1.5,.5,1),color .25s}
+.rn .rl::after{content:"";position:absolute;left:4%;right:4%;top:20%;bottom:5%;pointer-events:auto}
+.rn:hover .rl{scale:.86}
+.rn .rl:hover{scale:1.22;color:#FFFFFF}
+html,body,body *{cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2222%22%20height%3D%2222%22%20viewBox%3D%220%200%2034%2034%22%3E%3Cpolygon%20points%3D%223%2C3%203%2C27%2010%2C21%2015%2C31%2020%2C29%2015%2C19%2025%2C19%22%20transform%3D%22translate%283%203%29%22%20fill%3D%22%23FF5A1F%22/%3E%3Cpolygon%20points%3D%223%2C3%203%2C27%2010%2C21%2015%2C31%2020%2C29%2015%2C19%2025%2C19%22%20fill%3D%22%23F2EEE6%22%20stroke%3D%22%23121214%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22/%3E%3C/svg%3E") 3 3, auto !important}
+a,a *,button,button *,label,select,summary,[role="button"],[style*="cursor: pointer"],[style*="cursor: pointer"] *,.chibi-btn,.btnz,.chap,.z{cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2222%22%20height%3D%2222%22%20viewBox%3D%220%200%2034%2034%22%3E%3Cpolygon%20points%3D%223%2C3%203%2C27%2010%2C21%2015%2C31%2020%2C29%2015%2C19%2025%2C19%22%20transform%3D%22translate%283%203%29%22%20fill%3D%22%23F2EEE6%22/%3E%3Cpolygon%20points%3D%223%2C3%203%2C27%2010%2C21%2015%2C31%2020%2C29%2015%2C19%2025%2C19%22%20fill%3D%22%23FF5A1F%22%20stroke%3D%22%23121214%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22/%3E%3C/svg%3E") 3 3, pointer !important}
+input[type="text"],input[type="email"],textarea{cursor:text !important}
+.pr-wrap{position:relative;display:inline-flex;z-index:4;transition:transform .2s cubic-bezier(.3,1.6,.5,1)}
+.pr-wrap:hover{transform:translateY(-4px) scale(1.08) rotate(-2deg)}
+.pr-wrap:hover .pr-chip{transform:none !important}
+.pr-chip{outline:1px solid rgba(153,153,255,.6);outline-offset:-1px}
+.pr-best{position:absolute;left:50%;top:-16px;transform:translateX(-50%) rotate(-3deg);white-space:nowrap;background:transparent;color:#6C63C8;font-family:'Gochi Hand',cursive;font-size:11px;line-height:1;padding:0;opacity:.75;animation:prbest 2.4s ease-in-out infinite;pointer-events:none}
+@keyframes prbest{0%,100%{opacity:.6}50%{opacity:1}}
+.pr-wrap:hover .pr-best{animation-duration:.9s;opacity:1}
 
-  /* grain + grille */
-  body::before{content:"";position:fixed;inset:0;background-image:
-    linear-gradient(rgba(244,235,217,.05) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(244,235,217,.05) 1px,transparent 1px);
-    background-size:48px 48px;pointer-events:none}
-  body::after{content:"";position:fixed;inset:0;background:radial-gradient(ellipse at center,transparent 40%,rgba(0,0,0,.65) 100%);pointer-events:none}
-
-  /* bandes hazard haut / bas */
-  .hz{position:fixed;left:0;right:0;height:34px;z-index:5;
-    background:repeating-linear-gradient(-45deg,var(--orange) 0 22px,#0B0B0D 22px 44px);
-    background-size:62px 62px;animation:hz 1.2s linear infinite}
-  .hz.t{top:0}.hz.b{bottom:0;animation-direction:reverse}
-  @keyframes hz{to{background-position:62px 0}}
-
-  /* bandeaux inclinés */
-  .band{position:fixed;left:-5%;width:110%;z-index:1;white-space:nowrap;overflow:hidden;
-    font-weight:700;font-size:13px;letter-spacing:.2em;padding:9px 0;text-transform:uppercase}
-  .band span{display:inline-block;animation:mq 22s linear infinite}
-  .band.a{top:16%;transform:rotate(-4deg);background:var(--blue);color:#0B0B0D}
-  .band.b{bottom:15%;transform:rotate(3deg);background:var(--cream);color:#0B0B0D}
-  .band.b span{animation-direction:reverse;animation-duration:28s}
-  @keyframes mq{to{transform:translateX(-50%)}}
-
-  /* carte centrale en coins coupés */
-  .card{position:relative;z-index:3;width:min(720px,88vw);padding:56px 48px 44px;text-align:center;
-    background:var(--bg);border:0;
-    clip-path:polygon(28px 0,100% 0,100% calc(100% - 28px),calc(100% - 28px) 100%,0 100%,0 28px);
-    box-shadow:0 0 0 2px var(--cream);outline:2px solid var(--cream);outline-offset:-2px;
-    animation:pop .7s cubic-bezier(.2,1.4,.4,1) both}
-  .card::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--bg);
-    clip-path:polygon(28px 0,100% 0,100% calc(100% - 28px),calc(100% - 28px) 100%,0 100%,0 28px)}
-  .frame{position:absolute;inset:-2px;z-index:-2;background:var(--cream);
-    clip-path:polygon(28px 0,100% 0,100% calc(100% - 28px),calc(100% - 28px) 100%,0 100%,0 28px)}
-  @keyframes pop{from{opacity:0;transform:scale(.9) rotate(-2deg)}to{opacity:1;transform:none}}
-
-  .tag{display:inline-block;background:var(--orange);color:#0B0B0D;font-weight:700;font-size:12px;
-    letter-spacing:.18em;padding:6px 14px;transform:rotate(-2deg);margin-bottom:22px;
-    clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%)}
-
-  h1{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(64px,14vw,150px);line-height:.92;
-    letter-spacing:.01em;text-transform:uppercase;position:relative;display:inline-block}
-  h1::before,h1::after{content:attr(data-t);position:absolute;left:0;top:0;width:100%;overflow:hidden}
-  h1::before{color:var(--blue);animation:gl1 3.2s infinite steps(1);clip-path:inset(0 0 60% 0)}
-  h1::after{color:var(--orange);animation:gl2 3.2s infinite steps(1);clip-path:inset(60% 0 0 0)}
-  @keyframes gl1{0%,90%,100%{transform:translate(0)}92%{transform:translate(-5px,1px)}95%{transform:translate(4px,-1px)}}
-  @keyframes gl2{0%,86%,100%{transform:translate(0)}88%{transform:translate(5px,-1px)}93%{transform:translate(-4px,1px)}}
-
-  .sub{font-family:'Anton',sans-serif;font-size:clamp(20px,4vw,34px);letter-spacing:.08em;
-    color:var(--orange);margin-top:14px;text-transform:uppercase}
-  p{margin:20px auto 0;max-width:480px;font-size:14px;line-height:1.6;color:rgba(244,235,217,.8)}
-
-  /* barre de progression */
-  .bar{margin:30px auto 0;max-width:480px;height:18px;border:2px solid var(--cream);padding:2px;position:relative;
-    clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%)}
-  .bar i{display:block;height:100%;width:0;background:repeating-linear-gradient(-45deg,var(--orange) 0 10px,#0B0B0D 10px 20px);
-    background-size:28px 28px;animation:fill 2.6s .5s cubic-bezier(.3,.8,.3,1) forwards,hz 1s linear infinite}
-  @keyframes fill{to{width:72%}}
-  .pct{font-size:11px;letter-spacing:.2em;margin-top:8px;color:var(--blue);text-transform:uppercase}
-
-  .foot{margin-top:28px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(244,235,217,.55)}
-  .foot b{color:var(--cream)}
-  .blink{animation:bl 1s steps(1) infinite}
-  @keyframes bl{50%{opacity:0}}
-
-  @media (max-width:560px){.card{padding:44px 22px 34px}.band{font-size:11px}}
-  @media (prefers-reduced-motion:reduce){*{animation:none!important}.bar i{width:72%}}
+/* panneau en construction */
+.wip{position:absolute;z-index:6;display:flex;align-items:center;gap:12px;pointer-events:none}
+.wip-sign{position:relative;width:96px;height:96px;flex:0 0 96px;animation:wipwob 2.6s ease-in-out infinite;transform-origin:50% 100%}
+.wip-sign::before{content:'';position:absolute;inset:12px;background:#FFC21A;border:5px solid #121214;transform:rotate(45deg);box-shadow:6px 6px 0 rgba(0,0,0,.45)}
+.wip-sign svg{position:absolute;left:50%;top:50%;width:46px;height:46px;margin:-23px 0 0 -23px}
+.wip-tape{display:flex;flex-direction:column;gap:4px}
+.wip-lbl{font-family:'Anton',sans-serif;font-size:26px;line-height:1;padding:6px 16px;color:#121214;background:repeating-linear-gradient(-45deg,#FFC21A 0 14px,#121214 14px 28px);position:relative}
+.wip-lbl span{background:#FFC21A;padding:0 8px}
+.wip-sub{align-self:flex-start;font-family:'Gochi Hand',cursive;font-size:18px;color:#121214;background:#F2EEE6;padding:2px 10px;transform:rotate(-2deg)}
+@keyframes wipwob{0%,100%{rotate:-6deg}50%{rotate:6deg}}
+.dossier:hover .wip-sign{animation-duration:.6s}
 </style>
+<style>x-dc{display:contents}</style>
 </head>
 <body>
+<x-dc>
 
-<div class="hz t"></div>
-<div class="hz b"></div>
+<div id="haut" style="width: 1440px; min-height: 5650px; background: #121214; color: #F2EEE6; font-family: 'Space Mono', monospace; overflow: hidden; position: relative">
 
-<div class="band a"><span>★ EN TRAVAUX ★ BOOK EN CONSTRUCTION ★ EN TRAVAUX ★ BOOK EN CONSTRUCTION ★ EN TRAVAUX ★ BOOK EN CONSTRUCTION ★ EN TRAVAUX ★ BOOK EN CONSTRUCTION </span></div>
-<div class="band b"><span>MONTEUR ◆ DESIGNER ◆ 3D ◆ MONTEUR ◆ DESIGNER ◆ 3D ◆ MONTEUR ◆ DESIGNER ◆ 3D ◆ MONTEUR ◆ DESIGNER ◆ 3D ◆ MONTEUR ◆ DESIGNER ◆ 3D ◆ </span></div>
+<div data-dc-ref="{{hdWrapRef}}" class="hd-wrap">
+<header data-dc-ref="{{hdRef}}" class="hd" style="display: flex; align-items: center; justify-content: space-between; padding: 26px 48px; position: relative; z-index: 5">
+<a href="#haut" class="logo-hd" style="display: flex; align-items: center; gap: 14px; text-decoration: none">
+<img src="/assets/logo_solid_cream.webp" alt="Logo de Romain" style="width: 52px; height: 44px; object-fit: contain">
+<span style="font-family: 'Anton', sans-serif; font-size: 34px; letter-spacing: 0.02em; line-height: 1">ROMAIN</span>
+</a>
+<nav aria-label="Navigation principale" style="display: flex; gap: 10px">
+<a class="btnz" href="#dossiers" data-dc-onclick="{{go.dossiers}}" style="background: #F2EEE6; color: #121214; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 20px; padding: 10px 26px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-2deg)">01 PROJETS</a>
+<a class="btnz" href="#moi" data-dc-onclick="{{go.moi}}" style="background: #5B8CFF; color: #0B1030; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 20px; padding: 10px 26px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(1.5deg)">02 C'EST MOI</a>
+<a class="btnz" href="#contact" data-dc-onclick="{{go.contact}}" style="background: #FF5A1F; color: #1A0800; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 20px; padding: 10px 26px; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-1deg)">03 CONTACT</a>
+</nav>
+<div style="font-size: 12px; letter-spacing: 0.1em; text-align: right; line-height: 1.6"><span style="color: #B6F23C; animation: blink 1.2s infinite">●</span> DISPO POUR DES PROJETS<br><span style="color: #A9A49B">2022 — 2026</span></div>
+</header>
+</div>
 
-<main class="card">
-  <div class="frame"></div>
-  <div class="tag">// SITE EN CONSTRUCTION</div>
-  <h1 data-t="ROMAIN">ROMAIN</h1>
-  <div class="sub">Le book arrive bientôt</div>
-  <p>Je monte des vidéos, je fais des covers, je dessine des trucs et des mondes en 3D. Chaque projet aura son propre univers. Reviens vite&nbsp;!</p>
-  <div class="bar"><i></i></div>
-  <div class="pct">chargement du book… 72%<span class="blink"> _</span></div>
-  <div class="foot">Contact : <b>contact@roomaaaain.fr</b></div>
-</main>
+<section style="position: relative; height: 880px">
+<div data-dc-ref="{{plxRef}}" aria-hidden="true" class="plx" style="position: absolute; left: 760px; top: 150px; width: 600px; height: 560px; perspective: 900px; pointer-events: none">
+<div class="plx-tilt" style="position: absolute; inset: 0; transform-style: preserve-3d">
+<img class="plx-l" data-d="-0.5" src="/assets/logo_cream.webp" alt="" style="position: absolute; inset: 0; width: 600px; height: 560px; object-fit: contain; opacity: 0.05; filter: blur(3px); scale: 1.25; animation: drift 18s ease-in-out infinite reverse">
+<img class="plx-l" data-d="1" src="/assets/logo_cream.webp" alt="" style="position: absolute; inset: 0; width: 600px; height: 560px; object-fit: contain; opacity: 0.1; animation: drift 14s ease-in-out infinite">
+<img class="plx-l" data-d="2.2" src="/assets/logo_cream.webp" alt="" style="position: absolute; inset: 0; width: 600px; height: 560px; object-fit: contain; opacity: 0.06; scale: .72; animation: drift 11s ease-in-out infinite">
+</div>
+</div>
 
+<div style="position: absolute; left: 48px; top: 40px; font-size: 13px; letter-spacing: 0.14em; color: #A9A49B">// BOOK • MONTAGE • COVERS • 3D • DA</div>
+<h1 class="rn" aria-label="ROMAIN" style="position: absolute; z-index: 4; left: 40px; top: 70px; margin: 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 300px; line-height: 0.95; letter-spacing: -0.005em; color: #F2EEE6"><span class="rl">R</span><span class="rl">O</span><span class="rl">M</span><span class="rl">A</span><span class="rl">I</span><span class="rl">N</span></h1>
+<div class="cls" style="position: absolute; left: 56px; top: 390px; z-index: 3">
+<div class="cls-in" style="background: #5B8CFF; color: #0B1030; padding: 14px 60px 14px 28px; clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%)">
+<div class="cls-t" style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em">CLASSE</div>
+<div style="font-family: 'Anton', sans-serif; font-size: 60px; line-height: 1"><span class="cls-w" style="--d:0s">MONTEUR</span> · <span class="cls-w" style="--d:.12s">DESIGNER</span> · <span class="cls-w" style="--d:.24s">3D</span></div>
+</div>
+</div>
+<p style="position: absolute; left: 56px; top: 540px; margin: 0; width: 560px; font-size: 16px; line-height: 1.65; color: #D8D3C9">Je monte des vidéos, je fais des covers, je dessine des trucs et je crée des mondes en 3D. Ici, chaque projet a son propre univers et sa propre DA.</p>
+<div style="position: absolute; left: 56px; top: 700px; display: flex; flex-direction: column; gap: 10px">
+<div style="font-size: 12px; letter-spacing: 0.14em; color: #A9A49B">DOSSIERS OUVERTS — 1/7</div>
+<div style="display: flex; gap: 8px">
+<span style="width: 46px; height: 52px; background: #F2EEE6; color: #121214; font-family: 'Anton', sans-serif; font-size: 30px; display: flex; align-items: center; justify-content: center; clip-path: polygon(0 0, 100% 6%, 94% 100%, 4% 94%)">1</span>
+<span style="width: 46px; height: 52px; background: #2A2A2E; color: #6E6A63; font-family: 'Anton', sans-serif; font-size: 30px; display: flex; align-items: center; justify-content: center; clip-path: polygon(4% 4%, 100% 0, 96% 96%, 0 100%)">2</span>
+<span style="width: 46px; height: 52px; background: #2A2A2E; color: #6E6A63; font-family: 'Anton', sans-serif; font-size: 30px; display: flex; align-items: center; justify-content: center; clip-path: polygon(0 0, 100% 6%, 94% 100%, 4% 94%)">3</span>
+<span style="width: 46px; height: 52px; background: #2A2A2E; color: #6E6A63; font-family: 'Anton', sans-serif; font-size: 30px; display: flex; align-items: center; justify-content: center; clip-path: polygon(4% 4%, 100% 0, 96% 96%, 0 100%)">4</span>
+<span style="width: 46px; height: 52px; background: #2A2A2E; color: #6E6A63; font-family: 'Anton', sans-serif; font-size: 30px; display: flex; align-items: center; justify-content: center; clip-path: polygon(0 0, 100% 6%, 94% 100%, 4% 94%)">5</span>
+<span style="width: 46px; height: 52px; background: #2A2A2E; color: #6E6A63; font-family: 'Anton', sans-serif; font-size: 30px; display: flex; align-items: center; justify-content: center; clip-path: polygon(4% 4%, 100% 0, 96% 96%, 0 100%)">6</span>
+<span style="width: 46px; height: 52px; background: #2A2A2E; color: #6E6A63; font-family: 'Anton', sans-serif; font-size: 30px; display: flex; align-items: center; justify-content: center; clip-path: polygon(0 0, 100% 6%, 94% 100%, 4% 94%)">7</span>
+</div>
+<div style="width: 370px; height: 8px; background: #2A2A2E"><div style="height: 8px; background: #F2EEE6; animation: fill 2s ease-out forwards"></div></div>
+</div>
+
+
+<button type="button" class="chibi-btn" data-dc-onclick="{{poke}}" aria-label="Le chibi de Romain (clique dessus)" style="appearance: none; border: 0; background: transparent; padding: 0; position: absolute; left: 900px; top: 250px; width: 330px; height: 572px; cursor: pointer">
+<img loading="lazy" decoding="async" data-dc-src="{{chibi.img}}" alt="Chibi de Romain" style="width: 330px; height: 572px; object-fit: contain; animation: bob 4s ease-in-out infinite; display: block">
+</button>
+<div style="position: absolute; left: 1170px; top: 440px; width: 240px; background: #F2EEE6; color: #121214; padding: 18px 20px; clip-path: polygon(0 0, 100% 0, 100% 78%, 26% 78%, 6% 100%, 14% 78%, 0 78%); padding-bottom: 46px; transform: rotate(2deg); z-index: 2">
+<div style="font-family: 'Gochi Hand', cursive; font-size: 22px; line-height: 1.15">{{chibi.msg}}</div>
+</div>
+</section>
+
+<section aria-hidden="true" style="position: relative; height: 200px">
+<div style="position: absolute; left: -40px; right: -40px; top: 40px; height: 34px; transform: rotate(-2deg); background: repeating-linear-gradient(-45deg, #5B8CFF 0 26px, #121214 26px 52px)"></div>
+<div style="position: absolute; left: -40px; right: -40px; top: 82px; height: 56px; transform: rotate(-2deg); background: #F2EEE6; color: #121214; overflow: hidden; display: flex; align-items: center">
+<div style="display: flex; gap: 40px; white-space: nowrap; font-family: 'Anton', sans-serif; font-size: 34px; width: max-content; animation: marquee 26s linear infinite">
+<span>SCROLL POUR OUVRIR LES DOSSIERS ✦ SOLO ✦ FC SUSPECT ✦ YOUTUBE ✦ REAL FUTBOL X ✦ CHIBI ✦ PANICORE ✦ BOOK SCOLAIRE ✦ BOOK PRO ✦</span><span>SCROLL POUR OUVRIR LES DOSSIERS ✦ SOLO ✦ FC SUSPECT ✦ YOUTUBE ✦ REAL FUTBOL X ✦ CHIBI ✦ PANICORE ✦ BOOK SCOLAIRE ✦ BOOK PRO ✦</span>
+</div>
+</div>
+<div style="position: absolute; left: -40px; right: -40px; top: 146px; height: 20px; transform: rotate(-2deg); background: repeating-linear-gradient(-45deg, #FF5A1F 0 18px, #121214 18px 36px)"></div>
+</section>
+
+<section id="dossiers" style="position: relative; padding: 80px 48px 120px 48px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 40px">
+<div>
+<div style="font-size: 13px; letter-spacing: 0.14em; color: #A9A49B">// 08 PROJETS • SURVOLE POUR VOIR LA RÉACTION</div>
+<h2 style="margin: 8px 0 0 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 150px; line-height: 0.9">LES DOSSIERS</h2>
+</div>
+<div style="display: flex; align-items: flex-end; gap: 12px">
+<div style="background: #F2EEE6; color: #121214; padding: 14px 18px; width: 300px; clip-path: polygon(0 0, 100% 0, 100% 100%, 8% 100%, 0 80%); transform: rotate(1.5deg); margin-bottom: 40px">
+<div style="font-family: 'Gochi Hand', cursive; font-size: 23px; line-height: 1.15">{{chibi.msg}}</div>
+</div>
+<img loading="lazy" decoding="async" class="chibi-btn" data-dc-onclick="{{poke}}" data-dc-src="{{chibi.img}}" alt="Chibi de Romain (clique dessus)" style="width: 120px; height: 208px; object-fit: contain; animation: bob 3s ease-in-out infinite; cursor: pointer">
+</div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 18px">
+
+<a href="/da.html" class="dossier band-da" data-hov="da" data-dc-onmouseenter="{{hov.da}}" data-dc-onmouseleave="{{hov.none}}" style="grid-column: span 12; height: 140px; position: relative; overflow: hidden; text-decoration: none; color: #121214; background: #EFE6D4; clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 0 100%); transform: rotate(-0.3deg); display: flex; align-items: center; justify-content: space-between; padding: 0 40px">
+<div class="bd-dots" aria-hidden="true"></div>
+<div class="bd-ttl" style="position: relative; z-index: 2; display: flex; flex-direction: column; gap: 5px">
+<div style="background: #FF5A1F; color: #1A0800; padding: 6px 30px 6px 16px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%); align-self: flex-start">DOSSIER 00 • À PART</div>
+<div style="font-family: 'Anton', sans-serif; font-size: 60px; line-height: 0.9; white-space: nowrap">MA DA <span style="color: #FF5A1F">— LES COULISSES</span></div>
+<div style="font-size: 13px; color: #5E5A53">D'où vient mon identité visuelle, et comment je la construis.</div>
+</div>
+<div style="position: relative; z-index: 2; width: 250px; height: 110px" aria-hidden="true">
+<span class="bd-l" style="left: 0; top: 14px; background: #FF5A1F; color: #1A0800; --r: -8deg; --hr: -18deg; --hy: -14px">M</span>
+<span class="bd-l" style="left: 58px; top: 22px; background: #5B8CFF; color: #0B1030; --r: 5deg; --hr: 14deg; --hy: 10px">A</span>
+<span class="bd-l" style="left: 122px; top: 6px; background: #121214; color: #F2EEE6; --r: -3deg; --hr: -10deg; --hy: -18px">D</span>
+<span class="bd-l" style="left: 184px; top: 18px; background: #FFE98A; color: #121214; --r: 7deg; --hr: 20deg; --hy: 8px">A</span>
+<span class="bd-tape"></span>
+</div>
+</a>
+
+<a href="/solo.html" class="dossier cube" data-hov="solo" data-dc-onmouseenter="{{hov.solo}}" data-dc-onmouseleave="{{hov.none}}" style="grid-column: span 7; height: 600px; position: relative; overflow: hidden; text-decoration: none; color: #F2EEE6; clip-path: polygon(0 0, calc(100% - 34px) 0, 100% 34px, 100% 100%, 34px 100%, 0 calc(100% - 34px)); transform: rotate(-0.6deg); background: #050805">
+<img loading="lazy" decoding="async" class="ph" src="/assets/solo_pdp.webp" alt="Photo de Solo" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 22%">
+<div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; height: 260px; background: linear-gradient(0deg, rgba(5,8,5,0.85), rgba(5,8,5,0))"></div>
+<img loading="lazy" decoding="async" src="/assets/dt_encore1.webp" alt="" aria-hidden="true" class="soft" style="position: absolute; right: 30px; bottom: 40px; width: 170px; height: 174px; object-fit: cover; transform: rotate(5deg); border: 6px solid #F2EEE6">
+<img loading="lazy" decoding="async" src="/assets/gb_new.webp" alt="" aria-hidden="true" class="soft" style="position: absolute; right: 170px; bottom: 70px; width: 130px; height: 130px; object-fit: cover; transform: rotate(-7deg); border: 6px solid #F2EEE6">
+<div style="position: absolute; left: 0; bottom: 30px; display: flex; flex-direction: column; gap: 6px">
+<div style="background: #39FF14; color: #062200; padding: 6px 30px 6px 28px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%); align-self: flex-start">DOSSIER 01 • COVERS & DA</div>
+<div style="font-family: 'Anton', sans-serif; font-size: 130px; line-height: 0.9; padding-left: 28px">SOLO</div>
+</div>
+</a>
+
+<a href="/fc-suspect.html" class="dossier cube" data-hov="fcs" data-dc-onmouseenter="{{hov.fcs}}" data-dc-onmouseleave="{{hov.none}}" style="grid-column: span 5; height: 600px; position: relative; overflow: hidden; text-decoration: none; color: #F2EEE6; clip-path: polygon(34px 0, 100% 0, 100% calc(100% - 34px), calc(100% - 34px) 100%, 0 100%, 0 34px); transform: rotate(0.8deg); background: #3A1408">
+<img loading="lazy" decoding="async" src="/assets/fcs_blur.webp" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; animation: slowzoom 12s ease-in-out infinite">
+<div aria-hidden="true" style="position: absolute; inset: 0; background: rgba(40,12,4,0.35)"></div>
+<img loading="lazy" decoding="async" class="ph" src="/assets/fcs_logo.webp" alt="Logo FC Suspect" style="position: absolute; left: 50%; top: 70px; width: 330px; height: 336px; margin-left: -165px; object-fit: contain; animation: wiggle 3s ease-in-out infinite">
+<div style="position: absolute; left: 0; bottom: 30px; display: flex; flex-direction: column; gap: 6px">
+<div style="background: #FFC21A; color: #2A1A00; padding: 6px 30px 6px 28px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%); align-self: flex-start">DOSSIER 02 • CLUB VIRTUEL</div>
+<div style="font-family: 'Anton', sans-serif; font-size: 96px; line-height: 0.9; padding-left: 28px">FC SUSPECT</div>
+</div>
+</a>
+
+<a href="/youtube.html" class="dossier" data-hov="yt" data-dc-onmouseenter="{{hov.yt}}" data-dc-onmouseleave="{{hov.none}}" style="grid-column: span 12; height: 560px; position: relative; overflow: hidden; text-decoration: none; color: #F2EEE6; background: #D7263D; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%); transform: rotate(-0.4deg)">
+<div style="position: absolute; left: 0; top: 28px; display: flex; align-items: flex-end; gap: 16px; width: max-content; animation: marquee 40s linear infinite">
+<img loading="lazy" decoding="async" src="/assets/y03.webp" alt="Miniature YouTube" style="width: 330px; height: 186px; object-fit: cover; transform: rotate(-2deg)">
+<img loading="lazy" decoding="async" src="/assets/y00.webp" alt="Miniature YouTube" style="width: 330px; height: 186px; object-fit: cover; transform: rotate(1.5deg)">
+<img loading="lazy" decoding="async" src="/assets/chibi_rigole.webp" alt="" style="width: 90px; height: 156px; object-fit: contain; animation: walk 0.8999999999999999s ease-in-out infinite">
+<img loading="lazy" decoding="async" src="/assets/y01.webp" alt="Miniature YouTube" style="width: 330px; height: 186px; object-fit: cover; transform: rotate(2deg)">
+<img loading="lazy" decoding="async" src="/assets/y02.webp" alt="Miniature YouTube" style="width: 330px; height: 186px; object-fit: cover; transform: rotate(-1.5deg)">
+<img loading="lazy" decoding="async" src="/assets/y04.webp" alt="Miniature YouTube" style="width: 330px; height: 186px; object-fit: cover; transform: rotate(1deg)">
+<img loading="lazy" decoding="async" src="/assets/chibi_peur.webp" alt="" style="width: 90px; height: 156px; object-fit: contain; animation: walk 0.7s ease-in-out infinite">
+<img loading="lazy" decoding="async" src="/assets/y05.webp" alt="Miniature YouTube" style="width: 330px; height: 186px; object-fit: cover; transform: rotate(1.5deg)">
+<img loading="lazy" decoding="async" src="/assets/y06.webp" alt="Miniature YouTube" style="width: 330px; height: 186px; object-fit: cover; transform: rotate(-1deg)">
+<img loading="lazy" decoding="async" src="/assets/y03.webp" alt="" style="width: 330px; height: 186px; object-fit: cover; transform: rotate(-2deg)">
+<img loading="lazy" decoding="async" src="/assets/y00.webp" alt="" style="width: 330px; height: 186px; object-fit: cover; transform: rotate(1.5deg)">
+<img loading="lazy" decoding="async" src="/assets/chibi_rigole.webp" alt="" style="width: 90px; height: 156px; object-fit: contain; animation: walk 0.8999999999999999s ease-in-out infinite">
+<img loading="lazy" decoding="async" src="/assets/y01.webp" alt="" style="width: 330px; height: 186px; object-fit: cover; transform: rotate(2deg)">
+<img loading="lazy" decoding="async" src="/assets/y02.webp" alt="" style="width: 330px; height: 186px; object-fit: cover; transform: rotate(-1.5deg)">
+<img loading="lazy" decoding="async" src="/assets/y04.webp" alt="" style="width: 330px; height: 186px; object-fit: cover; transform: rotate(1deg)">
+<img loading="lazy" decoding="async" src="/assets/chibi_peur.webp" alt="" style="width: 90px; height: 156px; object-fit: contain; animation: walk 0.7s ease-in-out infinite">
+<img loading="lazy" decoding="async" src="/assets/y05.webp" alt="" style="width: 330px; height: 186px; object-fit: cover; transform: rotate(1.5deg)">
+<img loading="lazy" decoding="async" src="/assets/y06.webp" alt="" style="width: 330px; height: 186px; object-fit: cover; transform: rotate(-1deg)">
+</div>
+<div style="position: absolute; left: 0; top: 236px; display: flex; align-items: flex-end; gap: 16px; width: max-content; animation: marqueeR 44s linear infinite">
+<img loading="lazy" decoding="async" src="/assets/y08.webp" alt="Miniature YouTube" style="width: 330px; height: 186px; object-fit: cover; transform: rotate(-2deg)">
+<img loading="lazy" decoding="async" src="/assets/y09.webp" alt="Miniature YouTube" style="width: 330px; height: 186px; object-fit: cover; transform: rotate(1.5deg)">
+<img loading="lazy" decoding="async" src="/assets/y10.webp" alt="Miniature YouTube" style="width: 330px; height: 186px; object-fit: cover; transform: rotate(-1deg)">
+<img loading="lazy" decoding="async" src="/assets/chibi_party.webp" alt="" style="width: 90px; height: 156px; object-fit: contain; animation: walk 0.7s ease-in-out infinite">
+<img loading="lazy" decoding="async" src="/assets/y11.webp" alt="Miniature YouTube" style="width: 330px; height: 186px; object-fit: cover; transform: rotate(-1.5deg)">
+<img loading="lazy" decoding="async" src="/assets/y12.webp" alt="Miniature YouTube" style="width: 330px; height: 186px; object-fit: cover; transform: rotate(1deg)">
+<img loading="lazy" decoding="async" src="/assets/y07.webp" alt="Miniature YouTube" style="width: 330px; height: 186px; object-fit: cover; transform: rotate(-2deg)">
+<img loading="lazy" decoding="async" src="/assets/chibi_choque.webp" alt="" style="width: 90px; height: 156px; object-fit: contain; animation: walk 0.7999999999999999s ease-in-out infinite">
+<img loading="lazy" decoding="async" src="/assets/y08.webp" alt="" style="width: 330px; height: 186px; object-fit: cover; transform: rotate(-2deg)">
+<img loading="lazy" decoding="async" src="/assets/y09.webp" alt="" style="width: 330px; height: 186px; object-fit: cover; transform: rotate(1.5deg)">
+<img loading="lazy" decoding="async" src="/assets/y10.webp" alt="" style="width: 330px; height: 186px; object-fit: cover; transform: rotate(-1deg)">
+<img loading="lazy" decoding="async" src="/assets/chibi_party.webp" alt="" style="width: 90px; height: 156px; object-fit: contain; animation: walk 0.7s ease-in-out infinite">
+<img loading="lazy" decoding="async" src="/assets/y11.webp" alt="" style="width: 330px; height: 186px; object-fit: cover; transform: rotate(-1.5deg)">
+<img loading="lazy" decoding="async" src="/assets/y12.webp" alt="" style="width: 330px; height: 186px; object-fit: cover; transform: rotate(1deg)">
+<img loading="lazy" decoding="async" src="/assets/y07.webp" alt="" style="width: 330px; height: 186px; object-fit: cover; transform: rotate(-2deg)">
+<img loading="lazy" decoding="async" src="/assets/chibi_choque.webp" alt="" style="width: 90px; height: 156px; object-fit: contain; animation: walk 0.7999999999999999s ease-in-out infinite">
+</div>
+<div style="position: absolute; left: 0; bottom: 24px; display: flex; align-items: flex-end; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="background: #121214; padding: 6px 30px 6px 28px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%); align-self: flex-start">DOSSIER 03 • 2 CHAÎNES MONTÉES + VIDÉOS UNIQUES</div>
+<div style="position: relative; z-index: 2; font-family: 'Anton', sans-serif; font-size: 80px; line-height: 0.9; color: #FFFFFF; padding-left: 28px">CHAÎNES YOUTUBE</div>
+</div>
+</div>
+</a>
+
+<a href="/real-futbol-x.html" class="dossier cube" data-hov="rfx" data-dc-onmouseenter="{{hov.rfx}}" data-dc-onmouseleave="{{hov.none}}" style="grid-column: span 4; height: 480px; position: relative; overflow: hidden; text-decoration: none; color: #F2EEE6; background: #0B1A3A; clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 0 100%); transform: rotate(0.6deg)">
+<img loading="lazy" decoding="async" src="/assets/rfx_blur.webp" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; animation: slowzoom 10s ease-in-out infinite">
+<div aria-hidden="true" style="position: absolute; inset: 0; background: rgba(8,16,40,0.3)"></div>
+<div style="position: absolute; left: 50%; top: 46px; width: 250px; height: 250px; margin-left: -125px; animation: float 4.5s ease-in-out infinite"><img loading="lazy" decoding="async" src="/assets/rfx_icon.webp" alt="Icône du jeu Real Futbol X" style="width: 250px; height: 250px; object-fit: cover; border-radius: 28px; border: 5px solid #F2EEE6; display: block; box-sizing: border-box"></div>
+<div style="position: absolute; left: 0; bottom: 24px; display: flex; flex-direction: column; gap: 6px">
+<div style="background: #5B8CFF; color: #0B1030; padding: 6px 30px 6px 24px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%); align-self: flex-start">DOSSIER 04 • 3D · ROBLOX</div>
+<div style="font-family: 'Anton', sans-serif; font-size: 64px; line-height: 0.9; padding-left: 24px">REAL FUTBOL X</div>
+</div>
+</a>
+
+<a href="/chibi.html" class="dossier cube" data-hov="chibi" data-dc-onmouseenter="{{hov.chibi}}" data-dc-onmouseleave="{{hov.none}}" style="grid-column: span 4; height: 480px; position: relative; overflow: hidden; text-decoration: none; color: #2A0A22; background: #FF8FCB; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%); transform: rotate(-0.8deg)">
+<div aria-hidden="true" style="position: absolute; inset: 0; background: repeating-linear-gradient(90deg, rgba(255,255,255,0.18) 0 2px, transparent 2px 40px)"></div>
+<div style="position: absolute; left: 10px; right: 10px; top: 24px; display: flex; justify-content: center; align-items: flex-end">
+<img loading="lazy" decoding="async" src="/assets/chibi_kawaine.webp" alt="Chibi kawaï" style="width: 120px; height: 208px; object-fit: contain; animation: wiggle 2.2s ease-in-out infinite">
+<img loading="lazy" decoding="async" src="/assets/chibi_rigole.webp" alt="Chibi qui rigole" style="width: 150px; height: 260px; object-fit: contain; animation: bob 3s ease-in-out infinite">
+<img loading="lazy" decoding="async" src="/assets/chibi_choque.webp" alt="Chibi choqué" style="width: 120px; height: 208px; object-fit: contain; animation: wiggle 2.6s ease-in-out infinite reverse">
+</div>
+<div style="position: absolute; left: 0; bottom: 24px; display: flex; flex-direction: column; gap: 6px">
+<div style="background: #2A0A22; color: #FF8FCB; padding: 6px 30px 6px 24px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%); align-self: flex-start">DOSSIER 05 • 13 ÉMOTIONS</div>
+<div style="font-family: 'Anton', sans-serif; font-size: 64px; line-height: 0.9; padding-left: 24px">UNIVERS CHIBI</div>
+</div>
+</a>
+
+<a href="/404.html" class="dossier cube" data-hov="panicore" data-dc-onmouseenter="{{hov.panicore}}" data-dc-onmouseleave="{{hov.none}}" style="grid-column: span 4; height: 480px; position: relative; overflow: hidden; text-decoration: none; color: #E0C2A0; background: #2A2019; clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%, 0 30px); transform: rotate(0.5deg)">
+<svg aria-hidden="true" width="100%" height="100%" style="position: absolute; inset: 0"><defs><pattern id="pnc" width="120" height="120" patternUnits="userSpaceOnUse" patternTransform="rotate(-8)"><path d="M10 18 L44 10 L40 30 L8 34 Z" fill="#3A2D22"></path><path d="M70 64 L104 58 L110 76 L74 84 Z" fill="#3A2D22"></path><path d="M20 84 L30 80 L34 104 L22 108 Z" fill="#33271E"></path><path d="M84 12 L96 16 L90 28 Z" fill="#33271E"></path></pattern></defs><rect width="100%" height="100%" fill="url(#pnc)"></rect></svg>
+<div style="position: absolute; left: 30px; right: 30px; top: 120px; height: 150px; animation: float 5s ease-in-out infinite"><img loading="lazy" decoding="async" src="/assets/panicore_logo.png" alt="Logo Panicore IRL" style="width: 100%; height: 150px; object-fit: contain; display: block"></div>
+<div style="position: absolute; left: 0; bottom: 24px; display: flex; flex-direction: column; gap: 6px">
+<div style="background: #E0C2A0; color: #1F1813; padding: 6px 30px 6px 24px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%); align-self: flex-start">DOSSIER 06 • DIRECTION ARTISTIQUE</div>
+<div style="font-family: 'Anton', sans-serif; font-size: 64px; line-height: 0.9; padding-left: 24px">PANICORE IRL</div>
+</div>
+<div class="wip" aria-label="Page en construction" style="left: 34px; top: 26px; transform: rotate(-4deg)"><div class="wip-sign"><svg viewBox="0 0 46 46" aria-hidden="true"><rect x="4" y="14" width="38" height="12" fill="#121214"/><path d="M8 14 L16 14 L10 26 L4 26 Z M22 14 L30 14 L24 26 L16 26 Z M36 14 L42 14 L42 20 L38 26 L30 26 Z" fill="#FFC21A"/><rect x="8" y="26" width="5" height="16" fill="#121214"/><rect x="33" y="26" width="5" height="16" fill="#121214"/><circle cx="10" cy="8" r="4" fill="#FF5A1F" stroke="#121214" stroke-width="2"/><circle cx="36" cy="8" r="4" fill="#FF5A1F" stroke="#121214" stroke-width="2"/></svg></div><div class="wip-tape"><div class="wip-lbl"><span>EN CONSTRUCTION</span></div><div class="wip-sub">page bientôt dispo…</div></div></div>
+</a>
+
+<a href="/book-scolaire.html" class="dossier band-sco" data-hov="book" data-dc-onmouseenter="{{hov.book}}" data-dc-onmouseleave="{{hov.none}}" style="grid-column: span 12; height: 220px; position: relative; overflow: hidden; text-decoration: none; color: #121214; background: #F2EEE6; clip-path: polygon(0 0, 100% 0, 100% 100%, 30px 100%, 0 calc(100% - 30px)); transform: rotate(0.3deg); display: flex; align-items: center; justify-content: space-between; padding: 0 40px">
+<div class="bs-lines" aria-hidden="true"></div><div class="bs-margin" aria-hidden="true" style="left: 40px"></div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="background: #121214; color: #F2EEE6; padding: 6px 30px 6px 16px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%); align-self: flex-start">DOSSIER 07 • ARCHIVE</div>
+<div class="bs-ttl" style="font-family: 'Anton', sans-serif; font-size: 96px; line-height: 0.9">BOOK SCOLAIRE <span class="bs-yr" style="color: #3A63D8">2024 — 2026</span></div>
+</div>
+<div style="display: flex; gap: 10px" aria-hidden="true">
+<div class="bs-ph a" style="width: 120px; height: 150px; border: 2px solid #121214; background: #FFFFFF; transform: rotate(-4deg); display: flex; align-items: center; justify-content: center; box-sizing: border-box"><img loading="lazy" decoding="async" src="/assets/s_lycee.webp" alt="Logo du lycée Amyot d'Inville" style="width: 104px; height: 104px; object-fit: contain; display: block"></div>
+<img loading="lazy" decoding="async" class="bs-ph b" src="/assets/s_chant.webp" alt="" style="width: 120px; height: 150px; object-fit: cover; border: 2px solid #121214; transform: rotate(3deg); display: block">
+</div>
+</a>
+
+<a href="/404.html" class="dossier band-pro" data-hov="pro" data-dc-onmouseenter="{{hov.pro}}" data-dc-onmouseleave="{{hov.none}}" style="grid-column: span 12; height: 220px; position: relative; overflow: hidden; text-decoration: none; color: #F2EEE6; background: #1C1C20; border: 2px solid #F2EEE6; box-sizing: border-box; clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 0 100%); transform: rotate(-0.4deg); display: flex; align-items: center; justify-content: space-between; padding: 0 40px 0 64px">
+<div class="bp-stripe" aria-hidden="true" style="position: absolute; left: 0; top: 0; bottom: 0; width: 26px; background: repeating-linear-gradient(-45deg, #FF5A1F 0 12px, #1C1C20 12px 24px)"></div>
+<div class="bp-corner" aria-hidden="true" style="position: absolute; right: 0; top: 0; width: 40px; height: 40px; background: #FF5A1F; clip-path: polygon(0 0, 100% 100%, 0 100%)"></div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; gap: 10px; align-items: center"><span style="background: #FF5A1F; color: #1A0800; padding: 6px 30px 6px 16px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%)">DOSSIER 08 • PRO</span></div>
+<div class="bp-ttl" style="font-family: 'Anton', sans-serif; font-size: 96px; line-height: 0.9">BOOK <span class="bp-word" style="color: #FF5A1F">PROFESSIONNEL</span></div>
+</div>
+<div class="bp-sheets" style="position: relative; width: 300px; height: 170px" aria-hidden="true">
+<div class="pf-sheet" style="--r: -6deg; animation-delay: 0s; position: absolute; right: 120px; top: 14px; width: 120px; height: 150px; background: #F2EEE6; color: #121214; box-shadow: 6px 6px 0 #FF5A1F; padding: 12px; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px"><span style="height: 8px; width: 70%; background: #121214"></span><span style="height: 4px; width: 90%; background: #A9A49B"></span><span style="height: 4px; width: 80%; background: #A9A49B"></span><span style="height: 4px; width: 85%; background: #A9A49B"></span></div>
+<div class="pf-sheet" style="--r: 5deg; animation-delay: -1.6s; position: absolute; right: 10px; top: 0; width: 120px; height: 150px; background: #F2EEE6; color: #121214; box-shadow: 6px 6px 0 #121214; padding: 12px; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px"><span style="height: 46px; width: 46px; border-radius: 50%; border: 2px dashed #121214"></span><span style="height: 4px; width: 90%; background: #A9A49B"></span><span style="height: 4px; width: 70%; background: #A9A49B"></span></div>
+</div>
+<div class="wip" aria-label="Page en construction" style="right: 70px; top: 46px; transform: rotate(4deg)"><div class="wip-sign"><svg viewBox="0 0 46 46" aria-hidden="true"><rect x="4" y="14" width="38" height="12" fill="#121214"/><path d="M8 14 L16 14 L10 26 L4 26 Z M22 14 L30 14 L24 26 L16 26 Z M36 14 L42 14 L42 20 L38 26 L30 26 Z" fill="#FFC21A"/><rect x="8" y="26" width="5" height="16" fill="#121214"/><rect x="33" y="26" width="5" height="16" fill="#121214"/><circle cx="10" cy="8" r="4" fill="#FF5A1F" stroke="#121214" stroke-width="2"/><circle cx="36" cy="8" r="4" fill="#FF5A1F" stroke="#121214" stroke-width="2"/></svg></div><div class="wip-tape"><div class="wip-lbl"><span>EN CONSTRUCTION</span></div><div class="wip-sub">page bientôt dispo…</div></div></div>
+</a>
+
+</div>
+<div style="position: absolute; z-index: 10; right: 350px; bottom: 34px; background: #F2EEE6; color: #121214; padding: 10px 34px 10px 16px; width: 380px; box-sizing: border-box; clip-path: polygon(0 0, 93% 0, 93% 34%, 100% 50%, 93% 66%, 93% 100%, 0 100%); transform: rotate(-1deg)">
+<div style="font-family: 'Gochi Hand', cursive; font-size: 18px; line-height: 1.15">{{chibi.msg}}</div>
+</div>
+<img loading="lazy" decoding="async" class="chibi-btn" data-dc-onclick="{{poke}}" data-dc-src="{{chibi.img}}" alt="Chibi de Romain (clique dessus)" style="cursor: pointer; position: absolute; z-index: 10; right: 230px; bottom: -70px; width: 120px; height: 208px; object-fit: contain; animation: bob 3s ease-in-out infinite">
+</section>
+
+<section id="moi" style="background: #F2EEE6; color: #121214; position: relative; z-index: 11; padding: 110px 48px 100px 48px; clip-path: polygon(0 40px, 8% 0, 22% 34px, 37% 6px, 55% 38px, 70% 4px, 86% 30px, 100% 8px, 100% 100%, 0 100%)">
+<div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 32px; align-items: start">
+<div style="grid-column: span 5; position: relative">
+<img loading="lazy" decoding="async" class="fp-photo" src="/assets/moi_mosaic.png" alt="Photo de Romain en mosaïque" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; image-rendering: pixelated; clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 40px 100%, 0 calc(100% - 40px)); transform: rotate(-1.5deg)">
+<img loading="lazy" decoding="async" class="fp-sticker" src="/assets/logo_solid_ink.webp" alt="" aria-hidden="true" style="position: absolute; right: -14px; top: -20px; width: 96px; height: 82px; object-fit: contain">
+<div style="margin-top: 26px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px">
+<div class="st" style="background: #FF5A1F; color: #1A0800; padding: 10px 12px 8px; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%); transform: rotate(-1.5deg)"><div style="font-family: 'Anton', sans-serif; font-size: 32px; line-height: 1; white-space: nowrap"><span class="cnt" data-to="800">800</span>+ H</div><div style="font-size: 9px; line-height: 1.3; font-weight: 700; letter-spacing: 0.08em; margin-top: 4px; color: #1A0800">DE TRAVAIL</div><div class="st-bar" style="background: #1A0800"></div></div>
+<div class="st" style="background: #121214; color: #F2EEE6; padding: 10px 12px 8px; clip-path: polygon(6% 0, 100% 0, 100% 100%, 0 100%); transform: rotate(1.2deg)"><div style="font-family: 'Anton', sans-serif; font-size: 32px; line-height: 1; white-space: nowrap"><span class="cnt" data-to="4">4</span> ANS</div><div style="font-size: 9px; line-height: 1.3; font-weight: 700; letter-spacing: 0.08em; margin-top: 4px; color: #A9A49B">SANS M'ARRÊTER</div><div class="st-bar" style="background: #F2EEE6"></div></div>
+<div class="st" style="background: #121214; color: #F2EEE6; padding: 10px 12px 8px; clip-path: polygon(0 0, 94% 0, 100% 100%, 0 100%); transform: rotate(-0.8deg)"><div style="font-family: 'Anton', sans-serif; font-size: 32px; line-height: 1; white-space: nowrap"><span class="cnt" data-to="100">100</span>K+</div><div style="font-size: 9px; line-height: 1.3; font-weight: 700; letter-spacing: 0.08em; margin-top: 4px; color: #A9A49B">MEMBRES SERVEUR RFX</div><div class="st-bar" style="background: #F2EEE6"></div></div>
+<div class="st" style="background: #5B8CFF; color: #0B1030; padding: 10px 12px 8px; clip-path: polygon(0 0, 100% 0, 100% 100%, 6% 100%); transform: rotate(1deg)"><div style="font-family: 'Anton', sans-serif; font-size: 32px; line-height: 1; white-space: nowrap"><span class="cnt" data-to="71">71</span></div><div style="font-size: 9px; line-height: 1.3; font-weight: 700; letter-spacing: 0.08em; margin-top: 4px; color: #0B1030">VIDÉOS & SHORTS</div><div class="st-bar" style="background: #0B1030"></div></div>
+</div>
+<div class="pi" style="margin-top: 16px; position: relative; background: #FFE98A; color: #121214; padding: 10px 12px 12px; transform: rotate(-1.2deg); box-shadow: 5px 6px 0 rgba(18,18,20,.15)">
+<div aria-hidden="true" style="position: absolute; left: 42%; top: -12px; width: 90px; height: 24px; background: rgba(255,255,255,.6); transform: rotate(3deg)"></div>
+<div style="font-size: 10px; font-weight: 700; letter-spacing: 0.14em; color: #C2410C; margin: 0 0 8px 2px"><span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #E63946; animation: blink 1.1s infinite"></span>&nbsp; EN CE MOMENT</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; height: 104px">
+<a class="pi-solo" href="/solo.html" style="position: relative; display: flex; flex-direction: column; justify-content: center; text-decoration: none; overflow: hidden; background: radial-gradient(circle at 75% 30%, #2A1670 0%, #0D0828 55%, #05040F 100%); color: #DCDFFF; padding: 8px 12px">
+<div style="font-size: 9px; font-weight: 700; letter-spacing: 0.14em; color: #8E96FF">SOLO • NOUVEAU SINGLE</div>
+<div style="font-family: 'Pirata One', cursive; font-size: 30px; line-height: .95; color: #B79BFF; margin-top: 2px">3 Cans a Day</div>
+<div style="font-size: 9px; margin-top: 4px; color: #C9CCF0">SORTIE LE <b style="color: #FFFFFF">27.11</b> • COVER PAR MOI</div>
+<span class="pi-go">VOIR →</span>
+</a>
+<div class="pi-pan" style="position: relative; overflow: hidden; background: #2A2019; color: #E0C2A0; display: flex; flex-direction: column; justify-content: center; gap: 4px; padding: 10px 12px 8px">
+<div aria-hidden="true" style="position: absolute; left: 0; right: 0; top: 0; height: 5px; background: repeating-linear-gradient(-45deg, #E0C2A0 0 8px, #2A2019 8px 16px)"></div>
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 6px"><img loading="lazy" decoding="async" class="pi-pan-t" src="/assets/panicore_logo.png" alt="Logo Panicore IRL" style="height: 30px; max-width: 120px; object-fit: contain; display: block"><span style="background: #E0C2A0; color: #2A2019; font-size: 8px; font-weight: 700; letter-spacing: 0.1em; padding: 3px 6px; white-space: nowrap">JANV. / FÉV.</span></div>
+<div style="font-size: 9px; line-height: 1.4; color: #D8C2A8"><b style="color: #FFFFFF">1 tueur contre 4 survivants</b>, en vrai. Leur seul objectif : survivre.</div>
+</div>
+</div>
+</div>
+</div>
+<div style="grid-column: span 7; display: flex; flex-direction: column; gap: 22px">
+<div style="font-size: 13px; letter-spacing: 0.14em; color: #5E5A53">// FICHE PERSO</div>
+<h2 style="margin: 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 140px; line-height: 0.88">C'EST MOI<span class="fp-dot">.</span></h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.7; max-width: 660px">Je m'appelle Romain. Je me suis intéressé à l'audiovisuel à 13 ans, et depuis ce jour je n'ai jamais arrêté de créer. Ce que je kiffe : faire du contenu qui divertit et qui crée du lien entre les gens.</p>
+<div style="display: grid; grid-template-columns: 0.7fr 1fr 1.6fr; gap: 10px; max-width: 660px">
+<div class="fp-card" style="background: #121214; color: #F2EEE6; padding: 14px 16px; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%)"><div style="font-size: 11px; letter-spacing: 0.12em; color: #A9A49B">ÂGE</div><div style="font-family: 'Anton', sans-serif; font-size: 26px; margin-top: 4px">17 ANS</div></div>
+<div class="fp-card" style="background: #121214; color: #F2EEE6; padding: 14px 16px; clip-path: polygon(0 0, 100% 0, 96% 100%, 0 100%)"><div style="font-size: 11px; letter-spacing: 0.12em; color: #A9A49B">BASÉ</div><div style="font-family: 'Anton', sans-serif; font-size: 26px; margin-top: 4px">SENLIS (60)</div></div>
+<div class="fp-card" style="background: #121214; color: #F2EEE6; padding: 14px 16px; clip-path: polygon(4% 0, 100% 0, 100% 100%, 0 100%)"><div style="font-size: 11px; letter-spacing: 0.12em; color: #A9A49B">FORMATION</div><div style="font-family: 'Anton', sans-serif; font-size: 26px; margin-top: 4px">BTS SIO<span style="display: block; font-family: 'Space Mono', monospace; font-size: 10px; line-height: 1.3; font-weight: 700; letter-spacing: 0.02em; color: #A9A49B; margin-top: 2px">(Services Informatiques aux Organisations)</span></div></div>
+</div>
+<div style="font-size: 12px; letter-spacing: 0.14em; color: #5E5A53; margin-top: 6px">MES DIPLÔMES</div>
+<div style="display: grid; grid-template-columns: 1fr 1.7fr; gap: 12px; max-width: 660px; align-items: stretch">
+<div class="dip fp-card" style="background: #121214; color: #F2EEE6; padding: 14px 16px; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%)"><div style="font-size: 11px; letter-spacing: 0.12em; color: #A9A49B">2022</div><div style="font-family: 'Anton', sans-serif; font-size: 28px; margin-top: 4px">BREVET</div><div style="font-size: 11px; color: #A9A49B; margin-top: 2px">Diplôme national du brevet</div></div>
+<div class="dip dip-gold" style="padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<span class="dip-star" style="right: 24px; top: 8px">✦</span><span class="dip-star" style="right: 70px; bottom: 10px; animation-delay: -.6s; font-size: 12px">✦</span><span class="dip-star" style="left: 46%; top: 6px; animation-delay: -1.2s; font-size: 10px">✦</span>
+<div style="position: relative"><div style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em">2026 • ★ PRESTIGE ★</div><div style="font-family: 'Anton', sans-serif; font-size: 40px; line-height: 1; margin-top: 4px">BAC</div><span class="dip-rib" style="margin-top: 6px">MENTION BIEN</span></div>
+<div aria-hidden="true" style="position: relative; font-size: 54px; line-height: 1; filter: drop-shadow(2px 3px 0 rgba(42,26,0,.35)); animation: float 3s ease-in-out infinite">🎓</div>
+</div>
+</div>
+<div style="font-size: 12px; letter-spacing: 0.14em; color: #5E5A53; margin-top: 6px">MON INVENTAIRE • LOGICIELS</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+<span style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em; width: 84px">ADOBE</span>
+<span class="fp-chip" style="background: #121214; color: #F2EEE6; padding: 8px 18px 8px 12px; font-family: 'Anton', sans-serif; font-size: 17px; display: flex; align-items: center; gap: 8px; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%)"><img loading="lazy" decoding="async" class="fp-ico" src="/assets/sw_photoshop.webp" alt="" aria-hidden="true" style="width: 24px; height: 24px; object-fit: contain; display: block">PHOTOSHOP</span>
+<span class="fp-chip" style="background: #121214; color: #F2EEE6; padding: 8px 18px 8px 12px; font-family: 'Anton', sans-serif; font-size: 17px; display: flex; align-items: center; gap: 8px; clip-path: polygon(4% 0, 100% 0, 100% 100%, 0 100%)"><img loading="lazy" decoding="async" class="fp-ico" src="/assets/sw_illustrator.webp" alt="" aria-hidden="true" style="width: 24px; height: 24px; object-fit: contain; display: block">ILLUSTRATOR</span>
+<span class="pr-wrap"><span class="fp-chip pr-chip" style="background: #121214; color: #F2EEE6; padding: 8px 18px 8px 12px; font-family: 'Anton', sans-serif; font-size: 17px; display: flex; align-items: center; gap: 8px; clip-path: polygon(0 0, 96% 0, 100% 100%, 0 100%)"><img loading="lazy" decoding="async" class="fp-ico" src="/assets/sw_premiere.webp" alt="" aria-hidden="true" style="width: 24px; height: 24px; object-fit: contain; display: block">PREMIERE PRO</span><span class="pr-best" aria-hidden="true">★ celui que je manie le mieux !</span></span>
+<span class="fp-chip" style="background: #121214; color: #F2EEE6; padding: 8px 18px 8px 12px; font-family: 'Anton', sans-serif; font-size: 17px; display: flex; align-items: center; gap: 8px; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%)"><img loading="lazy" decoding="async" class="fp-ico" src="/assets/sw_aftereffects.webp" alt="" aria-hidden="true" style="width: 24px; height: 24px; object-fit: contain; display: block">AFTER EFFECTS</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+<span style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em; width: 84px">3D</span>
+<span class="fp-chip" style="background: #121214; color: #F2EEE6; padding: 8px 18px 8px 12px; font-family: 'Anton', sans-serif; font-size: 17px; display: flex; align-items: center; gap: 8px; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%)"><img loading="lazy" decoding="async" class="fp-ico" src="/assets/sw_blender.webp" alt="" aria-hidden="true" style="width: 24px; height: 24px; object-fit: contain; display: block">BLENDER</span>
+<span style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em; margin-left: 22px">CODE</span>
+<span class="fp-chip" style="background: #121214; color: #F2EEE6; padding: 8px 18px 8px 12px; font-family: 'Anton', sans-serif; font-size: 17px; display: flex; align-items: center; gap: 8px; clip-path: polygon(4% 0, 100% 0, 100% 100%, 0 100%)"><img loading="lazy" decoding="async" class="fp-ico" src="/assets/sw_visualstudio.webp" alt="" aria-hidden="true" style="width: 24px; height: 24px; object-fit: contain; display: block">VISUAL STUDIO</span>
+<span class="fp-chip" style="background: #121214; color: #F2EEE6; padding: 8px 18px 8px 12px; font-family: 'Anton', sans-serif; font-size: 17px; display: flex; align-items: center; gap: 8px; clip-path: polygon(0 0, 96% 0, 100% 100%, 0 100%)"><img loading="lazy" decoding="async" class="fp-ico" src="/assets/sw_vscode.webp" alt="" aria-hidden="true" style="width: 24px; height: 24px; object-fit: contain; display: block">VS CODE</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+<span style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em; width: 84px">SON</span>
+<span class="fp-chip" style="background: #121214; color: #F2EEE6; padding: 8px 18px 8px 12px; font-family: 'Anton', sans-serif; font-size: 17px; display: flex; align-items: center; gap: 8px; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%)"><img loading="lazy" decoding="async" class="fp-ico" src="/assets/sw_flstudio.webp" alt="" aria-hidden="true" style="width: 24px; height: 24px; object-fit: contain; display: block">FL STUDIO</span>
+<span style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em; margin-left: 22px">DESSIN</span>
+<span class="fp-chip" style="background: #121214; color: #F2EEE6; padding: 8px 18px 8px 12px; font-family: 'Anton', sans-serif; font-size: 17px; display: flex; align-items: center; gap: 8px; clip-path: polygon(4% 0, 100% 0, 100% 100%, 0 100%)"><img loading="lazy" decoding="async" class="fp-ico" src="/assets/sw_krita.webp" alt="" aria-hidden="true" style="width: 24px; height: 24px; object-fit: contain; display: block">KRITA</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<footer id="contact" style="position: relative; height: 660px; overflow: hidden; padding: 90px 48px 0 48px; box-sizing: border-box">
+<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 18px">
+<h2 style="margin: 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 140px; line-height: 0.9">JE T'INTÉRESSE <span class="ft-q">?</span></h2>
+<div class="ft-pink lw" aria-label="J'avoue… toi aussi tu commences à m'intéresser." style="position: relative; font-family: 'Gochi Hand', cursive; font-size: 30px; color: #FF8FCB"><span aria-hidden="true"><span class="lw-c" style="animation-delay: 0.00s">J</span><span class="lw-c" style="animation-delay: 0.06s">'</span><span class="lw-c" style="animation-delay: 0.12s">a</span><span class="lw-c" style="animation-delay: 0.18s">v</span><span class="lw-c" style="animation-delay: 0.24s">o</span><span class="lw-c" style="animation-delay: 0.30s">u</span><span class="lw-c" style="animation-delay: 0.36s">e</span><span class="lw-c" style="animation-delay: 0.42s">…</span> <span class="lw-c" style="animation-delay: 0.54s">t</span><span class="lw-c" style="animation-delay: 0.60s">o</span><span class="lw-c" style="animation-delay: 0.66s">i</span> <span class="lw-c" style="animation-delay: 0.78s">a</span><span class="lw-c" style="animation-delay: 0.84s">u</span><span class="lw-c" style="animation-delay: 0.90s">s</span><span class="lw-c" style="animation-delay: 0.96s">s</span><span class="lw-c" style="animation-delay: 1.02s">i</span> <span class="lw-c" style="animation-delay: 1.14s">t</span><span class="lw-c" style="animation-delay: 1.20s">u</span> <span class="lw-c" style="animation-delay: 1.32s">c</span><span class="lw-c" style="animation-delay: 1.38s">o</span><span class="lw-c" style="animation-delay: 1.44s">m</span><span class="lw-c" style="animation-delay: 1.50s">m</span><span class="lw-c" style="animation-delay: 1.56s">e</span><span class="lw-c" style="animation-delay: 1.62s">n</span><span class="lw-c" style="animation-delay: 1.68s">c</span><span class="lw-c" style="animation-delay: 1.74s">e</span><span class="lw-c" style="animation-delay: 1.80s">s</span> <span class="lw-c" style="animation-delay: 1.92s">à</span> <span class="lw-c" style="animation-delay: 2.04s">m</span><span class="lw-c" style="animation-delay: 2.10s">'</span><span class="lw-c" style="animation-delay: 2.16s">i</span><span class="lw-c" style="animation-delay: 2.22s">n</span><span class="lw-c" style="animation-delay: 2.28s">t</span><span class="lw-c" style="animation-delay: 2.34s">é</span><span class="lw-c" style="animation-delay: 2.40s">r</span><span class="lw-c" style="animation-delay: 2.46s">e</span><span class="lw-c" style="animation-delay: 2.52s">s</span><span class="lw-c" style="animation-delay: 2.58s">s</span><span class="lw-c" style="animation-delay: 2.64s">e</span><span class="lw-c" style="animation-delay: 2.70s">r</span><span class="lw-c" style="animation-delay: 2.76s">.</span></span><span class="lw-h" aria-hidden="true" style="left: 8%; animation-delay: 0s; font-size: 16px">♥</span><span class="lw-h" aria-hidden="true" style="left: 27%; animation-delay: 1.1s; font-size: 12px">♥</span><span class="lw-h" aria-hidden="true" style="left: 46%; animation-delay: 0.5s; font-size: 18px">♥</span><span class="lw-h" aria-hidden="true" style="left: 63%; animation-delay: 1.7s; font-size: 13px">♥</span><span class="lw-h" aria-hidden="true" style="left: 82%; animation-delay: 0.9s; font-size: 15px">♥</span><span class="lw-h" aria-hidden="true" style="left: 95%; animation-delay: 2.3s; font-size: 11px">♥</span></div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 14px; align-items: flex-end; padding-top: 20px">
+<div style="display: flex; gap: 12px">
+<span class="ct-wrap"><span class="ct-chibi" aria-hidden="true" style="--x: -92px; --y: -38px; --r: -18deg; transition-delay: 0.08s"><img loading="lazy" decoding="async" src="/assets/chibi_choque.webp" alt="" style="width: 52px; height: 90px; object-fit: contain; display: block; animation-delay: -0.00s"></span><span class="ct-chibi" aria-hidden="true" style="--x: 48px; --y: -34px; --r: 9deg; transition-delay: 0s"><img loading="lazy" decoding="async" src="/assets/chibi_choque.webp" alt="" style="width: 52px; height: 90px; object-fit: contain; display: block; animation-delay: -0.07s"></span><span class="ct-chibi" aria-hidden="true" style="--x: -132px; --y: 8px; --r: -40deg; transition-delay: 0.14s"><img loading="lazy" decoding="async" src="/assets/chibi_choque.webp" alt="" style="width: 52px; height: 90px; object-fit: contain; display: block; animation-delay: -0.14s"></span><span class="ct-chibi" aria-hidden="true" style="--x: 130px; --y: -20px; --r: 35deg; transition-delay: 0.05s"><img loading="lazy" decoding="async" src="/assets/chibi_choque.webp" alt="" style="width: 52px; height: 90px; object-fit: contain; display: block; animation-delay: -0.21s"></span><span class="ct-chibi" aria-hidden="true" style="--x: -30px; --y: 38px; --r: 170deg; transition-delay: 0.11s"><img loading="lazy" decoding="async" src="/assets/chibi_choque.webp" alt="" style="width: 52px; height: 90px; object-fit: contain; display: block; animation-delay: -0.28s"></span><a class="ct-btn" href="#contact" data-dc-onclick="{{openForm}}" style="background: #F2EEE6; color: #121214; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 34px; padding: 12px 34px; clip-path: polygon(3% 8%, 100% 0, 97% 100%, 0 92%); transform: rotate(-2deg)">CONTACTER</a></span>
+<a class="fuir" href="#haut" data-dc-onclick="{{flee}}" style="background: #FF5A1F; color: #1A0800; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 34px; padding: 12px 34px; clip-path: polygon(0 0, 100% 6%, 96% 100%, 4% 94%); transform: rotate(1.5deg)">FUIR ↑</a>
+</div>
+<div style="display: flex; gap: 22px; font-size: 13px; letter-spacing: 0.08em; margin-top: 10px"><a class="ft-soc" href="https://www.instagram.com/roomaaaaain?obrf=dzlpMHJkdGcwbXpo" target="_blank" rel="noopener">INSTAGRAM</a><a class="ft-soc" href="https://www.youtube.com/@xd90o" target="_blank" rel="noopener">YOUTUBE</a><a class="ft-soc" href="https://www.tiktok.com/@roomaaaaain" target="_blank" rel="noopener">TIKTOK</a><a class="ft-soc" href="#contact" data-dc-onclick="{{openMail}}">MAIL</a></div>
+</div>
+</div>
+<div class="ft-big" aria-hidden="true" style="position: absolute; left: 30px; bottom: -80px; font-family: 'Anton', sans-serif; font-size: 360px; line-height: 1; color: #1F1F24; letter-spacing: -0.005em">ROMAIN</div>
+<img loading="lazy" decoding="async" class="tc-logo" data-dc-onclick="{{tcStart}}" src="/assets/logo_solid_cream.webp" alt="" style="cursor: pointer; z-index: 3; position: absolute; right: 70px; bottom: 50px; width: 230px; height: 196px; object-fit: contain; transform: rotate(-8deg); animation: drift 10s ease-in-out infinite">
+<div class="tc-area" data-dc-ref="{{tcAreaRef}}" aria-label="Mini-jeu Tape-chibi">
+<div class="tc-hud" data-dc-ref="{{tcHudRef}}"><span class="tc-time" data-dc-ref="{{tcTimeRef}}">10.0 s</span><span class="tc-score" data-dc-ref="{{tcScoreRef}}">0</span></div>
+<div class="tc-end" data-dc-ref="{{tcEndRef}}"><div class="tc-end-score" data-dc-ref="{{tcEndScoreRef}}">0</div><div class="tc-end-msg" data-dc-ref="{{tcEndMsgRef}}"></div><button type="button" class="tc-start tc-again" data-dc-onclick="{{tcStart}}">REJOUER ↻</button></div>
+</div>
+
+<div style="position: absolute; left: 48px; bottom: 30px; font-size: 11px; letter-spacing: 0.12em; color: #8E8A82">© ROMAIN — TOUS LES PROJETS ET LA DA SONT 100 % DE MOI.</div>
+</footer>
+
+<div data-dc-ref="{{fleeRef}}" class="fl-ov" aria-live="polite">
+<div class="fl-win" role="dialog" aria-label="Vous allez quitter ce site">
+<div style="display: flex; align-items: center; justify-content: space-between; background: #FF5A1F; color: #1A0800; padding: 8px 14px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em"><span>⚠ ATTENTION</span><span>✕</span></div>
+<div style="padding: 26px 26px 22px 26px; display: flex; flex-direction: column; gap: 18px">
+<div style="font-family: 'Anton', sans-serif; font-size: 44px; line-height: 0.95">VOUS ALLEZ QUITTER CE SITE.</div>
+<div style="font-size: 13px; color: #5E5A53">Êtes-vous sûr de vouloir partir ?</div>
+<div style="display: flex; gap: 10px"><span style="background: #121214; color: #F2EEE6; padding: 10px 22px; font-family: 'Anton', sans-serif; font-size: 18px">QUITTER</span><span style="border: 2px solid #121214; padding: 8px 20px; font-family: 'Anton', sans-serif; font-size: 18px">ANNULER</span></div>
+</div>
+</div>
+<div class="fl-cw"><img loading="lazy" decoding="async" class="fl-chibi" src="/assets/chibi_enerve.webp" alt=""></div>
+<div class="fl-bubble">NON NON NON. TU RESTES.</div>
+</div>
+<div data-dc-ref="{{mailRef}}" class="ml-ov" data-dc-onclick="{{closeMail}}">
+<div class="ml-win" role="dialog" aria-label="Mon adresse mail">
+<div style="display: flex; align-items: center; justify-content: space-between; background: #FF8FCB; color: #1A0812; padding: 8px 14px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em"><span>✉ ME CONTACTER</span><button type="button" data-dc-onclick="{{closeMail}}" aria-label="Fermer" class="ml-x">✕</button></div>
+<div style="padding: 26px 26px 24px 26px; display: flex; flex-direction: column; gap: 14px">
+<div style="font-size: 12px; letter-spacing: 0.14em; color: #5E5A53">MON ADRESSE MAIL</div>
+<div data-dc-ref="{{mailTxtRef}}" style="font-family: 'Anton', sans-serif; font-size: 40px; line-height: 1; user-select: all; cursor: text">contact@roomaaaain.fr</div>
+<div style="display: flex; gap: 10px; align-items: center"><button type="button" class="ml-btn" data-dc-onclick="{{copyMail}}" data-dc-ref="{{copyRef}}" style="background: #121214; color: #F2EEE6">COPIER</button><a class="ml-btn" href="mailto:contact@roomaaaain.fr" target="_blank" rel="noopener" data-dc-onclick="{{writeMail}}" style="border: 2px solid #121214; color: #121214; text-decoration: none">ÉCRIRE ↗</a></div>
+<div style="font-size: 11px; color: #8E8A82">Clique n'importe où pour fermer.</div>
+</div>
+</div>
+</div>
+<div data-dc-ref="{{tpRef}}" class="tp-ov" aria-hidden="true"><div class="tp-band" style="background: #F2EEE6; --d: 0.000s"></div><div class="tp-band" style="background: #121214; --d: 0.035s"></div><div class="tp-band" style="background: #FF5A1F; --d: 0.070s"></div><div class="tp-band" style="background: #1F1F24; --d: 0.105s"></div><div class="tp-band" style="background: #F2EEE6; --d: 0.140s"></div><div class="tp-band" style="background: #5B8CFF; --d: 0.175s"></div><div class="tp-band" style="background: #121214; --d: 0.210s"></div><div data-dc-ref="{{tpLblRef}}" class="tp-lbl"></div></div>
+<div data-dc-ref="{{cfRef}}" class="ml-ov cf-ov" data-dc-onclick="{{closeForm}}">
+<div class="ml-win cf-win" role="dialog" aria-label="Formulaire de contact" style="width: 600px">
+<div style="display: flex; align-items: center; justify-content: space-between; background: #F2EEE6; border-bottom: 2px solid #121214; color: #121214; padding: 8px 14px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em"><span>✉ ÉCRIS-MOI</span><button type="button" data-dc-onclick="{{closeForm}}" aria-label="Fermer" class="ml-x cf-x">✕</button></div>
+<div class="cf-body" style="padding: 22px 26px 24px 26px; display: flex; flex-direction: column; gap: 12px">
+<div style="font-family: 'Anton', sans-serif; font-size: 40px; line-height: 0.95">UN PROJET ? UNE IDÉE ?</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px"><label style="display: flex; flex-direction: column; gap: 5px"><span style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #5E5A53">NOM</span><input class="cf-in" data-dc-ref="{{cf.nom}}" type="text" placeholder="Dupont" autocomplete="off"></label><label style="display: flex; flex-direction: column; gap: 5px"><span style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #5E5A53">PRÉNOM</span><input class="cf-in" data-dc-ref="{{cf.prenom}}" type="text" placeholder="Alex" autocomplete="off"></label></div>
+<label style="display: flex; flex-direction: column; gap: 5px"><span style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #5E5A53">ADRESSE MAIL</span><input class="cf-in" data-dc-ref="{{cf.email}}" type="email" placeholder="toi@exemple.fr" autocomplete="off"></label>
+<label style="display: flex; flex-direction: column; gap: 5px"><span style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #5E5A53">OBJET</span><input class="cf-in" data-dc-ref="{{cf.objet}}" type="text" placeholder="Collab, commande, question…" autocomplete="off"></label>
+<label style="display: flex; flex-direction: column; gap: 5px"><span style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #5E5A53">MESSAGE</span><textarea class="cf-in" data-dc-ref="{{cf.message}}" rows="5" placeholder="Raconte-moi tout."></textarea></label>
+<div style="display: flex; align-items: center; gap: 14px"><button type="button" class="ml-btn cf-send" data-dc-ref="{{cf.sendBtn}}" data-dc-onclick="{{sendForm}}" style="background: #FF5A1F; color: #1A0800">ENVOYER ↗</button><span class="cf-err" data-dc-ref="{{cf.err}}"></span></div>
+</div>
+<div class="cf-done" style="padding: 30px 26px; display: none; align-items: center; gap: 20px">
+<img loading="lazy" decoding="async" data-dc-ref="{{cf.doneImg}}" src="/assets/chibi_content.webp" alt="" style="width: 110px; height: 190px; object-fit: contain">
+<div style="display: flex; flex-direction: column; gap: 10px"><div data-dc-ref="{{cf.doneTitle}}" style="font-family: 'Anton', sans-serif; font-size: 44px; line-height: 0.95">MESSAGE ENVOYÉ !</div><div data-dc-ref="{{cf.doneMsg}}" style="font-family: 'Gochi Hand', cursive; font-size: 22px; line-height: 1.2">Je te réponds vite, promis.</div><button type="button" class="ml-btn" data-dc-onclick="{{closeForm}}" style="align-self: flex-start; background: #121214; color: #F2EEE6">FERMER</button></div>
+</div>
+</div>
+</div>
+</div>
+</x-dc>
+<script src="/assets/dc.js?v=1b6c20c3"></script>
+<script>
+window.__DC = class Component extends DCLogic {
+  reactions() {
+    return {
+      none: { img: '/assets/chibi_content.webp', msg: 'Salut ! Moi c’est Romain. Fouille partout, y’a des trucs cachés.' },
+      solo: { img: '/assets/chibi_party.webp', msg: 'L’étoile montante du rap émo.' },
+      fcs: { img: '/assets/chibi_kawaine.webp', msg: 'Mon fameux club Roblox… y’a des belles choses ici.' },
+      yt: { img: '/assets/chibi_peur.webp', msg: 'Mes projets préférés. Et c’est pas fini !' },
+      rfx: { img: '/assets/chibi_neutre.webp', msg: 'J’étais producteur sur un serveur de plus de 100k personnes 😎' },
+      chibi: { img: '/assets/chibi_choque.webp', msg: 'Attends… c’est moi ça ?!' },
+      panicore: { img: '/assets/chibi_peur.webp', msg: 'Mon tout dernier projet. Le plus travaillé…' },
+      book: { img: '/assets/chibi_neutre.webp', msg: 'Les archives de l’école. Sois indulgent.' },
+      pro: { img: '/assets/chibi_kawaine.webp', msg: 'Ici c’est costard-cravate… ou un truc comme ça je crois.' },
+      da: { img: '/assets/chibi_content.webp', msg: 'Ma DA, mes règles. Tout est fait main !' }
+    };
+  }
+  pokes() {
+    return [
+      { img: '/assets/chibi_triste.webp', msg: 'Aïe. Pourquoi tu me cliques dessus ?' },
+      { img: '/assets/chibi_enerve.webp', msg: 'Encore ?! J’ai un book à présenter moi.' },
+      { img: '/assets/chibi_rigole.webp', msg: 'Ok ok, t’as gagné. Va voir les dossiers.' }
+    ];
+  }
+  componentWillUnmount() { if (this._cntIO) this._cntIO.disconnect(); clearTimeout(this._cntRetry); Object.values(this._cntRaf || {}).forEach(cancelAnimationFrame); if (this._tStart) { document.removeEventListener('touchstart', this._tStart); document.removeEventListener('touchmove', this._tMove); document.removeEventListener('touchend', this._tEnd); document.removeEventListener('touchcancel', this._tEnd); document.removeEventListener('click', this._tClick, true); document.removeEventListener('contextmenu', this._tCtx, true); } clearTimeout(this._lpReset); if (this._zoomFit) window.removeEventListener('resize', this._zoomFit); clearTimeout(this._fleeT); clearTimeout(this._pokeT); (this._flT || []).forEach(clearTimeout); (this._tpT || []).forEach(clearTimeout); if (this._hdScroll) document.removeEventListener('scroll', this._hdScroll, true); this.tcStop && this.tcStop(); }
+  initHeader() {
+    if (this._hdInit || !this.hd || !this.hdWrap) return;
+    this._hdInit = true;
+    const hd = this.hd, wrap = this.hdWrap;
+    let last = 0, fixed = false;
+    const getY = (ev) => {
+      const tg = ev && ev.target;
+      if (tg && tg !== document && tg.nodeType === 1 && tg.scrollHeight > tg.clientHeight && tg.contains(hd)) return tg.scrollTop;
+      return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    };
+    this._hdScroll = (ev) => {
+      const y = getY(ev), h = wrap.offsetHeight || hd.offsetHeight || 100;
+      if (!fixed) wrap.style.height = hd.offsetHeight + 'px';
+      if (y <= h) {
+        if (fixed) { fixed = false; hd.classList.remove('hd-fixed', 'hd-show', 'hd-instant'); }
+      } else {
+        if (!fixed) { fixed = true; hd.classList.add('hd-fixed', 'hd-instant'); void hd.offsetWidth; hd.classList.remove('hd-instant'); }
+        if (y < last - 2) hd.classList.add('hd-show');
+        else if (y > last + 2) hd.classList.remove('hd-show');
+      }
+      last = y;
+    };
+    document.addEventListener('scroll', this._hdScroll, true);
+  }
+  tcPlay() {
+    const A = this.tcArea; if (!A) return;
+    const imgs = ['/assets/chibi_choque.webp', '/assets/chibi_rigole.webp', '/assets/chibi_enerve.webp', '/assets/chibi_peur.webp', '/assets/chibi_content.webp', '/assets/chibi_triste.webp'];
+    this.tcStop();
+    A.querySelectorAll('.tc-chibi,.tc-plus').forEach((n) => n.remove());
+    A.className = 'tc-area playing';
+    let score = 0; const end = Date.now() + 10000;
+    if (this.tcScore) this.tcScore.textContent = '0';
+    const W = A.clientWidth - 62, H = A.clientHeight - 108;
+    const spawn = () => {
+      if (A.querySelectorAll('.tc-chibi:not(.hit):not(.bye)').length >= 3) return;
+      const im = document.createElement('img');
+      im.className = 'tc-chibi'; im.alt = 'Chibi à taper'; im.draggable = false;
+      im.src = imgs[Math.floor(Math.random() * imgs.length)];
+      const x = Math.random() * W, y = 40 + Math.random() * (H - 40);
+      im.style.left = x + 'px'; im.style.top = y + 'px';
+      const life = setTimeout(() => { im.classList.add('bye'); setTimeout(() => im.remove(), 200); }, 650 + Math.random() * 450);
+      im.addEventListener('pointerdown', (ev) => {
+        ev.stopPropagation(); if (im.classList.contains('hit')) return;
+        clearTimeout(life); im.classList.add('hit'); score++;
+        if (this.tcScore) { this.tcScore.textContent = String(score); this.tcScore.classList.remove('bump'); void this.tcScore.offsetWidth; this.tcScore.classList.add('bump'); }
+        const p = document.createElement('div'); p.className = 'tc-plus'; p.textContent = '+1';
+        p.style.left = (x + 18) + 'px'; p.style.top = (y - 10) + 'px'; A.appendChild(p);
+        setTimeout(() => { im.remove(); p.remove(); }, 600);
+      });
+      A.appendChild(im);
+    };
+    spawn();
+    this._tcSpawn = setInterval(spawn, 480);
+    this._tcTick = setInterval(() => {
+      const left = Math.max(0, end - Date.now());
+      if (this.tcTime) this.tcTime.textContent = (left / 1000).toFixed(1) + ' s';
+      if (left <= 0) {
+        this.tcStop();
+        A.querySelectorAll('.tc-chibi').forEach((n) => n.remove());
+        const msg = score >= 18 ? 'T\u2019es un monstre. Engagé direct.' : score >= 12 ? 'Ok… t\u2019es chaud.' : score >= 5 ? 'Pas mal… mais je suis plus rapide.' : 'Sérieux ? T\u2019as fait exprès…';
+        if (this.tcEndScore) this.tcEndScore.textContent = score + (score > 1 ? ' CHIBIS' : ' CHIBI');
+        if (this.tcEndMsg) this.tcEndMsg.textContent = msg;
+        A.className = 'tc-area ended locked'; this._tcLock = Date.now() + 1000; setTimeout(() => A.classList.remove('locked'), 1000);
+        clearTimeout(this._tcEndT); this._tcEndT = setTimeout(() => { if (A.classList.contains('ended')) { A.classList.add('fading'); setTimeout(() => { if (A.classList.contains('fading')) A.className = 'tc-area'; }, 350); } }, 6000);
+      }
+    }, 100);
+  }
+  tcStop() { clearInterval(this._tcSpawn); clearInterval(this._tcTick); clearTimeout(this._tcEndT); }
+  teleport(e, id, label) {
+    if (e && e.preventDefault) e.preventDefault();
+    const ov = this.tpEl, target = document.getElementById(id);
+    if (!target) return;
+    if (!ov) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
+    (this._tpT || []).forEach(clearTimeout); this._tpT = [];
+    const at = (ms, fn) => this._tpT.push(setTimeout(fn, ms));
+    if (this.tpLbl) this.tpLbl.textContent = label;
+    ov.className = 'tp-ov on';
+    at(20, () => ov.classList.add('in'));
+    at(500, () => { target.scrollIntoView({ behavior: 'auto', block: 'start' }); ov.classList.add('out'); });
+    at(1000, () => { ov.className = 'tp-ov'; });
+  }
+  shatter(ov) {
+    const win = ov.querySelector('.fl-win');
+    if (!win) return;
+    const L = win.offsetLeft, T = win.offsetTop, OH = ov.clientHeight;
+    const C = 5, R = 4, W = win.offsetWidth, H = win.offsetHeight;
+    const pts = [];
+    for (let j = 0; j <= R; j++) { pts[j] = []; for (let i = 0; i <= C; i++) {
+      const edgeX = i === 0 || i === C, edgeY = j === 0 || j === R;
+      const jx = edgeX ? 0 : (Math.random() - 0.5) * (W / C) * 0.7;
+      const jy = edgeY ? 0 : (Math.random() - 0.5) * (H / R) * 0.7;
+      pts[j][i] = [i * W / C + jx, j * H / R + jy];
+    } }
+    const pc = (p) => (p[0] / W * 100).toFixed(2) + '% ' + (p[1] / H * 100).toFixed(2) + '%';
+    for (let j = 0; j < R; j++) for (let i = 0; i < C; i++) {
+      const a = pts[j][i], b = pts[j][i + 1], c = pts[j + 1][i + 1], d = pts[j + 1][i];
+      const tris = Math.random() < 0.5 ? [[a, b, c], [a, c, d]] : [[a, b, d], [b, c, d]];
+      tris.forEach((tri) => {
+        const s = win.cloneNode(true);
+        s.classList.remove('fl-win'); s.classList.add('fl-shard'); s.style.background = '#F2EEE6'; s.style.color = '#121214';
+        s.style.cssText += ';left:' + L + 'px;top:' + T + 'px;width:' + W + 'px;height:' + H + 'px;transform:none;opacity:1;visibility:visible;clip-path:polygon(' + tri.map(pc).join(',') + ');';
+        ov.appendChild(s);
+        const cx = (tri[0][0] + tri[1][0] + tri[2][0]) / 3, cy = (tri[0][1] + tri[1][1] + tri[2][1]) / 3;
+        const dx = (cx / W - 0.7) * 220 - 60 + (Math.random() - 0.5) * 140;
+        const rot = (Math.random() - 0.5) * 360;
+        const fall = OH - T - cy + 250 + Math.random() * 200;
+        if (s.animate) s.animate([
+          { transform: 'translate(0,0) rotate(0deg)' },
+          { transform: 'translate(' + dx + 'px,' + fall + 'px) rotate(' + rot + 'deg)' }
+        ], { duration: 650 + Math.random() * 350, delay: Math.random() * 40, easing: 'cubic-bezier(.4,0,1,.7)', fill: 'forwards' });
+        transformOriginFix(s, cx, cy);
+      });
+    }
+    function transformOriginFix(s, cx, cy) { s.style.transformOrigin = cx + 'px ' + cy + 'px'; }
+  }
+  initTouch() {
+    if (this._touchInit || typeof document === 'undefined') return;
+    this._touchInit = true;
+    let timer = null, startX = 0, startY = 0, active = null;
+    const clear = () => { clearTimeout(timer); timer = null; };
+    this._tStart = (e) => {
+      const el = e.target && e.target.closest && e.target.closest('[data-hov]');
+      if (!el) return;
+      const p = e.touches && e.touches[0]; startX = p ? p.clientX : 0; startY = p ? p.clientY : 0;
+      clear();
+      timer = setTimeout(() => {
+        active = el; this._lpFired = Date.now();
+        clearTimeout(this._lpReset);
+        this.setState({ k: el.getAttribute('data-hov'), poked: false, fled: false });
+        if (navigator.vibrate) { try { navigator.vibrate(15); } catch (err) {} }
+      }, 180);
+    };
+    this._tMove = (e) => {
+      const p = e.touches && e.touches[0]; if (!p) return;
+      if (Math.abs(p.clientX - startX) > 10 || Math.abs(p.clientY - startY) > 10) clear();
+    };
+    this._tEnd = () => {
+      clear();
+      if (active) { active = null; clearTimeout(this._lpReset); this._lpReset = setTimeout(() => this.setState({ k: null }), 3500); }
+    };
+    this._tClick = (e) => {
+      if (this._lpFired && Date.now() - this._lpFired < 1200) {
+        const el = e.target && e.target.closest && e.target.closest('[data-hov]');
+        if (el) { e.preventDefault(); e.stopPropagation(); }
+      }
+    };
+    this._tCtx = (e) => { const el = e.target && e.target.closest && e.target.closest('[data-hov]'); if (el && this._lpFired && Date.now() - this._lpFired < 1500) e.preventDefault(); };
+    document.addEventListener('touchstart', this._tStart, { passive: true });
+    document.addEventListener('touchmove', this._tMove, { passive: true });
+    document.addEventListener('touchend', this._tEnd, { passive: true });
+    document.addEventListener('touchcancel', this._tEnd, { passive: true });
+    document.addEventListener('click', this._tClick, true);
+    document.addEventListener('contextmenu', this._tCtx, true);
+  }
+  initPlx() {
+    if (this._plxInit || typeof window === 'undefined' || !this.plx) return;
+    this._plxInit = true;
+    let tx = 0, ty = 0, cx = 0, cy = 0;
+    const onMove = (e) => {
+      const w = window.innerWidth || 1, h = window.innerHeight || 1;
+      tx = (e.clientX / w) * 2 - 1; ty = (e.clientY / h) * 2 - 1;
+    };
+    window.addEventListener('mousemove', onMove, { passive: true });
+    const tick = () => {
+      if (!this.plx || !this.plx.isConnected) { this._plxInit = false; window.removeEventListener('mousemove', onMove); return; }
+      cx += (tx - cx) * 0.08; cy += (ty - cy) * 0.08;
+      const sy = Math.min(window.scrollY || 0, 1200);
+      const tilt = this.plx.firstElementChild;
+      if (tilt) tilt.style.transform = 'rotateY(' + (cx * 14).toFixed(2) + 'deg) rotateX(' + (-cy * 12).toFixed(2) + 'deg)';
+      this.plx.querySelectorAll('.plx-l').forEach((l) => {
+        const d = parseFloat(l.getAttribute('data-d')) || 1;
+        l.style.translate = (-cx * 22 * d).toFixed(1) + 'px ' + (-cy * 18 * d + sy * 0.12 * d).toFixed(1) + 'px ' + (d * 40).toFixed(0) + 'px';
+      });
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+  initZoom() {
+    if (this._zoomInit || typeof window === 'undefined') return;
+    this._zoomInit = true;
+    const fit = () => {
+      const w = window.innerWidth || document.documentElement.clientWidth;
+      if (!w) return;
+      document.documentElement.style.zoom = String(w / 1440);
+    };
+    this._zoomFit = fit;
+    fit();
+    window.addEventListener('resize', fit);
+  }
+  initCounters() {
+    if (this._cntInit || typeof document === 'undefined') return;
+    const els = document.querySelectorAll('.st');
+    if (!els.length) { if (!this._cntRetry) { this._cntRetry = setTimeout(() => { this._cntRetry = 0; this.initCounters(); }, 300); } return; }
+    this._cntInit = true;
+    this._cntRaf = {};
+    const run = (card, i) => {
+      const sp = card.querySelector('.cnt'), bar = card.querySelector('.st-bar');
+      if (!sp) return;
+      const to = parseInt(sp.getAttribute('data-to'), 10) || 0, dur = 1300, t0 = performance.now();
+      cancelAnimationFrame(this._cntRaf[i]);
+      const step = (t) => {
+        const k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+        sp.textContent = String(Math.round(to * e));
+        if (bar) bar.style.setProperty('--p', e.toFixed(3));
+        if (k < 1) this._cntRaf[i] = requestAnimationFrame(step);
+        else sp.textContent = String(to);
+      };
+      sp.textContent = '0'; if (bar) bar.style.setProperty('--p', '0');
+      this._cntRaf[i] = requestAnimationFrame(step);
+    };
+    els.forEach((card, i) => card.addEventListener('mouseenter', () => run(card, i)));
+    if (typeof IntersectionObserver !== 'undefined') {
+      this._cntIO = new IntersectionObserver((es) => es.forEach((en) => {
+        if (en.isIntersecting) { const i = Array.prototype.indexOf.call(els, en.target); run(en.target, i); this._cntIO.unobserve(en.target); }
+      }), { threshold: 0.6 });
+      els.forEach((el) => this._cntIO.observe(el));
+    }
+  }
+  renderVals() {
+    this.initZoom();
+    this.initTouch();
+    this.initCounters();
+    const st = this.state || {};
+    const R = this.reactions();
+    const P = this.pokes();
+    let chibi = R[st.k || 'none'];
+    if (!st.k && st.fled) chibi = { img: '/assets/chibi_rigole.webp', msg: 'Tu croyais aller où comme ça ? Tu n’iras pas loin.' };
+    else if (!st.k && st.p && st.poked) chibi = P[(st.p - 1) % P.length];
+    const hov = {};
+    Object.keys(R).forEach((k) => { hov[k] = () => this.setState({ k: k === 'none' ? null : k }); });
+    return {
+      chibi,
+      hov,
+      poke: () => { this.setState({ k: null, fled: false, poked: true, p: ((this.state && this.state.p) || 0) + 1 }); clearTimeout(this._pokeT); this._pokeT = setTimeout(() => this.setState({ poked: false }), 4000); },
+      plxRef: (el) => { if (el && el !== this.plx) { this.plx = el; this.initPlx(); } },
+      hdWrapRef: (el) => { if (el) { this.hdWrap = el; this.initHeader(); } },
+      hdRef: (el) => { if (el) { this.hd = el; this.initHeader(); } },
+      tcAreaRef: (el) => { if (el) this.tcArea = el; },
+      tcHudRef: (el) => { if (el) this.tcHud = el; },
+      tcTimeRef: (el) => { if (el) this.tcTime = el; },
+      tcScoreRef: (el) => { if (el) this.tcScore = el; },
+      tcStartRef: (el) => { if (el) this.tcStartEl = el; },
+      tcEndRef: (el) => { if (el) this.tcEnd = el; },
+      tcEndScoreRef: (el) => { if (el) this.tcEndScore = el; },
+      tcEndMsgRef: (el) => { if (el) this.tcEndMsg = el; },
+      tcStart: (e) => { if (e && e.stopPropagation) e.stopPropagation(); if (this.tcArea && this.tcArea.classList.contains('playing')) return; if (Date.now() < (this._tcLock || 0)) return; this.tcPlay(); },
+      tpRef: (el) => { if (el) this.tpEl = el; },
+      tpLblRef: (el) => { if (el) this.tpLbl = el; },
+      go: {
+        dossiers: (e) => this.teleport(e, 'dossiers', 'PROJETS'),
+        moi: (e) => this.teleport(e, 'moi', 'C\u2019EST MOI'),
+        contact: (e) => this.teleport(e, 'contact', 'CONTACT')
+      },
+      cfRef: (el) => { if (el) this.cfEl = el; },
+      cf: (() => { this.cfF = this.cfF || {}; const o = {}; ['nom', 'prenom', 'email', 'objet', 'message', 'sendBtn', 'err', 'doneImg', 'doneTitle', 'doneMsg'].forEach((k) => { o[k] = (el) => { if (el) this.cfF[k] = el; }; }); return o; })(),
+      openForm: (e) => {
+        if (e && e.preventDefault) e.preventDefault();
+        const m = this.cfEl; if (!m) return;
+        const w = m.querySelector('.cf-win'); if (w && w.classList.contains('done')) { w.classList.remove('done'); }
+        clearTimeout(this._cfT);
+        m.classList.add('on'); requestAnimationFrame(() => requestAnimationFrame(() => { m.classList.add('show'); if (this.cfF.nom) this.cfF.nom.focus(); }));
+      },
+      closeForm: (e) => {
+        const m = this.cfEl; if (!m) return;
+        const tg = e && e.target;
+        if (tg && tg.closest && tg.closest('.cf-win') && !tg.closest('.cf-x') && !(tg.closest('.cf-done') && tg.tagName === 'BUTTON')) return;
+        if (e && e.stopPropagation) e.stopPropagation();
+        m.classList.remove('show'); clearTimeout(this._cfT); this._cfT = setTimeout(() => m.classList.remove('on'), 250);
+      },
+      sendForm: (e) => {
+        if (e && e.stopPropagation) e.stopPropagation();
+        const F = this.cfF, win = this.cfEl && this.cfEl.querySelector('.cf-win');
+        if (!F || !win || win.classList.contains('sending')) return;
+        const v = (k) => (F[k] && F[k].value || '').trim();
+        const keys = ['nom', 'prenom', 'email', 'objet', 'message'];
+        let bad = false;
+        keys.forEach((k) => { const ok = k === 'email' ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v(k)) : v(k).length > 0; if (F[k]) F[k].classList.toggle('bad', !ok); if (!ok) bad = true; });
+        if (bad) { if (F.err) F.err.textContent = 'Remplis tous les champs (avec un mail valide).'; return; }
+        if (F.err) F.err.textContent = '';
+        win.classList.add('sending'); if (F.sendBtn) F.sendBtn.textContent = 'ENVOI…';
+        const finish = (ok) => {
+          win.classList.remove('sending'); if (F.sendBtn) F.sendBtn.textContent = 'ENVOYER ↗';
+          if (ok) {
+            if (F.doneImg) F.doneImg.src = '/assets/chibi_content.webp';
+            if (F.doneTitle) F.doneTitle.textContent = 'MESSAGE ENVOYÉ !';
+            if (F.doneMsg) F.doneMsg.textContent = 'Je te réponds vite, promis.';
+            keys.forEach((k) => { if (F[k]) F[k].value = ''; });
+          } else {
+            if (F.doneImg) F.doneImg.src = '/assets/chibi_triste.webp';
+            if (F.doneTitle) F.doneTitle.textContent = 'OUPS…';
+            if (F.doneMsg) F.doneMsg.textContent = 'Le message n\u2019est pas parti. Écris-moi directement : contact@roomaaaain.fr';
+          }
+          win.classList.add('done');
+        };
+        try {
+          fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+            body: JSON.stringify({
+              access_key: 'f5f808fd-b9b2-4408-aca4-3b73b6aae688',
+              subject: '[Portfolio] ' + v('objet'),
+              from_name: v('prenom') + ' ' + v('nom'),
+              name: v('prenom') + ' ' + v('nom'),
+              email: v('email'),
+              replyto: v('email'),
+              objet: v('objet'),
+              message: v('message')
+            })
+          }).then((r) => r.json().catch(() => ({}))).then((d) => finish(!!(d && d.success)), () => finish(false));
+        } catch (err) { finish(false); }
+      },
+      mailRef: (el) => { if (el) this.mailEl = el; },
+      copyRef: (el) => { if (el) this.copyEl = el; },
+      openMail: (e) => {
+        if (e && e.preventDefault) e.preventDefault();
+        const m = this.mailEl; if (!m) return;
+        clearTimeout(this._mlT);
+        m.classList.add('on'); requestAnimationFrame(() => requestAnimationFrame(() => m.classList.add('show')));
+      },
+      closeMail: (e) => {
+        const m = this.mailEl; if (!m) return;
+        if (e && e.target && e.target.closest && e.target.closest('.ml-win') && !e.target.closest('.ml-x')) return;
+        if (e && e.stopPropagation) e.stopPropagation();
+        m.classList.remove('show'); clearTimeout(this._mlT); this._mlT = setTimeout(() => m.classList.remove('on'), 250);
+      },
+      copyMail: (e) => {
+        if (e && e.stopPropagation) e.stopPropagation();
+        const mail = 'contact@roomaaaain.fr';
+        const b = this.copyEl;
+        const say = (txt) => { if (b) { b.textContent = txt; clearTimeout(this._cpT); this._cpT = setTimeout(() => { b.textContent = 'COPIER'; }, 1600); } };
+        const legacy = () => {
+          let ok = false;
+          try {
+            const ta = document.createElement('textarea');
+            ta.value = mail; ta.setAttribute('readonly', '');
+            ta.style.cssText = 'position:fixed;left:-9999px;top:0;opacity:0';
+            document.body.appendChild(ta); ta.focus(); ta.select(); ta.setSelectionRange(0, mail.length);
+            ok = document.execCommand && document.execCommand('copy');
+            document.body.removeChild(ta);
+          } catch (err) { ok = false; }
+          if (!ok && this.mailTxt) { const r = document.createRange(); r.selectNodeContents(this.mailTxt); const s = window.getSelection(); s.removeAllRanges(); s.addRange(r); }
+          say(ok ? 'COPIÉ ✓' : 'CTRL+C POUR COPIER');
+        };
+        try {
+          if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(mail).then(() => say('COPIÉ ✓'), legacy);
+          else legacy();
+        } catch (err) { legacy(); }
+      },
+      mailTxtRef: (el) => { if (el) this.mailTxt = el; },
+      writeMail: (e) => {
+        if (e && e.stopPropagation) e.stopPropagation();
+        if (e && e.preventDefault) e.preventDefault();
+        const url = 'mailto:contact@roomaaaain.fr';
+        let w = null;
+        try { w = window.open(url, '_blank'); } catch (err) { w = null; }
+        if (!w && this.mailTxt) { const r = document.createRange(); r.selectNodeContents(this.mailTxt); const s = window.getSelection(); s.removeAllRanges(); s.addRange(r); }
+      },
+      fleeRef: (el) => { if (el) this.fleeEl = el; },
+      flee: (e) => {
+        if (e && e.preventDefault) e.preventDefault();
+        const ov = this.fleeEl;
+        const done = () => { this.setState({ k: null, fled: true }); clearTimeout(this._fleeT); this._fleeT = setTimeout(() => this.setState({ fled: false }), 5000); };
+        if (!ov || this._fleeing) { done(); return; }
+        this._fleeing = true;
+        (this._flT || []).forEach(clearTimeout);
+        const at = (ms, fn) => { this._flT.push(setTimeout(fn, ms)); };
+        this._flT = [];
+        ov.className = 'fl-ov on';
+        at(20, () => { ov.classList.add('dim'); });
+        at(450, () => { ov.classList.add('chibi'); });
+        at(1250, () => { ov.classList.add('wind'); });
+        at(1500, () => {
+          this.shatter(ov);
+          ov.classList.add('swept');
+          const top = document.getElementById('haut');
+          if (top && top.scrollIntoView) top.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          else window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        at(2000, () => { ov.classList.add('exit'); ov.classList.remove('dim'); });
+        at(2600, () => { ov.querySelectorAll('.fl-shard').forEach((n) => n.remove()); ov.className = 'fl-ov'; this._fleeing = false; done(); });
+      }
+    };
+  }
+}
+</script>
+<script>window.__dcBoot();</script>
 </body>
 </html>
