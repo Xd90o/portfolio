@@ -12,6 +12,7 @@
 <meta name="theme-color" content="#121214">
 <link rel="icon" href="/assets/logo_solid_ink.webp">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&family=Gochi+Hand&family=Pirata+One&display=swap" rel="stylesheet">
 <style>
@@ -266,6 +267,12 @@ input[type="text"],input[type="email"],textarea{cursor:text !important}
 .wip-sub{align-self:flex-start;font-family:'Gochi Hand',cursive;font-size:18px;color:#121214;background:#F2EEE6;padding:2px 10px;transform:rotate(-2deg)}
 @keyframes wipwob{0%,100%{rotate:-6deg}50%{rotate:6deg}}
 .dossier:hover .wip-sign{animation-duration:.6s}
+
+/* dossiers ouverts */
+.sb{width:46px;height:52px;background:#2A2A2E;color:#6E6A63;font-family:'Anton',sans-serif;font-size:30px;display:flex;align-items:center;justify-content:center;transition:background .3s,color .3s}
+.sb.on{background:#F2EEE6;color:#121214;animation:sbpop .5s cubic-bezier(.3,1.6,.5,1) both;animation-delay:var(--sd,0s)}
+.sb.sb-wip{opacity:.45}
+@keyframes sbpop{0%{transform:scale(.6) rotate(-8deg)}100%{transform:scale(1) rotate(0)}}
 </style>
 <style>x-dc{display:contents}</style>
 </head>
@@ -308,17 +315,18 @@ input[type="text"],input[type="email"],textarea{cursor:text !important}
 </div>
 <p style="position: absolute; left: 56px; top: 540px; margin: 0; width: 560px; font-size: 16px; line-height: 1.65; color: #D8D3C9">Je monte des vidéos, je fais des covers, je dessine des trucs et je crée des mondes en 3D. Ici, chaque projet a son propre univers et sa propre DA.</p>
 <div style="position: absolute; left: 56px; top: 700px; display: flex; flex-direction: column; gap: 10px">
-<div style="font-size: 12px; letter-spacing: 0.14em; color: #A9A49B">DOSSIERS OUVERTS — 1/7</div>
+<div style="font-size: 12px; letter-spacing: 0.14em; color: #A9A49B">{{seenTxt}}</div>
 <div style="display: flex; gap: 8px">
-<span style="width: 46px; height: 52px; background: #F2EEE6; color: #121214; font-family: 'Anton', sans-serif; font-size: 30px; display: flex; align-items: center; justify-content: center; clip-path: polygon(0 0, 100% 6%, 94% 100%, 4% 94%)">1</span>
-<span style="width: 46px; height: 52px; background: #2A2A2E; color: #6E6A63; font-family: 'Anton', sans-serif; font-size: 30px; display: flex; align-items: center; justify-content: center; clip-path: polygon(4% 4%, 100% 0, 96% 96%, 0 100%)">2</span>
-<span style="width: 46px; height: 52px; background: #2A2A2E; color: #6E6A63; font-family: 'Anton', sans-serif; font-size: 30px; display: flex; align-items: center; justify-content: center; clip-path: polygon(0 0, 100% 6%, 94% 100%, 4% 94%)">3</span>
-<span style="width: 46px; height: 52px; background: #2A2A2E; color: #6E6A63; font-family: 'Anton', sans-serif; font-size: 30px; display: flex; align-items: center; justify-content: center; clip-path: polygon(4% 4%, 100% 0, 96% 96%, 0 100%)">4</span>
-<span style="width: 46px; height: 52px; background: #2A2A2E; color: #6E6A63; font-family: 'Anton', sans-serif; font-size: 30px; display: flex; align-items: center; justify-content: center; clip-path: polygon(0 0, 100% 6%, 94% 100%, 4% 94%)">5</span>
-<span style="width: 46px; height: 52px; background: #2A2A2E; color: #6E6A63; font-family: 'Anton', sans-serif; font-size: 30px; display: flex; align-items: center; justify-content: center; clip-path: polygon(4% 4%, 100% 0, 96% 96%, 0 100%)">6</span>
-<span style="width: 46px; height: 52px; background: #2A2A2E; color: #6E6A63; font-family: 'Anton', sans-serif; font-size: 30px; display: flex; align-items: center; justify-content: center; clip-path: polygon(0 0, 100% 6%, 94% 100%, 4% 94%)">7</span>
+<span data-dc-class="{{seenCls.d1}}" title="Dossier 01 — Solo" style="clip-path: polygon(0 0, 100% 6%, 94% 100%, 4% 94%)">1</span>
+<span data-dc-class="{{seenCls.d2}}" title="Dossier 02 — FC Suspect" style="clip-path: polygon(4% 4%, 100% 0, 96% 96%, 0 100%)">2</span>
+<span data-dc-class="{{seenCls.d3}}" title="Dossier 03 — Chaînes YouTube" style="clip-path: polygon(0 0, 100% 6%, 94% 100%, 4% 94%)">3</span>
+<span data-dc-class="{{seenCls.d4}}" title="Dossier 04 — Real Futbol X" style="clip-path: polygon(4% 4%, 100% 0, 96% 96%, 0 100%)">4</span>
+<span data-dc-class="{{seenCls.d5}}" title="Dossier 05 — Univers chibi" style="clip-path: polygon(0 0, 100% 6%, 94% 100%, 4% 94%)">5</span>
+<span data-dc-class="{{seenCls.d6}}" title="Dossier 06 — Panicore IRL (en construction)" style="clip-path: polygon(4% 4%, 100% 0, 96% 96%, 0 100%)">6</span>
+<span data-dc-class="{{seenCls.d7}}" title="Dossier 07 — Book scolaire" style="clip-path: polygon(0 0, 100% 6%, 94% 100%, 4% 94%)">7</span>
+<span data-dc-class="{{seenCls.d8}}" title="Dossier 08 — Book pro (en construction)" style="clip-path: polygon(4% 4%, 100% 0, 96% 96%, 0 100%)">8</span>
 </div>
-<div style="width: 370px; height: 8px; background: #2A2A2E"><div style="height: 8px; background: #F2EEE6; animation: fill 2s ease-out forwards"></div></div>
+<div style="width: 424px; height: 8px; background: #2A2A2E"><div data-dc-style="{{seenBar}}"></div></div>
 </div>
 
 
@@ -671,7 +679,7 @@ window.__DC = class Component extends DCLogic {
       { img: '/assets/chibi_rigole.webp', msg: 'Ok ok, t’as gagné. Va voir les dossiers.' }
     ];
   }
-  componentWillUnmount() { if (this._cntIO) this._cntIO.disconnect(); clearTimeout(this._cntRetry); Object.values(this._cntRaf || {}).forEach(cancelAnimationFrame); if (this._tStart) { document.removeEventListener('touchstart', this._tStart); document.removeEventListener('touchmove', this._tMove); document.removeEventListener('touchend', this._tEnd); document.removeEventListener('touchcancel', this._tEnd); document.removeEventListener('click', this._tClick, true); document.removeEventListener('contextmenu', this._tCtx, true); } clearTimeout(this._lpReset); if (this._zoomFit) window.removeEventListener('resize', this._zoomFit); clearTimeout(this._fleeT); clearTimeout(this._pokeT); (this._flT || []).forEach(clearTimeout); (this._tpT || []).forEach(clearTimeout); if (this._hdScroll) document.removeEventListener('scroll', this._hdScroll, true); this.tcStop && this.tcStop(); }
+  componentWillUnmount() { if (this._seenClick) { document.removeEventListener('click', this._seenClick, true); window.removeEventListener('pageshow', this._seenSync); window.removeEventListener('storage', this._seenSync); document.removeEventListener('visibilitychange', this._seenSync); } if (this._cntIO) this._cntIO.disconnect(); clearTimeout(this._cntRetry); Object.values(this._cntRaf || {}).forEach(cancelAnimationFrame); if (this._tStart) { document.removeEventListener('touchstart', this._tStart); document.removeEventListener('touchmove', this._tMove); document.removeEventListener('touchend', this._tEnd); document.removeEventListener('touchcancel', this._tEnd); document.removeEventListener('click', this._tClick, true); document.removeEventListener('contextmenu', this._tCtx, true); } clearTimeout(this._lpReset); if (this._zoomFit) window.removeEventListener('resize', this._zoomFit); clearTimeout(this._fleeT); clearTimeout(this._pokeT); (this._flT || []).forEach(clearTimeout); (this._tpT || []).forEach(clearTimeout); if (this._hdScroll) document.removeEventListener('scroll', this._hdScroll, true); this.tcStop && this.tcStop(); }
   initHeader() {
     if (this._hdInit || !this.hd || !this.hdWrap) return;
     this._hdInit = true;
@@ -890,7 +898,26 @@ window.__DC = class Component extends DCLogic {
       els.forEach((el) => this._cntIO.observe(el));
     }
   }
+  initSeen() {
+    if (this._seenInit) return;
+    this._seenInit = true;
+    const K = { solo: 1, fcs: 2, yt: 3, rfx: 4, chibi: 5, book: 7 };
+    const read = () => { try { const v = JSON.parse(window.localStorage.getItem('rl_seen') || '[]'); return Array.isArray(v) ? v : []; } catch (e) { return []; } };
+    this._seen = read();
+    this._seenClick = (e) => {
+      const a = e.target && e.target.closest ? e.target.closest('a[data-hov]') : null;
+      const n = a && K[a.getAttribute('data-hov')];
+      if (!n) return;
+      const v = read(); if (v.indexOf(n) < 0) { v.push(n); try { window.localStorage.setItem('rl_seen', JSON.stringify(v)); } catch (err) {} }
+    };
+    this._seenSync = () => { this._seen = read(); this.setState({ seenT: Date.now() }); };
+    document.addEventListener('click', this._seenClick, true);
+    window.addEventListener('pageshow', this._seenSync);
+    window.addEventListener('storage', this._seenSync);
+    document.addEventListener('visibilitychange', this._seenSync);
+  }
   renderVals() {
+    this.initSeen();
     this.initZoom();
     this.initTouch();
     this.initCounters();
@@ -902,7 +929,17 @@ window.__DC = class Component extends DCLogic {
     else if (!st.k && st.p && st.poked) chibi = P[(st.p - 1) % P.length];
     const hov = {};
     Object.keys(R).forEach((k) => { hov[k] = () => this.setState({ k: k === 'none' ? null : k }); });
+    const seen = this._seen || [];
+    const seenCls = {};
+    let nSeen = 0;
+    for (let n = 1; n <= 8; n++) {
+      const on = seen.indexOf(n) >= 0; if (on) nSeen++;
+      seenCls['d' + n] = 'sb' + (on ? ' on' : '') + (n === 6 || n === 8 ? ' sb-wip' : '');
+    }
     return {
+      seenCls,
+      seenTxt: 'DOSSIERS OUVERTS — ' + nSeen + '/8',
+      seenBar: 'height:8px;background:#F2EEE6;width:' + (nSeen / 8 * 100) + '%;transition:width .8s cubic-bezier(.2,.8,.2,1)',
       chibi,
       hov,
       poke: () => { this.setState({ k: null, fled: false, poked: true, p: ((this.state && this.state.p) || 0) + 1 }); clearTimeout(this._pokeT); this._pokeT = setTimeout(() => this.setState({ poked: false }), 4000); },
