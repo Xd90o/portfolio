@@ -408,6 +408,10 @@ window.__DC = class Component extends DCLogic {
     const ov = this.ovEl, fr = this.ovFrame;
     if (!ov || !fr) { window.location.href = 'https://www.youtube.com/watch?v=' + id; return; }
     const url = isShort ? 'https://www.youtube.com/shorts/' + id : 'https://www.youtube.com/watch?v=' + id;
+    // iPhone / iPad / Safari : le lecteur intégré s'affiche mal dans une page réduite -> on ouvre directement YouTube (l'appli sur téléphone)
+    const ua = (typeof navigator !== 'undefined' && navigator.userAgent) || '';
+    const apple = /iP(hone|ad|od)/.test(ua) || (/Macintosh/.test(ua) && typeof navigator !== 'undefined' && navigator.maxTouchPoints > 1) || (/Safari/.test(ua) && !/Chrome|Chromium|CriOS|FxiOS|Edg|OPR|Android/.test(ua));
+    if (apple) { window.open(url, '_blank', 'noopener'); return; }
     if (this.ovLink) this.ovLink.href = url;
     if (this.ovTitle) this.ovTitle.textContent = '▶ ' + (title || 'LECTURE');
     fr.style.width = isShort ? '340px' : '1040px';
