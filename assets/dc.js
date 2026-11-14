@@ -148,6 +148,9 @@
   window.__rlFitW = function () {
     var iw = window.innerWidth || document.documentElement.clientWidth || 1440;
     var ow = window.outerWidth || 0, z = 1;
+    // téléphones / tablettes : comportement d'origine (pas de gestion du dézoom)
+    var touch = (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) || /iP(hone|ad|od)|Android/.test(navigator.userAgent || '');
+    if (touch) return iw;
     if (ow > 200 && ow < iw * 0.985) z = Math.max(0.25, ow / iw);
     return iw * z;
   };
